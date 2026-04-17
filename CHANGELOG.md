@@ -14,3 +14,4 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - Allow consumers to configure the admin menu title via init options.
+- Update package dependencies.
