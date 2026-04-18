@@ -49,7 +49,7 @@ var require_jsx_runtime = __commonJS({
 var import_data = __toESM(require_data(), 1);
 import { store as bootStore } from "@wordpress/boot";
 
-// ../../../node_modules/.pnpm/@wordpress+icons@12.1.0_react@18.3.1/node_modules/@wordpress/icons/build-module/library/chart-bar.mjs
+// ../../../node_modules/.pnpm/@wordpress+icons@12.2.0_react@18.3.1/node_modules/@wordpress/icons/build-module/library/chart-bar.mjs
 var import_primitives = __toESM(require_primitives(), 1);
 var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
 var chart_bar_default = /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_primitives.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_primitives.Path, { fillRule: "evenodd", clipRule: "evenodd", d: "M11.25 5h1.5v15h-1.5V5zM6 10h1.5v10H6V10zm12 4h-1.5v6H18v-6z" }) });
