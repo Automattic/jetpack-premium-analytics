@@ -196,6 +196,21 @@ function jpa_jetpack_premium_analytics_wp_admin_enqueue_scripts( $hook_suffix ) 
 			}
 		}
 
+		/**
+		 * Filters the boot script-module dependencies for the
+		 * jetpack-premium-analytics-wp-admin page.
+		 *
+		 * Surfaces extending this page can append entries to the boot
+		 * dependency list. Each entry is an array with 'import' (string
+		 * 'static' or 'dynamic') and 'id' (script-module handle) keys.
+		 *
+		 * @param array $boot_dependencies Boot dependencies for the page.
+		 */
+		$boot_dependencies = apply_filters(
+			'jetpack-premium-analytics-wp-admin_boot_dependencies',
+			$boot_dependencies
+		);
+
 		// Dummy script module to ensure dependencies are loaded
 		wp_register_script_module(
 			'jetpack-premium-analytics-wp-admin',

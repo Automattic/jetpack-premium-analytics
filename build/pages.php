@@ -6,5 +6,11 @@
  * @package jpa
  */
 
-require_once __DIR__ . '/pages/jetpack-premium-analytics/page.php';
-require_once __DIR__ . '/pages/jetpack-premium-analytics/page-wp-admin.php';
+foreach ( [
+	__DIR__ . '/pages/jetpack-premium-analytics/page.php',
+	__DIR__ . '/pages/jetpack-premium-analytics/page-wp-admin.php',
+] as $file ) {
+	if ( file_exists( $file ) ) {
+		require_once $file;
+	}
+}
