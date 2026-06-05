@@ -13,6 +13,7 @@ This is an alpha version! The changes listed here are not final.
 - Add a tsconfig paths alias and typecheck script so internal packages/* resolve for types/IDE.
 - Initial version.
 - Port datetime package (timezone-aware date helpers and date-range presets) as an internal package from next-woocommerce-analytics.
+- Port formatters package (number/currency/percentage metric formatter and date helpers) as an internal package from next-woocommerce-analytics.
 - Port icons package (illustrated WPDS icons + @wordpress/icons re-exports) as an internal package from next-woocommerce-analytics.
 
 ### Changed
