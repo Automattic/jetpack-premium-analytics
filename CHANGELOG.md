@@ -16,6 +16,7 @@ This is an alpha version! The changes listed here are not final.
 - Port datetime package (timezone-aware date helpers and date-range presets) as an internal package from next-woocommerce-analytics.
 - Port formatters package (number/currency/percentage metric formatter and date helpers) as an internal package from next-woocommerce-analytics.
 - Port icons package (illustrated WPDS icons + @wordpress/icons re-exports) as an internal package from next-woocommerce-analytics.
+- Sync: Track the analytics-relevant initial full-sync milestone and expose it to the dashboard via JetpackScriptData.
 
 ### Changed
 - Allow consumers to configure the admin menu title via init options.
