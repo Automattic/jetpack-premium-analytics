@@ -12,6 +12,7 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - Add a tsconfig paths alias and typecheck script so internal packages/* resolve for types/IDE.
 - Initial version.
+- Port data package (React Query report hooks, fetchers, and processing) as an internal package from next-woocommerce-analytics.
 - Port datetime package (timezone-aware date helpers and date-range presets) as an internal package from next-woocommerce-analytics.
 - Port formatters package (number/currency/percentage metric formatter and date helpers) as an internal package from next-woocommerce-analytics.
 - Port icons package (illustrated WPDS icons + @wordpress/icons re-exports) as an internal package from next-woocommerce-analytics.
