@@ -24,5 +24,6 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - Allow consumers to configure the admin menu title via init options.
+- Data layer: route report requests through the jetpack-premium-analytics proxy controller instead of the legacy woocommerce-analytics proxy route.
 - Internal: No longer require automattic/jetpack-changelogger as a per-project dev dependency.
 - Update package dependencies.
