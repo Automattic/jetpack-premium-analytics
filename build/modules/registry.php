@@ -8,8 +8,18 @@
 
 return array(
 	array(
+		'id' => '@jetpack-premium-analytics/data',
+		'path' => 'data/index',
+		'asset' => 'data/index.min.asset.php',
+	),
+	array(
 		'id' => '@jetpack-premium-analytics/init',
 		'path' => 'init/index',
 		'asset' => 'init/index.min.asset.php',
+	),
+	array(
+		'id' => '@jetpack-premium-analytics/ui',
+		'path' => 'ui/index',
+		'asset' => 'ui/index.min.asset.php',
 	),
 );
