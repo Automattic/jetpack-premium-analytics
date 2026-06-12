@@ -13,6 +13,11 @@ return array(
 		'asset' => 'data/index.min.asset.php',
 	),
 	array(
+		'id' => '@jetpack-premium-analytics/fields',
+		'path' => 'fields/index',
+		'asset' => 'fields/index.min.asset.php',
+	),
+	array(
 		'id' => '@jetpack-premium-analytics/init',
 		'path' => 'init/index',
 		'asset' => 'init/index.min.asset.php',
