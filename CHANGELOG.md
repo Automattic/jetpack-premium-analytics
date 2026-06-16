@@ -16,6 +16,7 @@ This is an alpha version! The changes listed here are not final.
 - Add watch mode for local development.
 - Expose the analytics initial-full-sync milestone (initial_full_sync_finished) on Jetpack's sync status REST response so the dashboard can read it live on every poll, not just at page load.
 - Initial version.
+- Interim port of the woocommerce_analytics Jetpack Sync module.
 - Port data package (React Query report hooks, fetchers, and processing) as an internal package from next-woocommerce-analytics.
 - Port datetime package (timezone-aware date helpers and date-range presets) as an internal package from next-woocommerce-analytics.
 - Port formatters package (number/currency/percentage metric formatter and date helpers) as an internal package from next-woocommerce-analytics.
