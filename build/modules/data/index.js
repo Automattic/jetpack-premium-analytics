@@ -18741,7 +18741,7 @@ function hasProductFilters(filters) {
 }
 
 // packages/data/build-module/api/constants.mjs
-var reportsPath = "/jetpack-premium-analytics/v1/proxy/reports";
+var reportsPath = "/jetpack-premium-analytics/v1/proxy/v2/analytics/reports";
 
 // packages/data/build-module/api/report-orders-fetch/report-orders-fetch.mjs
 async function fetchReportOrders({
