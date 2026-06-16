@@ -24,6 +24,13 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
+// package-external:@wordpress/api-fetch
+var require_api_fetch = __commonJS({
+  "package-external:@wordpress/api-fetch"(exports, module) {
+    module.exports = window.wp.apiFetch;
+  }
+});
+
 // package-external:@wordpress/data
 var require_data = __commonJS({
   "package-external:@wordpress/data"(exports, module) {
@@ -45,7 +52,13 @@ var require_jsx_runtime = __commonJS({
   }
 });
 
+// ../../js-packages/script-data/src/utils.ts
+function getScriptData() {
+  return window.JetpackScriptData;
+}
+
 // packages/init/build-module/index.mjs
+var import_api_fetch = __toESM(require_api_fetch(), 1);
 var import_data = __toESM(require_data(), 1);
 import { store as bootStore } from "@wordpress/boot";
 
@@ -55,7 +68,24 @@ var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
 var chart_bar_default = /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_primitives.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_primitives.Path, { fillRule: "evenodd", clipRule: "evenodd", d: "M11.25 5h1.5v15h-1.5V5zM6 10h1.5v10H6V10zm12 4h-1.5v6H18v-6z" }) });
 
 // packages/init/build-module/index.mjs
+var authConfigured = false;
+function setupApiFetch() {
+  if (authConfigured) {
+    return;
+  }
+  const site = getScriptData()?.site;
+  if (site?.rest_root) {
+    import_api_fetch.default.use(import_api_fetch.default.createRootURLMiddleware(site.rest_root));
+  }
+  if (site?.rest_nonce) {
+    import_api_fetch.default.use(import_api_fetch.default.createNonceMiddleware(site.rest_nonce));
+  }
+  if (site?.rest_root || site?.rest_nonce) {
+    authConfigured = true;
+  }
+}
 async function init() {
+  setupApiFetch();
   (0, import_data.dispatch)(bootStore).updateMenuItem("dashboard", {
     icon: chart_bar_default
   });

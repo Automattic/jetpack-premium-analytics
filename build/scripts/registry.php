@@ -12,4 +12,9 @@ return array(
 		'path' => 'init/index',
 		'asset' => 'init/index.min.asset.php',
 	),
+	array(
+		'handle' => 'jetpack-premium-analytics-site-sync',
+		'path' => 'site-sync/index',
+		'asset' => 'site-sync/index.min.asset.php',
+	),
 );

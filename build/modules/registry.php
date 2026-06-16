@@ -23,6 +23,11 @@ return array(
 		'asset' => 'init/index.min.asset.php',
 	),
 	array(
+		'id' => '@jetpack-premium-analytics/site-sync',
+		'path' => 'site-sync/index',
+		'asset' => 'site-sync/index.min.asset.php',
+	),
+	array(
 		'id' => '@jetpack-premium-analytics/ui',
 		'path' => 'ui/index',
 		'asset' => 'ui/index.min.asset.php',
