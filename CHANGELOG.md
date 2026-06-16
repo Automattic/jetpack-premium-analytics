@@ -12,6 +12,7 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - Add a tsconfig paths alias and typecheck script so internal packages/* resolve for types/IDE.
 - Add the internal fields package: DataForm field controls for widgets, delivered as a script module so styled editors stay out of widget metadata bundles. Includes the ReportParamsField date-range editor.
+- Expose the analytics initial-full-sync milestone (initial_full_sync_finished) on Jetpack's sync status REST response so the dashboard can read it live on every poll, not just at page load.
 - Initial version.
 - Port data package (React Query report hooks, fetchers, and processing) as an internal package from next-woocommerce-analytics.
 - Port datetime package (timezone-aware date helpers and date-range presets) as an internal package from next-woocommerce-analytics.
