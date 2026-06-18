@@ -8,10 +8,24 @@
 
 return array(
 	array(
+		'name'        => 'connect',
+		'path'        => '/connect',
+		'page'        => 'jetpack-premium-analytics',
+		'has_route'   => true,
+		'has_content' => true,
+	),
+	array(
 		'name'        => 'dashboard',
 		'path'        => '/',
 		'page'        => 'jetpack-premium-analytics',
-		'has_route'   => false,
+		'has_route'   => true,
+		'has_content' => true,
+	),
+	array(
+		'name'        => 'syncing',
+		'path'        => '/syncing',
+		'page'        => 'jetpack-premium-analytics',
+		'has_route'   => true,
 		'has_content' => true,
 	)
 );

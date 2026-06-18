@@ -86,14 +86,15 @@ function toSyncStatus(raw, milestone) {
   const bucket = raw.progress?.[ANALYTICS_SYNC_MODULE];
   const total = bucket?.total ?? 0;
   const sent = bucket?.sent ?? 0;
+  const analyticsStarted = bucket !== void 0;
   let percentage = 0;
   if (total > 0) {
     percentage = Math.min(100, Math.floor(sent / total * 100));
-  } else if (milestone > 0) {
+  } else if (analyticsStarted || milestone > 0) {
     percentage = 100;
   }
   return {
-    isStarted: started,
+    isStarted: analyticsStarted,
     isRunning: started && !finished,
     percentage,
     initialFullSyncFinished: milestone
