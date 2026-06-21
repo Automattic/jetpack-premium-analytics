@@ -18750,7 +18750,8 @@ function hasProductFilters(filters) {
 }
 
 // packages/data/build-module/api/constants.mjs
-var reportsPath = "/jetpack-premium-analytics/v1/proxy/v2/analytics/reports";
+var statsProxyPath = "/jetpack-premium-analytics/v1/proxy";
+var reportsPath = `${statsProxyPath}/v2/analytics/reports`;
 
 // packages/data/build-module/api/report-orders-fetch/report-orders-fetch.mjs
 async function fetchReportOrders({
@@ -18998,6 +18999,45 @@ async function exportReport(params) {
     path,
     method: "POST",
     data: body
+  });
+}
+
+// packages/data/build-module/api/stats-proxy-fetch.mjs
+var import_api_fetch13 = __toESM(require_api_fetch(), 1);
+var import_url12 = __toESM(require_url(), 1);
+function normalizeEndpoint(endpoint) {
+  return endpoint.replace(/^\/+/, "");
+}
+function cleanQueryParams(params) {
+  if (!params) {
+    return void 0;
+  }
+  const cleaned = Object.fromEntries(
+    Object.entries(params).filter(([, value]) => value !== void 0 && value !== null)
+  );
+  return Object.keys(cleaned).length ? cleaned : void 0;
+}
+function getStatsProxyPath({
+  version,
+  endpoint,
+  params
+}) {
+  const path = `${statsProxyPath}/v${version}/${normalizeEndpoint(endpoint)}`;
+  const queryParams = cleanQueryParams(params);
+  return queryParams ? (0, import_url12.addQueryArgs)(path, queryParams) : path;
+}
+async function fetchStatsProxy({
+  version,
+  endpoint,
+  params,
+  method = "GET",
+  body
+}) {
+  const path = getStatsProxyPath({ version, endpoint, params });
+  return (0, import_api_fetch13.default)({
+    path,
+    method,
+    ...method === "POST" ? { data: body } : {}
   });
 }
 
@@ -19370,21 +19410,21 @@ function reportCustomersQuery(params) {
 }
 
 // packages/data/build-module/api/report-customers-by-date-fetch/report-customers-by-date-fetch.mjs
-var import_api_fetch13 = __toESM(require_api_fetch(), 1);
-var import_url12 = __toESM(require_url(), 1);
+var import_api_fetch14 = __toESM(require_api_fetch(), 1);
+var import_url13 = __toESM(require_url(), 1);
 async function fetchReportCustomersByDate({
   from,
   to,
   interval,
   date_type
 }) {
-  const path = (0, import_url12.addQueryArgs)(`${reportsPath}/customers/by-date`, {
+  const path = (0, import_url13.addQueryArgs)(`${reportsPath}/customers/by-date`, {
     from,
     to,
     interval,
     date_type
   });
-  return (0, import_api_fetch13.default)({ path });
+  return (0, import_api_fetch14.default)({ path });
 }
 
 // packages/data/build-module/processing/customers-by-date/index.mjs
@@ -19467,21 +19507,21 @@ function reportCustomersByDateQuery(params) {
 }
 
 // packages/data/build-module/api/report-conversion-rate-fetch/report-conversion-rate-fetch.mjs
-var import_api_fetch14 = __toESM(require_api_fetch(), 1);
-var import_url13 = __toESM(require_url(), 1);
+var import_api_fetch15 = __toESM(require_api_fetch(), 1);
+var import_url14 = __toESM(require_url(), 1);
 async function fetchReportConversionRate({
   from,
   to,
   interval,
   filters
 }) {
-  const path = (0, import_url13.addQueryArgs)(`${reportsPath}/sessions/by-conversion-rate`, {
+  const path = (0, import_url14.addQueryArgs)(`${reportsPath}/sessions/by-conversion-rate`, {
     from,
     to,
     interval,
     filters
   });
-  return (0, import_api_fetch14.default)({
+  return (0, import_api_fetch15.default)({
     path
   });
 }
@@ -21998,6 +22038,15 @@ function ensureCoreSettingsReady() {
 }
 
 // packages/data/build-module/utils/interval.mjs
+function getDaysBetweenInclusive(from, to) {
+  const fromDate = /* @__PURE__ */ new Date(`${from}T00:00:00Z`);
+  const toDate2 = /* @__PURE__ */ new Date(`${to}T00:00:00Z`);
+  const days = differenceInCalendarDays(toDate2, fromDate);
+  if (Number.isNaN(days) || days < 0) {
+    return 1;
+  }
+  return days + 1;
+}
 function getAllowedIntervalsByRange(from, to) {
   const daysDiff = Math.round(
     Math.abs(differenceInHours(localTZDate(to), localTZDate(from)) / 24)
@@ -22171,23 +22220,17 @@ function normalizeReportParams(search, defaultPreset) {
 function useReport(queryFactory, params, options) {
   const queryEnabled = options?.enabled ?? true;
   const comparisonEnabled = hasComparisonEnabled(params);
-  const primaryQueryOptions = queryFactory(
-    {
-      from: params.from,
-      to: params.to,
-      interval: params.interval,
-      filters: params.filters,
-      date_type: params.date_type
-    },
-    "primary"
-  );
+  const primaryParams = { ...params };
+  delete primaryParams.compare_from;
+  delete primaryParams.compare_to;
+  delete primaryParams.compare_preset;
+  delete primaryParams.comp;
+  const primaryQueryOptions = queryFactory(primaryParams, "primary");
   const comparisonQueryOptions = comparisonEnabled ? queryFactory(
     {
+      ...primaryParams,
       from: params.compare_from,
-      to: params.compare_to,
-      interval: params.interval,
-      filters: params.filters,
-      date_type: params.date_type
+      to: params.compare_to
     },
     "comparison"
   ) : {
@@ -22326,8 +22369,8 @@ function useReportProducts(params, limit = 5) {
 
 // packages/data/build-module/hooks/use-product-images.mjs
 init_modern2();
-var import_api_fetch15 = __toESM(require_api_fetch(), 1);
-var import_url14 = __toESM(require_url(), 1);
+var import_api_fetch16 = __toESM(require_api_fetch(), 1);
+var import_url15 = __toESM(require_url(), 1);
 async function fetchProductImages(productIds) {
   if (!productIds.length) {
     return [];
@@ -22337,8 +22380,8 @@ async function fetchProductImages(productIds) {
     per_page: productIds.length
   };
   try {
-    const response = await (0, import_api_fetch15.default)({
-      path: (0, import_url14.addQueryArgs)("/wc/v3/products", queryArgs)
+    const response = await (0, import_api_fetch16.default)({
+      path: (0, import_url15.addQueryArgs)("/wc/v3/products", queryArgs)
     });
     return response.map((product) => ({
       productId: product.id,
@@ -22467,6 +22510,63 @@ async function prefetchReport(reportType = "orders", params) {
       throw new Error(`Unsupported report type: ${reportType}`);
   }
 }
+
+// packages/data/build-module/utils/stats-params.mjs
+var reportOnlyKeys = [
+  "from",
+  "to",
+  "interval",
+  "preset",
+  "compare_from",
+  "compare_to",
+  "compare_preset",
+  "comp",
+  "filters",
+  "section",
+  "date_type",
+  "view",
+  "geoMode",
+  "utmParams",
+  "deviceProperty"
+];
+function datePart(value) {
+  return value?.split("T")[0];
+}
+function getStatsPeriodFromInterval(interval) {
+  switch (interval) {
+    case "hour":
+      return "hour";
+    case "week":
+      return "week";
+    case "month":
+    case "quarter":
+      return "month";
+    case "year":
+      return "year";
+    case "day":
+    default:
+      return "day";
+  }
+}
+function reportParamsToStatsQueryParams(params = {}) {
+  const statsParams = { ...params };
+  reportOnlyKeys.forEach((key) => {
+    delete statsParams[key];
+  });
+  const from = datePart(params.from);
+  const to = datePart(params.to);
+  const period = params.period ?? getStatsPeriodFromInterval(params.interval);
+  const date = params.date ?? to;
+  const startDate = params.start_date ?? from;
+  const days = params.days ?? (startDate && date ? getDaysBetweenInclusive(startDate, date) : void 0);
+  return {
+    ...statsParams,
+    period,
+    ...date ? { date } : {},
+    ...startDate ? { start_date: startDate } : {},
+    ...days ? { days } : {}
+  };
+}
 export {
   AnalyticsQueryClientProvider,
   GlobalErrorProvider,
@@ -22474,12 +22574,15 @@ export {
   dateToISOStringWithLocalTZ,
   ensureCoreSettingsReady,
   exportReport,
+  fetchStatsProxy,
   getDateFormatFromInterval,
   getDefaultIntervalForPeriod,
   getDefaultPreset,
   getDefaultQueryParams,
   getSiteGmtOffset,
   getSiteTimezone,
+  getStatsPeriodFromInterval,
+  getStatsProxyPath,
   globalErrorManager,
   hasComparisonEnabled,
   hasProductFilters,
@@ -22488,6 +22591,7 @@ export {
   normalizeReportParams,
   prefetchReport,
   queryClient,
+  reportParamsToStatsQueryParams,
   useGlobalError,
   useProductImages,
   useReportBookings,
