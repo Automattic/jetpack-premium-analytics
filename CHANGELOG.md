@@ -43,6 +43,7 @@ This is an alpha version! The changes listed here are not final.
 - Data layer: point report requests at the endpoint-agnostic proxy route (proxy/v2/analytics/reports) after the per-endpoint proxy route was removed.
 - Data layer: route report requests through the jetpack-premium-analytics proxy controller instead of the legacy woocommerce-analytics proxy route.
 - Internal: No longer require automattic/jetpack-changelogger as a per-project dev dependency.
+- Syncing: when WooCommerce is inactive, gate the dashboard on Jetpack's generic initial full sync so the syncing screen completes instead of spinning forever.
 - Update package dependencies.
 
 ### Fixed
