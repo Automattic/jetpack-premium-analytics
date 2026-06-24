@@ -53,6 +53,8 @@ This is an alpha version! The changes listed here are not final.
 
 ### Fixed
 - Dashboard: Load WordPress build polyfills so the dashboard can run without the Gutenberg plugin.
+- Pin @wordpress/widget-dashboard and @wordpress/widget-primitives to an exact version instead of the floating next tag
+- Scope wp-build polyfill registration to the dashboard pages so it no longer force-replaces core script handles (wp-private-apis) on every admin page
 - Stats: Align traffic normalizer row metadata with legacy Stats behavior.
 - Stop shipping megabytes of unminified JS as part of the package.
 - Syncing: derive the analytics "started" state from the woocommerce_analytics sync-progress bucket instead of Jetpack's generic `started` flag, so the connection-time initial_sync no longer makes the syncing screen show "Sync interrupted" and suppress its auto-trigger.
