@@ -34,6 +34,7 @@ This is an alpha version! The changes listed here are not final.
 - REST: Serve the whole analytics and stats surface through one endpoint-agnostic proxy under jetpack-premium-analytics/v1, shaped as `proxy/v<version>/<prefix>/<subpath>` (for example `proxy/v1.1/wordads/earnings`). The `proxy/` segment marks a transparent WordPress.com forward, the WordPress.com API version lives in the path, and an allowed-prefix plus write-method allowlist bounds the blog token. This lays the groundwork for deprecating the stats-admin package.
 - Stats: Add core proxy query definitions.
 - Stats: Add core traffic report hooks.
+- Stats: Add shared endpoint query helpers.
 - Stats: Add time-series response normalizers.
 - Storybook: Add a prop-driven Top posts & pages widget story under Packages/Premium Analytics/Widgets.
 - Sync: Track the analytics-relevant initial full-sync milestone and expose it to the dashboard via JetpackScriptData.
