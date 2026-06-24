@@ -12,5 +12,11 @@ return array(
 		'dir_name'   => 'hello-world',
 		'has_render' => true,
 		'has_widget' => true,
+	),
+	array(
+		'name'       => 'jpa/locations',
+		'dir_name'   => 'locations',
+		'has_render' => true,
+		'has_widget' => true,
 	)
 );

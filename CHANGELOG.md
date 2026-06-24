@@ -14,6 +14,7 @@ This is an alpha version! The changes listed here are not final.
 - Add a tsconfig paths alias and typecheck script so internal packages/* resolve for types/IDE.
 - Add site-sync package (useSyncStatus hook) and configure apiFetch auth in init.
 - Add the internal fields package: DataForm field controls for widgets, delivered as a script module so styled editors stay out of widget metadata bundles. Includes the ReportParamsField date-range editor.
+- Add the Locations widget to the Premium Analytics dashboard: world map + leaderboard showing visitors by country, region, or city, with click-to-drill-down into country regions.
 - Add watch mode for local development.
 - Data: Add Jetpack Stats proxy fetch utilities.
 - Data: Add Jetpack Stats traffic report normalizers.
