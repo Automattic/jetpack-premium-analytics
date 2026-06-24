@@ -8,6 +8,12 @@
 
 return array(
 	array(
+		'name'       => 'jpa/average-items-per-order',
+		'dir_name'   => 'average-items-per-order',
+		'has_render' => true,
+		'has_widget' => true,
+	),
+	array(
 		'name'       => 'jpa/hello-world',
 		'dir_name'   => 'hello-world',
 		'has_render' => true,
