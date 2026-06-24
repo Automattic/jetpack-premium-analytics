@@ -28,6 +28,13 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
+// package-external:@wordpress/i18n
+var require_i18n = __commonJS({
+  "package-external:@wordpress/i18n"(exports, module) {
+    module.exports = window.wp.i18n;
+  }
+});
+
 // package-external:@wordpress/element
 var require_element = __commonJS({
   "package-external:@wordpress/element"(exports, module) {
@@ -48,6 +55,9 @@ var require_jsx_runtime = __commonJS({
     module.exports = window.ReactJSXRuntime;
   }
 });
+
+// widgets/hello-world/render.tsx
+var import_i18n = __toESM(require_i18n(), 1);
 
 // ../../../node_modules/.pnpm/clsx@2.1.1/node_modules/clsx/dist/clsx.mjs
 function r(e) {
@@ -842,8 +852,8 @@ var style_default3 = { "root": "_6e9c47f7f67ffa0d__root" };
 
 // widgets/hello-world/render.tsx
 var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
-function HelloWorld({ attributes }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Stack, { align: "center", justify: "center", className: clsx_default(style_default3.root), children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text, { variant: "heading-2xl", children: attributes?.message || "Hello World" }) });
+function HelloWorld({ attributes = {} }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Stack, { align: "center", justify: "center", className: style_default3.root, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text, { variant: "heading-2xl", render: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {}), children: attributes.message || (0, import_i18n.__)("Hello World", "jetpack-premium-analytics") }) });
 }
 export {
   HelloWorld as default

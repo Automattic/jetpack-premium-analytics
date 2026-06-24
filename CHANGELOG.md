@@ -43,6 +43,7 @@ This is an alpha version! The changes listed here are not final.
 - Clean up leftover WooCommerce/standalone naming in comments, docs, and the search route key.
 - Comments/tests: update residual proxy/reports path references in Storybook mock docs and a REST test literal to the versioned agnostic proxy route. No functional change.
 - Dashboard: Add tabbed sections around the customizable widget grid.
+- Dashboard widgets: align the hello-world example widget with the widget render contract and translate its strings.
 - Data layer: point report requests at the endpoint-agnostic proxy route (proxy/v2/analytics/reports) after the per-endpoint proxy route was removed.
 - Data layer: route report requests through the jetpack-premium-analytics proxy controller instead of the legacy woocommerce-analytics proxy route.
 - Internal: No longer require automattic/jetpack-changelogger as a per-project dev dependency.

@@ -28,6 +28,13 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
+// package-external:@wordpress/i18n
+var require_i18n = __commonJS({
+  "package-external:@wordpress/i18n"(exports, module) {
+    module.exports = window.wp.i18n;
+  }
+});
+
 // package-external:@wordpress/primitives
 var require_primitives = __commonJS({
   "package-external:@wordpress/primitives"(exports, module) {
@@ -42,6 +49,9 @@ var require_jsx_runtime = __commonJS({
   }
 });
 
+// widgets/hello-world/widget.ts
+var import_i18n = __toESM(require_i18n(), 1);
+
 // ../../../node_modules/.pnpm/@wordpress+icons@13.1.0_react@18.3.1/node_modules/@wordpress/icons/build-module/library/wordpress.mjs
 var import_primitives = __toESM(require_primitives(), 1);
 var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
@@ -50,19 +60,18 @@ var wordpress_default = /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_primi
 // widgets/hello-world/widget.ts
 var widget_default = {
   name: "jpa/hello-world",
-  title: "Hello World",
+  title: (0, import_i18n.__)("Hello World", "jetpack-premium-analytics"),
   icon: wordpress_default,
-  presentation: "full-bleed",
   attributes: [
     {
       id: "message",
-      label: "Message",
+      label: (0, import_i18n.__)("Message", "jetpack-premium-analytics"),
       type: "text"
     }
   ],
   example: {
     attributes: {
-      message: "Hello World"
+      message: (0, import_i18n.__)("Hello World", "jetpack-premium-analytics")
     }
   }
 };
