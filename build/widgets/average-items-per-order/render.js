@@ -7329,7 +7329,7 @@ var Stack = (0, import_element2.forwardRef)(function Stack2({ direction, gap, al
   return element;
 });
 
-// ../../../node_modules/.pnpm/@wordpress+style-runtime@0.2.0/node_modules/@wordpress/style-runtime/src/index.ts
+// ../../../node_modules/.pnpm/@wordpress+style-runtime@0.4.1/node_modules/@wordpress/style-runtime/src/index.ts
 var STYLE_HASH_ATTRIBUTE2 = "data-wp-hash";
 function getRuntime2() {
   const globalScope = globalThis;

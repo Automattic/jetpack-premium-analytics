@@ -29898,7 +29898,7 @@ var Actions = (0, import_element12.forwardRef)(
   }
 );
 
-// ../../../node_modules/.pnpm/@wordpress+style-runtime@0.2.0/node_modules/@wordpress/style-runtime/src/index.ts
+// ../../../node_modules/.pnpm/@wordpress+style-runtime@0.4.1/node_modules/@wordpress/style-runtime/src/index.ts
 var STYLE_HASH_ATTRIBUTE11 = "data-wp-hash";
 function getRuntime11() {
   const globalScope = globalThis;
