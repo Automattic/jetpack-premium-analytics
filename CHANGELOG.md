@@ -66,6 +66,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Fixed
 - Dashboard: Load WordPress build polyfills so the dashboard can run without the Gutenberg plugin.
+- Fix dashboard widgets rendering "Widget is no longer available" by loading the widget manifest on REST requests, not just admin page loads.
 - Pin @wordpress/widget-dashboard and @wordpress/widget-primitives to an exact version instead of the floating next tag
 - Scope wp-build polyfill registration to the dashboard pages so it no longer force-replaces core script handles (wp-private-apis) on every admin page
 - Stats: Align traffic normalizer row metadata with legacy Stats behavior.
