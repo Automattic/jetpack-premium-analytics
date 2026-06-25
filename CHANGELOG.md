@@ -38,6 +38,7 @@ This is an alpha version! The changes listed here are not final.
 - Stats: Add archives report hook.
 - Stats: Add core proxy query definitions.
 - Stats: Add core traffic report hooks.
+- Stats: Add insights hook.
 - Stats: Add shared endpoint query helpers.
 - Stats: Add time-series response normalizers.
 - Stats: Add visits report hook.
