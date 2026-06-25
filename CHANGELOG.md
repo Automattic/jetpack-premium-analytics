@@ -42,6 +42,7 @@ This is an alpha version! The changes listed here are not final.
 - Stats: Add shared endpoint query helpers.
 - Stats: Add streak hook.
 - Stats: Add time-series response normalizers.
+- Stats: Add UTM endpoint data hook.
 - Stats: Add visits report hook.
 - Storybook: Add a prop-driven Top posts & pages widget story under Packages/Premium Analytics/Widgets.
 - Sync: Track the analytics-relevant initial full-sync milestone and expose it to the dashboard via JetpackScriptData.
