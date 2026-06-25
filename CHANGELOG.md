@@ -45,6 +45,7 @@ This is an alpha version! The changes listed here are not final.
 - Stats: Add post stats data hook.
 - Stats: Add shared endpoint query helpers.
 - Stats: Add streak hook.
+- Stats: Add subscribers hooks.
 - Stats: Add tags report hook.
 - Stats: Add time-series response normalizers.
 - Stats: Add UTM endpoint data hook.
