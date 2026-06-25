@@ -35,6 +35,7 @@ This is an alpha version! The changes listed here are not final.
 - REST: Serve the whole analytics and stats surface through one endpoint-agnostic proxy under jetpack-premium-analytics/v1, shaped as `proxy/v<version>/<prefix>/<subpath>` (for example `proxy/v1.1/wordads/earnings`). The `proxy/` segment marks a transparent WordPress.com forward, the WordPress.com API version lives in the path, and an allowed-prefix plus write-method allowlist bounds the blog token. This lays the groundwork for deprecating the stats-admin package.
 - Stats: Add app commercial classification hook.
 - Stats: Add app dashboard module settings hooks.
+- Stats: Add app plan usage hook.
 - Stats: Add archives report hook.
 - Stats: Add core proxy query definitions.
 - Stats: Add core traffic report hooks.
