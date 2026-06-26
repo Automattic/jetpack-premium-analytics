@@ -55,6 +55,7 @@ This is an alpha version! The changes listed here are not final.
 - Stats: Add time-series response normalizers.
 - Stats: Add UTM endpoint data hook.
 - Stats: Add visits report hook.
+- Stats: Add WordAds hooks.
 - Storybook: Add a prop-driven Top posts & pages widget story under Packages/Premium Analytics/Widgets.
 - Sync: Track the analytics-relevant initial full-sync milestone and expose it to the dashboard via JetpackScriptData.
 
