@@ -38,6 +38,7 @@ This is an alpha version! The changes listed here are not final.
 - Stats: Add app plan usage hook.
 - Stats: Add app publish state hook.
 - Stats: Add archives report hook.
+- Stats: Add comment followers report hook.
 - Stats: Add comments report hook.
 - Stats: Add core proxy query definitions.
 - Stats: Add core traffic report hooks.
