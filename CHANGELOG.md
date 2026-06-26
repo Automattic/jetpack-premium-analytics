@@ -46,6 +46,7 @@ This is an alpha version! The changes listed here are not final.
 - Stats: Add highlights hook.
 - Stats: Add insights hook.
 - Stats: Add post stats data hook.
+- Stats: Add publicize report hook.
 - Stats: Add shared endpoint query helpers.
 - Stats: Add streak hook.
 - Stats: Add subscribers hooks.
