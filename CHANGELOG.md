@@ -61,6 +61,7 @@ This is an alpha version! The changes listed here are not final.
 - Stats: Add WordAds hooks.
 - Storybook: Add a prop-driven Top posts & pages widget story under Packages/Premium Analytics/Widgets.
 - Sync: Track the analytics-relevant initial full-sync milestone and expose it to the dashboard via JetpackScriptData.
+- Widgets: Add visitors over time widget.
 
 ### Changed
 - Allow consumers to configure the admin menu title via init options.
