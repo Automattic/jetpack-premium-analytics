@@ -36,6 +36,7 @@ This is an alpha version! The changes listed here are not final.
 - Stats: Add app commercial classification hook.
 - Stats: Add app dashboard module settings hooks.
 - Stats: Add app plan usage hook.
+- Stats: Add app publish state hook.
 - Stats: Add archives report hook.
 - Stats: Add comments report hook.
 - Stats: Add core proxy query definitions.
