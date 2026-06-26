@@ -27,5 +27,12 @@ return array(
 		'has_render'   => true,
 		'has_widget'   => true,
 		'presentation' => 'full-bleed',
+	),
+	array(
+		'name'         => 'jpa/stats-top-posts',
+		'dir_name'     => 'top-posts',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => 'framed',
 	)
 );
