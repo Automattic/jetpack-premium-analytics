@@ -25803,7 +25803,7 @@ function useBarChartOptions(data, horizontal, options = {}) {
             if (typeof v === "number" && Number.isFinite(v)) allValues.push(v);
           });
         });
-        if (allValues.length > 0) valueScaleDomainOverride = { domain: [Math.min(...allValues), Math.max(...allValues)] };
+        if (allValues.length > 0) valueScaleDomainOverride = { domain: [Math.min(0, ...allValues), Math.max(0, ...allValues)] };
       }
     }
     const xScale = {
@@ -25944,6 +25944,7 @@ var ComparisonBars = ({ comparisonEntries, primaryKeys, groupPadding, horizontal
   return /* @__PURE__ */ (0, import_jsx_runtime148.jsx)("g", {
     className: "bar-chart__comparison-bars",
     pointerEvents: "none",
+    "aria-hidden": "true",
     children: rects
   });
 };
@@ -25953,6 +25954,10 @@ var validateData$2 = (data) => {
   return null;
 };
 var getPatternId = (chartId, index) => `bar-pattern-${chartId}-${index}`;
+var renderTooltipRow = (label, value) => /* @__PURE__ */ (0, import_jsx_runtime148.jsx)("div", {
+  className: bar_chart_module_default["bar-chart__tooltip-row"],
+  children: (0, import_i18n.sprintf)((0, import_i18n.__)("%1$s: %2$s", "jetpack-charts"), label, value)
+});
 var BarChartInternal = ({ data, chartId: providedChartId, width, height, className, margin, withTooltips = false, showLegend = false, legend = {}, gridVisibility: gridVisibilityProp, renderTooltip, options = {}, orientation = "vertical", withPatterns = false, showZeroValues = false, animation, children, gap = "md" }) => {
   const legendInteractive = legend.interactive ?? false;
   const horizontal = orientation === "horizontal";
@@ -26006,6 +26011,7 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
   }, [seriesWithVisibility]);
   const primaryEntries = (0, import_react74.useMemo)(() => seriesWithVisibility.filter(({ isVisible, series }) => isVisible && series.options?.type !== "comparison"), [seriesWithVisibility]);
   const primaryKeys = (0, import_react74.useMemo)(() => primaryEntries.map(({ series }) => series.label), [primaryEntries]);
+  const primarySeries = (0, import_react74.useMemo)(() => primaryEntries.map(({ series }) => series), [primaryEntries]);
   const comparisonEntries = (0, import_react74.useMemo)(() => {
     const primaryByGroup = new Map(primaryEntries.map(({ series, index }) => [series.group, {
       label: series.label,
@@ -26101,26 +26107,8 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
           className: bar_chart_module_default["bar-chart__tooltip-header"],
           children: categoryLabel
         }),
-        /* @__PURE__ */ (0, import_jsx_runtime148.jsxs)("div", {
-          className: bar_chart_module_default["bar-chart__tooltip-row"],
-          children: [/* @__PURE__ */ (0, import_jsx_runtime148.jsxs)("span", {
-            className: bar_chart_module_default["bar-chart__tooltip-label"],
-            children: [primaryKey, ":"]
-          }), /* @__PURE__ */ (0, import_jsx_runtime148.jsx)("span", {
-            className: bar_chart_module_default["bar-chart__tooltip-value"],
-            children: formatNumber(nearestDatum.value)
-          })]
-        }),
-        /* @__PURE__ */ (0, import_jsx_runtime148.jsxs)("div", {
-          className: bar_chart_module_default["bar-chart__tooltip-row"],
-          children: [/* @__PURE__ */ (0, import_jsx_runtime148.jsxs)("span", {
-            className: bar_chart_module_default["bar-chart__tooltip-label"],
-            children: [comparisonEntry.series.label, ":"]
-          }), /* @__PURE__ */ (0, import_jsx_runtime148.jsx)("span", {
-            className: bar_chart_module_default["bar-chart__tooltip-value"],
-            children: formatNumber(comparisonDatum.value)
-          })]
-        })
+        renderTooltipRow(primaryKey, formatNumber(nearestDatum.value)),
+        renderTooltipRow(comparisonEntry.series.label, formatNumber(comparisonDatum.value))
       ]
     });
     return /* @__PURE__ */ (0, import_jsx_runtime148.jsxs)("div", {
@@ -26128,16 +26116,7 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
       children: [/* @__PURE__ */ (0, import_jsx_runtime148.jsx)("div", {
         className: bar_chart_module_default["bar-chart__tooltip-header"],
         children: primaryKey
-      }), /* @__PURE__ */ (0, import_jsx_runtime148.jsxs)("div", {
-        className: bar_chart_module_default["bar-chart__tooltip-row"],
-        children: [/* @__PURE__ */ (0, import_jsx_runtime148.jsxs)("span", {
-          className: bar_chart_module_default["bar-chart__tooltip-label"],
-          children: [categoryLabel, ":"]
-        }), /* @__PURE__ */ (0, import_jsx_runtime148.jsx)("span", {
-          className: bar_chart_module_default["bar-chart__tooltip-value"],
-          children: formatNumber(nearestDatum.value)
-        })]
-      })]
+      }), renderTooltipRow(categoryLabel, formatNumber(nearestDatum.value))]
     });
   }, [chartOptions.tooltip, comparisonEntries]);
   const renderPattern = (0, import_react74.useCallback)((index, color2) => {
@@ -26334,7 +26313,7 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
                   selectedIndex,
                   tooltipRef,
                   keyboardFocusedClassName: bar_chart_module_default["bar-chart__tooltip--keyboard-focused"],
-                  series: data,
+                  series: primarySeries,
                   mode: "individual"
                 })
               ]
