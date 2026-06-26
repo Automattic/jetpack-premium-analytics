@@ -29,6 +29,13 @@ return array(
 		'presentation' => 'full-bleed',
 	),
 	array(
+		'name'         => 'jpa/payment-status',
+		'dir_name'     => 'payment-status',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/stats-top-posts',
 		'dir_name'     => 'top-posts',
 		'has_render'   => true,
