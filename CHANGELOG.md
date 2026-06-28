@@ -29,6 +29,7 @@ This is an alpha version! The changes listed here are not final.
 - Port icons package (illustrated WPDS icons + @wordpress/icons re-exports) as an internal package from next-woocommerce-analytics.
 - Port routing package (date-range/comparison search-param helpers and the staged-search hook) as an internal package from next-woocommerce-analytics.
 - Port the Average items per order dashboard widget from next-woocommerce-analytics, composed from the widgets-toolkit and data packages.
+- Port the Bookings by device dashboard widget from next-woocommerce-analytics, composed from the widgets-toolkit and data packages.
 - Port the components package (date range/comparison filter UI components and SCSS) from next-woocommerce-analytics as the internal `ui` package.
 - Port the widgets-toolkit package (dashboard widgets, chart components, fields, and helpers) from next-woocommerce-analytics as an internal package.
 - REST: Add the analytics API proxy controller that forwards dashboard requests to WPCOM and briefly caches the response.

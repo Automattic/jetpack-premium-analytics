@@ -15,6 +15,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/bookings-by-device',
+		'dir_name'     => 'bookings-by-device',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/hello-world',
 		'dir_name'     => 'hello-world',
 		'has_render'   => true,
