@@ -79,6 +79,7 @@ This is an alpha version! The changes listed here are not final.
 - Render the Premium Analytics admin page inside the native wp-admin shell (sidebar and header) instead of taking over the full screen.
 - Syncing: when WooCommerce is inactive, gate the dashboard on Jetpack's generic initial full sync so the syncing screen completes instead of spinning forever.
 - Update package dependencies.
+- Update widget conventions and Stats porting documentation.
 
 ### Fixed
 - Dashboard: Load WordPress build polyfills so the dashboard can run without the Gutenberg plugin.
