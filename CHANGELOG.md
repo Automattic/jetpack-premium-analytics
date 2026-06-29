@@ -47,6 +47,7 @@ This is an alpha version! The changes listed here are not final.
 - Stats: Add core proxy query definitions.
 - Stats: Add core traffic report hooks.
 - Stats: Add devices report hook.
+- Stats: Add email breakdown hooks.
 - Stats: Add followers report hook.
 - Stats: Add highlights hook.
 - Stats: Add insights hook.
