@@ -30448,6 +30448,7 @@ function LocationsInner({ attributes }) {
           /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(
             import_components2.SelectControl,
             {
+              __next40pxDefaultSize: true,
               __nextHasNoMarginBottom: true,
               label: (0, import_i18n4.__)("View by", "jetpack-premium-analytics"),
               hideLabelFromVision: true,
