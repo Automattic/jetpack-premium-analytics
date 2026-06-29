@@ -55,6 +55,7 @@ This is an alpha version! The changes listed here are not final.
 - Stats: Add post stats data hook.
 - Stats: Add publicize report hook.
 - Stats: Add shared endpoint query helpers.
+- Stats: Add single video hook.
 - Stats: Add streak hook.
 - Stats: Add subscribers hooks.
 - Stats: Add tags report hook.
