@@ -50,6 +50,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/subscribers-list',
+		'dir_name'     => 'subscribers-list',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => 'framed',
+	),
+	array(
 		'name'         => 'jpa/stats-top-posts',
 		'dir_name'     => 'top-posts',
 		'has_render'   => true,
