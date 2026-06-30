@@ -19,6 +19,7 @@ This is an alpha version! The changes listed here are not final.
 - Add the Locations widget to the Premium Analytics dashboard: world map + leaderboard showing visitors by country, region, or city, with click-to-drill-down into country regions.
 - Add the Payment status dashboard widget.
 - Add watch mode for local development.
+- Dashboard: add a React Query Devtools widget (non-production only), and expose two server-side widget-type filters (at registration and on read) so consumers can scope which widget types reach the dashboard.
 - Dashboard: Add the date range picker with comparison support, syncing the selected range to URL search params so all widgets pick it up.
 - Data: Add Jetpack Stats proxy fetch utilities.
 - Data: Add Jetpack Stats traffic report normalizers.

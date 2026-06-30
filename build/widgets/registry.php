@@ -43,6 +43,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/react-query-dev-tool',
+		'dir_name'     => 'react-query-dev-tool',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => 'full-bleed',
+	),
+	array(
 		'name'         => 'jpa/sales-by-utm-channel',
 		'dir_name'     => 'sales-by-utm-channel',
 		'has_render'   => true,
