@@ -8,6 +8,13 @@
 
 return array(
 	array(
+		'name'         => 'jpa/authors',
+		'dir_name'     => 'authors',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => 'framed',
+	),
+	array(
 		'name'         => 'jpa/average-items-per-order',
 		'dir_name'     => 'average-items-per-order',
 		'has_render'   => true,
