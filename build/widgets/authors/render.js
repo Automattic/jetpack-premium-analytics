@@ -30579,7 +30579,7 @@ var import_i18n4 = __toESM(require_i18n(), 1);
 
 // packages/widgets-toolkit/src/components/chart-empty-state/chart-empty-state.module.scss
 if (typeof process === "undefined" || true) {
-  registerStyle9("56fdbc5d4b", ".d1d27c24ed6a0118__container{align-items:center;display:flex;gap:var(--wpds-dimension-gap-lg,16px);height:100%;justify-content:center;width:100%}._69df60c5937cf73f__icon{color:var(--wpds-color-stroke-surface-neutral-weak,#e0e0e0)}");
+  registerStyle9("d4feb444b2", ".d1d27c24ed6a0118__container{align-items:center;display:flex;gap:var(--wpds-dimension-gap-lg,16px);height:100%;justify-content:center;margin-inline:auto;width:100%}._69df60c5937cf73f__icon{color:var(--wpds-color-stroke-surface-neutral-weak,#e0e0e0)}");
 }
 var chart_empty_state_module_default = { "container": "d1d27c24ed6a0118__container", "icon": "_69df60c5937cf73f__icon" };
 
@@ -30713,8 +30713,13 @@ var import_react83 = __toESM(require_react(), 1);
 
 // widgets/authors/build-top-authors-data.ts
 var import_i18n5 = __toESM(require_i18n(), 1);
+var UNTRACKED_AUTHORS_SENTINEL = "Untracked Authors";
 function getAuthorLabel(author) {
-  return typeof author.label === "string" && author.label ? author.label : (0, import_i18n5.__)("Untracked authors", "jetpack-premium-analytics");
+  const label = typeof author.label === "string" ? author.label : "";
+  if (!label || label === UNTRACKED_AUTHORS_SENTINEL) {
+    return (0, import_i18n5.__)("Untracked authors", "jetpack-premium-analytics");
+  }
+  return label;
 }
 function toAuthorItems(report) {
   return report?.data.flatMap((point5) => point5.items) ?? [];

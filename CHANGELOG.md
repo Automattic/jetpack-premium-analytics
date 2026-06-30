@@ -91,6 +91,7 @@ This is an alpha version! The changes listed here are not final.
 - Update widget conventions and Stats porting documentation.
 
 ### Fixed
+- Authors widget: localize the untracked-authors label; center the chart empty state.
 - Dashboard: Fix global error handling for widgets.
 - Dashboard: Load WordPress build polyfills so the dashboard can run without the Gutenberg plugin.
 - Drop the unsupported `focusable` prop on `@wordpress/ui` `Tabs.Panel` (not a valid prop; was a no-op). Aligns with the `@wordpress/ui` 0.15 API. Panels already gate their content on the active section.

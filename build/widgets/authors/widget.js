@@ -71,7 +71,7 @@ var widget_default = {
   ],
   example: {
     attributes: {
-      max: "7"
+      max: 7
     }
   }
 };

@@ -30749,7 +30749,7 @@ var import_i18n5 = __toESM(require_i18n(), 1);
 
 // packages/widgets-toolkit/src/components/chart-empty-state/chart-empty-state.module.scss
 if (typeof process === "undefined" || true) {
-  registerStyle9("56fdbc5d4b", ".d1d27c24ed6a0118__container{align-items:center;display:flex;gap:var(--wpds-dimension-gap-lg,16px);height:100%;justify-content:center;width:100%}._69df60c5937cf73f__icon{color:var(--wpds-color-stroke-surface-neutral-weak,#e0e0e0)}");
+  registerStyle9("d4feb444b2", ".d1d27c24ed6a0118__container{align-items:center;display:flex;gap:var(--wpds-dimension-gap-lg,16px);height:100%;justify-content:center;margin-inline:auto;width:100%}._69df60c5937cf73f__icon{color:var(--wpds-color-stroke-surface-neutral-weak,#e0e0e0)}");
 }
 var chart_empty_state_module_default = { "container": "d1d27c24ed6a0118__container", "icon": "_69df60c5937cf73f__icon" };
 
