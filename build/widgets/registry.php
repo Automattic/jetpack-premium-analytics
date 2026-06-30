@@ -64,6 +64,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/subscribers-chart',
+		'dir_name'     => 'subscribers-chart',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => 'framed',
+	),
+	array(
 		'name'         => 'jpa/subscribers-list',
 		'dir_name'     => 'subscribers-list',
 		'has_render'   => true,
