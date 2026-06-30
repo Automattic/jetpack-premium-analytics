@@ -88,6 +88,7 @@ This is an alpha version! The changes listed here are not final.
 - Internal: No longer require automattic/jetpack-changelogger as a per-project dev dependency.
 - Locations widget: Use the updated view selector size.
 - Render the Premium Analytics admin page inside the native wp-admin shell (sidebar and header) instead of taking over the full screen.
+- Stats: Email time series hooks now return comparison-aware report results and resolve hourly buckets into distinct per-hour intervals.
 - Syncing: when WooCommerce is inactive, gate the dashboard on Jetpack's generic initial full sync so the syncing screen completes instead of spinning forever.
 - Update package dependencies.
 - Update widget conventions and Stats porting documentation.
@@ -97,6 +98,7 @@ This is an alpha version! The changes listed here are not final.
 - Dashboard: Fix global error handling for widgets.
 - Dashboard: Load WordPress build polyfills so the dashboard can run without the Gutenberg plugin.
 - Drop the unsupported `focusable` prop on `@wordpress/ui` `Tabs.Panel` (not a valid prop; was a no-op). Aligns with the `@wordpress/ui` 0.15 API. Panels already gate their content on the active section.
+- Email stats: match the real WordPress.com API shapes — opens/clicks timelines carry a labeled hourly `hour` column and no `unique_opens_count`, the emails summary always requests `period=alltime`, and the summary leaderboard ranks by opens.
 - Fix a missing script data asset in packaged Premium Analytics builds.
 - Fix dashboard widgets rendering "Widget is no longer available" by loading the widget manifest on REST requests, not just admin page loads.
 - Pin @wordpress/widget-dashboard and @wordpress/widget-primitives to an exact version instead of the floating next tag
