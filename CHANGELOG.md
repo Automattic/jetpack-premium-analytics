@@ -19,6 +19,7 @@ This is an alpha version! The changes listed here are not final.
 - Add the Locations widget to the Premium Analytics dashboard: world map + leaderboard showing visitors by country, region, or city, with click-to-drill-down into country regions.
 - Add the Payment status dashboard widget.
 - Add watch mode for local development.
+- Dashboard: Add the date range picker with comparison support, syncing the selected range to URL search params so all widgets pick it up.
 - Data: Add Jetpack Stats proxy fetch utilities.
 - Data: Add Jetpack Stats traffic report normalizers.
 - Expose the analytics initial-full-sync milestone (initial_full_sync_finished) on Jetpack's sync status REST response so the dashboard can read it live on every poll, not just at page load.
