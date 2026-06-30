@@ -27467,6 +27467,11 @@ function sanitizeHtml(html2) {
 var geo_chart_module_default = { "container": "a8ccharts-8hS2IW-container" };
 var DEFAULT_FEATURE_FILL_COLOR = "#ffffff";
 var DEFAULT_BACKGROUND_COLOR = "#ffffff";
+var GEO_CHART_PACKAGES = [
+  "corechart",
+  "controls",
+  "geochart"
+];
 var GeoChartInternal = ({ className, data, width, height, region = "world", resolution = "countries", renderPlaceholder }) => {
   const { getElementStyles, theme: { geoChart: { featureFillColor }, backgroundColor } } = useGlobalChartsContext();
   const loadingPlaceholder = /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Center, {
@@ -27536,6 +27541,7 @@ var GeoChartInternal = ({ className, data, width, height, region = "world", reso
     },
     children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Chart, {
       chartType: "GeoChart",
+      chartPackages: GEO_CHART_PACKAGES,
       width,
       height,
       data: sanitizedData.data,
