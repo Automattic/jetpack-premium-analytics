@@ -44,6 +44,7 @@ This is an alpha version! The changes listed here are not final.
 - Stats: Add app dashboard module settings hooks.
 - Stats: Add app plan usage hook.
 - Stats: Add app publish state hook.
+- Stats: Add app purchases hook.
 - Stats: Add app referrers spam hooks.
 - Stats: Add archives report hook.
 - Stats: Add comment followers report hook.
