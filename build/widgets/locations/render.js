@@ -20597,7 +20597,7 @@ function _extends() {
   }, _extends.apply(null, arguments);
 }
 
-// ../../../node_modules/.pnpm/@wordpress+icons@13.1.0_react@18.3.1/node_modules/@wordpress/icons/build-module/icon/index.mjs
+// ../../../node_modules/.pnpm/@wordpress+icons@13.1.0_@types+react@18.3.28_react@18.3.1/node_modules/@wordpress/icons/build-module/icon/index.mjs
 var import_element = __toESM(require_element(), 1);
 var icon_default = (0, import_element.forwardRef)(
   ({ icon, size = 24, ...props }, ref) => {
@@ -20610,12 +20610,12 @@ var icon_default = (0, import_element.forwardRef)(
   }
 );
 
-// ../../../node_modules/.pnpm/@wordpress+icons@13.1.0_react@18.3.1/node_modules/@wordpress/icons/build-module/library/caution-filled.mjs
+// ../../../node_modules/.pnpm/@wordpress+icons@13.1.0_@types+react@18.3.28_react@18.3.1/node_modules/@wordpress/icons/build-module/library/caution-filled.mjs
 var import_primitives = __toESM(require_primitives(), 1);
 var import_jsx_runtime144 = __toESM(require_jsx_runtime(), 1);
 var caution_filled_default = /* @__PURE__ */ (0, import_jsx_runtime144.jsx)(import_primitives.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", children: /* @__PURE__ */ (0, import_jsx_runtime144.jsx)(import_primitives.Path, { d: "M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM12.75 8V13H11.25V8H12.75ZM12.75 14.5V16H11.25V14.5H12.75Z" }) });
 
-// ../../../node_modules/.pnpm/@wordpress+icons@13.1.0_react@18.3.1/node_modules/@wordpress/icons/build-module/library/chevron-right.mjs
+// ../../../node_modules/.pnpm/@wordpress+icons@13.1.0_@types+react@18.3.28_react@18.3.1/node_modules/@wordpress/icons/build-module/library/chevron-right.mjs
 var import_primitives2 = __toESM(require_primitives(), 1);
 var import_jsx_runtime145 = __toESM(require_jsx_runtime(), 1);
 var chevron_right_default = /* @__PURE__ */ (0, import_jsx_runtime145.jsx)(import_primitives2.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", children: /* @__PURE__ */ (0, import_jsx_runtime145.jsx)(import_primitives2.Path, { d: "M10.6 6L9.4 7l4.6 5-4.6 5 1.2 1 5.4-6z" }) });
@@ -26904,21 +26904,21 @@ var THEME = {
   accentDarker10: `var(--wp-components-color-accent-darker-10, var(--wp-admin-theme-color-darker-10, #2145e6))`,
   accentDarker20: `var(--wp-components-color-accent-darker-20, var(--wp-admin-theme-color-darker-20, #183ad6))`,
   /** Used when placing text on the accent color. */
-  accentInverted: `var(--wp-components-color-accent-inverted, ${white})`,
-  background: `var(--wp-components-color-background, ${white})`,
-  foreground: `var(--wp-components-color-foreground, ${GRAY[900]})`,
+  accentInverted: `var(--wp-components-color-accent-inverted, var(--wpds-color-foreground-interactive-brand-strong, #fff))`,
+  background: `var(--wp-components-color-background, var(--wpds-color-background-surface-neutral-strong, #fff))`,
+  foreground: `var(--wp-components-color-foreground, var(--wpds-color-foreground-content-neutral, #1e1e1e))`,
   /** Used when placing text on the foreground color. */
-  foregroundInverted: `var(--wp-components-color-foreground-inverted, ${white})`,
+  foregroundInverted: `var(--wp-components-color-foreground-inverted, var(--wpds-color-background-surface-neutral, #fcfcfc))`,
   gray: {
     /** @deprecated Use `COLORS.theme.foreground` instead. */
-    900: `var(--wp-components-color-foreground, ${GRAY[900]})`,
-    800: `var(--wp-components-color-gray-800, ${GRAY[800]})`,
-    700: `var(--wp-components-color-gray-700, ${GRAY[700]})`,
-    600: `var(--wp-components-color-gray-600, ${GRAY[600]})`,
-    400: `var(--wp-components-color-gray-400, ${GRAY[400]})`,
-    300: `var(--wp-components-color-gray-300, ${GRAY[300]})`,
-    200: `var(--wp-components-color-gray-200, ${GRAY[200]})`,
-    100: `var(--wp-components-color-gray-100, ${GRAY[100]})`
+    900: `var(--wp-components-color-foreground, var(--wpds-color-foreground-content-neutral, #1e1e1e))`,
+    800: `var(--wp-components-color-gray-800, var(--wpds-color-foreground-content-neutral, #1e1e1e))`,
+    700: `var(--wp-components-color-gray-700, var(--wpds-color-foreground-content-neutral-weak, #707070))`,
+    600: `var(--wp-components-color-gray-600, var(--wpds-color-stroke-interactive-neutral, #8d8d8d))`,
+    400: `var(--wp-components-color-gray-400, var(--wpds-color-stroke-interactive-neutral, #8d8d8d))`,
+    300: `var(--wp-components-color-gray-300, var(--wpds-color-stroke-surface-neutral, #dbdbdb))`,
+    200: `var(--wp-components-color-gray-200, var(--wpds-color-stroke-surface-neutral, #dbdbdb))`,
+    100: `var(--wp-components-color-gray-100, var(--wpds-color-background-surface-neutral, #fcfcfc))`
   }
 };
 var UI = {
@@ -28069,7 +28069,7 @@ function formatMetricValue2(value, type = "number", {
   }
 }
 
-// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/error.js
+// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/error.js
 var set2;
 if (true) {
   set2 = /* @__PURE__ */ new Set();
@@ -28084,13 +28084,13 @@ function error(...messages) {
   }
 }
 
-// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/safeReact.js
+// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/safeReact.js
 var React5 = __toESM(require_react(), 1);
 var SafeReact = {
   ...React5
 };
 
-// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/useRefWithInit.js
+// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/useRefWithInit.js
 var React6 = __toESM(require_react(), 1);
 var UNINITIALIZED2 = {};
 function useRefWithInit2(init, initArg) {
@@ -28101,7 +28101,7 @@ function useRefWithInit2(init, initArg) {
   return ref;
 }
 
-// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/useStableCallback.js
+// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/useStableCallback.js
 var useInsertionEffect3 = SafeReact.useInsertionEffect;
 var useSafeInsertionEffect = (
   // React 17 doesn't have useInsertionEffect.
@@ -28134,13 +28134,13 @@ function assertNotCalled() {
   }
 }
 
-// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/useIsoLayoutEffect.js
+// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/useIsoLayoutEffect.js
 var React7 = __toESM(require_react(), 1);
 var noop2 = () => {
 };
 var useIsoLayoutEffect = typeof document !== "undefined" ? React7.useLayoutEffect : noop2;
 
-// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/warn.js
+// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/warn.js
 var set3;
 if (true) {
   set3 = /* @__PURE__ */ new Set();
@@ -28155,10 +28155,10 @@ function warn2(...messages) {
   }
 }
 
-// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/internals/useRenderElement.js
+// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/internals/useRenderElement.js
 var React10 = __toESM(require_react(), 1);
 
-// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/useMergedRefs.js
+// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/useMergedRefs.js
 function useMergedRefs2(a, b, c, d) {
   const forkRef = useRefWithInit2(createForkRef2).current;
   if (didChange2(forkRef, a, b, c, d)) {
@@ -28247,17 +28247,17 @@ function update4(forkRef, refs) {
   };
 }
 
-// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/getReactElementRef.js
+// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/getReactElementRef.js
 var React9 = __toESM(require_react(), 1);
 
-// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/reactVersion.js
+// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/reactVersion.js
 var React8 = __toESM(require_react(), 1);
 var majorVersion2 = parseInt(React8.version, 10);
 function isReactVersionAtLeast2(reactVersionToCheck) {
   return majorVersion2 >= reactVersionToCheck;
 }
 
-// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/getReactElementRef.js
+// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/getReactElementRef.js
 function getReactElementRef2(element) {
   if (!/* @__PURE__ */ React9.isValidElement(element)) {
     return null;
@@ -28267,7 +28267,7 @@ function getReactElementRef2(element) {
   return (isReactVersionAtLeast2(19) ? propsWithRef?.ref : reactElement.ref) ?? null;
 }
 
-// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/mergeObjects.js
+// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/mergeObjects.js
 function mergeObjects2(a, b) {
   if (a && !b) {
     return a;
@@ -28284,11 +28284,11 @@ function mergeObjects2(a, b) {
   return void 0;
 }
 
-// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/empty.js
+// ../../../node_modules/.pnpm/@base-ui+utils@0.2.9_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/esm/empty.js
 var EMPTY_ARRAY = Object.freeze([]);
 var EMPTY_OBJECT2 = Object.freeze({});
 
-// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/internals/getStateAttributesProps.js
+// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/internals/getStateAttributesProps.js
 function getStateAttributesProps2(state, customMapping) {
   const props = {};
   for (const key in state) {
@@ -28309,17 +28309,17 @@ function getStateAttributesProps2(state, customMapping) {
   return props;
 }
 
-// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/utils/resolveClassName.js
+// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/utils/resolveClassName.js
 function resolveClassName2(className, state) {
   return typeof className === "function" ? className(state) : className;
 }
 
-// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/utils/resolveStyle.js
+// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/utils/resolveStyle.js
 function resolveStyle2(style, state) {
   return typeof style === "function" ? style(state) : style;
 }
 
-// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/merge-props/mergeProps.js
+// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/merge-props/mergeProps.js
 var EMPTY_PROPS2 = {};
 function mergeProps2(a, b, c, d, e) {
   if (!c && !d && !e && !a) {
@@ -28474,7 +28474,7 @@ function isSyntheticEvent2(event) {
   return event != null && typeof event === "object" && "nativeEvent" in event;
 }
 
-// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/internals/useRenderElement.js
+// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/internals/useRenderElement.js
 var import_react72 = __toESM(require_react(), 1);
 function useRenderElement2(element, componentProps, params = {}) {
   const renderProp = componentProps.render;
@@ -28592,7 +28592,7 @@ function renderTag2(Tag, props) {
   return /* @__PURE__ */ React10.createElement(Tag, props);
 }
 
-// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/internals/use-button/useButton.js
+// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/internals/use-button/useButton.js
 var React13 = __toESM(require_react(), 1);
 
 // ../../../node_modules/.pnpm/@floating-ui+utils@0.2.11/node_modules/@floating-ui/utils/dist/floating-ui.utils.dom.mjs
@@ -28610,7 +28610,7 @@ function isHTMLElement(value) {
   return value instanceof HTMLElement || value instanceof getWindow(value).HTMLElement;
 }
 
-// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/internals/composite/root/CompositeRootContext.js
+// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/internals/composite/root/CompositeRootContext.js
 var React11 = __toESM(require_react(), 1);
 var CompositeRootContext = /* @__PURE__ */ React11.createContext(void 0);
 if (true) CompositeRootContext.displayName = "CompositeRootContext";
@@ -28622,7 +28622,7 @@ function useCompositeRootContext(optional = false) {
   return context;
 }
 
-// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/utils/useFocusableWhenDisabled.js
+// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/utils/useFocusableWhenDisabled.js
 var React12 = __toESM(require_react(), 1);
 function useFocusableWhenDisabled(parameters) {
   const {
@@ -28662,7 +28662,7 @@ function useFocusableWhenDisabled(parameters) {
   };
 }
 
-// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/internals/use-button/useButton.js
+// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/internals/use-button/useButton.js
 function useButton(parameters = {}) {
   const {
     disabled = false,
@@ -28821,7 +28821,7 @@ function isValidLinkElement(elem) {
   return Boolean(elem?.tagName === "A" && elem?.href);
 }
 
-// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/button/Button.js
+// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/button/Button.js
 var React14 = __toESM(require_react(), 1);
 var Button = /* @__PURE__ */ React14.forwardRef(function Button2(componentProps, forwardedRef) {
   const {
@@ -28852,12 +28852,12 @@ var Button = /* @__PURE__ */ React14.forwardRef(function Button2(componentProps,
 });
 if (true) Button.displayName = "Button";
 
-// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/use-render/useRender.js
+// ../../../node_modules/.pnpm/@base-ui+react@1.5.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/esm/use-render/useRender.js
 function useRender2(params) {
   return useRenderElement2(params.defaultTagName ?? "div", params, params);
 }
 
-// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/text/text.mjs
+// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/text/text.mjs
 var import_element2 = __toESM(require_element(), 1);
 var STYLE_HASH_ATTRIBUTE2 = "data-wp-hash";
 function getRuntime2() {
@@ -28965,7 +28965,7 @@ var Text3 = (0, import_element2.forwardRef)(function Text22({ variant = "body-md
   return element;
 });
 
-// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/button/button.mjs
+// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/button/button.mjs
 var import_element3 = __toESM(require_element(), 1);
 var import_i18n2 = __toESM(require_i18n(), 1);
 var import_jsx_runtime147 = __toESM(require_jsx_runtime(), 1);
@@ -29109,10 +29109,10 @@ var Button3 = (0, import_element3.forwardRef)(
   }
 );
 
-// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/button/icon.mjs
+// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/button/icon.mjs
 var import_element5 = __toESM(require_element(), 1);
 
-// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/icon/icon.mjs
+// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/icon/icon.mjs
 var import_element4 = __toESM(require_element(), 1);
 var import_primitives3 = __toESM(require_primitives(), 1);
 var import_jsx_runtime148 = __toESM(require_jsx_runtime(), 1);
@@ -29130,7 +29130,7 @@ var Icon = (0, import_element4.forwardRef)(function Icon2({ icon, size = 24, ...
   );
 });
 
-// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/button/icon.mjs
+// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/button/icon.mjs
 var import_jsx_runtime149 = __toESM(require_jsx_runtime(), 1);
 var ButtonIcon = (0, import_element5.forwardRef)(
   function ButtonIcon2({ icon, ...props }, ref) {
@@ -29147,7 +29147,7 @@ var ButtonIcon = (0, import_element5.forwardRef)(
   }
 );
 
-// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/button/index.mjs
+// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/button/index.mjs
 ButtonIcon.displayName = "Button.Icon";
 var Button4 = Object.assign(Button3, {
   /**
@@ -29157,7 +29157,7 @@ var Button4 = Object.assign(Button3, {
   Icon: ButtonIcon
 });
 
-// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/stack/stack.mjs
+// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/stack/stack.mjs
 var import_element6 = __toESM(require_element(), 1);
 var STYLE_HASH_ATTRIBUTE4 = "data-wp-hash";
 function getRuntime4() {
@@ -29268,7 +29268,7 @@ var Stack3 = (0, import_element6.forwardRef)(function Stack23({ direction, gap, 
   return element;
 });
 
-// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/index.mjs
+// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/index.mjs
 var empty_state_exports = {};
 __export(empty_state_exports, {
   Actions: () => Actions,
@@ -29279,7 +29279,7 @@ __export(empty_state_exports, {
   Visual: () => Visual
 });
 
-// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/root.mjs
+// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/root.mjs
 var import_element7 = __toESM(require_element(), 1);
 var STYLE_HASH_ATTRIBUTE5 = "data-wp-hash";
 function getRuntime5() {
@@ -29378,7 +29378,7 @@ var Root = (0, import_element7.forwardRef)(
   }
 );
 
-// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/visual.mjs
+// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/visual.mjs
 var import_element8 = __toESM(require_element(), 1);
 var STYLE_HASH_ATTRIBUTE6 = "data-wp-hash";
 function getRuntime6() {
@@ -29477,7 +29477,7 @@ var Visual = (0, import_element8.forwardRef)(
   }
 );
 
-// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/icon.mjs
+// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/icon.mjs
 var import_element9 = __toESM(require_element(), 1);
 var import_jsx_runtime150 = __toESM(require_jsx_runtime(), 1);
 var STYLE_HASH_ATTRIBUTE7 = "data-wp-hash";
@@ -29578,7 +29578,7 @@ var Icon3 = (0, import_element9.forwardRef)(
   }
 );
 
-// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/title.mjs
+// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/title.mjs
 var import_element10 = __toESM(require_element(), 1);
 var import_jsx_runtime151 = __toESM(require_jsx_runtime(), 1);
 var STYLE_HASH_ATTRIBUTE8 = "data-wp-hash";
@@ -29682,7 +29682,7 @@ var Title = (0, import_element10.forwardRef)(
   }
 );
 
-// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/description.mjs
+// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/description.mjs
 var import_element11 = __toESM(require_element(), 1);
 var import_jsx_runtime152 = __toESM(require_jsx_runtime(), 1);
 var STYLE_HASH_ATTRIBUTE9 = "data-wp-hash";
@@ -29784,7 +29784,7 @@ var Description = (0, import_element11.forwardRef)(function EmptyStateDescriptio
   );
 });
 
-// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/actions.mjs
+// ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/actions.mjs
 var import_element12 = __toESM(require_element(), 1);
 var STYLE_HASH_ATTRIBUTE10 = "data-wp-hash";
 function getRuntime10() {
@@ -30071,7 +30071,7 @@ function useChartTheme() {
       leaderboardChart: {
         rowGap: 12,
         columnGap: 4,
-        labelSpacing: 1.5,
+        labelSpacing: "xs",
         barBorderRadius: "var(--wpds-border-radius-md)",
         deltaColors: [
           "var(--wpds-color-fg-content-error-weak)",
