@@ -29973,6 +29973,14 @@ var COLOR_PRIMARY = COLOR_BLUEBERRY;
 var COLOR_SECONDARY = COLOR_BLUE_30;
 var WOO_COLORS = [COLOR_PRIMARY, COLOR_SECONDARY, COLOR_PURPLE_30, "#7B90FF", "#EB6594"];
 
+// packages/widgets-toolkit/src/helpers/calculate-delta.ts
+function calculateDelta(currentValue, previousValue) {
+  if (previousValue === 0) {
+    return currentValue > 0 ? 100 : 0;
+  }
+  return (currentValue - previousValue) / previousValue * 100;
+}
+
 // packages/widgets-toolkit/src/helpers/flag-url.ts
 function flagUrl(countryCode) {
   if (!countryCode || countryCode.length !== 2) {
@@ -30166,6 +30174,21 @@ function ChartEmptyState({
   ] });
 }
 
+// packages/widgets-toolkit/src/components/widget-loading-overlay/widget-loading-overlay.tsx
+var import_components = __toESM(require_components(), 1);
+
+// packages/widgets-toolkit/src/components/widget-loading-overlay/widget-loading-overlay.module.scss
+if (typeof process === "undefined" || true) {
+  registerStyle11("17458c14c3", "._72f4bedabdb649b6__overlay{background:color-mix(in sRGB,var(--wpds-color-bg-surface-neutral-strong,#fff) 60%,transparent);height:100%;inset:0;position:absolute;z-index:1}");
+}
+var widget_loading_overlay_module_default = { "overlay": "_72f4bedabdb649b6__overlay" };
+
+// packages/widgets-toolkit/src/components/widget-loading-overlay/widget-loading-overlay.tsx
+var import_jsx_runtime155 = __toESM(require_jsx_runtime(), 1);
+function WidgetLoadingOverlay() {
+  return /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(Stack3, { justify: "center", align: "center", className: widget_loading_overlay_module_default.overlay, children: /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(import_components.Spinner, {}) });
+}
+
 // packages/widgets-toolkit/src/components/chart-leaderboard/leaderboard-chart.tsx
 var import_react81 = __toESM(require_react(), 1);
 
@@ -30176,7 +30199,7 @@ if (typeof process === "undefined" || true) {
 var leaderboard_chart_module_default2 = { "container": "_4de259f021560c42__container", "chart": "_311767af7aa356a1__chart", "legend": "c706b38c73334d9a__legend", "legendItem": "c99fd9b4acf0373b__legendItem", "legendLabel": "_5d0d85d035d38904__legendLabel", "emptyState": "_678f00a756d1b06a__emptyState", "emptyStateIcon": "f8e3e1d92ab51fc2__emptyStateIcon", "emptyStateText": "_6a95991f4b350a0a__emptyStateText" };
 
 // packages/widgets-toolkit/src/components/chart-leaderboard/leaderboard-chart.tsx
-var import_jsx_runtime155 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime156 = __toESM(require_jsx_runtime(), 1);
 function LeaderboardChart2({
   className,
   data,
@@ -30218,16 +30241,16 @@ function LeaderboardChart2({
   }, [theme, style]);
   const isEmptyData = !data || data.length === 0;
   if (isEmptyData) {
-    return /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(ChartEmptyState, { icon: emptyStateIcon, text: emptyStateText });
+    return /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(ChartEmptyState, { icon: emptyStateIcon, text: emptyStateText });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(
     Stack3,
     {
       direction: "column",
       justify: "space-between",
       gap: "lg",
       className: clsx_default(leaderboard_chart_module_default2.container, className),
-      children: /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(
         LeaderboardChart,
         {
           data,
@@ -30240,7 +30263,7 @@ function LeaderboardChart2({
           showLegend: false,
           style: chartStyle,
           className: leaderboard_chart_module_default2.chart,
-          children: showLegend && /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(
+          children: showLegend && /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(
             Legend2,
             {
               className: leaderboard_chart_module_default2.legend,
@@ -30270,7 +30293,7 @@ if (typeof process === "undefined" || true) {
 var leaderboard_label_module_default = { "container": "_06467ae0c6ce00b4__container", "label": "_11fbc8dfc8309afa__label", "labelImage": "af5dff3e97b5000b__labelImage" };
 
 // packages/widgets-toolkit/src/components/chart-leaderboard/leaderboard-label.tsx
-var import_jsx_runtime156 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime157 = __toESM(require_jsx_runtime(), 1);
 var DEFAULT_IMAGE_URL = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"><rect width="50" height="50" fill="%23e5e7eb"/></svg>';
 function LeaderboardLabel({
   label,
@@ -30279,8 +30302,8 @@ function LeaderboardLabel({
   imageClassName
 }) {
   const finalImageUrl = imageUrl || DEFAULT_IMAGE_URL;
-  return /* @__PURE__ */ (0, import_jsx_runtime156.jsxs)(Stack3, { direction: "row", gap: "sm", align: "center", className: leaderboard_label_module_default.container, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime157.jsxs)(Stack3, { direction: "row", gap: "sm", align: "center", className: leaderboard_label_module_default.container, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(
       "img",
       {
         src: finalImageUrl,
@@ -30291,18 +30314,18 @@ function LeaderboardLabel({
         className: clsx_default(leaderboard_label_module_default.labelImage, imageClassName)
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime156.jsx)("span", { className: leaderboard_label_module_default.label, children: label })
+    /* @__PURE__ */ (0, import_jsx_runtime157.jsx)("span", { className: leaderboard_label_module_default.label, children: label })
   ] });
 }
 
 // widgets/locations/render.tsx
-var import_components2 = __toESM(require_components(), 1);
+var import_components3 = __toESM(require_components(), 1);
 var import_element13 = __toESM(require_element(), 1);
 var import_i18n4 = __toESM(require_i18n(), 1);
 
 // widgets/locations/style.module.css
 if (typeof process === "undefined" || true) {
-  registerStyle11("e29f00e9c6", "._0a1a11a4aeb90d81__root{container-type:inline-size;display:flex;flex-direction:column;height:100%;overflow:hidden}._11a3f71eda80f478__placeholder{color:var(--wpds-color-fg-content-neutral-weak,#707070);min-height:200px}._5f4abbb573cb3124__widgetHeader{padding:var(--wpds-dimension-padding-md,12px) var(--wpds-dimension-padding-lg,16px)}.ec5b64c4d9a4d95c__breadcrumb{color:inherit;font-size:13px;font-weight:500;min-height:32px}.ec5b64c4d9a4d95c__breadcrumb *{font-weight:inherit}._8d5801f51c4092fc__breadcrumbLink{appearance:none;background:none;border:none;color:inherit;cursor:pointer;font:inherit;padding:0;text-decoration:none}._8d5801f51c4092fc__breadcrumbLink:focus,._8d5801f51c4092fc__breadcrumbLink:hover{color:var(--wp-admin-theme-color);text-decoration:none}._0ce452a220bd56f7__breadcrumbSeparator{color:var(--wpds-color-fg-content-neutral-weak,#707070)}._61bf487ae6b6aa56__modeSelect{flex-shrink:0}._3cdce4de6ad59fb7__content{display:flex;flex:1 1 0;flex-direction:column;min-height:0;padding:var(--wpds-dimension-padding-lg,16px)}.bd05d93f7b81dacd__chartArea{align-items:stretch;column-gap:var(--wpds-dimension-gap-lg,16px);display:grid;flex:1 1 0;grid-template-columns:280fr 400fr;grid-template-rows:minmax(0,1fr);min-height:0;min-width:0}.d38d92a9738048cc__leaderboard{align-self:start;min-height:0;min-width:0;overflow:hidden}._49ab3dafdeab3d2f__noMap{grid-template-columns:1fr}._24dc3dd5a6ea0e8c__geoChart{align-items:center;display:flex;height:100%;min-width:0;overflow:hidden}@container (max-width: 479px){._24dc3dd5a6ea0e8c__geoChart{display:none}.bd05d93f7b81dacd__chartArea{grid-template-columns:1fr}}._833ed1fc85dadb0c__leaderboardImage{border-radius:var(--wpds-border-radius-sm,2px);height:20px}[inert]:not([inert=true]) ._0a1a11a4aeb90d81__root{aspect-ratio:4/3;height:auto;overflow:hidden}[inert] .d38d92a9738048cc__leaderboard ._833ed1fc85dadb0c__leaderboardImage{height:20px;object-fit:fill;width:auto}");
+  registerStyle11("b90eed6289", "._0a1a11a4aeb90d81__root{container-type:inline-size;display:flex;flex-direction:column;height:100%;overflow:hidden}._11a3f71eda80f478__placeholder{color:var(--wpds-color-fg-content-neutral-weak,#707070);flex:1 1 0;inline-size:100%;min-block-size:0;min-height:200px;text-align:center}._5f4abbb573cb3124__widgetHeader{min-height:32px;padding:var(--wpds-dimension-padding-md,12px) var(--wpds-dimension-padding-lg,16px)}.ec5b64c4d9a4d95c__breadcrumb{color:inherit;font-size:13px;font-weight:500;min-height:32px}.ec5b64c4d9a4d95c__breadcrumb *{font-weight:inherit}._8d5801f51c4092fc__breadcrumbLink{appearance:none;background:none;border:none;color:inherit;cursor:pointer;font:inherit;padding:0;text-decoration:none}._8d5801f51c4092fc__breadcrumbLink:focus,._8d5801f51c4092fc__breadcrumbLink:hover{color:var(--wp-admin-theme-color);text-decoration:none}._0ce452a220bd56f7__breadcrumbSeparator{color:var(--wpds-color-fg-content-neutral-weak,#707070)}._61bf487ae6b6aa56__modeSelect{flex-shrink:0}._3cdce4de6ad59fb7__content{display:flex;flex:1 1 0;flex-direction:column;min-height:0;padding:var(--wpds-dimension-padding-lg,16px);position:relative}.bd05d93f7b81dacd__chartArea{align-items:stretch;column-gap:var(--wpds-dimension-gap-lg,16px);display:grid;flex:1 1 0;grid-template-columns:280fr 400fr;grid-template-rows:minmax(0,1fr);min-height:0;min-width:0}.d38d92a9738048cc__leaderboard{align-self:start;min-height:0;min-width:0;overflow:hidden}._49ab3dafdeab3d2f__noMap{grid-template-columns:1fr}._24dc3dd5a6ea0e8c__geoChart{align-items:center;display:flex;height:100%;min-width:0;overflow:hidden}@container (max-width: 479px){._24dc3dd5a6ea0e8c__geoChart{display:none}.bd05d93f7b81dacd__chartArea{grid-template-columns:1fr}}._833ed1fc85dadb0c__leaderboardImage{border-radius:var(--wpds-border-radius-sm,2px);height:20px}[inert]:not([inert=true]) ._0a1a11a4aeb90d81__root{aspect-ratio:4/3;height:auto;overflow:hidden}[inert] .d38d92a9738048cc__leaderboard ._833ed1fc85dadb0c__leaderboardImage{height:20px;object-fit:fill;width:auto}");
 }
 var style_default11 = { "root": "_0a1a11a4aeb90d81__root", "placeholder": "_11a3f71eda80f478__placeholder", "widgetHeader": "_5f4abbb573cb3124__widgetHeader", "breadcrumb": "ec5b64c4d9a4d95c__breadcrumb", "breadcrumbLink": "_8d5801f51c4092fc__breadcrumbLink", "breadcrumbSeparator": "_0ce452a220bd56f7__breadcrumbSeparator", "modeSelect": "_61bf487ae6b6aa56__modeSelect", "content": "_3cdce4de6ad59fb7__content", "chartArea": "bd05d93f7b81dacd__chartArea", "leaderboard": "d38d92a9738048cc__leaderboard", "noMap": "_49ab3dafdeab3d2f__noMap", "geoChart": "_24dc3dd5a6ea0e8c__geoChart", "leaderboardImage": "_833ed1fc85dadb0c__leaderboardImage" };
 
@@ -30312,10 +30335,13 @@ function toLocationView(item) {
   if (!item.countryCode) {
     return null;
   }
+  const label = typeof item.label === "string" ? item.label : String(item.label);
+  const countryFull = item.countryFull ?? item.countryCode;
   return {
-    label: typeof item.label === "string" ? item.label : String(item.label),
+    key: `${item.countryCode}:${label}`,
+    label,
     countryCode: item.countryCode,
-    countryFull: item.countryFull ?? item.countryCode,
+    countryFull,
     value: item.views,
     region: item.region ?? ""
   };
@@ -30332,24 +30358,28 @@ function useLocationViews({
     max: max2,
     ...countryFilter ? { filter_by_country: countryFilter } : {}
   };
-  const { primary } = useStatsLocations(statsParams);
-  const isLoading = primary.isLoading;
-  const isError = primary.isError;
+  const { primary, comparison, hasComparison, isLoading, isFetching, hasData, isError } = useStatsLocations(statsParams);
   const report = primary.data;
+  const comparisonReport = comparison.data;
   const rawItems = report?.data?.[0]?.items ?? [];
+  const rawComparisonItems = comparisonReport?.data?.[0]?.items ?? [];
   const items = rawItems.map(toLocationView).filter((v) => v !== null).slice(0, max2 > 0 ? max2 : void 0);
+  const comparisonItems = rawComparisonItems.map(toLocationView).filter((v) => v !== null).slice(0, max2 > 0 ? max2 : void 0);
   return {
     data: items,
+    comparisonData: comparisonItems,
+    hasComparison,
     isLoading,
+    isFetching,
+    hasData,
     isError
   };
 }
 
 // widgets/locations/render.tsx
-var import_jsx_runtime157 = __toESM(require_jsx_runtime(), 1);
-function LocationsInner({ attributes }) {
+var import_jsx_runtime158 = __toESM(require_jsx_runtime(), 1);
+function LocationsInner({ max: max2 }) {
   const { reportParams } = useWidgetRootContext();
-  const max2 = attributes?.max ?? 10;
   const [topMode, setTopMode] = (0, import_element13.useState)("country");
   const [selectedCountry, setSelectedCountry] = (0, import_element13.useState)(
     null
@@ -30360,27 +30390,33 @@ function LocationsInner({ attributes }) {
     setSelectedCountry(null);
   }, []);
   const geoMode = selectedCountry ? "region" : topMode;
-  const { data, isLoading, isError } = useLocationViews({
+  const { data, comparisonData, hasComparison, isLoading, isFetching, hasData, isError } = useLocationViews({
     reportParams,
     max: max2,
     geoMode,
     countryFilter: selectedCountry?.code
   });
+  const showLoading = isLoading || isFetching && hasData;
   const geoData = (0, import_element13.useMemo)(() => {
-    const header = [
+    const header2 = [
       geoMode === "region" || geoMode === "city" ? (0, import_i18n4.__)("Location", "jetpack-premium-analytics") : (0, import_i18n4.__)("Country", "jetpack-premium-analytics"),
       (0, import_i18n4.__)("Views", "jetpack-premium-analytics")
     ];
     const rows = data.map((location) => [location.label, location.value]);
-    return [header, ...rows];
+    return [header2, ...rows];
   }, [data, geoMode]);
   const leaderboardData = (0, import_element13.useMemo)(() => {
     const maxValue = Math.max(...data.map((l) => l.value), 0);
+    const maxComparisonValue = Math.max(...comparisonData.map((l) => l.value), 0);
+    const comparisonMap = new Map(
+      comparisonData.map((location) => [location.key, location.value])
+    );
     return data.map((location) => {
       const imageUrl = flagUrl(location.countryCode);
+      const previousValue = hasComparison ? comparisonMap.get(location.key) ?? 0 : 0;
       return {
-        id: location.countryCode + "_" + location.label,
-        label: /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(
+        id: location.key,
+        label: /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
           LeaderboardLabel,
           {
             label: location.label,
@@ -30394,10 +30430,10 @@ function LocationsInner({ attributes }) {
           }
         ),
         currentValue: location.value,
-        previousValue: 0,
+        previousValue,
         currentShare: maxValue > 0 ? location.value / maxValue * 100 : 0,
-        previousShare: 0,
-        delta: 0,
+        previousShare: hasComparison && maxComparisonValue > 0 ? previousValue / maxComparisonValue * 100 : 0,
+        delta: hasComparison ? calculateDelta(location.value, previousValue) : 0,
         // Country mode: click to drill into regions.
         // Region/city mode: rows are not interactive.
         ...geoMode === "country" && location.countryCode && {
@@ -30414,91 +30450,105 @@ function LocationsInner({ attributes }) {
         }
       };
     });
-  }, [data, geoMode]);
-  if (isLoading) {
-    return /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(Stack3, { align: "center", justify: "center", className: clsx_default(style_default11.root, style_default11.placeholder), children: /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(Text3, { children: (0, import_i18n4.__)("Loading locations\u2026", "jetpack-premium-analytics") }) });
+  }, [comparisonData, data, geoMode, hasComparison]);
+  const header = /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)(
+    Stack3,
+    {
+      direction: "row",
+      justify: selectedCountry ? "space-between" : "flex-end",
+      align: "center",
+      className: style_default11.widgetHeader,
+      children: [
+        selectedCountry && /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)(Stack3, { direction: "row", align: "center", gap: "xs", className: style_default11.breadcrumb, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
+            Button4,
+            {
+              variant: "unstyled",
+              onClick: clearSelectedCountry,
+              className: style_default11.breadcrumbLink,
+              children: (0, import_i18n4.__)("Locations", "jetpack-premium-analytics")
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)(import_jsx_runtime158.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(Text3, { className: style_default11.breadcrumbSeparator, children: "/" }),
+            /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(Text3, { children: selectedCountry.name })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
+          import_components3.SelectControl,
+          {
+            __next40pxDefaultSize: true,
+            __nextHasNoMarginBottom: true,
+            label: (0, import_i18n4.__)("View by", "jetpack-premium-analytics"),
+            hideLabelFromVision: true,
+            value: topMode,
+            options: [
+              { label: (0, import_i18n4.__)("Countries", "jetpack-premium-analytics"), value: "country" },
+              { label: (0, import_i18n4.__)("Cities", "jetpack-premium-analytics"), value: "city" }
+            ],
+            onChange: handleModeChange,
+            className: style_default11.modeSelect
+          }
+        )
+      ]
+    }
+  );
+  if (isLoading && data.length === 0) {
+    return /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)(import_jsx_runtime158.Fragment, { children: [
+      header,
+      /* @__PURE__ */ (0, import_jsx_runtime158.jsx)("div", { className: style_default11.content, children: /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(WidgetLoadingOverlay, {}) })
+    ] });
   }
   if (isError) {
-    return /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(Stack3, { align: "center", justify: "center", className: clsx_default(style_default11.root, style_default11.placeholder), children: /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(Text3, { children: (0, import_i18n4.__)("Could not load location data.", "jetpack-premium-analytics") }) });
+    return /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)(import_jsx_runtime158.Fragment, { children: [
+      header,
+      /* @__PURE__ */ (0, import_jsx_runtime158.jsx)("div", { className: style_default11.content, children: /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(Stack3, { align: "center", justify: "center", className: style_default11.placeholder, children: /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(Text3, { children: (0, import_i18n4.__)("Could not load location data.", "jetpack-premium-analytics") }) }) })
+    ] });
   }
   if (!data.length) {
-    return /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(Stack3, { align: "center", justify: "center", className: clsx_default(style_default11.root, style_default11.placeholder), children: /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(Text3, { children: (0, import_i18n4.__)(
-      "Stats on where your visitors are viewing from will appear here.",
-      "jetpack-premium-analytics"
-    ) }) });
+    return /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)(import_jsx_runtime158.Fragment, { children: [
+      header,
+      /* @__PURE__ */ (0, import_jsx_runtime158.jsx)("div", { className: style_default11.content, children: /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(Stack3, { align: "center", justify: "center", className: style_default11.placeholder, children: /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(Text3, { children: (0, import_i18n4.__)(
+        "Stats on where your visitors are viewing from will appear here.",
+        "jetpack-premium-analytics"
+      ) }) }) })
+    ] });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime157.jsxs)(Stack3, { className: style_default11.root, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime157.jsxs)(
-      Stack3,
-      {
-        direction: "row",
-        justify: "space-between",
-        align: "center",
-        className: style_default11.widgetHeader,
-        children: [
-          /* @__PURE__ */ (0, import_jsx_runtime157.jsxs)(Stack3, { direction: "row", align: "center", gap: "xs", className: style_default11.breadcrumb, children: [
-            selectedCountry ? /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(
-              Button4,
-              {
-                variant: "unstyled",
-                onClick: clearSelectedCountry,
-                className: style_default11.breadcrumbLink,
-                children: (0, import_i18n4.__)("Top Locations", "jetpack-premium-analytics")
-              }
-            ) : /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(Text3, { children: (0, import_i18n4.__)("Top Locations", "jetpack-premium-analytics") }),
-            selectedCountry && /* @__PURE__ */ (0, import_jsx_runtime157.jsxs)(import_jsx_runtime157.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(Text3, { className: style_default11.breadcrumbSeparator, children: "/" }),
-              /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(Text3, { children: selectedCountry.name })
-            ] })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(
-            import_components2.SelectControl,
-            {
-              __next40pxDefaultSize: true,
-              __nextHasNoMarginBottom: true,
-              label: (0, import_i18n4.__)("View by", "jetpack-premium-analytics"),
-              hideLabelFromVision: true,
-              value: topMode,
-              options: [
-                { label: (0, import_i18n4.__)("Countries", "jetpack-premium-analytics"), value: "country" },
-                { label: (0, import_i18n4.__)("Cities", "jetpack-premium-analytics"), value: "city" }
-              ],
-              onChange: handleModeChange,
-              className: style_default11.modeSelect
-            }
-          )
-        ]
-      }
-    ),
-    /* @__PURE__ */ (0, import_jsx_runtime157.jsx)("div", { className: style_default11.content, children: /* @__PURE__ */ (0, import_jsx_runtime157.jsxs)("div", { className: clsx_default(style_default11.chartArea, geoMode === "city" && style_default11.noMap), children: [
-      /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(
-        LeaderboardChart2,
-        {
-          data: leaderboardData,
-          withOverlayLabel: true,
-          withComparison: false,
-          showLegend: false,
-          dataFormat: {
-            type: "number",
-            options: { useMultipliers: true, decimals: 0 }
-          },
-          className: style_default11.leaderboard
-        }
-      ),
-      geoMode !== "city" && /* @__PURE__ */ (0, import_jsx_runtime157.jsx)("div", { className: style_default11.geoChart, children: /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(
-        GeoChartResponsive,
-        {
-          data: geoData,
-          resizeDebounceTime: 100,
-          region: selectedCountry?.code ?? "world",
-          resolution: selectedCountry ? "provinces" : "countries"
-        }
-      ) })
-    ] }) })
+  return /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)(import_jsx_runtime158.Fragment, { children: [
+    header,
+    /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)("div", { className: style_default11.content, children: [
+      showLoading && /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(WidgetLoadingOverlay, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)("div", { className: clsx_default(style_default11.chartArea, geoMode === "city" && style_default11.noMap), children: [
+        /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
+          LeaderboardChart2,
+          {
+            data: leaderboardData,
+            withOverlayLabel: true,
+            withComparison: hasComparison,
+            showLegend: false,
+            dataFormat: {
+              type: "number",
+              options: { useMultipliers: true, decimals: 0 }
+            },
+            className: style_default11.leaderboard
+          }
+        ),
+        geoMode !== "city" && /* @__PURE__ */ (0, import_jsx_runtime158.jsx)("div", { className: style_default11.geoChart, children: /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
+          GeoChartResponsive,
+          {
+            data: geoData,
+            resizeDebounceTime: 100,
+            region: selectedCountry?.code ?? "world",
+            resolution: selectedCountry ? "provinces" : "countries"
+          }
+        ) })
+      ] })
+    ] })
   ] });
 }
-function Locations({ attributes }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(WidgetRoot, { children: /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(LocationsInner, { attributes }) });
+function Locations({ attributes = {} }) {
+  const max2 = attributes?.max ?? 10;
+  return /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(WidgetRoot, { attributes, children: /* @__PURE__ */ (0, import_jsx_runtime158.jsx)("div", { className: style_default11.root, children: /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(LocationsInner, { max: max2 }) }) });
 }
 export {
   Locations as default

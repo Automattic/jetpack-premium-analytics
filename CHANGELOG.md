@@ -90,6 +90,7 @@ This is an alpha version! The changes listed here are not final.
 - Data layer: route report requests through the jetpack-premium-analytics proxy controller instead of the legacy woocommerce-analytics proxy route.
 - Data layer: Use endpoint-specific typing for dashboard module settings.
 - Internal: No longer require automattic/jetpack-changelogger as a per-project dev dependency.
+- Locations: Align widget Storybook and comparison states with dashboard guidelines.
 - Locations widget: Use the updated view selector size.
 - Render the Premium Analytics admin page inside the native wp-admin shell (sidebar and header) instead of taking over the full screen.
 - Stats: Email time series hooks now return comparison-aware report results and resolve hourly buckets into distinct per-hour intervals.
