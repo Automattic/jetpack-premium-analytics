@@ -14269,7 +14269,7 @@ function BaseAreaStack(_ref2) {
       xAccessor,
       yAccessor,
       curve: _,
-      PathComponent: __5,
+      PathComponent: __6,
       lineProps,
       renderLine: ___,
       ...svgPathProps
@@ -17635,7 +17635,7 @@ function validateTimezone(_hours, minutes) {
 
 // ../../js-packages/charts/dist/index.js
 var import_deepmerge = __toESM(require_cjs(), 1);
-var import_jsx_runtime146 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime147 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+legend@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/legend/esm/legends/Legend/index.js
 var import_classnames51 = __toESM(require_classnames(), 1);
@@ -20620,6 +20620,11 @@ var import_primitives2 = __toESM(require_primitives(), 1);
 var import_jsx_runtime145 = __toESM(require_jsx_runtime(), 1);
 var chevron_right_default = /* @__PURE__ */ (0, import_jsx_runtime145.jsx)(import_primitives2.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", children: /* @__PURE__ */ (0, import_jsx_runtime145.jsx)(import_primitives2.Path, { d: "M10.6 6L9.4 7l4.6 5-4.6 5 1.2 1 5.4-6z" }) });
 
+// ../../../node_modules/.pnpm/@wordpress+icons@13.1.0_@types+react@18.3.28_react@18.3.1/node_modules/@wordpress/icons/build-module/library/map-marker.mjs
+var import_primitives3 = __toESM(require_primitives(), 1);
+var import_jsx_runtime146 = __toESM(require_jsx_runtime(), 1);
+var map_marker_default = /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(import_primitives3.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(import_primitives3.Path, { d: "M12 9c-.8 0-1.5.7-1.5 1.5S11.2 12 12 12s1.5-.7 1.5-1.5S12.8 9 12 9zm0-5c-3.6 0-6.5 2.8-6.5 6.2 0 .8.3 1.8.9 3.1.5 1.1 1.2 2.3 2 3.6.7 1 3 3.8 3.2 3.9l.4.5.4-.5c.2-.2 2.6-2.9 3.2-3.9.8-1.2 1.5-2.5 2-3.6.6-1.3.9-2.3.9-3.1C18.5 6.8 15.6 4 12 4zm4.3 8.7c-.5 1-1.1 2.2-1.9 3.4-.5.7-1.7 2.2-2.4 3-.7-.8-1.9-2.3-2.4-3-.8-1.2-1.4-2.3-1.9-3.3-.6-1.4-.7-2.2-.7-2.5 0-2.6 2.2-4.7 5-4.7s5 2.1 5 4.7c0 .2-.1 1-.7 2.4z" }) });
+
 // ../../js-packages/charts/dist/index.js
 var __create2 = Object.create;
 var __defProp3 = Object.defineProperty;
@@ -21145,9 +21150,9 @@ var GlobalChartsProvider = ({ children, theme }) => {
     getHiddenSeries,
     isColorPaletteResolved
   ]);
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(GlobalChartsContext.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(GlobalChartsContext.Provider, {
     value,
-    children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
       ref: wrapperRef,
       style: { display: "contents" },
       children
@@ -21978,7 +21983,7 @@ var ALIGNMENT_TO_FLEX = {
 var LegendText = ({ text: text2, textOverflow, maxWidth }) => {
   const isEllipsis = maxWidth != null && textOverflow === "ellipsis";
   const [textRef, isTruncated] = useTextTruncation(Boolean(isEllipsis));
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("span", {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("span", {
     ref: textRef,
     className: clsx_default(base_legend_module_default["legend-item-text"], maxWidth != null && base_legend_module_default[`legend-item-text--${textOverflow}`]),
     style: { ...maxWidth != null && {
@@ -22030,11 +22035,11 @@ var BaseLegend = (0, import_react71.forwardRef)(({ items, className, orientation
     };
   }, [interactive, handleLegendClick]);
   const flexAlignment = ALIGNMENT_TO_FLEX[alignment] ?? "center";
-  return render ? render(items) : /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Ordinal, {
+  return render ? render(items) : /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Ordinal, {
     scale: legendScale,
     labelFormat,
     labelTransform,
-    children: (labels) => /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Stack2, {
+    children: (labels) => /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Stack2, {
       ref,
       direction: orientation === "vertical" ? "column" : "row",
       gap: orientation === "vertical" ? "sm" : "lg",
@@ -22049,7 +22054,7 @@ var BaseLegend = (0, import_react71.forwardRef)(({ items, className, orientation
         const handleClick = createClickHandler(label.text);
         const handleKeyDown = createKeyDownHandler(label.text);
         const matchedItem = items[i];
-        return /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(LegendItem, {
+        return /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(LegendItem, {
           className: clsx_default("visx-legend-item", base_legend_module_default["legend-item"], interactive && base_legend_module_default["legend-item--interactive"], !visible && base_legend_module_default["legend-item--inactive"], itemClassName),
           margin: itemMargin,
           flexDirection: orientation === "vertical" && alignment === "end" ? "row-reverse" : itemDirection,
@@ -22059,10 +22064,10 @@ var BaseLegend = (0, import_react71.forwardRef)(({ items, className, orientation
           tabIndex: interactive ? 0 : void 0,
           "aria-pressed": interactive ? visible : void 0,
           "aria-label": interactive ? `${label.text}: ${visible ? "visible" : "hidden"}. Toggle visibility.` : void 0,
-          children: [items[i]?.renderGlyph ? /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("svg", {
+          children: [items[i]?.renderGlyph ? /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("svg", {
             width: items[i]?.glyphSize * 2,
             height: items[i]?.glyphSize * 2,
-            children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Group, { children: items[i]?.renderGlyph({
+            children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Group, { children: items[i]?.renderGlyph({
               key: `legend-glyph-${label.text}`,
               datum: {},
               index: i,
@@ -22071,7 +22076,7 @@ var BaseLegend = (0, import_react71.forwardRef)(({ items, className, orientation
               x: items[i]?.glyphSize,
               y: items[i]?.glyphSize
             }) })
-          }) : /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(LegendShape, {
+          }) : /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(LegendShape, {
             shape,
             height: shapeHeight,
             width: shapeWidth,
@@ -22082,22 +22087,22 @@ var BaseLegend = (0, import_react71.forwardRef)(({ items, className, orientation
             fill,
             size,
             shapeStyle: getShapeStyle
-          }), /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(LegendLabel, {
+          }), /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(LegendLabel, {
             className: clsx_default("visx-legend-label", base_legend_module_default["legend-item-label"], labelClassName),
             style: {
               flex: labelFlex,
               margin: labelMargin,
               ...theme.legend?.labelStyles
             },
-            children: /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(Stack2, {
+            children: /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(Stack2, {
               align: "center",
               gap: "sm",
               justify: labelJustifyContent,
-              children: [/* @__PURE__ */ (0, import_jsx_runtime146.jsx)(LegendText, {
+              children: [/* @__PURE__ */ (0, import_jsx_runtime147.jsx)(LegendText, {
                 text: label.text,
                 textOverflow,
                 maxWidth
-              }), matchedItem?.value != null && matchedItem.value !== "" && /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)("span", {
+              }), matchedItem?.value != null && matchedItem.value !== "" && /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)("span", {
                 className: base_legend_module_default["legend-item-value"],
                 children: ["\xA0", matchedItem.value]
               })]
@@ -22125,7 +22130,7 @@ var Legend2 = (0, import_react71.forwardRef)(({ chartId, items, shape, ...props 
   const resolvedShape = shape ?? (chartData?.chartType ? defaultShapeByChartType[chartData.chartType] : void 0);
   const legendItems = items || contextItems;
   if (!legendItems) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(BaseLegend, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(BaseLegend, {
     ref,
     items: legendItems,
     shape: resolvedShape,
@@ -22210,18 +22215,18 @@ function useChartLegendItems(data, options = {}, legendShape) {
   ]);
 }
 var base_tooltip_module_default = { "tooltip": "a8ccharts--zY0xG-tooltip" };
-var DefaultTooltipContent = ({ data }) => /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(import_jsx_runtime146.Fragment, { children: [
+var DefaultTooltipContent = ({ data }) => /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(import_jsx_runtime147.Fragment, { children: [
   data?.label,
   ": ",
   data?.valueDisplay || formatNumber(data?.value)
 ] });
 var BaseTooltip = ({ data, top, left, component: Component3 = DefaultTooltipContent, children, className, style, renderContainer = true }) => {
-  const content = children || data && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Component3, {
+  const content = children || data && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Component3, {
     data,
     className
   });
   if (!renderContainer) return content;
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
     className: base_tooltip_module_default.tooltip,
     style: {
       top,
@@ -22284,7 +22289,7 @@ var AccessibleTooltip = ({ renderTooltip, selectedIndex, tooltipRef, keyboardFoc
     if (!renderTooltip) return void 0;
     return (params) => {
       const tooltipContent = renderTooltip(params);
-      if (selectedIndex !== void 0) return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+      if (selectedIndex !== void 0) return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
         ref: tooltipRef,
         tabIndex: -1,
         role: "tooltip",
@@ -22292,7 +22297,7 @@ var AccessibleTooltip = ({ renderTooltip, selectedIndex, tooltipRef, keyboardFoc
         className: keyboardFocusedClassName,
         children: tooltipContent
       }, `chart-tooltip-${selectedIndex}`);
-      return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+      return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
         role: "tooltip",
         "aria-live": "polite",
         children: tooltipContent
@@ -22304,7 +22309,7 @@ var AccessibleTooltip = ({ renderTooltip, selectedIndex, tooltipRef, keyboardFoc
     tooltipRef,
     keyboardFocusedClassName
   ]);
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Tooltip2, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Tooltip2, {
     ...props,
     renderTooltip: focusableRenderTooltip
   });
@@ -22361,11 +22366,11 @@ var useKeyboardNavigation = ({ selectedIndex, setSelectedIndex, isNavigating, se
   };
 };
 var ChartSVG = ({ children }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(import_jsx_runtime146.Fragment, { children });
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(import_jsx_runtime147.Fragment, { children });
 };
 ChartSVG.displayName = "Chart.SVG";
 var ChartHTML = ({ children }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(import_jsx_runtime146.Fragment, { children });
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(import_jsx_runtime147.Fragment, { children });
 };
 ChartHTML.displayName = "Chart.HTML";
 function renderLegendSlot(legendChildren, position2) {
@@ -22431,7 +22436,7 @@ var ChartLayout = ({ legendPosition, legendElement, legendChildren, children, tr
     contentHeight,
     isMeasured
   }) : children;
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(Stack2, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(Stack2, {
     direction: "column",
     gap,
     className,
@@ -22443,7 +22448,7 @@ var ChartLayout = ({ legendPosition, legendElement, legendChildren, children, tr
     children: [
       legendPosition === "top" && legendElement,
       renderLegendSlot(legendChildren, "top"),
-      isRenderProp ? /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+      isRenderProp ? /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
         ref: contentRef,
         className: chart_layout_module_default["chart-layout__content"],
         children: renderedChildren
@@ -22457,7 +22462,7 @@ var ChartLayout = ({ legendPosition, legendElement, legendChildren, children, tr
 var DefaultGlyph2 = (props) => {
   const { theme } = (0, import_react71.useContext)(DataContext_default) || {};
   props.position;
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("circle", {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("circle", {
     cx: props.x,
     cy: props.y,
     r: props.size,
@@ -22469,7 +22474,7 @@ var DefaultGlyph2 = (props) => {
   });
 };
 var center_module_default = { "center": "a8ccharts-w3qxlG-center" };
-var Center = (0, import_react71.forwardRef)(({ align = "center", justify = "center", className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Stack2, {
+var Center = (0, import_react71.forwardRef)(({ align = "center", justify = "center", className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Stack2, {
   ref,
   align,
   justify,
@@ -22479,12 +22484,12 @@ var Center = (0, import_react71.forwardRef)(({ align = "center", justify = "cent
 Center.displayName = "Center";
 var svg_empty_state_module_default = { "svg-empty-state": "a8ccharts-udGPVq-svg-empty-state" };
 var SvgEmptyState = ({ x: x2, y: y2, width, height, children }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("foreignObject", {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("foreignObject", {
     x: x2 - width / 2,
     y: y2 - height / 2,
     width,
     height,
-    children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Center, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Center, {
       className: svg_empty_state_module_default["svg-empty-state"],
       children
     })
@@ -22569,14 +22574,14 @@ function withResponsive(WrappedComponent) {
     const effectiveWidth = measuredWidth || width || 0;
     const effectiveHeight = measuredHeight || height || 0;
     const defaultHeight = hasAspectRatio ? "auto" : "100%";
-    return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+    return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
       ref: parentRef,
       className: with_responsive_module_default.container,
       style: {
         width: width ?? "100%",
         height: height ?? defaultHeight
       },
-      children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(WrappedComponent, {
+      children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(WrappedComponent, {
         width: effectiveWidth,
         height: effectiveHeight,
         size,
@@ -22652,7 +22657,7 @@ function ZoomSelectionRect({ drag }) {
   if (!drag || drag.a === drag.b) return null;
   const x2 = Math.min(drag.a, drag.b);
   const w = Math.abs(drag.b - drag.a);
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("rect", {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("rect", {
     className: x_zoom_module_default["x-zoom__selection"],
     x: x2,
     y: margin?.top ?? 0,
@@ -22664,28 +22669,28 @@ function ZoomClip({ active, chartId, children }) {
   const { margin, innerWidth, innerHeight } = (0, import_react71.useContext)(DataContext_default);
   const id = `chart-zoom-clip-${String(chartId ?? "").replace(/[^A-Za-z0-9_-]/g, "")}`;
   const clip = active && (innerWidth ?? 0) > 0 && (innerHeight ?? 0) > 0;
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(import_jsx_runtime146.Fragment, { children: [clip && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("clipPath", {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(import_jsx_runtime147.Fragment, { children: [clip && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("clipPath", {
     id,
-    children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("rect", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("rect", {
       x: margin?.left ?? 0,
       y: margin?.top ?? 0,
       width: innerWidth,
       height: innerHeight
     })
-  }) }), /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("g", {
+  }) }), /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("g", {
     clipPath: clip ? `url(#${id})` : void 0,
     children
   })] });
 }
 function ZoomResetButton({ onClick }) {
   const label = (0, import_i18n.__)("Reset zoom", "jetpack-charts");
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("button", {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("button", {
     type: "button",
     className: x_zoom_module_default["x-zoom__reset"],
     onClick,
     "aria-label": label,
     title: label,
-    children: /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)("svg", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)("svg", {
       className: x_zoom_module_default["x-zoom__reset-icon"],
       viewBox: "0 0 24 24",
       fill: "none",
@@ -22696,18 +22701,18 @@ function ZoomResetButton({ onClick }) {
       "aria-hidden": "true",
       focusable: "false",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("circle", {
+        /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("circle", {
           cx: "10",
           cy: "10",
           r: "6"
         }),
-        /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("line", {
+        /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("line", {
           x1: "15",
           y1: "15",
           x2: "20",
           y2: "20"
         }),
-        /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("line", {
+        /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("line", {
           x1: "7",
           y1: "10",
           x2: "13",
@@ -22806,9 +22811,9 @@ var LineChartAnnotationsOverlay = ({ children }) => {
     width: chartWidth,
     height: chartHeight
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(DataContext_default.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(DataContext_default.Provider, {
     value: dataContextValue,
-    children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("svg", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("svg", {
       width: chartWidth,
       height: chartHeight,
       className: line_chart_module_default["line-chart__annotations-overlay"],
@@ -22816,7 +22821,7 @@ var LineChartAnnotationsOverlay = ({ children }) => {
     })
   });
 };
-var CloseIcon = () => /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("svg", {
+var CloseIcon = () => /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("svg", {
   width: "16",
   height: "16",
   viewBox: "0 0 24 24",
@@ -22827,7 +22832,7 @@ var CloseIcon = () => /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("svg", {
   strokeLinejoin: "round",
   "aria-hidden": "true",
   focusable: "false",
-  children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("path", { d: "M6 6l12 12M18 6L6 18" })
+  children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("path", { d: "M6 6l12 12M18 6L6 18" })
 });
 var LineChartAnnotationLabelWithPopover = ({ title, subtitle, renderLabel, renderLabelPopover }) => {
   const popoverId = (0, import_react71.useId)();
@@ -22855,9 +22860,9 @@ var LineChartAnnotationLabelWithPopover = ({ title, subtitle, renderLabel, rende
     } catch {
     }
   }, [isBrowserSafari]);
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)("div", {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)("div", {
     className: line_chart_module_default["line-chart__annotation-label"],
-    children: [/* @__PURE__ */ (0, import_jsx_runtime146.jsx)("button", {
+    children: [/* @__PURE__ */ (0, import_jsx_runtime147.jsx)("button", {
       ref: buttonRef,
       popovertarget: popoverId,
       className: line_chart_module_default["line-chart__annotation-label-trigger-button"],
@@ -22871,27 +22876,27 @@ var LineChartAnnotationLabelWithPopover = ({ title, subtitle, renderLabel, rende
         title,
         subtitle
       })
-    }), /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+    }), /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
       ref: popoverRef,
       id: popoverId,
       popover: "auto",
       className: clsx_default(line_chart_module_default["line-chart__annotation-label-popover"], isPositioned && line_chart_module_default["line-chart__annotation-label-popover--visible"], isBrowserSafari && line_chart_module_default["line-chart__annotation-label-popover--safari"]),
-      children: /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(Stack2, {
+      children: /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(Stack2, {
         direction: "row",
         align: "flex-start",
         justify: "space-between",
-        children: [/* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+        children: [/* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
           className: line_chart_module_default["line-chart__annotation-label-popover-content"],
           children: renderLabelPopover({
             title,
             subtitle
           })
-        }), /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("button", {
+        }), /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("button", {
           popovertarget: popoverId,
           popovertargetaction: "hide",
           className: line_chart_module_default["line-chart__annotation-label-popover-close-button"],
           "aria-label": (0, import_i18n.__)("Close", "jetpack-charts"),
-          children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(CloseIcon, {})
+          children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(CloseIcon, {})
         })]
       })
     })]
@@ -23033,32 +23038,32 @@ var LineChartAnnotation = ({ datum, title, subtitle, subjectType = "circle", sty
       height: labelHeight
     } : void 0;
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("g", { children: /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(Annotation, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("g", { children: /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(Annotation, {
     x: x2,
     y: y2,
     dx,
     dy,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Connector, { ...styles?.connector }),
-      subjectType === "circle" && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(CircleSubject, { ...styles?.circleSubject }),
-      subjectType === "line-vertical" && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(LineSubject, {
+      /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Connector, { ...styles?.connector }),
+      subjectType === "circle" && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(CircleSubject, { ...styles?.circleSubject }),
+      subjectType === "line-vertical" && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(LineSubject, {
         min: yMax,
         max: yMin,
         ...styles?.lineSubject,
         orientation: "vertical"
       }),
-      subjectType === "line-horizontal" && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(LineSubject, {
+      subjectType === "line-horizontal" && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(LineSubject, {
         min: xMin,
         max: xMax,
         ...styles?.lineSubject,
         orientation: "horizontal"
       }),
-      renderLabel ? /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(HtmlLabel, {
+      renderLabel ? /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(HtmlLabel, {
         ...styles?.label,
         ...labelPosition,
-        children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+        children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
           style: getSafariHTMLLabelPosition(),
-          children: renderLabelPopover ? /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(LineChartAnnotationLabelWithPopover, {
+          children: renderLabelPopover ? /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(LineChartAnnotationLabelWithPopover, {
             title,
             subtitle,
             renderLabel,
@@ -23068,9 +23073,9 @@ var LineChartAnnotation = ({ datum, title, subtitle, subjectType = "circle", sty
             subtitle
           })
         })
-      }) : /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("g", {
+      }) : /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("g", {
         ref: labelRef,
-        children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Label, {
+        children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Label, {
           title,
           subtitle,
           ...styles?.label,
@@ -23125,20 +23130,20 @@ var renderDefaultTooltip = (params) => {
     key,
     value: datum.value
   })).sort((a, b) => b.value - a.value);
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)("div", {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)("div", {
     className: line_chart_module_default["line-chart__tooltip"],
-    children: [/* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+    children: [/* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
       className: line_chart_module_default["line-chart__tooltip-date"],
       children: nearestDatum.date?.toLocaleDateString()
-    }), tooltipPoints.map((point5) => /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(Stack2, {
+    }), tooltipPoints.map((point5) => /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(Stack2, {
       direction: "row",
       align: "center",
       justify: "space-between",
       className: line_chart_module_default["line-chart__tooltip-row"],
-      children: [/* @__PURE__ */ (0, import_jsx_runtime146.jsxs)("span", {
+      children: [/* @__PURE__ */ (0, import_jsx_runtime147.jsxs)("span", {
         className: line_chart_module_default["line-chart__tooltip-label"],
         children: [point5.key, ":"]
-      }), /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("span", {
+      }), /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("span", {
         className: line_chart_module_default["line-chart__tooltip-value"],
         children: formatNumber(point5.value)
       })]
@@ -23329,11 +23334,11 @@ var LineChartInternal = (0, import_react71.forwardRef)(({ data, chartId: provide
     xAccessor: (d) => d?.date,
     yAccessor: (d) => d?.value
   };
-  if (error2) return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+  if (error2) return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
     className: clsx_default("line-chart", line_chart_module_default["line-chart"]),
     children: error2
   });
-  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Legend2, {
+  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Legend2, {
     orientation: legend.orientation ?? "horizontal",
     alignment: legend.alignment ?? "center",
     position: legendPosition,
@@ -23346,14 +23351,14 @@ var LineChartInternal = (0, import_react71.forwardRef)(({ data, chartId: provide
     chartId,
     interactive: legendInteractive
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(SingleChartContext.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(SingleChartContext.Provider, {
     value: {
       chartId,
       chartRef: internalChartRef,
       chartWidth: width,
       chartHeight: measuredChartHeight || 0
     },
-    children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(ChartLayout, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(ChartLayout, {
       legendPosition,
       legendElement,
       legendChildren,
@@ -23367,17 +23372,17 @@ var LineChartInternal = (0, import_react71.forwardRef)(({ data, chartId: provide
       onContentHeightChange: handleContentHeightChange,
       children: ({ contentHeight }) => {
         const chartHeight = contentHeight > 0 ? contentHeight : height;
-        return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+        return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
           role: "grid",
           "aria-label": (0, import_i18n.__)("Line chart", "jetpack-charts"),
           tabIndex: 0,
           onKeyDown: onChartKeyDown,
           onFocus: onChartFocus,
           onBlur: onChartBlur,
-          children: chartHeight > 0 && /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)("div", {
+          children: chartHeight > 0 && /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)("div", {
             ref: chartRef,
             style: { position: "relative" },
-            children: [zoomable && zoom.domain && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(ZoomResetButton, { onClick: zoom.reset }), /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(XYChart, {
+            children: [zoomable && zoom.domain && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(ZoomResetButton, { onClick: zoom.reset }), /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(XYChart, {
               theme,
               width,
               height: chartHeight,
@@ -23393,20 +23398,20 @@ var LineChartInternal = (0, import_react71.forwardRef)(({ data, chartId: provide
               onPointerOut,
               pointerEventsDataKey: "nearest",
               children: [
-                gridVisibility !== "none" && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Grid2, {
+                gridVisibility !== "none" && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Grid2, {
                   columns: false,
                   numTicks: 4
                 }),
-                chartOptions.axis.x.display && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Axis2, { ...chartOptions.axis.x }),
-                chartOptions.axis.y.display && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Axis2, { ...chartOptions.axis.y }),
-                allSeriesHidden ? /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(SvgEmptyState, {
+                chartOptions.axis.x.display && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Axis2, { ...chartOptions.axis.x }),
+                chartOptions.axis.y.display && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Axis2, { ...chartOptions.axis.y }),
+                allSeriesHidden ? /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(SvgEmptyState, {
                   x: width / 2,
                   y: chartHeight / 2,
                   width,
                   height: chartHeight,
                   children: (0, import_i18n.__)("All series are hidden. Click legend items to show data.", "jetpack-charts")
                 }) : null,
-                /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(ZoomClip, {
+                /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(ZoomClip, {
                   active: zoomable && !!zoom.domain,
                   chartId,
                   children: seriesWithVisibility.map(({ series: seriesData, index, isVisible }) => {
@@ -23419,21 +23424,21 @@ var LineChartInternal = (0, import_react71.forwardRef)(({ data, chartId: provide
                       stroke: color2,
                       ...lineStyles
                     };
-                    return /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)("g", { children: [
-                      withGradientFill && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(LinearGradient, {
+                    return /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)("g", { children: [
+                      withGradientFill && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(LinearGradient, {
                         id: `area-gradient-${chartId}-${index + 1}`,
                         from: color2,
                         fromOpacity: 0.4,
                         toOpacity: 0.1,
                         to: providerTheme.backgroundColor,
                         ...seriesData.options?.gradient,
-                        children: seriesData.options?.gradient?.stops?.map((stop2, stopIndex) => /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("stop", {
+                        children: seriesData.options?.gradient?.stops?.map((stop2, stopIndex) => /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("stop", {
                           offset: stop2.offset,
                           stopColor: stop2.color || color2,
                           stopOpacity: stop2.opacity ?? 1
                         }, `${stop2.offset}-${stop2.color || color2}`))
                       }),
-                      /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(AreaSeries, {
+                      /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(AreaSeries, {
                         dataKey: seriesData?.label,
                         data: seriesData.data,
                         ...accessors,
@@ -23442,7 +23447,7 @@ var LineChartInternal = (0, import_react71.forwardRef)(({ data, chartId: provide
                         curve: getCurveType(curveType, smoothing),
                         lineProps
                       }, seriesData?.label),
-                      withStartGlyphs && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(LineChartGlyph, {
+                      withStartGlyphs && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(LineChartGlyph, {
                         index,
                         data: seriesData,
                         color: color2,
@@ -23451,7 +23456,7 @@ var LineChartInternal = (0, import_react71.forwardRef)(({ data, chartId: provide
                         glyphStyle,
                         position: "start"
                       }),
-                      withEndGlyphs && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(LineChartGlyph, {
+                      withEndGlyphs && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(LineChartGlyph, {
                         index,
                         data: seriesData,
                         color: color2,
@@ -23463,7 +23468,7 @@ var LineChartInternal = (0, import_react71.forwardRef)(({ data, chartId: provide
                     ] }, seriesData?.label || index);
                   })
                 }),
-                withTooltips && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(AccessibleTooltip, {
+                withTooltips && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(AccessibleTooltip, {
                   detectBounds: true,
                   snapTooltipToDatumX: true,
                   snapTooltipToDatumY: true,
@@ -23478,13 +23483,13 @@ var LineChartInternal = (0, import_react71.forwardRef)(({ data, chartId: provide
                   keyboardFocusedClassName: line_chart_module_default["line-chart__tooltip--keyboard-focused"],
                   series: dataSorted
                 }),
-                /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(LineChartScalesRef, {
+                /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(LineChartScalesRef, {
                   chartRef: internalChartRef,
                   width,
                   height,
                   margin
                 }),
-                zoomable && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(ZoomSelectionRect, { drag: zoom.drag })
+                zoomable && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(ZoomSelectionRect, { drag: zoom.drag })
               ]
             })]
           })
@@ -23494,11 +23499,11 @@ var LineChartInternal = (0, import_react71.forwardRef)(({ data, chartId: provide
   });
 });
 var LineChartWithProvider = (0, import_react71.forwardRef)((props, ref) => {
-  if ((0, import_react71.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(LineChartInternal, {
+  if ((0, import_react71.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(LineChartInternal, {
     ...props,
     ref
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(LineChartInternal, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(LineChartInternal, {
     ...props,
     ref
   }) });
@@ -23572,7 +23577,7 @@ var HoverGlyphs = ({ visibleSeries, stacked, stackOffset: stackOffset2, getEleme
       data: series,
       index
     });
-    circles.push(/* @__PURE__ */ (0, import_jsx_runtime146.jsx)("circle", {
+    circles.push(/* @__PURE__ */ (0, import_jsx_runtime147.jsx)("circle", {
       cx: xPx,
       cy: yPx,
       r: 4,
@@ -23583,7 +23588,7 @@ var HoverGlyphs = ({ visibleSeries, stacked, stackOffset: stackOffset2, getEleme
     }, series.label || index));
   }
   if (circles.length === 0) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("g", {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("g", {
     pointerEvents: "none",
     className: "area-chart__hover-glyphs",
     children: circles
@@ -23785,11 +23790,11 @@ var AreaChartInternal = (0, import_react71.forwardRef)(({ data, chartId: provide
   ]);
   const resolvedFillOpacity = fillOpacity ?? (stacked ? 0.85 : 0.4);
   const resolvedWithStroke = withStroke ?? !stacked;
-  if (error2) return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+  if (error2) return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
     className: clsx_default("area-chart", area_chart_module_default["area-chart"]),
     children: error2
   });
-  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Legend2, {
+  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Legend2, {
     orientation: legend.orientation ?? "horizontal",
     alignment: legend.alignment ?? "center",
     position: legendPosition,
@@ -23809,7 +23814,7 @@ var AreaChartInternal = (0, import_react71.forwardRef)(({ data, chartId: provide
       data: seriesData,
       index
     });
-    return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(AnimatedAreaSeries, {
+    return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(AnimatedAreaSeries, {
       dataKey: seriesData?.label,
       data: seriesData.data,
       xAccessor: accessors.xAccessor,
@@ -23826,14 +23831,14 @@ var AreaChartInternal = (0, import_react71.forwardRef)(({ data, chartId: provide
       }
     }, seriesData?.label || index);
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(SingleChartContext.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(SingleChartContext.Provider, {
     value: {
       chartId,
       chartRef: internalChartRef,
       chartWidth: width,
       chartHeight: measuredChartHeight || 0
     },
-    children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(ChartLayout, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(ChartLayout, {
       legendPosition,
       legendElement,
       legendChildren,
@@ -23847,17 +23852,17 @@ var AreaChartInternal = (0, import_react71.forwardRef)(({ data, chartId: provide
       onContentHeightChange: handleContentHeightChange,
       children: ({ contentHeight }) => {
         const chartHeight = contentHeight > 0 ? contentHeight : height;
-        return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+        return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
           role: "grid",
           "aria-label": (0, import_i18n.__)("Area chart", "jetpack-charts"),
           tabIndex: 0,
           onKeyDown: onChartKeyDown,
           onFocus: onChartFocus,
           onBlur: onChartBlur,
-          children: chartHeight > 0 && /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)("div", {
+          children: chartHeight > 0 && /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)("div", {
             ref: chartRef,
             style: { position: "relative" },
-            children: [zoomable && zoom.domain && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(ZoomResetButton, { onClick: zoom.reset }), /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(XYChart, {
+            children: [zoomable && zoom.domain && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(ZoomResetButton, { onClick: zoom.reset }), /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(XYChart, {
               theme,
               width,
               height: chartHeight,
@@ -23873,30 +23878,30 @@ var AreaChartInternal = (0, import_react71.forwardRef)(({ data, chartId: provide
               onPointerOut,
               pointerEventsDataKey: "nearest",
               children: [
-                gridVisibility !== "none" && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Grid2, {
+                gridVisibility !== "none" && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Grid2, {
                   columns: false,
                   numTicks: 4
                 }),
-                chartOptions.axis.x.display && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Axis2, { ...chartOptions.axis.x }),
-                chartOptions.axis.y.display && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Axis2, { ...chartOptions.axis.y }),
-                allSeriesHidden ? /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(SvgEmptyState, {
+                chartOptions.axis.x.display && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Axis2, { ...chartOptions.axis.x }),
+                chartOptions.axis.y.display && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Axis2, { ...chartOptions.axis.y }),
+                allSeriesHidden ? /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(SvgEmptyState, {
                   x: width / 2,
                   y: chartHeight / 2,
                   width,
                   height: chartHeight,
                   children: (0, import_i18n.__)("All series are hidden. Click legend items to show data.", "jetpack-charts")
                 }) : null,
-                /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(ZoomClip, {
+                /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(ZoomClip, {
                   active: zoomable,
                   chartId,
-                  children: [!allSeriesHidden && stacked && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(AnimatedAreaStack, {
+                  children: [!allSeriesHidden && stacked && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(AnimatedAreaStack, {
                     curve,
                     offset: stackOffset2,
                     renderLine: resolvedWithStroke,
                     children: seriesWithVisibility.map(renderSeries)
                   }), !allSeriesHidden && !stacked && seriesWithVisibility.map(renderSeries)]
                 }),
-                withTooltips && /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(import_jsx_runtime146.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime146.jsx)(AccessibleTooltip, {
+                withTooltips && /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(import_jsx_runtime147.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime147.jsx)(AccessibleTooltip, {
                   detectBounds: true,
                   snapTooltipToDatumX: true,
                   snapTooltipToDatumY: !stacked,
@@ -23907,20 +23912,20 @@ var AreaChartInternal = (0, import_react71.forwardRef)(({ data, chartId: provide
                   tooltipRef,
                   keyboardFocusedClassName: area_chart_module_default["area-chart__tooltip--keyboard-focused"],
                   series: dataSorted
-                }), /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(HoverGlyphs, {
+                }), /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(HoverGlyphs, {
                   visibleSeries,
                   stacked,
                   stackOffset: stackOffset2,
                   getElementStyles,
                   strokeColor: providerTheme.backgroundColor
                 })] }),
-                /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(AreaChartScalesRef, {
+                /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(AreaChartScalesRef, {
                   chartRef: internalChartRef,
                   width,
                   height: height || chartHeight,
                   margin
                 }),
-                zoomable && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(ZoomSelectionRect, { drag: zoom.drag })
+                zoomable && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(ZoomSelectionRect, { drag: zoom.drag })
               ]
             })]
           })
@@ -23930,11 +23935,11 @@ var AreaChartInternal = (0, import_react71.forwardRef)(({ data, chartId: provide
   });
 });
 var AreaChartWithProvider = (0, import_react71.forwardRef)((props, ref) => {
-  if ((0, import_react71.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(AreaChartInternal, {
+  if ((0, import_react71.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(AreaChartInternal, {
     ...props,
     ref
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(AreaChartInternal, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(AreaChartInternal, {
     ...props,
     ref
   }) });
@@ -23988,13 +23993,13 @@ var TruncatedTickComponent = ({ x: x2, y: y2, formattedValue, axis, textAnchor, 
     cursor: "default",
     pointerEvents: "auto"
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("foreignObject", {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("foreignObject", {
     x: x2 + xOffset,
     y: y2,
     width: maxWidth,
     height: 0,
     overflow: "visible",
-    children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
       style: textStyles,
       title: formattedValue,
       children: formattedValue
@@ -24002,7 +24007,7 @@ var TruncatedTickComponent = ({ x: x2, y: y2, formattedValue, axis, textAnchor, 
   });
 };
 var createTruncatedTickComponent = (axis) => (props) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(TruncatedTickComponent, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(TruncatedTickComponent, {
     ...props,
     axis
   });
@@ -24202,7 +24207,7 @@ var ComparisonBars = ({ comparisonEntries, primaryKeys, groupPadding, horizontal
         baseline,
         widthFactor
       });
-      rects.push(/* @__PURE__ */ (0, import_jsx_runtime146.jsx)("rect", {
+      rects.push(/* @__PURE__ */ (0, import_jsx_runtime147.jsx)("rect", {
         x: rect.x,
         y: rect.y,
         width: rect.width,
@@ -24213,7 +24218,7 @@ var ComparisonBars = ({ comparisonEntries, primaryKeys, groupPadding, horizontal
     });
   });
   if (rects.length === 0) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("g", {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("g", {
     className: "bar-chart__comparison-bars",
     pointerEvents: "none",
     "aria-hidden": "true",
@@ -24226,7 +24231,7 @@ var validateData$2 = (data) => {
   return null;
 };
 var getPatternId = (chartId, index) => `bar-pattern-${chartId}-${index}`;
-var renderTooltipRow = (label, value) => /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+var renderTooltipRow = (label, value) => /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
   className: bar_chart_module_default["bar-chart__tooltip-row"],
   children: (0, import_i18n.sprintf)((0, import_i18n.__)("%1$s: %2$s", "jetpack-charts"), label, value)
 });
@@ -24372,10 +24377,10 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
       const p = point5;
       return nearestDatum.label != null ? p.label === nearestDatum.label : !!nearestDatum.date && !!p.date && p.date.getTime() === nearestDatum.date.getTime();
     });
-    if (comparisonEntry && comparisonDatum && comparisonDatum.value != null) return /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)("div", {
+    if (comparisonEntry && comparisonDatum && comparisonDatum.value != null) return /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)("div", {
       className: bar_chart_module_default["bar-chart__tooltip"],
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+        /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
           className: bar_chart_module_default["bar-chart__tooltip-header"],
           children: categoryLabel
         }),
@@ -24383,9 +24388,9 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
         renderTooltipRow(comparisonEntry.series.label, formatNumber(comparisonDatum.value))
       ]
     });
-    return /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)("div", {
+    return /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)("div", {
       className: bar_chart_module_default["bar-chart__tooltip"],
-      children: [/* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+      children: [/* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
         className: bar_chart_module_default["bar-chart__tooltip-header"],
         children: primaryKey
       }), renderTooltipRow(categoryLabel, formatNumber(nearestDatum.value))]
@@ -24403,27 +24408,27 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
     switch (patternType) {
       case 0:
       default:
-        return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Lines, {
+        return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Lines, {
           ...commonProps,
           width: 5,
           height: 5,
           orientation: ["diagonal"]
         }, id);
       case 1:
-        return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Circles, {
+        return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Circles, {
           ...commonProps,
           width: 6,
           height: 6,
           fill: "white"
         }, id);
       case 2:
-        return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Waves, {
+        return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Waves, {
           ...commonProps,
           width: 4,
           height: 4
         }, id);
       case 3:
-        return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Hexagons, {
+        return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Hexagons, {
           ...commonProps,
           size: 8,
           height: 3
@@ -24472,14 +24477,14 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
     }), [orientation, withPatterns])
   });
   const prefersReducedMotion = usePrefersReducedMotion();
-  if (error2) return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+  if (error2) return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
     className: clsx_default("bar-chart", bar_chart_module_default["bar-chart"]),
     children: error2
   });
   const gridVisibility = gridVisibilityProp ?? chartOptions.gridVisibility;
   const highlightedBarStyle = createKeyboardHighlightStyle();
   const legendPosition = legend.position ?? "bottom";
-  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Legend2, {
+  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Legend2, {
     orientation: legend.orientation ?? "horizontal",
     position: legendPosition,
     alignment: legend.alignment ?? "center",
@@ -24492,13 +24497,13 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
     chartId,
     interactive: legendInteractive
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(SingleChartContext.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(SingleChartContext.Provider, {
     value: {
       chartId,
       chartWidth: width,
       chartHeight: measuredChartHeight || 0
     },
-    children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(ChartLayout, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(ChartLayout, {
       legendPosition,
       legendElement,
       legendChildren,
@@ -24513,16 +24518,16 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
       onContentHeightChange: handleContentHeightChange,
       children: ({ contentHeight }) => {
         const chartHeight = contentHeight > 0 ? contentHeight : height;
-        return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+        return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
           role: "grid",
           "aria-label": (0, import_i18n.__)("Bar chart", "jetpack-charts"),
           tabIndex: 0,
           onKeyDown: onChartKeyDown,
           onFocus: onChartFocus,
           onBlur: onChartBlur,
-          children: chartHeight > 0 && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+          children: chartHeight > 0 && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
             ref: chartRef,
-            children: /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(XYChart, {
+            children: /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(XYChart, {
               theme,
               width,
               height: chartHeight,
@@ -24535,27 +24540,27 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
               horizontal,
               pointerEventsDataKey: "nearest",
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Grid2, {
+                /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Grid2, {
                   columns: gridVisibility.includes("y"),
                   rows: gridVisibility.includes("x"),
                   numTicks: 4
                 }),
-                withPatterns && /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(import_jsx_runtime146.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime146.jsx)("defs", { children: dataSorted.map((seriesData, index) => renderPattern(index, getElementStyles({
+                withPatterns && /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(import_jsx_runtime147.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime147.jsx)("defs", { children: dataSorted.map((seriesData, index) => renderPattern(index, getElementStyles({
                   data: seriesData,
                   index
-                }).color)) }), /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("style", { children: dataSorted.map((seriesData, index) => createPatternBorderStyle(index, getElementStyles({
+                }).color)) }), /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("style", { children: dataSorted.map((seriesData, index) => createPatternBorderStyle(index, getElementStyles({
                   data: seriesData,
                   index
                 }).color)) })] }),
-                highlightedBarStyle && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("style", { children: highlightedBarStyle }),
-                allSeriesHidden ? /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(SvgEmptyState, {
+                highlightedBarStyle && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("style", { children: highlightedBarStyle }),
+                allSeriesHidden ? /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(SvgEmptyState, {
                   x: width / 2,
                   y: chartHeight / 2,
                   width,
                   height: chartHeight,
                   children: (0, import_i18n.__)("All series are hidden. Click legend items to show data.", "jetpack-charts")
                 }) : null,
-                /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(ComparisonBars, {
+                /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(ComparisonBars, {
                   comparisonEntries,
                   primaryKeys,
                   groupPadding,
@@ -24565,9 +24570,9 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
                   getElementStyles,
                   resolveFill: resolveComparisonFill
                 }),
-                /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(BarGroup2, {
+                /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(BarGroup2, {
                   padding: groupPadding,
-                  children: primaryEntries.map(({ series: seriesData, index }) => /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(BarSeries_default, {
+                  children: primaryEntries.map(({ series: seriesData, index }) => /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(BarSeries_default, {
                     dataKey: seriesData?.label,
                     data: seriesData.data,
                     yAccessor: chartOptions.accessors.yAccessor,
@@ -24575,9 +24580,9 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
                     colorAccessor: getBarBackground(index)
                   }, seriesData?.label))
                 }),
-                /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Axis2, { ...chartOptions.axis.x }),
-                /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Axis2, { ...chartOptions.axis.y }),
-                withTooltips && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(AccessibleTooltip, {
+                /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Axis2, { ...chartOptions.axis.x }),
+                /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Axis2, { ...chartOptions.axis.y }),
+                withTooltips && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(AccessibleTooltip, {
                   detectBounds: true,
                   snapTooltipToDatumX: true,
                   snapTooltipToDatumY: true,
@@ -24597,8 +24602,8 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
   });
 };
 var BarChartWithProvider = (props) => {
-  if ((0, import_react71.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(BarChartInternal, { ...props });
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(BarChartInternal, { ...props }) });
+  if ((0, import_react71.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(BarChartInternal, { ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(BarChartInternal, { ...props }) });
 };
 BarChartWithProvider.displayName = "BarChart";
 var BarChart = attachSubComponents(BarChartWithProvider, { Legend: Legend2 });
@@ -24608,7 +24613,7 @@ var getScaleBandwidth3 = (scale) => {
   return s && "bandwidth" in s ? s?.bandwidth() ?? 0 : 0;
 };
 var DefaultLabelComponent = ({ textProps, x: x2, y: y2, label, formatter }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Text, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Text, {
     ...textProps,
     textAnchor: "start",
     x: x2,
@@ -24617,7 +24622,7 @@ var DefaultLabelComponent = ({ textProps, x: x2, y: y2, label, formatter }) => {
   });
 };
 var DefaultValueComponent = ({ textProps, x: x2, y: y2, value, formatter }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Text, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Text, {
     ...textProps,
     textAnchor: "end",
     x: x2,
@@ -24635,13 +24640,13 @@ var AxisRenderer2 = ({ ticks: ticks2, tickLabelProps, yOffset, labelPosition, va
     delete textProps.dx;
     const sum2 = data.reduce((acc, { data: seriesData }) => acc + (seriesData[index]?.value ?? 0), 0);
     const y2 = from2.y + yOffset;
-    return /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(Group, { children: [/* @__PURE__ */ (0, import_jsx_runtime146.jsx)(LabelComponent, {
+    return /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(Group, { children: [/* @__PURE__ */ (0, import_jsx_runtime147.jsx)(LabelComponent, {
       textProps,
       x: labelPosition,
       y: y2,
       label: formattedValue,
       formatter: labelFormatter
-    }), /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(ValueComponent, {
+    }), /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(ValueComponent, {
       textProps,
       x: valuePosition,
       y: y2,
@@ -24701,7 +24706,7 @@ var BarListChartInternal = ({ data, width, height, options = {}, margin = {
     data,
     height
   ]);
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(BarChart, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(BarChart, {
     orientation: "horizontal",
     gridVisibility: "none",
     data,
@@ -24710,7 +24715,7 @@ var BarListChartInternal = ({ data, width, height, options = {}, margin = {
     margin,
     options: {
       axis: {
-        y: { children: (renderProps) => /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(AxisRenderer2, {
+        y: { children: (renderProps) => /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(AxisRenderer2, {
           ...renderProps,
           data,
           yOffset: chartOptions.yOffset,
@@ -24730,8 +24735,8 @@ var BarListChartInternal = ({ data, width, height, options = {}, margin = {
   });
 };
 var BarListChart = (props) => {
-  if ((0, import_react71.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(BarListChartInternal, { ...props });
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(BarListChartInternal, { ...props }) });
+  if ((0, import_react71.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(BarListChartInternal, { ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(BarListChartInternal, { ...props }) });
 };
 BarListChart.displayName = "BarListChart";
 var BarListChartResponsive = withResponsive(BarListChart);
@@ -24904,22 +24909,22 @@ var ConversionFunnelChartInternal = ({ mainRate, changeIndicator, steps: steps2,
   }) : { color: primaryColor || "#000000" };
   const changeColor = changeIndicator?.startsWith("+") ? positiveChangeColor : negativeChangeColor;
   const barBackgroundColor = backgroundColor || hexToRgba(barColor, 0.08) || "rgba(0, 0, 0, 0.08)";
-  const renderDefaultMainMetric = () => /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(import_jsx_runtime146.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime146.jsx)("span", {
+  const renderDefaultMainMetric = () => /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(import_jsx_runtime147.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime147.jsx)("span", {
     className: conversion_funnel_chart_module_default["main-rate"],
     children: formatPercentage(mainRate)
-  }), changeIndicator && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("span", {
+  }), changeIndicator && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("span", {
     className: conversion_funnel_chart_module_default["change-indicator"],
     style: { color: changeColor },
     children: changeIndicator
   })] });
-  const renderDefaultTooltip2 = (step) => /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(Stack2, {
+  const renderDefaultTooltip2 = (step) => /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(Stack2, {
     direction: "column",
     align: "flex-start",
     gap: "xs",
-    children: [/* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+    children: [/* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
       className: conversion_funnel_chart_module_default["tooltip-title"],
       children: step.label
-    }), /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)("div", {
+    }), /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)("div", {
       className: conversion_funnel_chart_module_default["tooltip-content"],
       children: [formatPercentage(step.rate), ` \u2022 ${step.count ?? "no"} items`]
     })]
@@ -24941,7 +24946,7 @@ var ConversionFunnelChartInternal = ({ mainRate, changeIndicator, steps: steps2,
     ])
   });
   const prefersReducedMotion = usePrefersReducedMotion();
-  if (!isDataValid) return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Stack2, {
+  if (!isDataValid) return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Stack2, {
     direction: "column",
     align: "center",
     justify: "center",
@@ -24950,13 +24955,13 @@ var ConversionFunnelChartInternal = ({ mainRate, changeIndicator, steps: steps2,
       ...style,
       height: resolvedHeight
     },
-    children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
       className: conversion_funnel_chart_module_default["empty-state"],
       children: loading ? "Loading..." : "No data available"
     })
   });
   const maxRate = Math.max(...steps2.map((step) => step.rate));
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(import_jsx_runtime146.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(Stack2, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(import_jsx_runtime147.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(Stack2, {
     direction: "column",
     gap: "xl",
     ref: (node2) => {
@@ -24973,13 +24978,13 @@ var ConversionFunnelChartInternal = ({ mainRate, changeIndicator, steps: steps2,
       changeIndicator,
       className: conversion_funnel_chart_module_default["main-metric"],
       changeColor
-    }) : /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Stack2, {
+    }) : /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Stack2, {
       direction: "row",
       align: "baseline",
       gap: "sm",
       className: conversion_funnel_chart_module_default["main-metric"],
       children: renderDefaultMainMetric()
-    }), /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Stack2, {
+    }), /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Stack2, {
       direction: "row",
       align: "flex-end",
       gap: "lg",
@@ -24987,29 +24992,29 @@ var ConversionFunnelChartInternal = ({ mainRate, changeIndicator, steps: steps2,
       children: steps2.map((step, index) => {
         const barHeight = step.rate / maxRate * 100;
         const { isBlurred } = getStepState(step.id);
-        return /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(Stack2, {
+        return /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(Stack2, {
           direction: "column",
           className: clsx_default(conversion_funnel_chart_module_default["funnel-step"], isColorPaletteResolved && conversion_funnel_chart_module_default["funnel-step--animated"], isBlurred && conversion_funnel_chart_module_default["funnel-step--blurred"]),
           gap: "xl",
-          children: [/* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(Stack2, {
+          children: [/* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(Stack2, {
             direction: "column",
             gap: "xs",
             children: [renderStepLabel ? renderStepLabel({
               step,
               index,
               className: conversion_funnel_chart_module_default["step-label"]
-            }) : /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("span", {
+            }) : /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("span", {
               className: conversion_funnel_chart_module_default["step-label"],
               children: step.label
             }), renderStepRate ? renderStepRate({
               step,
               index,
               className: conversion_funnel_chart_module_default["step-rate"]
-            }) : /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("span", {
+            }) : /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("span", {
               className: conversion_funnel_chart_module_default["step-rate"],
               children: formatPercentage(step.rate)
             })]
-          }), /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Stack2, {
+          }), /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Stack2, {
             direction: "column",
             justify: "flex-end",
             className: conversion_funnel_chart_module_default["bar-container"],
@@ -25019,7 +25024,7 @@ var ConversionFunnelChartInternal = ({ mainRate, changeIndicator, steps: steps2,
             tabIndex: isBlurred ? -1 : 0,
             "aria-label": step.label,
             style: { backgroundColor: barBackgroundColor },
-            children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+            children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
               className: clsx_default(conversion_funnel_chart_module_default["funnel-bar"], { [conversion_funnel_chart_module_default["funnel-bar--animated"]]: animation && !loading && !prefersReducedMotion }),
               style: {
                 height: `${barHeight}%`,
@@ -25039,7 +25044,7 @@ var ConversionFunnelChartInternal = ({ mainRate, changeIndicator, steps: steps2,
       className: conversion_funnel_chart_module_default["tooltip-wrapper"]
     }) : renderDefaultTooltip2(tooltipData);
     if (!tooltipContent) return null;
-    return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(TooltipInPortal, {
+    return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(TooltipInPortal, {
       top: tooltipTop,
       left: tooltipLeft,
       className: conversion_funnel_chart_module_default["tooltip-wrapper"],
@@ -25048,8 +25053,8 @@ var ConversionFunnelChartInternal = ({ mainRate, changeIndicator, steps: steps2,
   })()] });
 };
 var ConversionFunnelChartWithProvider = (props) => {
-  if ((0, import_react71.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(ConversionFunnelChartInternal, { ...props });
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(ConversionFunnelChartInternal, { ...props }) });
+  if ((0, import_react71.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(ConversionFunnelChartInternal, { ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(ConversionFunnelChartInternal, { ...props }) });
 };
 ConversionFunnelChartWithProvider.displayName = "ConversionFunnelChart";
 purify.addHook("afterSanitizeAttributes", (node2) => {
@@ -25099,7 +25104,7 @@ var GEO_CHART_PACKAGES = [
 ];
 var GeoChartInternal = ({ className, data, width, height, region = "world", resolution = "countries", renderPlaceholder }) => {
   const { getElementStyles, theme: { geoChart: { featureFillColor }, backgroundColor } } = useGlobalChartsContext();
-  const loadingPlaceholder = /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Center, {
+  const loadingPlaceholder = /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Center, {
     className: clsx_default("geo-chart", geo_chart_module_default.container, className),
     style: {
       width,
@@ -25157,14 +25162,14 @@ var GeoChartInternal = ({ className, data, width, height, region = "world", reso
     defaultFillColorHex,
     sanitizedData.hasHtmlTooltips
   ]);
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Center, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Center, {
     className: clsx_default("geo-chart", geo_chart_module_default.container, className),
     style: {
       width,
       height,
       backgroundColor
     },
-    children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Chart, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Chart, {
       chartType: "GeoChart",
       chartPackages: GEO_CHART_PACKAGES,
       width,
@@ -25176,8 +25181,8 @@ var GeoChartInternal = ({ className, data, width, height, region = "world", reso
   });
 };
 var GeoChartWithProvider = (props) => {
-  if ((0, import_react71.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(GeoChartInternal, { ...props });
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(GeoChartInternal, { ...props }) });
+  if ((0, import_react71.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(GeoChartInternal, { ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(GeoChartInternal, { ...props }) });
 };
 GeoChartWithProvider.displayName = "GeoChart";
 var GeoChartResponsive = withResponsive(GeoChartWithProvider);
@@ -25385,7 +25390,7 @@ function useContextSystemBridge({ value }) {
 }
 var BaseContextSystemProvider = ({ children, value }) => {
   const contextValue = useContextSystemBridge({ value });
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(ComponentsContext.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(ComponentsContext.Provider, {
     value: contextValue,
     children
   });
@@ -26542,7 +26547,7 @@ var Emotion$1 = /* @__PURE__ */ withEmotionCache(function(props, cache, ref) {
   }), /* @__PURE__ */ React4.createElement(WrappedComponent, newProps));
 });
 require_hoist_non_react_statics_cjs();
-var jsx$1 = function jsx4(type, props) {
+var jsx$1 = function jsx5(type, props) {
   var args = arguments;
   if (props == null || !hasOwn.call(props, "css")) return React4.createElement.apply(void 0, args);
   var argsLength = args.length;
@@ -26793,7 +26798,7 @@ var PolymorphicDiv = /* @__PURE__ */ (function createStyled(tag, options) {
   label: "PolymorphicDiv"
 })(false ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudC50c3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBZWlDIiwiZmlsZSI6ImNvbXBvbmVudC50c3giLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEV4dGVybmFsIGRlcGVuZGVuY2llc1xuICovXG5pbXBvcnQgc3R5bGVkIGZyb20gJ0BlbW90aW9uL3N0eWxlZCc7XG5cbi8qKlxuICogV29yZFByZXNzIGRlcGVuZGVuY2llc1xuICovXG5pbXBvcnQgeyBmb3J3YXJkUmVmIH0gZnJvbSAnQHdvcmRwcmVzcy9lbGVtZW50JztcblxuLyoqXG4gKiBJbnRlcm5hbCBkZXBlbmRlbmNpZXNcbiAqL1xuaW1wb3J0IHR5cGUgeyBXb3JkUHJlc3NDb21wb25lbnRQcm9wcyB9IGZyb20gJy4uL2NvbnRleHQnO1xuXG5jb25zdCBQb2x5bW9ycGhpY0RpdiA9IHN0eWxlZC5kaXZgYDtcblxuZnVuY3Rpb24gVW5mb3J3YXJkZWRWaWV3PCBUIGV4dGVuZHMgUmVhY3QuRWxlbWVudFR5cGUgPSAnZGl2JyA+KFxuXHR7IGFzLCAuLi5yZXN0UHJvcHMgfTogV29yZFByZXNzQ29tcG9uZW50UHJvcHM8IHt9LCBUID4sXG5cdHJlZjogUmVhY3QuRm9yd2FyZGVkUmVmPCBhbnkgPlxuKSB7XG5cdHJldHVybiA8UG9seW1vcnBoaWNEaXYgYXM9eyBhcyB9IHJlZj17IHJlZiB9IHsgLi4ucmVzdFByb3BzIH0gLz47XG59XG5cbi8qKlxuICogYFZpZXdgIGlzIGEgY29yZSBjb21wb25lbnQgdGhhdCByZW5kZXJzIGV2ZXJ5dGhpbmcgaW4gdGhlIGxpYnJhcnkuXG4gKiBJdCBpcyB0aGUgcHJpbmNpcGxlIGNvbXBvbmVudCBpbiB0aGUgZW50aXJlIGxpYnJhcnkuXG4gKlxuICogYGBganN4XG4gKiBpbXBvcnQgeyBWaWV3IH0gZnJvbSBgQHdvcmRwcmVzcy9jb21wb25lbnRzYDtcbiAqXG4gKiBmdW5jdGlvbiBFeGFtcGxlKCkge1xuICogXHRyZXR1cm4gKFxuICogXHRcdDxWaWV3PlxuICogXHRcdFx0IENvZGUgaXMgUG9ldHJ5XG4gKiBcdFx0PC9WaWV3PlxuICogXHQpO1xuICogfVxuICogYGBgXG4gKi9cbmV4cG9ydCBjb25zdCBWaWV3ID0gT2JqZWN0LmFzc2lnbiggZm9yd2FyZFJlZiggVW5mb3J3YXJkZWRWaWV3ICksIHtcblx0c2VsZWN0b3I6ICcuY29tcG9uZW50cy12aWV3Jyxcbn0gKTtcblxuZXhwb3J0IGRlZmF1bHQgVmlldztcbiJdfQ== */");
 function UnforwardedView({ as, ...restProps }, ref) {
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(PolymorphicDiv, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(PolymorphicDiv, {
     as,
     ref,
     ...restProps
@@ -27058,7 +27063,7 @@ function useGrid(props) {
   };
 }
 function UnconnectedGrid(props, forwardedRef) {
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(component_default$1, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(component_default$1, {
     ...useGrid(props),
     ref: forwardedRef
   });
@@ -27131,22 +27136,22 @@ var defaultDeltaFormatter = (value) => {
   });
 };
 var getBarWidth = (share) => `calc(${share}% - var(--a8c--charts--leaderboard--bar--hover-inset, 0px) * ${share} / 100)`;
-var BarLabel = ({ label }) => /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(import_jsx_runtime146.Fragment, { children: typeof label === "string" ? /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Text$1, {
+var BarLabel = ({ label }) => /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(import_jsx_runtime147.Fragment, { children: typeof label === "string" ? /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Text$1, {
   className: leaderboard_chart_module_default.label,
   children: label
 }) : label });
-var BarWithLabel = ({ entry, withComparison, withOverlayLabel, primaryColor, secondaryColor, animation, isPrimaryVisible = true, isComparisonVisible = true }) => /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)("div", {
+var BarWithLabel = ({ entry, withComparison, withOverlayLabel, primaryColor, secondaryColor, animation, isPrimaryVisible = true, isComparisonVisible = true }) => /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)("div", {
   className: clsx_default(leaderboard_chart_module_default.barWithLabelContainer, { [leaderboard_chart_module_default["is-overlay"]]: withOverlayLabel }),
   children: [
-    /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(BarLabel, { label: entry.label }),
-    isPrimaryVisible && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+    /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(BarLabel, { label: entry.label }),
+    isPrimaryVisible && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
       className: clsx_default(leaderboard_chart_module_default.bar, { [leaderboard_chart_module_default["bar--animated"]]: animation }),
       style: {
         width: getBarWidth(entry.currentShare),
         backgroundColor: primaryColor
       }
     }),
-    withComparison && !withOverlayLabel && isComparisonVisible && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+    withComparison && !withOverlayLabel && isComparisonVisible && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
       className: clsx_default(leaderboard_chart_module_default.bar, { [leaderboard_chart_module_default["bar--animated"]]: animation }),
       style: {
         width: getBarWidth(entry.previousShare),
@@ -27224,9 +27229,9 @@ var LeaderboardChartInternal = ({ data, chartId: providedChartId, width: propWid
     }), [withComparison, withOverlayLabel])
   });
   const prefersReducedMotion = usePrefersReducedMotion();
-  if (!data || data.length === 0) return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(SingleChartContext.Provider, {
+  if (!data || data.length === 0) return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(SingleChartContext.Provider, {
     value: { chartId },
-    children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(ChartLayout, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(ChartLayout, {
       legendPosition,
       legendElement: false,
       legendChildren,
@@ -27241,13 +27246,13 @@ var LeaderboardChartInternal = ({ data, chartId: providedChartId, width: propWid
         height: propHeight || void 0
       },
       trailingContent: nonLegendChildren,
-      children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+      children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
         className: leaderboard_chart_module_default.emptyState,
         children: loading ? (0, import_i18n.__)("Loading\u2026", "jetpack-charts") : (0, import_i18n.__)("No data available", "jetpack-charts")
       })
     })
   });
-  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Legend2, {
+  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Legend2, {
     orientation: legend.orientation ?? "horizontal",
     position: legendPosition,
     alignment: legend.alignment ?? "center",
@@ -27259,9 +27264,9 @@ var LeaderboardChartInternal = ({ data, chartId: providedChartId, width: propWid
     chartId,
     interactive: legendInteractive
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(SingleChartContext.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(SingleChartContext.Provider, {
     value: { chartId },
-    children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(ChartLayout, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(ChartLayout, {
       legendPosition,
       legendElement,
       legendChildren,
@@ -27276,21 +27281,21 @@ var LeaderboardChartInternal = ({ data, chartId: providedChartId, width: propWid
         height: propHeight || void 0
       },
       trailingContent: nonLegendChildren,
-      children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+      children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
         className: leaderboard_chart_module_default.leaderboardChart__content,
-        children: allSeriesHidden ? /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+        children: allSeriesHidden ? /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
           className: leaderboard_chart_module_default.emptyState,
           children: (0, import_i18n.__)("All series are hidden. Click legend items to show data.", "jetpack-charts")
-        }) : /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(component_default, {
+        }) : /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(component_default, {
           templateColumns: "minmax(0, 1fr) auto",
           rowGap,
           columnGap,
           children: data.map((entry) => {
             const deltaColor = deltaColors[Math.sign(entry.delta) + 1];
-            const rowCells = /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(import_jsx_runtime146.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Stack2, {
+            const rowCells = /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(import_jsx_runtime147.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Stack2, {
               direction: "column",
               gap: labelSpacing,
-              children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(BarWithLabel, {
+              children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(BarWithLabel, {
                 entry,
                 withComparison,
                 withOverlayLabel,
@@ -27300,27 +27305,27 @@ var LeaderboardChartInternal = ({ data, chartId: providedChartId, width: propWid
                 isComparisonVisible,
                 animation: animation && !loading && !prefersReducedMotion
               })
-            }), /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(Stack2, {
+            }), /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(Stack2, {
               direction: "row",
               gap: "xs",
               className: clsx_default(leaderboard_chart_module_default.valueContainer, { [leaderboard_chart_module_default.overlayLabel]: withOverlayLabel }),
-              children: [isPrimaryVisible && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Text$1, { children: valueFormatter(entry.currentValue) }), withComparison && isComparisonVisible && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Text$1, {
+              children: [isPrimaryVisible && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Text$1, { children: valueFormatter(entry.currentValue) }), withComparison && isComparisonVisible && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Text$1, {
                 style: { color: deltaColor },
                 children: deltaFormatter(entry.delta)
               })]
             })] });
-            if (entry.onClick) return /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)("button", {
+            if (entry.onClick) return /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)("button", {
               type: "button",
               className: leaderboard_chart_module_default.interactiveRow,
               onClick: entry.onClick,
               "aria-label": entry.ariaLabel,
-              children: [rowCells, /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(icon_default, {
+              children: [rowCells, /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(icon_default, {
                 className: leaderboard_chart_module_default.chevron,
                 icon: chevron_right_default,
                 size: 24
               })]
             }, entry.id);
-            return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(import_react71.Fragment, { children: rowCells }, entry.id);
+            return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(import_react71.Fragment, { children: rowCells }, entry.id);
           })
         })
       })
@@ -27328,8 +27333,8 @@ var LeaderboardChartInternal = ({ data, chartId: providedChartId, width: propWid
   });
 };
 var LeaderboardChartWithProvider = (props) => {
-  if ((0, import_react71.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(LeaderboardChartInternal, { ...props });
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(LeaderboardChartInternal, { ...props }) });
+  if ((0, import_react71.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(LeaderboardChartInternal, { ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(LeaderboardChartInternal, { ...props }) });
 };
 LeaderboardChartWithProvider.displayName = "LeaderboardChart";
 var LeaderboardChart = attachSubComponents(LeaderboardChartWithProvider, { Legend: Legend2 });
@@ -27338,9 +27343,9 @@ function RadialWipeAnimation({ id, radius, innerRadius = 0, durationMs = 1e3, wi
   const strokeWidth = (radius - innerRadius) * 2 + 1;
   const scaleY = direction === "clockwise" ? -1 : 1;
   const animationDuration = `${0 < wipePercentage && wipePercentage <= 100 ? durationMs * (100 / wipePercentage) : 0}ms`;
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("mask", {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("mask", {
     id,
-    children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("circle", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("circle", {
       cx: 0,
       cy: 0,
       r: radius,
@@ -27351,7 +27356,7 @@ function RadialWipeAnimation({ id, radius, innerRadius = 0, durationMs = 1e3, wi
       strokeDasharray: "100, 1000",
       strokeDashoffset: "0",
       style: { transform: `rotate(${startAngle}) scaleY(${scaleY})` },
-      children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("animate", {
+      children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("animate", {
         attributeName: "stroke-dashoffset",
         from: "0",
         to: "100.1",
@@ -27369,7 +27374,7 @@ var pie_chart_module_default = {
   "pie-chart--responsive": "a8ccharts-gnszbG-pie-chart--responsive"
 };
 var renderDefaultPieTooltip = ({ tooltipData }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(BaseTooltip, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(BaseTooltip, {
     data: tooltipData,
     top: 0,
     left: 0,
@@ -27438,9 +27443,9 @@ var PieChartInternal = ({ data, chartId: providedChartId, withTooltips = false, 
     ])
   });
   const prefersReducedMotion = usePrefersReducedMotion();
-  if (!isValid2) return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+  if (!isValid2) return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
     className: clsx_default("pie-chart", pie_chart_module_default["pie-chart"], className),
-    children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
       className: pie_chart_module_default["error-message"],
       children: message2
     })
@@ -27462,7 +27467,7 @@ var PieChartInternal = ({ data, chartId: providedChartId, withTooltips = false, 
       }).color;
     }
   };
-  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Legend2, {
+  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Legend2, {
     orientation: legend.orientation ?? "horizontal",
     position: legendPosition,
     alignment: legend.alignment ?? "center",
@@ -27474,9 +27479,9 @@ var PieChartInternal = ({ data, chartId: providedChartId, withTooltips = false, 
     chartId,
     interactive: legendInteractive
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(SingleChartContext.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(SingleChartContext.Provider, {
     value: { chartId },
-    children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(ChartLayout, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(ChartLayout, {
       legendPosition,
       legendElement,
       legendChildren,
@@ -27486,11 +27491,11 @@ var PieChartInternal = ({ data, chartId: providedChartId, withTooltips = false, 
         width: propWidth || void 0,
         height: propHeight || void 0
       },
-      trailingContent: /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(import_jsx_runtime146.Fragment, { children: [
-        withTooltips && tooltipOpen && tooltipData && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(TooltipInPortal, {
+      trailingContent: /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(import_jsx_runtime147.Fragment, { children: [
+        withTooltips && tooltipOpen && tooltipData && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(TooltipInPortal, {
           top: tooltipTop || 0,
           left: tooltipLeft || 0,
-          children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+          children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
             role: "tooltip",
             children: renderTooltip({ tooltipData })
           })
@@ -27510,28 +27515,28 @@ var PieChartInternal = ({ data, chartId: providedChartId, withTooltips = false, 
         const innerRadius = thickness === 0 ? 0 : outerRadius * (1 - thickness);
         const maxCornerRadius = (outerRadius - innerRadius) / 2;
         const cornerRadius = cornerScale ? Math.min(cornerScale * outerRadius, maxCornerRadius) : 0;
-        return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Center, {
+        return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Center, {
           ref: containerRef,
-          children: /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)("svg", {
+          children: /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)("svg", {
             viewBox: `0 0 ${width} ${height}`,
             preserveAspectRatio: "xMidYMid meet",
             width,
             height,
-            children: [/* @__PURE__ */ (0, import_jsx_runtime146.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(RadialWipeAnimation, {
+            children: [/* @__PURE__ */ (0, import_jsx_runtime147.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(RadialWipeAnimation, {
               id: `radial-wipe-${chartId}`,
               radius: outerRadius,
               innerRadius
-            }) }), /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(Group, {
+            }) }), /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(Group, {
               top: centerY,
               left: centerX,
               mask: animation && !prefersReducedMotion ? `url(#radial-wipe-${chartId})` : null,
-              children: [allSegmentsHidden ? /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(SvgEmptyState, {
+              children: [allSegmentsHidden ? /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(SvgEmptyState, {
                 x: 0,
                 y: 0,
                 width,
                 height,
                 children: (0, import_i18n.__)("All segments are hidden. Click legend items to show data.", "jetpack-charts")
-              }) : /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Pie, {
+              }) : /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Pie, {
                 data: dataWithIndex,
                 pieValue: accessors.value,
                 outerRadius,
@@ -27571,9 +27576,9 @@ var PieChartInternal = ({ data, chartId: providedChartId, withTooltips = false, 
                     const labelPadding = 6;
                     const backgroundWidth = estimatedTextWidth + labelPadding * 2;
                     const backgroundHeight = fontSize + labelPadding * 2;
-                    return /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)("g", {
+                    return /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)("g", {
                       ...groupProps,
-                      children: [/* @__PURE__ */ (0, import_jsx_runtime146.jsx)("path", { ...pathProps }), showLabels && hasSpaceForLabel && /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)("g", { children: [providerTheme.labelBackgroundColor && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("rect", {
+                      children: [/* @__PURE__ */ (0, import_jsx_runtime147.jsx)("path", { ...pathProps }), showLabels && hasSpaceForLabel && /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)("g", { children: [providerTheme.labelBackgroundColor && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("rect", {
                         x: centroidX - backgroundWidth / 2,
                         y: centroidY - backgroundHeight / 2,
                         width: backgroundWidth,
@@ -27582,7 +27587,7 @@ var PieChartInternal = ({ data, chartId: providedChartId, withTooltips = false, 
                         rx: 4,
                         ry: 4,
                         pointerEvents: "none"
-                      }), /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("text", {
+                      }), /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("text", {
                         x: centroidX,
                         y: centroidY,
                         dy: ".33em",
@@ -27604,8 +27609,8 @@ var PieChartInternal = ({ data, chartId: providedChartId, withTooltips = false, 
   });
 };
 var PieChartWithProvider = (props) => {
-  if ((0, import_react71.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(PieChartInternal, { ...props });
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(PieChartInternal, { ...props }) });
+  if ((0, import_react71.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(PieChartInternal, { ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(PieChartInternal, { ...props }) });
 };
 PieChartWithProvider.displayName = "PieChart";
 var PieChart = attachSubComponents(PieChartWithProvider, {
@@ -27625,7 +27630,7 @@ var pie_semi_circle_chart_module_default = {
   "pie-semi-circle-chart--responsive": "a8ccharts-YtTOxW-pie-semi-circle-chart--responsive"
 };
 var renderDefaultPieSemiCircleTooltip = ({ tooltipData }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(BaseTooltip, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(BaseTooltip, {
     data: tooltipData,
     top: 0,
     left: 0,
@@ -27720,12 +27725,12 @@ var PieSemiCircleChartInternal = ({ data, chartId: providedChartId, width: propW
   if (!isValid2) {
     const errorWidth = propHeight ? Math.min(propWidth || propHeight * 2, propHeight * 2) : effectiveWidth;
     const errorHeight = errorWidth / 2;
-    return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+    return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
       className: pie_semi_circle_chart_module_default["pie-semi-circle-chart"],
-      children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("svg", {
+      children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("svg", {
         width: errorWidth,
         height: errorHeight,
-        children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("text", {
+        children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("text", {
           x: "50%",
           y: "50%",
           textAnchor: "middle",
@@ -27744,7 +27749,7 @@ var PieSemiCircleChartInternal = ({ data, chartId: providedChartId, width: propW
   });
   const startAngle = clockwise ? -Math.PI / 2 : Math.PI / 2;
   const endAngle = clockwise ? Math.PI / 2 : -Math.PI / 2;
-  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Legend2, {
+  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Legend2, {
     orientation: legend.orientation ?? "horizontal",
     position: legendPosition,
     alignment: legend.alignment ?? "center",
@@ -27756,9 +27761,9 @@ var PieSemiCircleChartInternal = ({ data, chartId: providedChartId, width: propW
     chartId,
     interactive: legendInteractive
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(SingleChartContext.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(SingleChartContext.Provider, {
     value: { chartId },
-    children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(ChartLayout, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(ChartLayout, {
       legendPosition,
       legendElement,
       legendChildren,
@@ -27768,11 +27773,11 @@ var PieSemiCircleChartInternal = ({ data, chartId: providedChartId, width: propW
         width: propWidth || void 0,
         height: propHeight || void 0
       },
-      trailingContent: /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(import_jsx_runtime146.Fragment, { children: [
-        withTooltips && tooltipOpen && tooltipData && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(TooltipInPortal, {
+      trailingContent: /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(import_jsx_runtime147.Fragment, { children: [
+        withTooltips && tooltipOpen && tooltipData && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(TooltipInPortal, {
           top: tooltipTop || 0,
           left: tooltipLeft || 0,
-          children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+          children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
             role: "tooltip",
             children: renderTooltip({ tooltipData })
           })
@@ -27787,30 +27792,30 @@ var PieSemiCircleChartInternal = ({ data, chartId: providedChartId, width: propW
         const height = width / 2;
         const radius = height;
         const innerRadius = radius * (1 - thickness);
-        return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Center, {
+        return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Center, {
           ref: containerRef,
-          children: /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)("svg", {
+          children: /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)("svg", {
             width,
             height,
             viewBox: `0 0 ${width} ${height}`,
-            children: [/* @__PURE__ */ (0, import_jsx_runtime146.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(RadialWipeAnimation, {
+            children: [/* @__PURE__ */ (0, import_jsx_runtime147.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(RadialWipeAnimation, {
               id: `radial-wipe-${chartId}`,
               radius,
               innerRadius,
               startAngle: "-180deg",
               wipePercentage: 50
-            }) }), /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Group, {
+            }) }), /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Group, {
               top: height,
               left: width / 2,
               mask: animation && !prefersReducedMotion ? `url(#radial-wipe-${chartId})` : null,
-              children: allSegmentsHidden ? /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(SvgEmptyState, {
+              children: allSegmentsHidden ? /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(SvgEmptyState, {
                 x: 0,
                 y: -radius / 2,
                 width,
                 height,
                 children: (0, import_i18n.__)("All segments are hidden. Click legend items to show data.", "jetpack-charts")
-              }) : /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(import_jsx_runtime146.Fragment, { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Pie, {
+              }) : /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(import_jsx_runtime147.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Pie, {
                   data: dataWithIndex,
                   pieValue: accessors.value,
                   outerRadius: radius,
@@ -27821,23 +27826,23 @@ var PieSemiCircleChartInternal = ({ data, chartId: providedChartId, width: propW
                   endAngle,
                   pieSort: accessors.sort,
                   children: (pie2) => {
-                    return pie2.arcs.map((arc2) => /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("g", {
+                    return pie2.arcs.map((arc2) => /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("g", {
                       onMouseMove: withTooltips ? handleArcMouseMove(arc2) : void 0,
                       onMouseLeave: withTooltips ? handleMouseLeave : void 0,
-                      children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("path", {
+                      children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("path", {
                         d: pie2.path(arc2) || "",
                         fill: accessors.fill(arc2.data)
                       })
                     }, arc2.data.label));
                   }
                 }),
-                /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(Group, { children: [/* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Text, {
+                /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(Group, { children: [/* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Text, {
                   textAnchor: "middle",
                   verticalAnchor: "start",
                   y: -40,
                   className: pie_semi_circle_chart_module_default.label,
                   children: label
-                }), /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(Text, {
+                }), /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(Text, {
                   textAnchor: "middle",
                   verticalAnchor: "start",
                   y: -20,
@@ -27854,8 +27859,8 @@ var PieSemiCircleChartInternal = ({ data, chartId: providedChartId, width: propW
   });
 };
 var PieSemiCircleChartWithProvider = (props) => {
-  if ((0, import_react71.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(PieSemiCircleChartInternal, { ...props });
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(PieSemiCircleChartInternal, { ...props }) });
+  if ((0, import_react71.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(PieSemiCircleChartInternal, { ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(PieSemiCircleChartInternal, { ...props }) });
 };
 PieSemiCircleChartWithProvider.displayName = "PieSemiCircleChart";
 var PieSemiCircleChart = attachSubComponents(PieSemiCircleChartWithProvider, {
@@ -27932,7 +27937,7 @@ var SparklineComponent = (0, import_react71.forwardRef)(({ data, width = DEFAULT
     gradient,
     color2
   ]);
-  if (!data || data.length === 0) return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+  if (!data || data.length === 0) return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
     ref,
     className: clsx_default("sparkline", sparkline_module_default.sparkline, sparkline_module_default["sparkline--empty"], className),
     style: {
@@ -27944,18 +27949,18 @@ var SparklineComponent = (0, import_react71.forwardRef)(({ data, width = DEFAULT
     const cx58 = width / 2;
     const cy = height / 2;
     const resolvedColor = color2 || "#000000";
-    return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+    return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
       ref,
       className: clsx_default("sparkline", sparkline_module_default.sparkline, sparkline_module_default["sparkline--single-point"], className),
       style: {
         width,
         height
       },
-      children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("svg", {
+      children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("svg", {
         width,
         height,
         "aria-hidden": "true",
-        children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("circle", {
+        children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("circle", {
           cx: cx58,
           cy,
           r: strokeWidth * 1.5,
@@ -27964,10 +27969,10 @@ var SparklineComponent = (0, import_react71.forwardRef)(({ data, width = DEFAULT
       })
     });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("div", {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("div", {
     ref,
     className: clsx_default("sparkline", sparkline_module_default.sparkline, className),
-    children: /* @__PURE__ */ (0, import_jsx_runtime146.jsx)(LineChart, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(LineChart, {
       data: seriesWithGradient,
       width,
       height,
@@ -28968,7 +28973,7 @@ var Text3 = (0, import_element2.forwardRef)(function Text22({ variant = "body-md
 // ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/button/button.mjs
 var import_element3 = __toESM(require_element(), 1);
 var import_i18n2 = __toESM(require_i18n(), 1);
-var import_jsx_runtime147 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime148 = __toESM(require_jsx_runtime(), 1);
 import { speak } from "@wordpress/a11y";
 var STYLE_HASH_ATTRIBUTE3 = "data-wp-hash";
 function getRuntime3() {
@@ -29095,7 +29100,7 @@ var Button3 = (0, import_element3.forwardRef)(
         speak(loadingAnnouncement);
       }
     }, [loading, loadingAnnouncement]);
-    return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime148.jsx)(
       Button,
       {
         ref,
@@ -29114,11 +29119,11 @@ var import_element5 = __toESM(require_element(), 1);
 
 // ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/icon/icon.mjs
 var import_element4 = __toESM(require_element(), 1);
-var import_primitives3 = __toESM(require_primitives(), 1);
-var import_jsx_runtime148 = __toESM(require_jsx_runtime(), 1);
+var import_primitives4 = __toESM(require_primitives(), 1);
+var import_jsx_runtime149 = __toESM(require_jsx_runtime(), 1);
 var Icon = (0, import_element4.forwardRef)(function Icon2({ icon, size = 24, ...restProps }, ref) {
-  return /* @__PURE__ */ (0, import_jsx_runtime148.jsx)(
-    import_primitives3.SVG,
+  return /* @__PURE__ */ (0, import_jsx_runtime149.jsx)(
+    import_primitives4.SVG,
     {
       ref,
       fill: "currentColor",
@@ -29131,10 +29136,10 @@ var Icon = (0, import_element4.forwardRef)(function Icon2({ icon, size = 24, ...
 });
 
 // ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/button/icon.mjs
-var import_jsx_runtime149 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime150 = __toESM(require_jsx_runtime(), 1);
 var ButtonIcon = (0, import_element5.forwardRef)(
   function ButtonIcon2({ icon, ...props }, ref) {
-    return /* @__PURE__ */ (0, import_jsx_runtime149.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(
       Icon,
       {
         ref,
@@ -29479,7 +29484,7 @@ var Visual = (0, import_element8.forwardRef)(
 
 // ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/icon.mjs
 var import_element9 = __toESM(require_element(), 1);
-var import_jsx_runtime150 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime151 = __toESM(require_jsx_runtime(), 1);
 var STYLE_HASH_ATTRIBUTE7 = "data-wp-hash";
 function getRuntime7() {
   const globalScope = globalThis;
@@ -29566,13 +29571,13 @@ if (typeof process === "undefined" || true) {
 var style_default7 = { "root": "a23e08e65c8e62e5__root", "visual": "_01303b3680eaa216__visual", "icon": "_58c8e351db225608__icon", "title": "b8b96f70820333a1__title", "description": "_70f1dd22bad55b18__description", "actions": "_89ac025fd8e2bc52__actions" };
 var Icon3 = (0, import_element9.forwardRef)(
   function EmptyStateIcon({ icon, className, ...restProps }, ref) {
-    return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(
       Visual,
       {
         ref,
         className: clsx_default(style_default7.icon, className),
         ...restProps,
-        children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Icon, { icon })
+        children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Icon, { icon })
       }
     );
   }
@@ -29580,7 +29585,7 @@ var Icon3 = (0, import_element9.forwardRef)(
 
 // ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/title.mjs
 var import_element10 = __toESM(require_element(), 1);
-var import_jsx_runtime151 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime152 = __toESM(require_jsx_runtime(), 1);
 var STYLE_HASH_ATTRIBUTE8 = "data-wp-hash";
 function getRuntime8() {
   const globalScope = globalThis;
@@ -29665,10 +29670,10 @@ if (typeof process === "undefined" || true) {
   registerStyle8("6d6361d221", '@layer wp-ui-utilities, wp-ui-components, wp-ui-compositions, wp-ui-overrides;@layer wp-ui-components{.a23e08e65c8e62e5__root{text-wrap:balance;align-items:center;color:var(--wpds-color-fg-content-neutral,#1e1e1e);display:flex;flex-direction:column;font-family:var(--wpds-typography-font-family-body,-apple-system,system-ui,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif);gap:var(--wpds-dimension-gap-xs,4px);max-width:var(--wpds-dimension-surface-width-sm,320px);text-align:center}._01303b3680eaa216__visual{align-items:center;color:var(--wpds-color-fg-content-neutral-weak,#707070);display:flex;justify-content:center;line-height:1;margin-block-end:var(--wpds-dimension-gap-xs,4px)}._58c8e351db225608__icon{background-color:var(--wpds-color-bg-surface-neutral-weak,#f4f4f4);border:1px solid var(--wpds-color-stroke-surface-neutral-weak,#e4e4e4);border-radius:50%;padding:var(--wpds-dimension-padding-xs,4px)}.b8b96f70820333a1__title{margin:0}._70f1dd22bad55b18__description{color:var(--wpds-color-fg-content-neutral-weak,#707070);margin:0}._89ac025fd8e2bc52__actions{align-items:center;display:flex;flex-direction:column;gap:var(--wpds-dimension-gap-xs,4px);margin-block-start:var(--wpds-dimension-gap-md,12px);@media (min-width:480px){flex-direction:row;justify-content:center}}}');
 }
 var style_default8 = { "root": "a23e08e65c8e62e5__root", "visual": "_01303b3680eaa216__visual", "icon": "_58c8e351db225608__icon", "title": "b8b96f70820333a1__title", "description": "_70f1dd22bad55b18__description", "actions": "_89ac025fd8e2bc52__actions" };
-var DEFAULT_TAG = /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("h2", {});
+var DEFAULT_TAG = /* @__PURE__ */ (0, import_jsx_runtime152.jsx)("h2", {});
 var Title = (0, import_element10.forwardRef)(
   function EmptyStateTitle({ render = DEFAULT_TAG, className, children, ...props }, ref) {
-    return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime152.jsx)(
       Text3,
       {
         ref,
@@ -29684,7 +29689,7 @@ var Title = (0, import_element10.forwardRef)(
 
 // ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/description.mjs
 var import_element11 = __toESM(require_element(), 1);
-var import_jsx_runtime152 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime153 = __toESM(require_jsx_runtime(), 1);
 var STYLE_HASH_ATTRIBUTE9 = "data-wp-hash";
 function getRuntime9() {
   const globalScope = globalThis;
@@ -29769,9 +29774,9 @@ if (typeof process === "undefined" || true) {
   registerStyle9("6d6361d221", '@layer wp-ui-utilities, wp-ui-components, wp-ui-compositions, wp-ui-overrides;@layer wp-ui-components{.a23e08e65c8e62e5__root{text-wrap:balance;align-items:center;color:var(--wpds-color-fg-content-neutral,#1e1e1e);display:flex;flex-direction:column;font-family:var(--wpds-typography-font-family-body,-apple-system,system-ui,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif);gap:var(--wpds-dimension-gap-xs,4px);max-width:var(--wpds-dimension-surface-width-sm,320px);text-align:center}._01303b3680eaa216__visual{align-items:center;color:var(--wpds-color-fg-content-neutral-weak,#707070);display:flex;justify-content:center;line-height:1;margin-block-end:var(--wpds-dimension-gap-xs,4px)}._58c8e351db225608__icon{background-color:var(--wpds-color-bg-surface-neutral-weak,#f4f4f4);border:1px solid var(--wpds-color-stroke-surface-neutral-weak,#e4e4e4);border-radius:50%;padding:var(--wpds-dimension-padding-xs,4px)}.b8b96f70820333a1__title{margin:0}._70f1dd22bad55b18__description{color:var(--wpds-color-fg-content-neutral-weak,#707070);margin:0}._89ac025fd8e2bc52__actions{align-items:center;display:flex;flex-direction:column;gap:var(--wpds-dimension-gap-xs,4px);margin-block-start:var(--wpds-dimension-gap-md,12px);@media (min-width:480px){flex-direction:row;justify-content:center}}}');
 }
 var style_default9 = { "root": "a23e08e65c8e62e5__root", "visual": "_01303b3680eaa216__visual", "icon": "_58c8e351db225608__icon", "title": "b8b96f70820333a1__title", "description": "_70f1dd22bad55b18__description", "actions": "_89ac025fd8e2bc52__actions" };
-var DEFAULT_TAG2 = /* @__PURE__ */ (0, import_jsx_runtime152.jsx)("p", {});
+var DEFAULT_TAG2 = /* @__PURE__ */ (0, import_jsx_runtime153.jsx)("p", {});
 var Description = (0, import_element11.forwardRef)(function EmptyStateDescription({ render = DEFAULT_TAG2, className, children, ...props }, ref) {
-  return /* @__PURE__ */ (0, import_jsx_runtime152.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime153.jsx)(
     Text3,
     {
       ref,
@@ -30129,7 +30134,7 @@ if (typeof process === "undefined" || true) {
 var widget_root_module_default = { "root": "_2bfddfa3112e21d0__root" };
 
 // packages/widgets-toolkit/src/components/widget-root/widget-root.tsx
-var import_jsx_runtime153 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime154 = __toESM(require_jsx_runtime(), 1);
 var DEFAULT_SEARCH_FROM = "/";
 function useResolveReportParams(attributes, from2) {
   let search = {};
@@ -30150,7 +30155,7 @@ function WidgetRoot({ attributes, children, setError, options }) {
     [rawReportParams, defaultPreset]
   );
   const contextValue = (0, import_react80.useMemo)(() => ({ reportParams, setError }), [reportParams, setError]);
-  return /* @__PURE__ */ (0, import_jsx_runtime153.jsx)(AnalyticsQueryClientProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime153.jsx)(GlobalChartsProvider, { theme: chartTheme, children: /* @__PURE__ */ (0, import_jsx_runtime153.jsx)(WidgetRootContext.Provider, { value: contextValue, children: /* @__PURE__ */ (0, import_jsx_runtime153.jsx)("div", { className: widget_root_module_default.root, children }) }) }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime154.jsx)(AnalyticsQueryClientProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime154.jsx)(GlobalChartsProvider, { theme: chartTheme, children: /* @__PURE__ */ (0, import_jsx_runtime154.jsx)(WidgetRootContext.Provider, { value: contextValue, children: /* @__PURE__ */ (0, import_jsx_runtime154.jsx)("div", { className: widget_root_module_default.root, children }) }) }) });
 }
 
 // packages/widgets-toolkit/src/components/chart-empty-state/chart-empty-state.tsx
@@ -30163,14 +30168,14 @@ if (typeof process === "undefined" || true) {
 var chart_empty_state_module_default = { "container": "d1d27c24ed6a0118__container", "icon": "_69df60c5937cf73f__icon" };
 
 // packages/widgets-toolkit/src/components/chart-empty-state/chart-empty-state.tsx
-var import_jsx_runtime154 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime155 = __toESM(require_jsx_runtime(), 1);
 function ChartEmptyState({
   icon = caution_filled_default,
   text: text2 = (0, import_i18n3.__)("No data found for this date range.", "jetpack-premium-analytics")
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime154.jsxs)(empty_state_exports.Root, { className: chart_empty_state_module_default.container, children: [
-    icon && /* @__PURE__ */ (0, import_jsx_runtime154.jsx)(Icon, { size: 48, className: chart_empty_state_module_default.icon, icon }),
-    /* @__PURE__ */ (0, import_jsx_runtime154.jsx)(empty_state_exports.Description, { children: text2 })
+  return /* @__PURE__ */ (0, import_jsx_runtime155.jsxs)(empty_state_exports.Root, { className: chart_empty_state_module_default.container, children: [
+    icon && /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(Icon, { size: 48, className: chart_empty_state_module_default.icon, icon }),
+    /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(empty_state_exports.Description, { children: text2 })
   ] });
 }
 
@@ -30184,9 +30189,9 @@ if (typeof process === "undefined" || true) {
 var widget_loading_overlay_module_default = { "overlay": "_72f4bedabdb649b6__overlay" };
 
 // packages/widgets-toolkit/src/components/widget-loading-overlay/widget-loading-overlay.tsx
-var import_jsx_runtime155 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime156 = __toESM(require_jsx_runtime(), 1);
 function WidgetLoadingOverlay() {
-  return /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(Stack3, { justify: "center", align: "center", className: widget_loading_overlay_module_default.overlay, children: /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(import_components.Spinner, {}) });
+  return /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(Stack3, { justify: "center", align: "center", className: widget_loading_overlay_module_default.overlay, children: /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(import_components.Spinner, {}) });
 }
 
 // packages/widgets-toolkit/src/components/chart-leaderboard/leaderboard-chart.tsx
@@ -30199,7 +30204,7 @@ if (typeof process === "undefined" || true) {
 var leaderboard_chart_module_default2 = { "container": "_4de259f021560c42__container", "chart": "_311767af7aa356a1__chart", "legend": "c706b38c73334d9a__legend", "legendItem": "c99fd9b4acf0373b__legendItem", "legendLabel": "_5d0d85d035d38904__legendLabel", "emptyState": "_678f00a756d1b06a__emptyState", "emptyStateIcon": "f8e3e1d92ab51fc2__emptyStateIcon", "emptyStateText": "_6a95991f4b350a0a__emptyStateText" };
 
 // packages/widgets-toolkit/src/components/chart-leaderboard/leaderboard-chart.tsx
-var import_jsx_runtime156 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime157 = __toESM(require_jsx_runtime(), 1);
 function LeaderboardChart2({
   className,
   data,
@@ -30241,16 +30246,16 @@ function LeaderboardChart2({
   }, [theme, style]);
   const isEmptyData = !data || data.length === 0;
   if (isEmptyData) {
-    return /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(ChartEmptyState, { icon: emptyStateIcon, text: emptyStateText });
+    return /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(ChartEmptyState, { icon: emptyStateIcon, text: emptyStateText });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(
     Stack3,
     {
       direction: "column",
       justify: "space-between",
       gap: "lg",
       className: clsx_default(leaderboard_chart_module_default2.container, className),
-      children: /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(
         LeaderboardChart,
         {
           data,
@@ -30263,7 +30268,7 @@ function LeaderboardChart2({
           showLegend: false,
           style: chartStyle,
           className: leaderboard_chart_module_default2.chart,
-          children: showLegend && /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(
+          children: showLegend && /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(
             Legend2,
             {
               className: leaderboard_chart_module_default2.legend,
@@ -30293,7 +30298,7 @@ if (typeof process === "undefined" || true) {
 var leaderboard_label_module_default = { "container": "_06467ae0c6ce00b4__container", "label": "_11fbc8dfc8309afa__label", "labelImage": "af5dff3e97b5000b__labelImage" };
 
 // packages/widgets-toolkit/src/components/chart-leaderboard/leaderboard-label.tsx
-var import_jsx_runtime157 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime158 = __toESM(require_jsx_runtime(), 1);
 var DEFAULT_IMAGE_URL = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"><rect width="50" height="50" fill="%23e5e7eb"/></svg>';
 function LeaderboardLabel({
   label,
@@ -30302,8 +30307,8 @@ function LeaderboardLabel({
   imageClassName
 }) {
   const finalImageUrl = imageUrl || DEFAULT_IMAGE_URL;
-  return /* @__PURE__ */ (0, import_jsx_runtime157.jsxs)(Stack3, { direction: "row", gap: "sm", align: "center", className: leaderboard_label_module_default.container, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)(Stack3, { direction: "row", gap: "sm", align: "center", className: leaderboard_label_module_default.container, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
       "img",
       {
         src: finalImageUrl,
@@ -30314,20 +30319,20 @@ function LeaderboardLabel({
         className: clsx_default(leaderboard_label_module_default.labelImage, imageClassName)
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime157.jsx)("span", { className: leaderboard_label_module_default.label, children: label })
+    /* @__PURE__ */ (0, import_jsx_runtime158.jsx)("span", { className: leaderboard_label_module_default.label, children: label })
   ] });
 }
 
 // widgets/locations/render.tsx
 var import_components3 = __toESM(require_components(), 1);
 var import_element13 = __toESM(require_element(), 1);
-var import_i18n4 = __toESM(require_i18n(), 1);
+var import_i18n5 = __toESM(require_i18n(), 1);
 
 // widgets/locations/style.module.css
 if (typeof process === "undefined" || true) {
-  registerStyle11("b90eed6289", "._0a1a11a4aeb90d81__root{container-type:inline-size;display:flex;flex-direction:column;height:100%;overflow:hidden}._11a3f71eda80f478__placeholder{color:var(--wpds-color-fg-content-neutral-weak,#707070);flex:1 1 0;inline-size:100%;min-block-size:0;min-height:200px;text-align:center}._5f4abbb573cb3124__widgetHeader{min-height:32px;padding:var(--wpds-dimension-padding-md,12px) var(--wpds-dimension-padding-lg,16px)}.ec5b64c4d9a4d95c__breadcrumb{color:inherit;font-size:13px;font-weight:500;min-height:32px}.ec5b64c4d9a4d95c__breadcrumb *{font-weight:inherit}._8d5801f51c4092fc__breadcrumbLink{appearance:none;background:none;border:none;color:inherit;cursor:pointer;font:inherit;padding:0;text-decoration:none}._8d5801f51c4092fc__breadcrumbLink:focus,._8d5801f51c4092fc__breadcrumbLink:hover{color:var(--wp-admin-theme-color);text-decoration:none}._0ce452a220bd56f7__breadcrumbSeparator{color:var(--wpds-color-fg-content-neutral-weak,#707070)}._61bf487ae6b6aa56__modeSelect{flex-shrink:0}._3cdce4de6ad59fb7__content{display:flex;flex:1 1 0;flex-direction:column;min-height:0;padding:var(--wpds-dimension-padding-lg,16px);position:relative}.bd05d93f7b81dacd__chartArea{align-items:stretch;column-gap:var(--wpds-dimension-gap-lg,16px);display:grid;flex:1 1 0;grid-template-columns:280fr 400fr;grid-template-rows:minmax(0,1fr);min-height:0;min-width:0}.d38d92a9738048cc__leaderboard{align-self:start;min-height:0;min-width:0;overflow:hidden}._49ab3dafdeab3d2f__noMap{grid-template-columns:1fr}._24dc3dd5a6ea0e8c__geoChart{align-items:center;display:flex;height:100%;min-width:0;overflow:hidden}@container (max-width: 479px){._24dc3dd5a6ea0e8c__geoChart{display:none}.bd05d93f7b81dacd__chartArea{grid-template-columns:1fr}}._833ed1fc85dadb0c__leaderboardImage{border-radius:var(--wpds-border-radius-sm,2px);height:20px}[inert]:not([inert=true]) ._0a1a11a4aeb90d81__root{aspect-ratio:4/3;height:auto;overflow:hidden}[inert] .d38d92a9738048cc__leaderboard ._833ed1fc85dadb0c__leaderboardImage{height:20px;object-fit:fill;width:auto}");
+  registerStyle11("490fd18922", "._0a1a11a4aeb90d81__root{container-type:inline-size;display:flex;flex-direction:column;height:100%;overflow:hidden}._11a3f71eda80f478__placeholder{color:var(--wpds-color-fg-content-neutral-weak,#707070);flex:1 1 0;inline-size:100%;min-block-size:0;min-height:200px;text-align:center}._5f4abbb573cb3124__widgetHeader{flex-wrap:wrap;gap:var(--wpds-dimension-gap-sm,8px);min-height:32px;padding:var(--wpds-dimension-padding-md,12px) var(--wpds-dimension-padding-lg,16px)}.ec5b64c4d9a4d95c__breadcrumb{color:inherit;flex:1 1 0;font-size:13px;font-weight:500;line-height:20px;min-inline-size:0;min-height:32px}.ec5b64c4d9a4d95c__breadcrumb *{font-weight:inherit}._083d1cc79af16c9d__headerTitle{align-items:center;display:inline-flex;gap:var(--wpds-dimension-gap-xs,4px);line-height:inherit;min-inline-size:0}._3fc16f8a7a825f76__headerIcon{flex:0 0 auto}._2747df170ca4256f__breadcrumbTitle,._8d5801f51c4092fc__breadcrumbLink{align-items:center;display:inline-flex;min-block-size:20px}._8d5801f51c4092fc__breadcrumbLink{appearance:none;background:none;border:none;color:inherit;cursor:pointer;font:inherit;padding:0;text-decoration:none}._8d5801f51c4092fc__breadcrumbLink:focus,._8d5801f51c4092fc__breadcrumbLink:hover{color:var(--wp-admin-theme-color);text-decoration:none}._0ce452a220bd56f7__breadcrumbSeparator{color:var(--wpds-color-fg-content-neutral-weak,#707070);flex:0 0 auto;line-height:inherit}._6dd1c1f9b3925fb3__breadcrumbCurrent{line-height:inherit;min-inline-size:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}._61bf487ae6b6aa56__modeSelect{flex:0 1 220px;max-inline-size:100%;min-inline-size:min(100%,160px)}._3cdce4de6ad59fb7__content{display:flex;flex:1 1 0;flex-direction:column;min-height:0;padding:var(--wpds-dimension-padding-lg,16px);position:relative}.bd05d93f7b81dacd__chartArea{align-items:stretch;column-gap:var(--wpds-dimension-gap-lg,16px);display:grid;flex:1 1 0;grid-template-columns:280fr 400fr;grid-template-rows:minmax(0,1fr);min-height:0;min-width:0}.d38d92a9738048cc__leaderboard{align-self:start;min-height:0;min-width:0;overflow:hidden}.a7f9f382687b6ba9__leaderboardLabel{min-width:0;overflow:hidden}.a7f9f382687b6ba9__leaderboardLabel>*{max-width:100%;min-width:0}.a7f9f382687b6ba9__leaderboardLabel span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}._49ab3dafdeab3d2f__noMap{grid-template-columns:1fr}._24dc3dd5a6ea0e8c__geoChart{align-items:center;display:flex;height:100%;min-width:0;overflow:hidden}@container (max-width: 431px){._5f4abbb573cb3124__widgetHeader{align-items:stretch}._61bf487ae6b6aa56__modeSelect,.ec5b64c4d9a4d95c__breadcrumb{flex-basis:100%}.ec5b64c4d9a4d95c__breadcrumb{order:2}._61bf487ae6b6aa56__modeSelect{inline-size:100%;order:1}._24dc3dd5a6ea0e8c__geoChart{display:none}.bd05d93f7b81dacd__chartArea{grid-template-columns:1fr}}._833ed1fc85dadb0c__leaderboardImage{border-radius:var(--wpds-border-radius-sm,2px);height:20px}[inert]:not([inert=true]) ._0a1a11a4aeb90d81__root{aspect-ratio:4/3;height:auto;overflow:hidden}[inert] .d38d92a9738048cc__leaderboard ._833ed1fc85dadb0c__leaderboardImage{height:20px;object-fit:fill;width:auto}");
 }
-var style_default11 = { "root": "_0a1a11a4aeb90d81__root", "placeholder": "_11a3f71eda80f478__placeholder", "widgetHeader": "_5f4abbb573cb3124__widgetHeader", "breadcrumb": "ec5b64c4d9a4d95c__breadcrumb", "breadcrumbLink": "_8d5801f51c4092fc__breadcrumbLink", "breadcrumbSeparator": "_0ce452a220bd56f7__breadcrumbSeparator", "modeSelect": "_61bf487ae6b6aa56__modeSelect", "content": "_3cdce4de6ad59fb7__content", "chartArea": "bd05d93f7b81dacd__chartArea", "leaderboard": "d38d92a9738048cc__leaderboard", "noMap": "_49ab3dafdeab3d2f__noMap", "geoChart": "_24dc3dd5a6ea0e8c__geoChart", "leaderboardImage": "_833ed1fc85dadb0c__leaderboardImage" };
+var style_default11 = { "root": "_0a1a11a4aeb90d81__root", "placeholder": "_11a3f71eda80f478__placeholder", "widgetHeader": "_5f4abbb573cb3124__widgetHeader", "breadcrumb": "ec5b64c4d9a4d95c__breadcrumb", "headerTitle": "_083d1cc79af16c9d__headerTitle", "headerIcon": "_3fc16f8a7a825f76__headerIcon", "breadcrumbTitle": "_2747df170ca4256f__breadcrumbTitle", "breadcrumbLink": "_8d5801f51c4092fc__breadcrumbLink", "breadcrumbSeparator": "_0ce452a220bd56f7__breadcrumbSeparator", "breadcrumbCurrent": "_6dd1c1f9b3925fb3__breadcrumbCurrent", "modeSelect": "_61bf487ae6b6aa56__modeSelect", "content": "_3cdce4de6ad59fb7__content", "chartArea": "bd05d93f7b81dacd__chartArea", "leaderboard": "d38d92a9738048cc__leaderboard", "leaderboardLabel": "a7f9f382687b6ba9__leaderboardLabel", "noMap": "_49ab3dafdeab3d2f__noMap", "geoChart": "_24dc3dd5a6ea0e8c__geoChart", "leaderboardImage": "_833ed1fc85dadb0c__leaderboardImage" };
 
 // widgets/locations/use-location-views.ts
 import { useStatsLocations } from "@jetpack-premium-analytics/data";
@@ -30376,8 +30381,34 @@ function useLocationViews({
   };
 }
 
+// widgets/locations/widget.ts
+var import_i18n4 = __toESM(require_i18n(), 1);
+var widget_default = {
+  name: "jpa/locations",
+  title: (0, import_i18n4.__)("Locations", "jetpack-premium-analytics"),
+  icon: map_marker_default,
+  attributes: [
+    {
+      id: "max",
+      label: (0, import_i18n4.__)("Number of results", "jetpack-premium-analytics"),
+      type: "integer"
+    }
+  ],
+  example: {
+    attributes: {
+      max: 10
+    }
+  }
+};
+
 // widgets/locations/render.tsx
-var import_jsx_runtime158 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime159 = __toESM(require_jsx_runtime(), 1);
+function LocationsHeaderTitle() {
+  return /* @__PURE__ */ (0, import_jsx_runtime159.jsxs)("span", { className: style_default11.headerTitle, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(Icon, { icon: widget_default.icon, size: 20, className: style_default11.headerIcon }),
+    /* @__PURE__ */ (0, import_jsx_runtime159.jsx)("span", { children: (0, import_i18n5.__)("Locations", "jetpack-premium-analytics") })
+  ] });
+}
 function LocationsInner({ max: max2 }) {
   const { reportParams } = useWidgetRootContext();
   const [topMode, setTopMode] = (0, import_element13.useState)("country");
@@ -30399,8 +30430,8 @@ function LocationsInner({ max: max2 }) {
   const showLoading = isLoading || isFetching && hasData;
   const geoData = (0, import_element13.useMemo)(() => {
     const header2 = [
-      geoMode === "region" || geoMode === "city" ? (0, import_i18n4.__)("Location", "jetpack-premium-analytics") : (0, import_i18n4.__)("Country", "jetpack-premium-analytics"),
-      (0, import_i18n4.__)("Views", "jetpack-premium-analytics")
+      geoMode === "region" || geoMode === "city" ? (0, import_i18n5.__)("Location", "jetpack-premium-analytics") : (0, import_i18n5.__)("Country", "jetpack-premium-analytics"),
+      (0, import_i18n5.__)("Views", "jetpack-premium-analytics")
     ];
     const rows = data.map((location) => [location.label, location.value]);
     return [header2, ...rows];
@@ -30416,19 +30447,19 @@ function LocationsInner({ max: max2 }) {
       const previousValue = hasComparison ? comparisonMap.get(location.key) ?? 0 : 0;
       return {
         id: location.key,
-        label: /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
+        label: /* @__PURE__ */ (0, import_jsx_runtime159.jsx)("div", { className: style_default11.leaderboardLabel, children: /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(
           LeaderboardLabel,
           {
             label: location.label,
             imageUrl: imageUrl ?? void 0,
-            imageAlt: (0, import_i18n4.sprintf)(
+            imageAlt: (0, import_i18n5.sprintf)(
               /* translators: %s is the country name */
-              (0, import_i18n4.__)("Flag of %s", "jetpack-premium-analytics"),
+              (0, import_i18n5.__)("Flag of %s", "jetpack-premium-analytics"),
               location.countryFull
             ),
             imageClassName: style_default11.leaderboardImage
           }
-        ),
+        ) }),
         currentValue: location.value,
         previousValue,
         currentShare: maxValue > 0 ? location.value / maxValue * 100 : 0,
@@ -30442,84 +30473,73 @@ function LocationsInner({ max: max2 }) {
           // its children: "Flag of X" (image alt) + "X" (visible label) →
           // screen readers announce the country name twice. Provide a concise
           // action label that replaces the computed name.
-          ariaLabel: (0, import_i18n4.sprintf)(
+          ariaLabel: (0, import_i18n5.sprintf)(
             /* translators: %s is the country name */
-            (0, import_i18n4.__)("View regions in %s", "jetpack-premium-analytics"),
+            (0, import_i18n5.__)("View regions in %s", "jetpack-premium-analytics"),
             location.countryFull
           )
         }
       };
     });
   }, [comparisonData, data, geoMode, hasComparison]);
-  const header = /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)(
-    Stack3,
-    {
-      direction: "row",
-      justify: selectedCountry ? "space-between" : "flex-end",
-      align: "center",
-      className: style_default11.widgetHeader,
-      children: [
-        selectedCountry && /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)(Stack3, { direction: "row", align: "center", gap: "xs", className: style_default11.breadcrumb, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
-            Button4,
-            {
-              variant: "unstyled",
-              onClick: clearSelectedCountry,
-              className: style_default11.breadcrumbLink,
-              children: (0, import_i18n4.__)("Locations", "jetpack-premium-analytics")
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)(import_jsx_runtime158.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(Text3, { className: style_default11.breadcrumbSeparator, children: "/" }),
-            /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(Text3, { children: selectedCountry.name })
-          ] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
-          import_components3.SelectControl,
-          {
-            __next40pxDefaultSize: true,
-            __nextHasNoMarginBottom: true,
-            label: (0, import_i18n4.__)("View by", "jetpack-premium-analytics"),
-            hideLabelFromVision: true,
-            value: topMode,
-            options: [
-              { label: (0, import_i18n4.__)("Countries", "jetpack-premium-analytics"), value: "country" },
-              { label: (0, import_i18n4.__)("Cities", "jetpack-premium-analytics"), value: "city" }
-            ],
-            onChange: handleModeChange,
-            className: style_default11.modeSelect
-          }
-        )
-      ]
-    }
-  );
+  const header = /* @__PURE__ */ (0, import_jsx_runtime159.jsxs)(Stack3, { direction: "row", justify: "space-between", align: "center", className: style_default11.widgetHeader, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(Stack3, { direction: "row", align: "center", gap: "xs", className: style_default11.breadcrumb, children: selectedCountry ? /* @__PURE__ */ (0, import_jsx_runtime159.jsxs)(import_jsx_runtime159.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(
+        Button4,
+        {
+          variant: "unstyled",
+          onClick: clearSelectedCountry,
+          className: style_default11.breadcrumbLink,
+          children: /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(LocationsHeaderTitle, {})
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(Text3, { className: style_default11.breadcrumbSeparator, children: "/" }),
+      /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(Text3, { className: style_default11.breadcrumbCurrent, children: selectedCountry.name })
+    ] }) : /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(Text3, { className: style_default11.breadcrumbTitle, children: /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(LocationsHeaderTitle, {}) }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(
+      import_components3.SelectControl,
+      {
+        __next40pxDefaultSize: true,
+        __nextHasNoMarginBottom: true,
+        label: (0, import_i18n5.__)("View by", "jetpack-premium-analytics"),
+        hideLabelFromVision: true,
+        value: topMode,
+        options: [
+          { label: (0, import_i18n5.__)("Countries", "jetpack-premium-analytics"), value: "country" },
+          { label: (0, import_i18n5.__)("Cities", "jetpack-premium-analytics"), value: "city" }
+        ],
+        onChange: handleModeChange,
+        className: style_default11.modeSelect
+      }
+    )
+  ] });
   if (isLoading && data.length === 0) {
-    return /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)(import_jsx_runtime158.Fragment, { children: [
+    return /* @__PURE__ */ (0, import_jsx_runtime159.jsxs)(import_jsx_runtime159.Fragment, { children: [
       header,
-      /* @__PURE__ */ (0, import_jsx_runtime158.jsx)("div", { className: style_default11.content, children: /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(WidgetLoadingOverlay, {}) })
+      /* @__PURE__ */ (0, import_jsx_runtime159.jsx)("div", { className: style_default11.content, children: /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(WidgetLoadingOverlay, {}) })
     ] });
   }
   if (isError) {
-    return /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)(import_jsx_runtime158.Fragment, { children: [
+    return /* @__PURE__ */ (0, import_jsx_runtime159.jsxs)(import_jsx_runtime159.Fragment, { children: [
       header,
-      /* @__PURE__ */ (0, import_jsx_runtime158.jsx)("div", { className: style_default11.content, children: /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(Stack3, { align: "center", justify: "center", className: style_default11.placeholder, children: /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(Text3, { children: (0, import_i18n4.__)("Could not load location data.", "jetpack-premium-analytics") }) }) })
+      /* @__PURE__ */ (0, import_jsx_runtime159.jsx)("div", { className: style_default11.content, children: /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(Stack3, { align: "center", justify: "center", className: style_default11.placeholder, children: /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(Text3, { children: (0, import_i18n5.__)("Could not load location data.", "jetpack-premium-analytics") }) }) })
     ] });
   }
   if (!data.length) {
-    return /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)(import_jsx_runtime158.Fragment, { children: [
+    return /* @__PURE__ */ (0, import_jsx_runtime159.jsxs)(import_jsx_runtime159.Fragment, { children: [
       header,
-      /* @__PURE__ */ (0, import_jsx_runtime158.jsx)("div", { className: style_default11.content, children: /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(Stack3, { align: "center", justify: "center", className: style_default11.placeholder, children: /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(Text3, { children: (0, import_i18n4.__)(
+      /* @__PURE__ */ (0, import_jsx_runtime159.jsx)("div", { className: style_default11.content, children: /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(Stack3, { align: "center", justify: "center", className: style_default11.placeholder, children: /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(Text3, { children: (0, import_i18n5.__)(
         "Stats on where your visitors are viewing from will appear here.",
         "jetpack-premium-analytics"
       ) }) }) })
     ] });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)(import_jsx_runtime158.Fragment, { children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime159.jsxs)(import_jsx_runtime159.Fragment, { children: [
     header,
-    /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)("div", { className: style_default11.content, children: [
-      showLoading && /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(WidgetLoadingOverlay, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)("div", { className: clsx_default(style_default11.chartArea, geoMode === "city" && style_default11.noMap), children: [
-        /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime159.jsxs)("div", { className: style_default11.content, children: [
+      showLoading && /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(WidgetLoadingOverlay, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime159.jsxs)("div", { className: clsx_default(style_default11.chartArea, geoMode === "city" && style_default11.noMap), children: [
+        /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(
           LeaderboardChart2,
           {
             data: leaderboardData,
@@ -30533,7 +30553,7 @@ function LocationsInner({ max: max2 }) {
             className: style_default11.leaderboard
           }
         ),
-        geoMode !== "city" && /* @__PURE__ */ (0, import_jsx_runtime158.jsx)("div", { className: style_default11.geoChart, children: /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
+        geoMode !== "city" && /* @__PURE__ */ (0, import_jsx_runtime159.jsx)("div", { className: style_default11.geoChart, children: /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(
           GeoChartResponsive,
           {
             data: geoData,
@@ -30548,7 +30568,7 @@ function LocationsInner({ max: max2 }) {
 }
 function Locations({ attributes = {} }) {
   const max2 = attributes?.max ?? 10;
-  return /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(WidgetRoot, { attributes, children: /* @__PURE__ */ (0, import_jsx_runtime158.jsx)("div", { className: style_default11.root, children: /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(LocationsInner, { max: max2 }) }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(WidgetRoot, { attributes, children: /* @__PURE__ */ (0, import_jsx_runtime159.jsx)("div", { className: style_default11.root, children: /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(LocationsInner, { max: max2 }) }) });
 }
 export {
   Locations as default
