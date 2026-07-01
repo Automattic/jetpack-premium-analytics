@@ -33,7 +33,7 @@ return array(
 		'dir_name'     => 'emails',
 		'has_render'   => true,
 		'has_widget'   => true,
-		'presentation' => 'full-bleed',
+		'presentation' => 'framed',
 	),
 	array(
 		'name'         => 'jpa/hello-world',

@@ -30114,7 +30114,7 @@ var import_i18n3 = __toESM(require_i18n(), 1);
 
 // widgets/emails/emails.module.css
 if (typeof process === "undefined" || true) {
-  registerStyle9("9f1d778ee1", "._7bc05c33f466737d__root{container-type:inline-size;display:flex;flex-direction:column;height:100%;overflow:hidden}._2ea855807e4bbc88__header{padding:var(--wpds-dimension-padding-md,12px) var(--wpds-dimension-padding-lg,16px)}._1398d7e397f06328__metricSelect{flex-shrink:0}._81659b3160881cd3__leaderboard{min-height:0;min-width:0;overflow:hidden;padding:0 var(--wpds-dimension-padding-lg,16px) var(--wpds-dimension-padding-lg,16px)}._7fd648e9fc59a1f3__label{color:inherit;display:block;overflow:hidden;padding-block:var(--wpds-dimension-padding-md,12px);padding-inline-start:var(--wpds-dimension-padding-sm,8px);text-overflow:ellipsis;white-space:nowrap}.cf3984c6a350713f__placeholder{color:var(--wpds-color-fg-content-neutral-weak,#707070);padding:var(--wpds-dimension-padding-lg,16px)}[inert]:not([inert=true]) ._7bc05c33f466737d__root{aspect-ratio:4/3;height:auto;overflow:hidden}");
+  registerStyle9("701ed5dc64", "._7bc05c33f466737d__root{container-type:inline-size;display:flex;flex-direction:column;height:100%;overflow:hidden}._2ea855807e4bbc88__header{flex-wrap:wrap;gap:var(--wpds-dimension-gap-sm,8px);margin-block-end:var(--wpds-dimension-gap-sm,8px)}._1398d7e397f06328__metricSelect{flex:0 1 220px;inline-size:min(100%,220px);max-inline-size:100%;min-inline-size:0}._81659b3160881cd3__leaderboard{min-height:0;min-width:0;overflow:hidden}._7fd648e9fc59a1f3__label{color:inherit;display:block;overflow:hidden;padding-block:var(--wpds-dimension-padding-md,12px);padding-inline-start:var(--wpds-dimension-padding-sm,8px);text-overflow:ellipsis;white-space:nowrap}.cf3984c6a350713f__placeholder{color:var(--wpds-color-fg-content-neutral-weak,#707070)}[inert]:not([inert=true]) ._7bc05c33f466737d__root{aspect-ratio:4/3;height:auto;overflow:hidden}");
 }
 var emails_default = { "root": "_7bc05c33f466737d__root", "header": "_2ea855807e4bbc88__header", "metricSelect": "_1398d7e397f06328__metricSelect", "leaderboard": "_81659b3160881cd3__leaderboard", "label": "_7fd648e9fc59a1f3__label", "placeholder": "cf3984c6a350713f__placeholder" };
 
@@ -30178,25 +30178,22 @@ var EmailsLeaderboard = ({
     );
   }
   return /* @__PURE__ */ (0, import_jsx_runtime155.jsxs)(Stack, { className: emails_default.root, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime155.jsxs)(Stack, { direction: "row", justify: "space-between", align: "center", className: emails_default.header, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(Text, { children: (0, import_i18n3.__)("Latest emails sent", "jetpack-premium-analytics") }),
-      /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(
-        import_components3.SelectControl,
-        {
-          __next40pxDefaultSize: true,
-          __nextHasNoMarginBottom: true,
-          label: (0, import_i18n3.__)("View by", "jetpack-premium-analytics"),
-          hideLabelFromVision: true,
-          value: metric,
-          options: [
-            { label: (0, import_i18n3.__)("Open rate", "jetpack-premium-analytics"), value: "opens" },
-            { label: (0, import_i18n3.__)("Click rate", "jetpack-premium-analytics"), value: "clicks" }
-          ],
-          onChange: handleMetricChange,
-          className: emails_default.metricSelect
-        }
-      )
-    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(Stack, { direction: "row", justify: "flex-end", align: "center", className: emails_default.header, children: /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(
+      import_components3.SelectControl,
+      {
+        __next40pxDefaultSize: true,
+        __nextHasNoMarginBottom: true,
+        label: (0, import_i18n3.__)("View by", "jetpack-premium-analytics"),
+        hideLabelFromVision: true,
+        value: metric,
+        options: [
+          { label: (0, import_i18n3.__)("Open rate", "jetpack-premium-analytics"), value: "opens" },
+          { label: (0, import_i18n3.__)("Click rate", "jetpack-premium-analytics"), value: "clicks" }
+        ],
+        onChange: handleMetricChange,
+        className: emails_default.metricSelect
+      }
+    ) }),
     body
   ] });
 };
@@ -30224,8 +30221,8 @@ function EmailsReport({ attributes }) {
     }
   );
 }
-function Emails({ attributes }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(WidgetRoot, { children: /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(EmailsReport, { attributes }) });
+function Emails({ attributes = {} }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(WidgetRoot, { attributes, children: /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(EmailsReport, { attributes }) });
 }
 export {
   EmailsLeaderboard,
