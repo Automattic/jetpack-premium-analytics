@@ -92,6 +92,13 @@ return array(
 		'presentation' => 'framed',
 	),
 	array(
+		'name'         => 'jpa/videos',
+		'dir_name'     => 'videos',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => 'framed',
+	),
+	array(
 		'name'         => 'jpa/visitors-over-time',
 		'dir_name'     => 'visitors-over-time',
 		'has_render'   => true,

@@ -14,6 +14,7 @@ This is an alpha version! The changes listed here are not final.
 - Add an Authors dashboard widget showing top authors by views via the Jetpack Stats API (through the stats-admin proxy), with a common stats query in the data package.
 - Add a Top posts & pages stats widget, wiring the ported presentational widget to live Jetpack Stats data via the designated useStatsTopPosts traffic hook.
 - Add a tsconfig paths alias and typecheck script so internal packages/* resolve for types/IDE.
+- Add a Videos dashboard widget showing the most played videos via the Jetpack Stats API (through the stats-admin proxy).
 - Add site-sync package (useSyncStatus hook) and configure apiFetch auth in init.
 - Add the Emails widget to the Premium Analytics dashboard: a leaderboard of your latest sent emails with a selector to switch between open rate and click rate.
 - Add the internal fields package: DataForm field controls for widgets, delivered as a script module so styled editors stay out of widget metadata bundles. Includes the ReportParamsField date-range editor.
