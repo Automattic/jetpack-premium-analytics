@@ -105,6 +105,7 @@ This is an alpha version! The changes listed here are not final.
 - Email stats: match the real WordPress.com API shapes — opens/clicks timelines carry a labeled hourly `hour` column and no `unique_opens_count`, the emails summary always requests `period=alltime`, and the summary leaderboard ranks by opens.
 - Fix a missing script data asset in packaged Premium Analytics builds.
 - Fix dashboard widgets rendering "Widget is no longer available" by loading the widget manifest on REST requests, not just admin page loads.
+- Keep the widget-dashboard Storybook story's settings drawer on-screen when the dashboard is wider than the preview canvas.
 - Pin @wordpress/widget-dashboard and @wordpress/widget-primitives to an exact version instead of the floating next tag
 - Scope wp-build polyfill registration to the dashboard pages so it no longer force-replaces core script handles (wp-private-apis) on every admin page
 - Stats: Align traffic normalizer row metadata with legacy Stats behavior.
