@@ -23176,6 +23176,21 @@ var lightenHexColor = (hex2, blend) => {
   const newB = Math.round(b + (255 - b) * blend);
   return `#${newR.toString(16).padStart(2, "0")}${newG.toString(16).padStart(2, "0")}${newB.toString(16).padStart(2, "0")}`;
 };
+var relativeLuminance = (hex2) => {
+  validateHexColor(hex2);
+  const toLinear = (value) => {
+    const channel2 = value / 255;
+    return channel2 <= 0.03928 ? channel2 / 12.92 : Math.pow((channel2 + 0.055) / 1.055, 2.4);
+  };
+  const r2 = toLinear(parseInt(hex2.slice(1, 3), 16));
+  const g = toLinear(parseInt(hex2.slice(3, 5), 16));
+  const b = toLinear(parseInt(hex2.slice(5, 7), 16));
+  return 0.2126 * r2 + 0.7152 * g + 0.0722 * b;
+};
+var prefersLightText = (backgroundHex) => {
+  if (!isValidHexColor(backgroundHex)) return false;
+  return relativeLuminance(backgroundHex) <= 0.179;
+};
 var CSS_VAR_NAME_PATTERN = /^--[\w-]+$/;
 var resolveCssVariable = (value, element) => {
   if (!value) return null;
@@ -23360,6 +23375,10 @@ var defaultTheme = {
       left: 2
     },
     strokeWidth: 1.5
+  },
+  heatmapChart: {
+    compactCellGap: 2,
+    compactCellSize: 11
   }
 };
 var GlobalChartsContext = (0, import_react77.createContext)(null);
@@ -24928,12 +24947,17 @@ function withResponsive(WrappedComponent) {
     const effectiveWidth = measuredWidth || width || 0;
     const effectiveHeight = measuredHeight || height || 0;
     const defaultHeight = hasAspectRatio ? "auto" : "100%";
+    const aspectRatioStyle = hasAspectRatio && aspectRatio ? {
+      aspectRatio: `${1 / aspectRatio}`,
+      maxWidth: width === void 0 ? maxWidth : void 0
+    } : null;
     return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
       ref: parentRef,
       className: with_responsive_module_default.container,
       style: {
         width: width ?? "100%",
-        height: height ?? defaultHeight
+        height: height ?? defaultHeight,
+        ...aspectRatioStyle
       },
       children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(WrappedComponent, {
         width: effectiveWidth,
@@ -27540,6 +27564,321 @@ var GeoChartWithProvider = (props) => {
 };
 GeoChartWithProvider.displayName = "GeoChart";
 var GeoChartResponsive = withResponsive(GeoChartWithProvider);
+var heatmap_chart_module_default = {
+  "heatmap-chart": "a8ccharts-O3YMOW-heatmap-chart",
+  "heatmap-chart__cell": "a8ccharts-O3YMOW-heatmap-chart__cell",
+  "heatmap-chart__cell--filled": "a8ccharts-O3YMOW-heatmap-chart__cell--filled",
+  "heatmap-chart__cell--selected": "a8ccharts-O3YMOW-heatmap-chart__cell--selected",
+  "heatmap-chart__cell--strong": "a8ccharts-O3YMOW-heatmap-chart__cell--strong",
+  "heatmap-chart__cell-value": "a8ccharts-O3YMOW-heatmap-chart__cell-value",
+  "heatmap-chart__col-label": "a8ccharts-O3YMOW-heatmap-chart__col-label",
+  "heatmap-chart__empty": "a8ccharts-O3YMOW-heatmap-chart__empty",
+  "heatmap-chart__grid": "a8ccharts-O3YMOW-heatmap-chart__grid",
+  "heatmap-chart__grid--compact": "a8ccharts-O3YMOW-heatmap-chart__grid--compact",
+  "heatmap-chart__legend-swatch": "a8ccharts-O3YMOW-heatmap-chart__legend-swatch",
+  "heatmap-chart__row": "a8ccharts-O3YMOW-heatmap-chart__row",
+  "heatmap-chart__row-label": "a8ccharts-O3YMOW-heatmap-chart__row-label"
+};
+var isPresent = (value) => value !== null && value !== void 0 && !isNaN(value);
+var getValueExtent = (data) => {
+  let min2 = Infinity;
+  let max2 = -Infinity;
+  for (const column2 of data) for (const cell of column2.data) {
+    if (!isPresent(cell.value)) continue;
+    if (cell.value < min2) min2 = cell.value;
+    if (cell.value > max2) max2 = cell.value;
+  }
+  if (min2 === Infinity) return [0, 0];
+  return [min2, max2];
+};
+var getNormalizedValue = (value, extent2) => {
+  const [min2, max2] = extent2;
+  if (min2 === max2) return 1;
+  return Math.min(1, Math.max(0, (value - min2) / (max2 - min2)));
+};
+var HeatmapLegend = ({ steps: steps2 = 5, lessLabel, moreLabel }) => {
+  const context = (0, import_react77.useContext)(HeatmapContext);
+  const { legend } = useGlobalChartsTheme();
+  if (!context) return null;
+  const { primaryColorHex } = context;
+  const labelStyle = legend.labelStyles;
+  return /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(Stack4, {
+    direction: "row",
+    gap: "xs",
+    align: "center",
+    children: [
+      /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Text$1, {
+        variant: "body-sm",
+        style: labelStyle,
+        children: lessLabel ?? (0, import_i18n.__)("Less", "jetpack-charts")
+      }),
+      /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Stack4, {
+        direction: "row",
+        gap: "xs",
+        children: Array.from({ length: steps2 }, (_, index) => {
+          const intensity = steps2 <= 1 ? 1 : index / (steps2 - 1);
+          return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("span", {
+            "aria-hidden": "true",
+            className: heatmap_chart_module_default["heatmap-chart__legend-swatch"],
+            style: {
+              "--heatmap-primary": primaryColorHex,
+              "--intensity": intensity
+            }
+          }, index);
+        })
+      }),
+      /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Text$1, {
+        variant: "body-sm",
+        style: labelStyle,
+        children: moreLabel ?? (0, import_i18n.__)("More", "jetpack-charts")
+      })
+    ]
+  });
+};
+var HeatmapContext = (0, import_react77.createContext)(null);
+var CELL_MIX_FLOOR = 0.15;
+var HeatmapChartInternal = ({ data, chartId: providedChartId, width = 0, height = 0, className, compact = false, showValues, rowLabels = [], primaryColor, gap = "md", withTooltips = false, renderTooltip, children }) => {
+  const chartId = useChartId2(providedChartId);
+  const { getElementStyles, theme } = useGlobalChartsContext();
+  const { heatmapChart: heatmapChartSettings } = theme;
+  const { nonLegendChildren } = useChartChildren(children, "HeatmapChart");
+  const [selectedIndex, setSelectedIndex] = (0, import_react77.useState)();
+  const { tooltipOpen, tooltipLeft, tooltipTop, tooltipData, showTooltip, hideTooltip } = useTooltip();
+  const { containerRef, containerBounds, TooltipInPortal } = useTooltipInPortal({
+    detectBounds: true,
+    scroll: true
+  });
+  const containerBoundsRef = (0, import_react77.useRef)(containerBounds);
+  containerBoundsRef.current = containerBounds;
+  const { color: primaryColorHex } = getElementStyles({
+    index: 0,
+    overrideColor: primaryColor || heatmapChartSettings.primaryColor
+  });
+  const primaryHex = normalizeColorToHex(primaryColorHex);
+  const cellHasLightText = (intensity) => isValidHexColor(primaryHex) && prefersLightText(lightenHexColor(primaryHex, 1 - (CELL_MIX_FLOOR + (1 - CELL_MIX_FLOOR) * intensity)));
+  const extent2 = (0, import_react77.useMemo)(() => getValueExtent(data), [data]);
+  const heatmapContext = (0, import_react77.useMemo)(() => ({
+    extent: extent2,
+    primaryColorHex
+  }), [extent2, primaryColorHex]);
+  const columns = data.length;
+  const rows = Math.max(0, ...data.map((column2) => column2.data.length));
+  const { compactCellGap, compactCellSize } = heatmapChartSettings;
+  const drawValues = showValues ?? !compact;
+  const buildTooltipData = (0, import_react77.useCallback)((columnIndex, rowIndex) => {
+    const cell = data[columnIndex]?.data[rowIndex];
+    return {
+      value: cell?.value ?? null,
+      rowLabel: rowLabels[rowIndex],
+      columnLabel: data[columnIndex]?.label,
+      cellLabel: cell?.label,
+      row: rowIndex,
+      column: columnIndex
+    };
+  }, [data, rowLabels]);
+  const onChartBlur = (0, import_react77.useCallback)(() => {
+    setSelectedIndex(void 0);
+    hideTooltip();
+  }, [hideTooltip]);
+  const onChartKeyDown = (0, import_react77.useCallback)((event) => {
+    if (![
+      "ArrowLeft",
+      "ArrowRight",
+      "ArrowUp",
+      "ArrowDown",
+      "Escape",
+      "Tab"
+    ].includes(event.key)) return;
+    if (event.key === "Tab" || event.key === "Escape") {
+      setSelectedIndex(void 0);
+      hideTooltip();
+      return;
+    }
+    event.preventDefault();
+    if (selectedIndex === void 0) {
+      setSelectedIndex(0);
+      return;
+    }
+    let col = Math.floor(selectedIndex / rows);
+    let row = selectedIndex % rows;
+    if (event.key === "ArrowRight") col = Math.min(col + 1, columns - 1);
+    else if (event.key === "ArrowLeft") col = Math.max(col - 1, 0);
+    else if (event.key === "ArrowDown") row = Math.min(row + 1, rows - 1);
+    else if (event.key === "ArrowUp") row = Math.max(row - 1, 0);
+    setSelectedIndex(col * rows + row);
+  }, [
+    rows,
+    columns,
+    selectedIndex,
+    hideTooltip
+  ]);
+  const handleCellMouseMove = (0, import_react77.useCallback)((event) => {
+    if (!withTooltips) return;
+    const target = event.currentTarget;
+    const columnIndex = Number(target.dataset.column);
+    const rowIndex = Number(target.dataset.row);
+    const bounds = containerBoundsRef.current;
+    showTooltip({
+      tooltipLeft: event.clientX - bounds.left,
+      tooltipTop: event.clientY - bounds.top,
+      tooltipData: buildTooltipData(columnIndex, rowIndex)
+    });
+  }, [
+    withTooltips,
+    showTooltip,
+    buildTooltipData
+  ]);
+  const handleCellMouseLeave = (0, import_react77.useCallback)(() => {
+    if (withTooltips && selectedIndex === void 0) hideTooltip();
+  }, [
+    withTooltips,
+    selectedIndex,
+    hideTooltip
+  ]);
+  (0, import_react77.useEffect)(() => {
+    if (!withTooltips || selectedIndex === void 0) return;
+    const col = Math.floor(selectedIndex / rows);
+    const row = selectedIndex % rows;
+    const rect = (typeof document !== "undefined" ? document.getElementById(`${chartId}-cell-${col}-${row}`) : null)?.getBoundingClientRect();
+    const bounds = containerBoundsRef.current;
+    showTooltip({
+      tooltipLeft: rect ? rect.left + rect.width / 2 - bounds.left : 0,
+      tooltipTop: rect ? rect.top + rect.height / 2 - bounds.top : 0,
+      tooltipData: buildTooltipData(col, row)
+    });
+  }, [
+    selectedIndex,
+    withTooltips,
+    rows,
+    chartId,
+    buildTooltipData,
+    showTooltip
+  ]);
+  const defaultRenderTooltip = (0, import_react77.useCallback)((info) => /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)("strong", { children: info.cellLabel || `${info.columnLabel ?? ""} ${info.rowLabel ?? ""}`.trim() }), /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", { children: info.value === null ? (0, import_i18n.__)("No data", "jetpack-charts") : formatNumber(info.value) })] }), []);
+  if (!columns || !rows) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Center, {
+    className: clsx_default("heatmap-chart", heatmap_chart_module_default["heatmap-chart"], className),
+    style: {
+      width: width || void 0,
+      height: height || void 0
+    },
+    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("span", {
+      className: heatmap_chart_module_default["heatmap-chart__empty"],
+      children: (0, import_i18n.__)("No data available", "jetpack-charts")
+    })
+  });
+  const trackSize = compact ? "var(--heatmap-cell-size)" : "minmax(0, 1fr)";
+  const gridStyle = {
+    "--heatmap-primary": primaryColorHex,
+    gridTemplateColumns: `auto repeat(${columns}, ${trackSize})`,
+    gridTemplateRows: `auto repeat(${rows}, ${trackSize})`
+  };
+  if (compact) {
+    gridStyle["--heatmap-cell-gap"] = `${compactCellGap}px`;
+    gridStyle["--heatmap-cell-size"] = `${compactCellSize}px`;
+  }
+  const activeDescendant = selectedIndex !== void 0 ? `${chartId}-cell-${Math.floor(selectedIndex / rows)}-${selectedIndex % rows}` : void 0;
+  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(HeatmapContext.Provider, {
+    value: heatmapContext,
+    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(SingleChartContext.Provider, {
+      value: { chartId },
+      children: /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(ChartLayout, {
+        legendPosition: "bottom",
+        legendChildren: [],
+        trailingContent: nonLegendChildren,
+        gap,
+        className: clsx_default("heatmap-chart", heatmap_chart_module_default["heatmap-chart"], className),
+        style: {
+          width: width || void 0,
+          height: height || void 0
+        },
+        "data-chart-id": `heatmap-chart-${chartId}`,
+        children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("div", {
+          ref: containerRef,
+          role: "grid",
+          "aria-label": (0, import_i18n.__)("Heatmap chart", "jetpack-charts"),
+          "aria-rowcount": rows,
+          "aria-colcount": columns,
+          "aria-activedescendant": activeDescendant,
+          tabIndex: 0,
+          onBlur: onChartBlur,
+          onKeyDown: onChartKeyDown,
+          className: clsx_default(heatmap_chart_module_default["heatmap-chart__grid"], { [heatmap_chart_module_default["heatmap-chart__grid--compact"]]: compact }),
+          style: gridStyle,
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("span", { "aria-hidden": "true" }),
+            data.map((column2, columnIndex) => /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("span", {
+              "aria-hidden": "true",
+              className: heatmap_chart_module_default["heatmap-chart__col-label"],
+              children: column2.label
+            }, `col-${columnIndex}`)),
+            Array.from({ length: rows }).map((_row, rowIndex) => {
+              const labelVisible = !compact || rowIndex % 2 === 0;
+              return /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("div", {
+                role: "row",
+                "aria-rowindex": rowIndex + 1,
+                className: heatmap_chart_module_default["heatmap-chart__row"],
+                children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)("span", {
+                  "aria-hidden": "true",
+                  className: heatmap_chart_module_default["heatmap-chart__row-label"],
+                  children: labelVisible ? rowLabels[rowIndex] ?? "" : ""
+                }), data.map((column2, columnIndex) => {
+                  const value = column2.data[rowIndex]?.value ?? null;
+                  const present = isPresent(value);
+                  const normalized = present ? getNormalizedValue(value, extent2) : 0;
+                  const flatIndex = columnIndex * rows + rowIndex;
+                  const info = buildTooltipData(columnIndex, rowIndex);
+                  const accessibleLabel = `${info.cellLabel || `${info.columnLabel ?? ""} ${info.rowLabel ?? ""}`.trim()}: ${info.value === null ? (0, import_i18n.__)("No data", "jetpack-charts") : formatNumber(info.value)}`;
+                  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+                    id: `${chartId}-cell-${columnIndex}-${rowIndex}`,
+                    role: "gridcell",
+                    tabIndex: -1,
+                    "aria-colindex": columnIndex + 1,
+                    "aria-label": accessibleLabel,
+                    "data-column": columnIndex,
+                    "data-row": rowIndex,
+                    className: clsx_default(heatmap_chart_module_default["heatmap-chart__cell"], {
+                      [heatmap_chart_module_default["heatmap-chart__cell--filled"]]: present,
+                      [heatmap_chart_module_default["heatmap-chart__cell--strong"]]: present && cellHasLightText(normalized),
+                      [heatmap_chart_module_default["heatmap-chart__cell--selected"]]: selectedIndex === flatIndex
+                    }),
+                    style: present ? { "--intensity": normalized } : void 0,
+                    onMouseMove: handleCellMouseMove,
+                    onMouseLeave: handleCellMouseLeave,
+                    children: drawValues && present && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("span", {
+                      className: heatmap_chart_module_default["heatmap-chart__cell-value"],
+                      children: formatNumberCompact(value)
+                    })
+                  }, `cell-${columnIndex}-${rowIndex}`);
+                })]
+              }, `row-${rowIndex}`);
+            })
+          ]
+        }), withTooltips && tooltipOpen && tooltipData && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(TooltipInPortal, {
+          top: tooltipTop,
+          left: tooltipLeft,
+          children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+            role: "tooltip",
+            tabIndex: -1,
+            children: (renderTooltip ?? defaultRenderTooltip)(tooltipData)
+          })
+        })]
+      })
+    })
+  });
+};
+var HeatmapChartWithProvider = (props) => {
+  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(HeatmapChartInternal, { ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(HeatmapChartInternal, { ...props }) });
+};
+HeatmapChartWithProvider.displayName = "HeatmapChart";
+var HeatmapChart = attachSubComponents(HeatmapChartWithProvider, { Legend: HeatmapLegend });
+var HeatmapChartResponsiveInner = (props) => /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(HeatmapChartWithProvider, {
+  ...props,
+  width: void 0,
+  height: void 0
+});
+HeatmapChartResponsiveInner.displayName = "HeatmapChart";
+var HeatmapChartResponsive = attachSubComponents(withResponsive(HeatmapChartResponsiveInner), { Legend: HeatmapLegend });
 var logged = /* @__PURE__ */ new Set();
 function isDev() {
   return true;
@@ -30398,10 +30737,10 @@ function getStoreInfo() {
 }
 
 // ../../js-packages/charts/dist/index.css
-if (typeof document !== "undefined" && true && !document.head.querySelector("style[data-wp-hash='c509217ca7']")) {
+if (typeof document !== "undefined" && true && !document.head.querySelector("style[data-wp-hash='2ca648b977']")) {
   const style = document.createElement("style");
-  style.setAttribute("data-wp-hash", "c509217ca7");
-  style.appendChild(document.createTextNode('.a8ccharts-04TogW-legend{align-self:stretch}.a8ccharts-04TogW-legend-item{font-size:var(--wpds-typography-font-size-md,13px)}.a8ccharts-04TogW-legend-item--interactive{cursor:pointer;transition:opacity .2s;user-select:none}.a8ccharts-04TogW-legend-item--interactive:hover{opacity:.8}.a8ccharts-04TogW-legend-item--interactive:focus{border-radius:var(--wpds-border-radius-md,4px);outline:2px solid;outline-offset:2px}.a8ccharts-04TogW-legend-item--interactive:focus:not(:focus-visible){outline:none}.a8ccharts-04TogW-legend-item--inactive{opacity:.4}.a8ccharts-04TogW-legend-item--inactive .a8ccharts-04TogW-legend-item-label{text-decoration:line-through}.a8ccharts-04TogW-legend-item-text--wrap{hyphens:auto;overflow-wrap:break-word;white-space:normal}.a8ccharts-04TogW-legend-item-text--ellipsis{flex-shrink:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.a8ccharts-04TogW-legend-item-value{flex-shrink:0;font-weight:var(--wpds-typography-font-weight-medium,499)}.a8ccharts--zY0xG-tooltip{background-color:#000000d9;border-radius:var(--wpds-border-radius-md,4px);box-shadow:0 1px 2px #0000001a;color:#fff;font-size:var(--wpds-typography-font-size-md,13px);padding:var(--wpds-dimension-padding-sm,8px);pointer-events:none;position:absolute;transform:translate(-50%,-100%)}.a8ccharts-fpNVAq-chart-layout__content{flex:1;min-height:0;min-width:0}.a8ccharts-fpNVAq-chart-layout__content svg{display:block}.a8ccharts-w3qxlG-center{height:100%;width:100%}.a8ccharts-udGPVq-svg-empty-state{color:var(--wpds-color-fg-content-neutral-weak,#6d6d6d);font-size:var(--wpds-typography-font-size-md,13px);text-align:center}.a8ccharts-sP1gHa-container{min-height:0;min-width:0}.a8ccharts-y6bXNq-x-zoom__selection{fill:var(--charts-zoom-selection-fill,#3858e929);pointer-events:none;stroke:var(--charts-zoom-selection-stroke,#3858e9a6);stroke-width:var(--wpds-border-width-xs,1px)}.a8ccharts-y6bXNq-x-zoom__reset{align-items:center;background:var(--charts-zoom-reset-bg,#ffffffeb);border:var(--wpds-border-width-xs,1px) solid var(--charts-zoom-reset-border,#00000029);border-radius:var(--wpds-border-radius-md,4px);box-shadow:0 1px 2px #00000014;color:var(--charts-zoom-reset-fg,#1e1e1e);cursor:pointer;display:inline-flex;height:28px;justify-content:center;padding:0;position:absolute;right:var(--wpds-dimension-gap-sm,8px);top:var(--wpds-dimension-gap-sm,8px);width:28px;z-index:2}.a8ccharts-y6bXNq-x-zoom__reset:hover{background:var(--charts-zoom-reset-bg-hover,#fff)}.a8ccharts-y6bXNq-x-zoom__reset:focus-visible{outline:2px solid var(--charts-zoom-reset-focus,#3858e9);outline-offset:1px}.a8ccharts-y6bXNq-x-zoom__reset-icon{flex-shrink:0;height:16px;width:16px}.a8ccharts-inuQka-line-chart{position:relative}.a8ccharts-inuQka-line-chart--animated path{animation:a8ccharts-inuQka-rise 1s ease-out forwards;transform:scaleY(0);transform-origin:0 95%}.a8ccharts-inuQka-line-chart svg{overflow:visible}.a8ccharts-inuQka-line-chart__annotation-label-popover,.a8ccharts-inuQka-line-chart__tooltip{background:#fff;padding:var(--wpds-dimension-padding-sm,8px)}.a8ccharts-inuQka-line-chart__tooltip-date{font-weight:var(--wpds-typography-font-weight-medium,499);padding-bottom:var(--wpds-dimension-padding-md,12px)}.a8ccharts-inuQka-line-chart__tooltip-row{padding:var(--wpds-dimension-padding-xs,4px) 0}.a8ccharts-inuQka-line-chart__tooltip-label{font-weight:var(--wpds-typography-font-weight-medium,499);padding-right:var(--wpds-dimension-padding-lg,16px)}.a8ccharts-inuQka-line-chart__annotations-overlay{left:0;overflow:visible;pointer-events:none;position:absolute;top:0}.a8ccharts-inuQka-line-chart__annotation-label{pointer-events:auto}.a8ccharts-inuQka-line-chart__annotation-label-trigger-button{align-items:center;background:none;border:none;cursor:pointer;display:flex;justify-content:center;padding:0;pointer-events:auto}.a8ccharts-inuQka-line-chart__annotation-label-popover{background:#fff;border:none;border-radius:var(--wpds-border-radius-md,4px);box-shadow:0 1px 2px #0000001a;font-size:var(--wpds-typography-font-size-md,13px);margin:var(--wpds-dimension-gap-sm,8px);min-width:125px;position:fixed;visibility:hidden}.a8ccharts-inuQka-line-chart__annotation-label-popover--visible{visibility:visible}.a8ccharts-inuQka-line-chart__annotation-label-popover--safari{margin:auto;position:static}.a8ccharts-inuQka-line-chart__annotation-label-popover-content{padding:var(--wpds-dimension-padding-sm,8px)}.a8ccharts-inuQka-line-chart__annotation-label-popover-close-button{align-items:center;background:none;border:none;cursor:pointer;display:flex;height:44px;justify-content:center;padding:0;width:44px}.visx-tooltip-glyph svg{height:10px;width:10px}@keyframes a8ccharts-inuQka-rise{to{transform:scaleY(1)}}.a8ccharts-jlynaq-area-chart{position:relative}.a8ccharts-jlynaq-area-chart--animated path{animation:a8ccharts-jlynaq-rise 1s ease-out forwards;transform:scaleY(0);transform-origin:0 95%}.a8ccharts-jlynaq-area-chart svg{overflow:visible}@keyframes a8ccharts-jlynaq-rise{to{transform:scaleY(1)}}.a8ccharts-97yN9W-bar-chart svg{overflow:visible}.a8ccharts-97yN9W-bar-chart--animated rect{animation:a8ccharts-97yN9W-rise 1s ease-out forwards;transform:scaleY(0);transform-box:fill-box;transform-origin:bottom}@keyframes a8ccharts-97yN9W-rise{to{transform:scaleY(1)}}.a8ccharts-97yN9W-bar-chart--animated-horizontal rect{animation:a8ccharts-97yN9W-stretch 1s ease-out forwards;transform:scaleX(0);transform-box:fill-box;transform-origin:0}@keyframes a8ccharts-97yN9W-stretch{to{transform:scaleX(1)}}.a8ccharts-mGEVca-conversion-funnel-chart--loading{opacity:.6;pointer-events:none}.a8ccharts-mGEVca-main-metric{height:20px}.a8ccharts-mGEVca-main-rate{color:#1e1e1e;font-size:var(--wpds-typography-font-size-xl,18px)}.a8ccharts-mGEVca-change-indicator,.a8ccharts-mGEVca-main-rate{font-style:normal;font-weight:var(--wpds-typography-font-weight-medium,499);line-height:var(--wpds-typography-line-height-sm,20px);margin:0;overflow:hidden;text-overflow:ellipsis}.a8ccharts-mGEVca-change-indicator{font-size:var(--wpds-typography-font-size-md,13px)}.a8ccharts-mGEVca-funnel-container{flex:1;min-height:200px;width:100%}.a8ccharts-mGEVca-funnel-step{flex:1 1 0;height:100%;min-width:0}.a8ccharts-mGEVca-funnel-step--animated{transition:opacity .3s}.a8ccharts-mGEVca-funnel-step--blurred{opacity:.3}.a8ccharts-mGEVca-step-label{color:#757575;font-size:var(--wpds-typography-font-size-sm,12px);font-weight:var(--wpds-typography-font-weight-regular,400);line-height:var(--wpds-typography-line-height-xs,16px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.a8ccharts-mGEVca-step-rate{color:#1e1e1e;font-size:var(--wpds-typography-font-size-md,13px);font-weight:var(--wpds-typography-font-weight-medium,499);line-height:var(--wpds-typography-line-height-xs,16px)}.a8ccharts-mGEVca-bar-container{border-radius:var(--wpds-border-radius-md,4px);cursor:pointer;flex:1;position:relative}.a8ccharts-mGEVca-funnel-bar{border-radius:var(--wpds-border-radius-md,4px) var(--wpds-border-radius-md,4px) 0 0;min-height:4px;width:100%}.a8ccharts-mGEVca-funnel-bar--animated{animation:a8ccharts-mGEVca-stretch 1s ease-out forwards;transform:scaleY(0);transform-box:fill-box;transform-origin:bottom}@keyframes a8ccharts-mGEVca-stretch{to{transform:scaleY(1)}}.a8ccharts-mGEVca-tooltip-wrapper{background:var(--black-white-white,#fff);border-bottom:var(--wpds-border-width-xs,1px) solid var(--Gray-Gray-5,#dcdcde);border-radius:var(--wpds-border-radius-md,4px)!important;box-shadow:0 1px 3px #00000026,0 3px 9px #0000001f!important;padding:var(--wpds-dimension-padding-md,12px)!important}.a8ccharts-mGEVca-tooltip-title{color:#1e1e1e;font-size:var(--wpds-typography-font-size-sm,12px);font-style:normal;font-weight:var(--wpds-typography-font-weight-regular,400);line-height:var(--wpds-typography-line-height-xs,16px)}.a8ccharts-mGEVca-tooltip-content{color:#1e1e1e;font-size:var(--wpds-typography-font-size-md,13px);font-style:normal;font-weight:var(--wpds-typography-font-weight-medium,499);line-height:var(--wpds-typography-line-height-sm,20px)}.a8ccharts-mGEVca-empty-state{color:#6b7280;font-size:var(--wpds-typography-font-size-lg,16px);text-align:center}.a8ccharts-8hS2IW-container{position:relative}.a8ccharts-GovfoW-leaderboardChart{transition:opacity .3s ease-in-out}.a8ccharts-GovfoW-leaderboardChart--responsive{height:100%;width:100%}.a8ccharts-GovfoW-leaderboardChart--loading{opacity:.5}.a8ccharts-GovfoW-leaderboardChart__content{flex:1;min-height:0;overflow:auto}.a8ccharts-GovfoW-barWithLabelContainer{align-items:center;display:grid;grid-template-columns:1fr;isolation:isolate;row-gap:6px}.a8ccharts-GovfoW-barWithLabelContainer.a8ccharts-GovfoW-is-overlay{grid-template:"a8ccharts-GovfoW-overlap" 1fr/1fr}.a8ccharts-GovfoW-barWithLabelContainer.a8ccharts-GovfoW-is-overlay>*{grid-area:a8ccharts-GovfoW-overlap}.a8ccharts-GovfoW-barWithLabelContainer.a8ccharts-GovfoW-is-overlay .a8ccharts-GovfoW-label{padding-left:var(--wpds-dimension-padding-sm,8px)}.a8ccharts-GovfoW-barWithLabelContainer .a8ccharts-GovfoW-bar{border-radius:var(--a8c--charts--leaderboard--bar--border-radius,9999px);height:100%;min-height:6px;min-width:var(--wpds-dimension-size-5xs,4px);z-index:-1}.a8ccharts-GovfoW-barWithLabelContainer .a8ccharts-GovfoW-bar--animated{animation:a8ccharts-GovfoW-stretch 1s ease-out forwards;transform:scaleX(0);transform-box:fill-box;transform-origin:0}@keyframes a8ccharts-GovfoW-stretch{to{transform:scaleX(1)}}.a8ccharts-GovfoW-valueContainer{justify-content:flex-end}.a8ccharts-GovfoW-overlayLabel{align-items:center}.a8ccharts-GovfoW-emptyState{color:#666;font-size:var(--wpds-typography-font-size-md,13px);font-style:italic;padding:var(--wpds-dimension-padding-3xl,32px) var(--wpds-dimension-padding-lg,16px);text-align:center}.a8ccharts-GovfoW-interactiveRow{--focus-ring-width:var(--wpds-border-width-focus,var(--wp-admin-border-width-focus,2px));align-items:center;appearance:none;background:none;border:0;box-sizing:border-box;color:inherit;cursor:pointer;display:grid;font:inherit;grid-column:1/-1;grid-template-columns:subgrid;margin:0;padding:var(--focus-ring-width);position:relative;text-align:inherit;width:100%}.a8ccharts-GovfoW-interactiveRow .a8ccharts-GovfoW-bar{transition:opacity .15s,width .15s}.a8ccharts-GovfoW-interactiveRow .a8ccharts-GovfoW-valueContainer{transition:transform .15s}.a8ccharts-GovfoW-interactiveRow:focus-visible,.a8ccharts-GovfoW-interactiveRow:hover{--a8c--charts--leaderboard--bar--hover-inset:var(--wpds-dimension-gap-2xl,32px)}.a8ccharts-GovfoW-interactiveRow:focus-visible .a8ccharts-GovfoW-bar,.a8ccharts-GovfoW-interactiveRow:hover .a8ccharts-GovfoW-bar{opacity:.5}.a8ccharts-GovfoW-interactiveRow:focus-visible .a8ccharts-GovfoW-valueContainer,.a8ccharts-GovfoW-interactiveRow:hover .a8ccharts-GovfoW-valueContainer{transform:translateX(calc(var(--a8c--charts--leaderboard--bar--hover-inset)*-1))}.a8ccharts-GovfoW-interactiveRow:focus-visible .a8ccharts-GovfoW-chevron,.a8ccharts-GovfoW-interactiveRow:hover .a8ccharts-GovfoW-chevron{opacity:1}[dir=rtl] .a8ccharts-GovfoW-interactiveRow:focus-visible .a8ccharts-GovfoW-valueContainer,[dir=rtl] .a8ccharts-GovfoW-interactiveRow:hover .a8ccharts-GovfoW-valueContainer{transform:translateX(var(--a8c--charts--leaderboard--bar--hover-inset))}.a8ccharts-GovfoW-interactiveRow:focus-visible{border-radius:var(--wpds-border-radius-sm,2px);outline:var(--focus-ring-width) solid var(--wpds-color-stroke-focus-brand,var(--wp-admin-theme-color,#3858e9));outline-offset:calc(var(--focus-ring-width)*-1)}.a8ccharts-GovfoW-chevron{bottom:0;color:var(--wpds-color-fg-content-neutral-weak,#707070);inset-inline-end:var(--wpds-dimension-padding-xs,4px);margin-block:auto;opacity:0;pointer-events:none;position:absolute;top:0;transition:opacity .15s}[dir=rtl] .a8ccharts-GovfoW-chevron{transform:scaleX(-1)}@media (prefers-reduced-motion:reduce){.a8ccharts-GovfoW-interactiveRow .a8ccharts-GovfoW-bar,.a8ccharts-GovfoW-interactiveRow .a8ccharts-GovfoW-chevron,.a8ccharts-GovfoW-interactiveRow .a8ccharts-GovfoW-valueContainer{transition:none}}.a8ccharts-gnszbG-pie-chart{overflow:hidden}.a8ccharts-YtTOxW-pie-semi-circle-chart--responsive,.a8ccharts-gnszbG-pie-chart--responsive{height:100%;width:100%}.a8ccharts-YtTOxW-pie-semi-circle-chart .a8ccharts-YtTOxW-label{font-size:var(--wpds-typography-font-size-lg,16px);font-weight:var(--wpds-typography-font-weight-medium,499)}.a8ccharts-YtTOxW-pie-semi-circle-chart .a8ccharts-YtTOxW-note{font-size:var(--wpds-typography-font-size-md,13px)}.a8ccharts-GtgAVa-sparkline{display:inline-block;line-height:1;vertical-align:middle}.a8ccharts-GtgAVa-sparkline svg{display:block;overflow:visible}.a8ccharts-GtgAVa-sparkline path{vector-effect:non-scaling-stroke}.a8ccharts-GtgAVa-sparkline--empty{display:inline-block}.a8ccharts-zR7F7G-trend-indicator{align-items:center;display:inline-flex;font-size:var(--wpds-typography-font-size-md,13px);font-weight:var(--wpds-typography-font-weight-medium,499);gap:.125em;line-height:1}.a8ccharts-zR7F7G-trend-indicator--up{color:var(--charts-trend-up-color,#1a8917)}.a8ccharts-zR7F7G-trend-indicator--down{color:var(--charts-trend-down-color,#d63638)}.a8ccharts-zR7F7G-trend-indicator--neutral{color:var(--charts-trend-neutral-color,#646970)}.a8ccharts-zR7F7G-trend-indicator__icon{flex-shrink:0;height:1em;width:1em}.a8ccharts-zR7F7G-trend-indicator__value{white-space:nowrap}'));
+  style.setAttribute("data-wp-hash", "2ca648b977");
+  style.appendChild(document.createTextNode('.a8ccharts-04TogW-legend{align-self:stretch}.a8ccharts-04TogW-legend-item{font-size:var(--wpds-typography-font-size-md,13px)}.a8ccharts-04TogW-legend-item--interactive{cursor:pointer;transition:opacity .2s;user-select:none}.a8ccharts-04TogW-legend-item--interactive:hover{opacity:.8}.a8ccharts-04TogW-legend-item--interactive:focus{border-radius:var(--wpds-border-radius-md,4px);outline:2px solid;outline-offset:2px}.a8ccharts-04TogW-legend-item--interactive:focus:not(:focus-visible){outline:none}.a8ccharts-04TogW-legend-item--inactive{opacity:.4}.a8ccharts-04TogW-legend-item--inactive .a8ccharts-04TogW-legend-item-label{text-decoration:line-through}.a8ccharts-04TogW-legend-item-text--wrap{hyphens:auto;overflow-wrap:break-word;white-space:normal}.a8ccharts-04TogW-legend-item-text--ellipsis{flex-shrink:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.a8ccharts-04TogW-legend-item-value{flex-shrink:0;font-weight:var(--wpds-typography-font-weight-medium,499)}.a8ccharts--zY0xG-tooltip{background-color:#000000d9;border-radius:var(--wpds-border-radius-md,4px);box-shadow:0 1px 2px #0000001a;color:#fff;font-size:var(--wpds-typography-font-size-md,13px);padding:var(--wpds-dimension-padding-sm,8px);pointer-events:none;position:absolute;transform:translate(-50%,-100%)}.a8ccharts-fpNVAq-chart-layout__content{flex:1;min-height:0;min-width:0}.a8ccharts-fpNVAq-chart-layout__content svg{display:block}.a8ccharts-w3qxlG-center{height:100%;width:100%}.a8ccharts-udGPVq-svg-empty-state{color:var(--wpds-color-fg-content-neutral-weak,#6d6d6d);font-size:var(--wpds-typography-font-size-md,13px);text-align:center}.a8ccharts-sP1gHa-container{min-height:0;min-width:0}.a8ccharts-y6bXNq-x-zoom__selection{fill:var(--charts-zoom-selection-fill,#3858e929);pointer-events:none;stroke:var(--charts-zoom-selection-stroke,#3858e9a6);stroke-width:var(--wpds-border-width-xs,1px)}.a8ccharts-y6bXNq-x-zoom__reset{align-items:center;background:var(--charts-zoom-reset-bg,#ffffffeb);border:var(--wpds-border-width-xs,1px) solid var(--charts-zoom-reset-border,#00000029);border-radius:var(--wpds-border-radius-md,4px);box-shadow:0 1px 2px #00000014;color:var(--charts-zoom-reset-fg,#1e1e1e);cursor:pointer;display:inline-flex;height:28px;justify-content:center;padding:0;position:absolute;right:var(--wpds-dimension-gap-sm,8px);top:var(--wpds-dimension-gap-sm,8px);width:28px;z-index:2}.a8ccharts-y6bXNq-x-zoom__reset:hover{background:var(--charts-zoom-reset-bg-hover,#fff)}.a8ccharts-y6bXNq-x-zoom__reset:focus-visible{outline:2px solid var(--charts-zoom-reset-focus,#3858e9);outline-offset:1px}.a8ccharts-y6bXNq-x-zoom__reset-icon{flex-shrink:0;height:16px;width:16px}.a8ccharts-inuQka-line-chart{position:relative}.a8ccharts-inuQka-line-chart--animated path{animation:a8ccharts-inuQka-rise 1s ease-out forwards;transform:scaleY(0);transform-origin:0 95%}.a8ccharts-inuQka-line-chart svg{overflow:visible}.a8ccharts-inuQka-line-chart__annotation-label-popover,.a8ccharts-inuQka-line-chart__tooltip{background:#fff;padding:var(--wpds-dimension-padding-sm,8px)}.a8ccharts-inuQka-line-chart__tooltip-date{font-weight:var(--wpds-typography-font-weight-medium,499);padding-bottom:var(--wpds-dimension-padding-md,12px)}.a8ccharts-inuQka-line-chart__tooltip-row{padding:var(--wpds-dimension-padding-xs,4px) 0}.a8ccharts-inuQka-line-chart__tooltip-label{font-weight:var(--wpds-typography-font-weight-medium,499);padding-right:var(--wpds-dimension-padding-lg,16px)}.a8ccharts-inuQka-line-chart__annotations-overlay{left:0;overflow:visible;pointer-events:none;position:absolute;top:0}.a8ccharts-inuQka-line-chart__annotation-label{pointer-events:auto}.a8ccharts-inuQka-line-chart__annotation-label-trigger-button{align-items:center;background:none;border:none;cursor:pointer;display:flex;justify-content:center;padding:0;pointer-events:auto}.a8ccharts-inuQka-line-chart__annotation-label-popover{background:#fff;border:none;border-radius:var(--wpds-border-radius-md,4px);box-shadow:0 1px 2px #0000001a;font-size:var(--wpds-typography-font-size-md,13px);margin:var(--wpds-dimension-gap-sm,8px);min-width:125px;position:fixed;visibility:hidden}.a8ccharts-inuQka-line-chart__annotation-label-popover--visible{visibility:visible}.a8ccharts-inuQka-line-chart__annotation-label-popover--safari{margin:auto;position:static}.a8ccharts-inuQka-line-chart__annotation-label-popover-content{padding:var(--wpds-dimension-padding-sm,8px)}.a8ccharts-inuQka-line-chart__annotation-label-popover-close-button{align-items:center;background:none;border:none;cursor:pointer;display:flex;height:44px;justify-content:center;padding:0;width:44px}.visx-tooltip-glyph svg{height:10px;width:10px}@keyframes a8ccharts-inuQka-rise{to{transform:scaleY(1)}}.a8ccharts-jlynaq-area-chart{position:relative}.a8ccharts-jlynaq-area-chart--animated path{animation:a8ccharts-jlynaq-rise 1s ease-out forwards;transform:scaleY(0);transform-origin:0 95%}.a8ccharts-jlynaq-area-chart svg{overflow:visible}@keyframes a8ccharts-jlynaq-rise{to{transform:scaleY(1)}}.a8ccharts-97yN9W-bar-chart svg{overflow:visible}.a8ccharts-97yN9W-bar-chart--animated rect{animation:a8ccharts-97yN9W-rise 1s ease-out forwards;transform:scaleY(0);transform-box:fill-box;transform-origin:bottom}@keyframes a8ccharts-97yN9W-rise{to{transform:scaleY(1)}}.a8ccharts-97yN9W-bar-chart--animated-horizontal rect{animation:a8ccharts-97yN9W-stretch 1s ease-out forwards;transform:scaleX(0);transform-box:fill-box;transform-origin:0}@keyframes a8ccharts-97yN9W-stretch{to{transform:scaleX(1)}}.a8ccharts-mGEVca-conversion-funnel-chart--loading{opacity:.6;pointer-events:none}.a8ccharts-mGEVca-main-metric{height:20px}.a8ccharts-mGEVca-main-rate{color:#1e1e1e;font-size:var(--wpds-typography-font-size-xl,18px)}.a8ccharts-mGEVca-change-indicator,.a8ccharts-mGEVca-main-rate{font-style:normal;font-weight:var(--wpds-typography-font-weight-medium,499);line-height:var(--wpds-typography-line-height-sm,20px);margin:0;overflow:hidden;text-overflow:ellipsis}.a8ccharts-mGEVca-change-indicator{font-size:var(--wpds-typography-font-size-md,13px)}.a8ccharts-mGEVca-funnel-container{flex:1;min-height:200px;width:100%}.a8ccharts-mGEVca-funnel-step{flex:1 1 0;height:100%;min-width:0}.a8ccharts-mGEVca-funnel-step--animated{transition:opacity .3s}.a8ccharts-mGEVca-funnel-step--blurred{opacity:.3}.a8ccharts-mGEVca-step-label{color:#757575;font-size:var(--wpds-typography-font-size-sm,12px);font-weight:var(--wpds-typography-font-weight-regular,400);line-height:var(--wpds-typography-line-height-xs,16px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.a8ccharts-mGEVca-step-rate{color:#1e1e1e;font-size:var(--wpds-typography-font-size-md,13px);font-weight:var(--wpds-typography-font-weight-medium,499);line-height:var(--wpds-typography-line-height-xs,16px)}.a8ccharts-mGEVca-bar-container{border-radius:var(--wpds-border-radius-md,4px);cursor:pointer;flex:1;position:relative}.a8ccharts-mGEVca-funnel-bar{border-radius:var(--wpds-border-radius-md,4px) var(--wpds-border-radius-md,4px) 0 0;min-height:4px;width:100%}.a8ccharts-mGEVca-funnel-bar--animated{animation:a8ccharts-mGEVca-stretch 1s ease-out forwards;transform:scaleY(0);transform-box:fill-box;transform-origin:bottom}@keyframes a8ccharts-mGEVca-stretch{to{transform:scaleY(1)}}.a8ccharts-mGEVca-tooltip-wrapper{background:var(--black-white-white,#fff);border-bottom:var(--wpds-border-width-xs,1px) solid var(--Gray-Gray-5,#dcdcde);border-radius:var(--wpds-border-radius-md,4px)!important;box-shadow:0 1px 3px #00000026,0 3px 9px #0000001f!important;padding:var(--wpds-dimension-padding-md,12px)!important}.a8ccharts-mGEVca-tooltip-title{color:#1e1e1e;font-size:var(--wpds-typography-font-size-sm,12px);font-style:normal;font-weight:var(--wpds-typography-font-weight-regular,400);line-height:var(--wpds-typography-line-height-xs,16px)}.a8ccharts-mGEVca-tooltip-content{color:#1e1e1e;font-size:var(--wpds-typography-font-size-md,13px);font-style:normal;font-weight:var(--wpds-typography-font-weight-medium,499);line-height:var(--wpds-typography-line-height-sm,20px)}.a8ccharts-mGEVca-empty-state{color:#6b7280;font-size:var(--wpds-typography-font-size-lg,16px);text-align:center}.a8ccharts-8hS2IW-container{position:relative}.a8ccharts-O3YMOW-heatmap-chart{font-size:var(--wpds-typography-font-size-sm,12px);height:100%;min-height:0;width:100%}.a8ccharts-O3YMOW-heatmap-chart__empty{color:var(--wpds-color-fg-content-neutral-weak,#707070);padding:var(--wpds-dimension-padding-lg,16px)}.a8ccharts-O3YMOW-heatmap-chart__grid{display:grid;flex:1 1 0;gap:var(--heatmap-cell-gap,var(--wpds-dimension-gap-xs,4px));min-height:200px;width:100%}.a8ccharts-O3YMOW-heatmap-chart__grid:focus-visible{border-radius:var(--wpds-border-radius-sm,2px);outline:var(--wpds-border-width-focus,var(--wp-admin-border-width-focus,2px)) solid var(--wpds-color-stroke-focus-brand,var(--wp-admin-theme-color,#3858e9));outline-offset:2px}.a8ccharts-O3YMOW-heatmap-chart__grid--compact{flex:none;height:max-content;min-height:0;width:max-content}.a8ccharts-O3YMOW-heatmap-chart__row{display:contents}.a8ccharts-O3YMOW-heatmap-chart__col-label,.a8ccharts-O3YMOW-heatmap-chart__row-label{color:var(--wpds-color-fg-content-neutral-weak,#707070);font-size:var(--wpds-typography-font-size-xs,11px);overflow:visible;white-space:nowrap}.a8ccharts-O3YMOW-heatmap-chart__col-label{align-self:end;text-align:left}.a8ccharts-O3YMOW-heatmap-chart__row-label{padding-inline-end:var(--wpds-dimension-padding-xs,4px);place-self:center end;text-align:right}.a8ccharts-O3YMOW-heatmap-chart__cell{align-items:center;background:var(--wpds-color-bg-track-neutral-weak,#f0f0f0);border-radius:var(--wpds-border-radius-sm,2px);display:flex;justify-content:center;min-height:0;min-width:0}.a8ccharts-O3YMOW-heatmap-chart__cell--filled{background:color-mix(in sRGB,var(--heatmap-primary) calc((.15 + var(--intensity)*0.85)*100%),transparent)}.a8ccharts-O3YMOW-heatmap-chart__cell--selected{outline:var(--wpds-border-width-focus,var(--wp-admin-border-width-focus,2px)) solid var(--wpds-color-stroke-focus-brand,var(--wp-admin-theme-color,#3858e9));outline-offset:calc(var(--wpds-border-width-focus, var(--wp-admin-border-width-focus, 2px))*-1)}.a8ccharts-O3YMOW-heatmap-chart__cell-value{color:var(--wpds-color-fg-content-neutral,#1e1e1e);font-size:var(--wpds-typography-font-size-md,13px)}.a8ccharts-O3YMOW-heatmap-chart__cell--strong .a8ccharts-O3YMOW-heatmap-chart__cell-value{color:var(--wpds-color-fg-interactive-neutral-strong,#f0f0f0)}.a8ccharts-O3YMOW-heatmap-chart__legend-swatch{background:color-mix(in sRGB,var(--heatmap-primary) calc((.15 + var(--intensity)*0.85)*100%),transparent);border-radius:var(--wpds-border-radius-sm,2px);height:var(--wpds-dimension-size-3xs,12px);width:var(--wpds-dimension-size-3xs,12px)}.a8ccharts-GovfoW-leaderboardChart{transition:opacity .3s ease-in-out}.a8ccharts-GovfoW-leaderboardChart--responsive{height:100%;width:100%}.a8ccharts-GovfoW-leaderboardChart--loading{opacity:.5}.a8ccharts-GovfoW-leaderboardChart__content{flex:1;min-height:0;overflow:auto}.a8ccharts-GovfoW-barWithLabelContainer{align-items:center;display:grid;grid-template-columns:1fr;isolation:isolate;row-gap:6px}.a8ccharts-GovfoW-barWithLabelContainer.a8ccharts-GovfoW-is-overlay{grid-template:"a8ccharts-GovfoW-overlap" 1fr/1fr}.a8ccharts-GovfoW-barWithLabelContainer.a8ccharts-GovfoW-is-overlay>*{grid-area:a8ccharts-GovfoW-overlap}.a8ccharts-GovfoW-barWithLabelContainer.a8ccharts-GovfoW-is-overlay .a8ccharts-GovfoW-label{padding-left:var(--wpds-dimension-padding-sm,8px)}.a8ccharts-GovfoW-barWithLabelContainer .a8ccharts-GovfoW-bar{border-radius:var(--a8c--charts--leaderboard--bar--border-radius,9999px);height:100%;min-height:6px;min-width:var(--wpds-dimension-size-5xs,4px);z-index:-1}.a8ccharts-GovfoW-barWithLabelContainer .a8ccharts-GovfoW-bar--animated{animation:a8ccharts-GovfoW-stretch 1s ease-out forwards;transform:scaleX(0);transform-box:fill-box;transform-origin:0}@keyframes a8ccharts-GovfoW-stretch{to{transform:scaleX(1)}}.a8ccharts-GovfoW-valueContainer{justify-content:flex-end}.a8ccharts-GovfoW-overlayLabel{align-items:center}.a8ccharts-GovfoW-emptyState{color:#666;font-size:var(--wpds-typography-font-size-md,13px);font-style:italic;padding:var(--wpds-dimension-padding-3xl,32px) var(--wpds-dimension-padding-lg,16px);text-align:center}.a8ccharts-GovfoW-interactiveRow{--focus-ring-width:var(--wpds-border-width-focus,var(--wp-admin-border-width-focus,2px));align-items:center;appearance:none;background:none;border:0;box-sizing:border-box;color:inherit;cursor:pointer;display:grid;font:inherit;grid-column:1/-1;grid-template-columns:subgrid;margin:0;padding:var(--focus-ring-width);position:relative;text-align:inherit;width:100%}.a8ccharts-GovfoW-interactiveRow .a8ccharts-GovfoW-bar{transition:opacity .15s,width .15s}.a8ccharts-GovfoW-interactiveRow .a8ccharts-GovfoW-valueContainer{transition:transform .15s}.a8ccharts-GovfoW-interactiveRow:focus-visible,.a8ccharts-GovfoW-interactiveRow:hover{--a8c--charts--leaderboard--bar--hover-inset:var(--wpds-dimension-gap-2xl,32px)}.a8ccharts-GovfoW-interactiveRow:focus-visible .a8ccharts-GovfoW-bar,.a8ccharts-GovfoW-interactiveRow:hover .a8ccharts-GovfoW-bar{opacity:.5}.a8ccharts-GovfoW-interactiveRow:focus-visible .a8ccharts-GovfoW-valueContainer,.a8ccharts-GovfoW-interactiveRow:hover .a8ccharts-GovfoW-valueContainer{transform:translateX(calc(var(--a8c--charts--leaderboard--bar--hover-inset)*-1))}.a8ccharts-GovfoW-interactiveRow:focus-visible .a8ccharts-GovfoW-chevron,.a8ccharts-GovfoW-interactiveRow:hover .a8ccharts-GovfoW-chevron{opacity:1}[dir=rtl] .a8ccharts-GovfoW-interactiveRow:focus-visible .a8ccharts-GovfoW-valueContainer,[dir=rtl] .a8ccharts-GovfoW-interactiveRow:hover .a8ccharts-GovfoW-valueContainer{transform:translateX(var(--a8c--charts--leaderboard--bar--hover-inset))}.a8ccharts-GovfoW-interactiveRow:focus-visible{border-radius:var(--wpds-border-radius-sm,2px);outline:var(--focus-ring-width) solid var(--wpds-color-stroke-focus-brand,var(--wp-admin-theme-color,#3858e9));outline-offset:calc(var(--focus-ring-width)*-1)}.a8ccharts-GovfoW-chevron{bottom:0;color:var(--wpds-color-fg-content-neutral-weak,#707070);inset-inline-end:var(--wpds-dimension-padding-xs,4px);margin-block:auto;opacity:0;pointer-events:none;position:absolute;top:0;transition:opacity .15s}[dir=rtl] .a8ccharts-GovfoW-chevron{transform:scaleX(-1)}@media (prefers-reduced-motion:reduce){.a8ccharts-GovfoW-interactiveRow .a8ccharts-GovfoW-bar,.a8ccharts-GovfoW-interactiveRow .a8ccharts-GovfoW-chevron,.a8ccharts-GovfoW-interactiveRow .a8ccharts-GovfoW-valueContainer{transition:none}}.a8ccharts-gnszbG-pie-chart{overflow:hidden}.a8ccharts-YtTOxW-pie-semi-circle-chart--responsive,.a8ccharts-gnszbG-pie-chart--responsive{height:100%;width:100%}.a8ccharts-YtTOxW-pie-semi-circle-chart .a8ccharts-YtTOxW-label{font-size:var(--wpds-typography-font-size-lg,16px);font-weight:var(--wpds-typography-font-weight-medium,499)}.a8ccharts-YtTOxW-pie-semi-circle-chart .a8ccharts-YtTOxW-note{font-size:var(--wpds-typography-font-size-md,13px)}.a8ccharts-GtgAVa-sparkline{display:inline-block;line-height:1;vertical-align:middle}.a8ccharts-GtgAVa-sparkline svg{display:block;overflow:visible}.a8ccharts-GtgAVa-sparkline path{vector-effect:non-scaling-stroke}.a8ccharts-GtgAVa-sparkline--empty{display:inline-block}.a8ccharts-zR7F7G-trend-indicator{align-items:center;display:inline-flex;font-size:var(--wpds-typography-font-size-md,13px);font-weight:var(--wpds-typography-font-weight-medium,499);gap:.125em;line-height:1}.a8ccharts-zR7F7G-trend-indicator--up{color:var(--charts-trend-up-color,#1a8917)}.a8ccharts-zR7F7G-trend-indicator--down{color:var(--charts-trend-down-color,#d63638)}.a8ccharts-zR7F7G-trend-indicator--neutral{color:var(--charts-trend-neutral-color,#646970)}.a8ccharts-zR7F7G-trend-indicator__icon{flex-shrink:0;height:1em;width:1em}.a8ccharts-zR7F7G-trend-indicator__value{white-space:nowrap}'));
   document.head.appendChild(style);
 }
 
