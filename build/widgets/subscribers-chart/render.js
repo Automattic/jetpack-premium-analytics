@@ -562,7 +562,7 @@ var require_use_sync_external_store_shim_development = __commonJS({
           },
           [subscribe2, value, getSnapshot2]
         );
-        useEffect33(
+        useEffect34(
           function() {
             checkIfSnapshotChanged(inst) && forceUpdate({ inst });
             return subscribe2(function() {
@@ -588,7 +588,7 @@ var require_use_sync_external_store_shim_development = __commonJS({
         return getSnapshot2();
       }
       "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-      var React35 = require_react(), objectIs = "function" === typeof Object.is ? Object.is : is2, useState27 = React35.useState, useEffect33 = React35.useEffect, useLayoutEffect6 = React35.useLayoutEffect, useDebugValue = React35.useDebugValue, didWarnOld18Alpha = false, didWarnUncachedGetSnapshot = false, shim = "undefined" === typeof window || "undefined" === typeof window.document || "undefined" === typeof window.document.createElement ? useSyncExternalStore$1 : useSyncExternalStore$2;
+      var React35 = require_react(), objectIs = "function" === typeof Object.is ? Object.is : is2, useState27 = React35.useState, useEffect34 = React35.useEffect, useLayoutEffect6 = React35.useLayoutEffect, useDebugValue = React35.useDebugValue, didWarnOld18Alpha = false, didWarnUncachedGetSnapshot = false, shim = "undefined" === typeof window || "undefined" === typeof window.document || "undefined" === typeof window.document.createElement ? useSyncExternalStore$1 : useSyncExternalStore$2;
       exports.useSyncExternalStore = void 0 !== React35.useSyncExternalStore ? React35.useSyncExternalStore : shim;
       "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
     })();
@@ -2368,29 +2368,6 @@ function addDays(date2, amount, options) {
   if (!amount) return _date;
   _date.setDate(_date.getDate() + amount);
   return _date;
-}
-
-// ../../../node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/addMonths.js
-function addMonths(date2, amount, options) {
-  const _date = toDate(date2, options?.in);
-  if (isNaN(amount)) return constructFrom(options?.in || date2, NaN);
-  if (!amount) {
-    return _date;
-  }
-  const dayOfMonth = _date.getDate();
-  const endOfDesiredMonth = constructFrom(options?.in || date2, _date.getTime());
-  endOfDesiredMonth.setMonth(_date.getMonth() + amount + 1, 0);
-  const daysInMonth = endOfDesiredMonth.getDate();
-  if (dayOfMonth >= daysInMonth) {
-    return endOfDesiredMonth;
-  } else {
-    _date.setFullYear(
-      endOfDesiredMonth.getFullYear(),
-      endOfDesiredMonth.getMonth(),
-      dayOfMonth
-    );
-    return _date;
-  }
 }
 
 // ../../../node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/_lib/defaultOptions.js
@@ -5729,11 +5706,6 @@ function cleanEscapedString2(input) {
   return input.match(escapedStringRegExp2)[1].replace(doubleQuoteRegExp2, "'");
 }
 
-// ../../../node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/subDays.js
-function subDays(date2, amount, options) {
-  return addDays(date2, -amount, options);
-}
-
 // ../../../node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/parseISO.js
 function parseISO(argument, options) {
   const invalidDate = () => constructFrom(options?.in, NaN);
@@ -5907,30 +5879,6 @@ function validateTime(hours, minutes, seconds2) {
 }
 function validateTimezone(_hours, minutes) {
   return minutes >= 0 && minutes <= 59;
-}
-
-// ../../../node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/subMonths.js
-function subMonths(date2, amount, options) {
-  return addMonths(date2, -amount, options);
-}
-
-// ../../../node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/sub.js
-function sub(date2, duration, options) {
-  const {
-    years = 0,
-    months = 0,
-    weeks = 0,
-    days = 0,
-    hours = 0,
-    minutes = 0,
-    seconds: seconds2 = 0
-  } = duration;
-  const withoutMonths = subMonths(date2, months + years * 12, options);
-  const withoutDays = subDays(withoutMonths, days + weeks * 7, options);
-  const minutesToSub = minutes + hours * 60;
-  const secondsToSub = seconds2 + minutesToSub * 60;
-  const msToSub = secondsToSub * 1e3;
-  return constructFrom(options?.in || date2, +withoutDays - msToSub);
 }
 
 // packages/formatters/src/date/format-date.ts
@@ -22301,7 +22249,7 @@ function BaseAreaStack(_ref2) {
       xAccessor,
       yAccessor,
       curve: _,
-      PathComponent: __4,
+      PathComponent: __5,
       lineProps,
       renderLine: ___,
       ...svgPathProps
@@ -33933,7 +33881,7 @@ function ComparativeLineChart({
 }
 
 // packages/widgets-toolkit/src/components/widget-root/widget-root.tsx
-var import_react80 = __toESM(require_react(), 1);
+var import_react81 = __toESM(require_react(), 1);
 import {
   AnalyticsQueryClientProvider,
   getDefaultPreset,
@@ -34073,9 +34021,58 @@ function useSeriesStyles(series) {
   );
 }
 
-// packages/widgets-toolkit/src/components/widget-root/context.tsx
+// packages/widgets-toolkit/src/hooks/use-widget-error.ts
+var import_i18n2 = __toESM(require_i18n(), 1);
 var import_react79 = __toESM(require_react(), 1);
-var WidgetRootContext = (0, import_react79.createContext)(null);
+import { useGlobalError } from "@jetpack-premium-analytics/data";
+function useWidgetError(isError, error2, refetch) {
+  const { setError } = useWidgetRootContext();
+  const { isGlobalError } = useGlobalError();
+  (0, import_react79.useEffect)(() => {
+    if (!isError) {
+      setError?.(null);
+      return;
+    }
+    if (!setError) {
+      console.warn("[useWidgetError] setError is undefined - error UI cannot be displayed");
+      return;
+    }
+    if (isGlobalError) {
+      setError({
+        message: ""
+      });
+      return;
+    }
+    if (error2) {
+      console.error("[Widget Error]", error2.message, error2);
+    }
+    setError({
+      message: (0, import_i18n2.__)(
+        "We couldn't load this data. Please try again in a moment.",
+        "jetpack-premium-analytics"
+      ),
+      action: {
+        label: (0, import_i18n2.__)("Retry", "jetpack-premium-analytics"),
+        onClick: () => {
+          setError?.(null);
+          refetch?.();
+        }
+      }
+    });
+  }, [isError, error2, isGlobalError, setError, refetch]);
+  return isError;
+}
+
+// packages/widgets-toolkit/src/components/widget-root/context.tsx
+var import_react80 = __toESM(require_react(), 1);
+var WidgetRootContext = (0, import_react80.createContext)(null);
+function useWidgetRootContext() {
+  const context = (0, import_react80.useContext)(WidgetRootContext);
+  if (!context) {
+    throw new Error("useWidgetRootContext must be used within a WidgetRoot component");
+  }
+  return context;
+}
 
 // packages/widgets-toolkit/src/components/widget-root/widget-root.module.scss
 if (typeof process === "undefined" || true) {
@@ -34100,11 +34097,11 @@ function WidgetRoot({ attributes, children, setError, options }) {
   const rawReportParams = useResolveReportParams(attributes, options?.from);
   const { launchedDate } = getStoreInfo();
   const defaultPreset = getDefaultPreset(launchedDate);
-  const reportParams = (0, import_react80.useMemo)(
+  const reportParams = (0, import_react81.useMemo)(
     () => normalizeReportParams(rawReportParams, defaultPreset),
     [rawReportParams, defaultPreset]
   );
-  const contextValue = (0, import_react80.useMemo)(() => ({ reportParams, setError }), [reportParams, setError]);
+  const contextValue = (0, import_react81.useMemo)(() => ({ reportParams, setError }), [reportParams, setError]);
   return /* @__PURE__ */ (0, import_jsx_runtime163.jsx)(AnalyticsQueryClientProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime163.jsx)(GlobalChartsProvider, { theme: chartTheme, children: /* @__PURE__ */ (0, import_jsx_runtime163.jsx)(WidgetRootContext.Provider, { value: contextValue, children: /* @__PURE__ */ (0, import_jsx_runtime163.jsx)("div", { className: widget_root_module_default.root, children }) }) }) });
 }
 
@@ -34125,8 +34122,8 @@ function WidgetLoadingOverlay() {
 
 // packages/widgets-toolkit/src/components/metric-tabs-chart/metric-tabs-chart.tsx
 var import_compose2 = __toESM(require_compose(), 1);
-var import_i18n2 = __toESM(require_i18n(), 1);
-var import_react81 = __toESM(require_react(), 1);
+var import_i18n3 = __toESM(require_i18n(), 1);
+var import_react82 = __toESM(require_react(), 1);
 
 // packages/widgets-toolkit/src/components/metric-tabs-chart/metric-tabs-chart.module.scss
 if (typeof process === "undefined" || true) {
@@ -34164,7 +34161,7 @@ function MetricChart({
   dataFormat,
   loading
 }) {
-  const series = (0, import_react81.useMemo)(() => buildSeries(metric), [metric]);
+  const series = (0, import_react82.useMemo)(() => buildSeries(metric), [metric]);
   const seriesStyles = useSeriesStyles(series);
   return /* @__PURE__ */ (0, import_jsx_runtime165.jsxs)(import_jsx_runtime165.Fragment, { children: [
     /* @__PURE__ */ (0, import_jsx_runtime165.jsx)(
@@ -34185,10 +34182,10 @@ function MetricTabsChart({
   onMetricChange,
   controls,
   loading = false,
-  groupLabel = (0, import_i18n2.__)("Select metric", "jetpack-premium-analytics")
+  groupLabel = (0, import_i18n3.__)("Select metric", "jetpack-premium-analytics")
 }) {
-  const [selectedKey, setSelectedKey] = (0, import_react81.useState)(defaultMetricKey ?? metrics[0]?.key);
-  const [hasRoomForChart, setHasRoomForChart] = (0, import_react81.useState)(true);
+  const [selectedKey, setSelectedKey] = (0, import_react82.useState)(defaultMetricKey ?? metrics[0]?.key);
+  const [hasRoomForChart, setHasRoomForChart] = (0, import_react82.useState)(true);
   const measureRef = (0, import_compose2.useResizeObserver)((entries2) => {
     const rect = entries2[0]?.contentRect;
     if (rect) {
@@ -34196,7 +34193,7 @@ function MetricTabsChart({
     }
   });
   const activeMetric = metrics.find((metric) => metric.key === selectedKey) ?? metrics[0];
-  const handleValueChange = (0, import_react81.useCallback)(
+  const handleValueChange = (0, import_react82.useCallback)(
     (key) => {
       setSelectedKey(key);
       onMetricChange?.(key);
@@ -34245,7 +34242,7 @@ function MetricTabsChart({
 // widgets/subscribers-chart/render.tsx
 var import_components3 = __toESM(require_components(), 1);
 var import_element12 = __toESM(require_element(), 1);
-var import_i18n3 = __toESM(require_i18n(), 1);
+var import_i18n4 = __toESM(require_i18n(), 1);
 
 // widgets/subscribers-chart/subscribers-chart.module.css
 if (typeof process === "undefined" || true) {
@@ -34256,15 +34253,9 @@ var subscribers_chart_default = { "root": "_9cf6ea0953412be3__root", "periodSele
 // widgets/subscribers-chart/use-subscribers-chart.ts
 var import_element11 = __toESM(require_element(), 1);
 import {
-  useStatsSubscribers,
+  useStatsSubscribersReport,
   localTZDate
 } from "@jetpack-premium-analytics/data";
-var PERIOD_CONFIG = {
-  day: { quantity: 30, unit: "days" },
-  week: { quantity: 12, unit: "weeks" },
-  month: { quantity: 12, unit: "months" }
-};
-var DATE_FORMAT = "yyyy-MM-dd";
 function toPoints(report) {
   return (report?.data ?? []).map((point5) => ({
     date: localTZDate(point5.date_start),
@@ -34272,21 +34263,20 @@ function toPoints(report) {
     paid: Number(point5.subscribers_paid ?? 0)
   }));
 }
-function useSubscribersChart(period, referenceDate = localTZDate()) {
-  const { quantity, unit: unit2 } = PERIOD_CONFIG[period];
-  const currentDate = format(referenceDate, DATE_FORMAT);
-  const previousDate = format(sub(referenceDate, { [unit2]: quantity }), DATE_FORMAT);
-  const currentQuery = useStatsSubscribers({ unit: period, quantity, date: currentDate });
-  const previousQuery = useStatsSubscribers({ unit: period, quantity, date: previousDate });
-  const current = (0, import_element11.useMemo)(() => toPoints(currentQuery.data), [currentQuery.data]);
-  const previous = (0, import_element11.useMemo)(() => toPoints(previousQuery.data), [previousQuery.data]);
+function useSubscribersChart(reportParams, period) {
+  const params = (0, import_element11.useMemo)(() => ({ ...reportParams, period }), [reportParams, period]);
+  const report = useStatsSubscribersReport(params);
+  const current = (0, import_element11.useMemo)(() => toPoints(report.primary.data), [report.primary.data]);
+  const previous = (0, import_element11.useMemo)(() => toPoints(report.comparison.data), [report.comparison.data]);
   return {
     current,
     previous,
     hasPaid: current.some((point5) => point5.paid > 0),
-    isLoading: currentQuery.isLoading || previousQuery.isLoading,
-    isFetching: currentQuery.isFetching || previousQuery.isFetching,
-    isError: currentQuery.isError || previousQuery.isError
+    isLoading: report.isLoading,
+    isFetching: report.isFetching,
+    isError: report.isError,
+    error: report.error,
+    refetch: report.refetch
   };
 }
 
@@ -34296,6 +34286,18 @@ var DATA_FORMAT = {
   type: "number",
   options: { useMultipliers: true, decimals: 0 }
 };
+function defaultPeriodForInterval(interval) {
+  switch (interval) {
+    case "week":
+      return "week";
+    case "month":
+    case "quarter":
+    case "year":
+      return "month";
+    default:
+      return "day";
+  }
+}
 function latest(points, accessor) {
   return points.length ? accessor(points[points.length - 1]) : 0;
 }
@@ -34303,14 +34305,14 @@ function buildMetrics(state) {
   const defs = [
     {
       key: "subscribers",
-      label: (0, import_i18n3.__)("Subscribers", "jetpack-premium-analytics"),
+      label: (0, import_i18n4.__)("Subscribers", "jetpack-premium-analytics"),
       accessor: (point5) => point5.subscribers
     }
   ];
   if (state.hasPaid) {
     defs.push({
       key: "paid",
-      label: (0, import_i18n3.__)("Paid subscribers", "jetpack-premium-analytics"),
+      label: (0, import_i18n4.__)("Paid subscribers", "jetpack-premium-analytics"),
       accessor: (point5) => point5.paid
     });
   }
@@ -34324,20 +34326,23 @@ function buildMetrics(state) {
   }));
 }
 function SubscribersChartInner() {
-  const [period, setPeriod] = (0, import_element12.useState)("day");
+  const { reportParams } = useWidgetRootContext();
+  const [periodOverride, setPeriodOverride] = (0, import_element12.useState)(null);
+  const period = periodOverride ?? defaultPeriodForInterval(reportParams.interval);
   const handlePeriodChange = (0, import_element12.useCallback)(
-    (value) => setPeriod(value),
+    (value) => setPeriodOverride(value),
     []
   );
   const periodOptions = [
-    { label: (0, import_i18n3.__)("By days", "jetpack-premium-analytics"), value: "day" },
-    { label: (0, import_i18n3.__)("By weeks", "jetpack-premium-analytics"), value: "week" },
-    { label: (0, import_i18n3.__)("By months", "jetpack-premium-analytics"), value: "month" }
+    { label: (0, import_i18n4.__)("By days", "jetpack-premium-analytics"), value: "day" },
+    { label: (0, import_i18n4.__)("By weeks", "jetpack-premium-analytics"), value: "week" },
+    { label: (0, import_i18n4.__)("By months", "jetpack-premium-analytics"), value: "month" }
   ];
-  const state = useSubscribersChart(period);
+  const state = useSubscribersChart(reportParams, period);
   const metrics = (0, import_element12.useMemo)(() => buildMetrics(state), [state]);
-  if (state.isError) {
-    return /* @__PURE__ */ (0, import_jsx_runtime166.jsx)("div", { className: subscribers_chart_default.root, children: /* @__PURE__ */ (0, import_jsx_runtime166.jsx)(Text, { children: (0, import_i18n3.__)("Unable to load subscribers.", "jetpack-premium-analytics") }) });
+  const hasError = useWidgetError(state.isError, state.error, state.refetch);
+  if (hasError) {
+    return null;
   }
   return /* @__PURE__ */ (0, import_jsx_runtime166.jsx)("div", { className: subscribers_chart_default.root, children: /* @__PURE__ */ (0, import_jsx_runtime166.jsx)(
     MetricTabsChart,
@@ -34345,13 +34350,13 @@ function SubscribersChartInner() {
       metrics,
       dataFormat: DATA_FORMAT,
       loading: state.isFetching,
-      groupLabel: (0, import_i18n3.__)("Subscriber metric", "jetpack-premium-analytics"),
+      groupLabel: (0, import_i18n4.__)("Subscriber metric", "jetpack-premium-analytics"),
       controls: /* @__PURE__ */ (0, import_jsx_runtime166.jsx)(
         import_components3.SelectControl,
         {
           __next40pxDefaultSize: true,
           __nextHasNoMarginBottom: true,
-          label: (0, import_i18n3.__)("Group by", "jetpack-premium-analytics"),
+          label: (0, import_i18n4.__)("Group by", "jetpack-premium-analytics"),
           hideLabelFromVision: true,
           value: period,
           options: periodOptions,
@@ -34362,10 +34367,8 @@ function SubscribersChartInner() {
     }
   ) });
 }
-function SubscribersChart({
-  attributes = {}
-}) {
-  return /* @__PURE__ */ (0, import_jsx_runtime166.jsx)(WidgetRoot, { attributes, children: /* @__PURE__ */ (0, import_jsx_runtime166.jsx)(SubscribersChartInner, {}) });
+function SubscribersChart({ attributes, setError }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime166.jsx)(WidgetRoot, { attributes, setError, options: { from: "/" }, children: /* @__PURE__ */ (0, import_jsx_runtime166.jsx)(SubscribersChartInner, {}) });
 }
 export {
   SubscribersChart as default

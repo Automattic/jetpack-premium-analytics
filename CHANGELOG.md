@@ -96,6 +96,7 @@ This is an alpha version! The changes listed here are not final.
 - Locations widget: Use the updated view selector size.
 - Render the Premium Analytics admin page inside the native wp-admin shell (sidebar and header) instead of taking over the full screen.
 - Stats: Email time series hooks now return comparison-aware report results and resolve hourly buckets into distinct per-hour intervals.
+- Subscribers chart: honor the dashboard date-range and comparison picker. The chart window and previous-period overlay now follow the dashboard controls; the in-body "Group by" dropdown only chooses the bucket size within that range.
 - Syncing: when WooCommerce is inactive, gate the dashboard on Jetpack's generic initial full sync so the syncing screen completes instead of spinning forever.
 - Update package dependencies.
 - Update Stats widget porting guidelines for Storybook, comparison states, and drill-down behavior.
