@@ -113,6 +113,7 @@ This is an alpha version! The changes listed here are not final.
 - Emails widget: Align the header with other dashboard widgets.
 - Fix a missing script data asset in packaged Premium Analytics builds.
 - Fix dashboard widgets rendering "Widget is no longer available" by loading the widget manifest on REST requests, not just admin page loads.
+- Fix TypeScript error in five zero-attribute widget stories (Record<never, never> instead of Record<string, never>).
 - Keep the widget-dashboard Storybook story's settings drawer on-screen when the dashboard is wider than the preview canvas.
 - Locations widget: Show Locations header before drill-down.
 - Metric tabs chart: hide the tab-list selection underline so it doesn't render alongside the selected metric card's fill. A @wordpress/ui update moved the minimal Tabs indicator from a per-tab element to a tab-list-level one, leaving a stray underline under the selected tab in the Subscribers and Traffic chart widgets.
