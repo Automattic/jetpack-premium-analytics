@@ -148,6 +148,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/traffic-chart',
+		'dir_name'     => 'traffic-chart',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => 'framed',
+	),
+	array(
 		'name'         => 'jpa/utm-insights',
 		'dir_name'     => 'utm-insights',
 		'has_render'   => true,
