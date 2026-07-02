@@ -43,6 +43,13 @@ return array(
 		'presentation' => 'full-bleed',
 	),
 	array(
+		'name'         => 'jpa/coupon-usage-over-time',
+		'dir_name'     => 'coupon-usage-over-time',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/stats-emails',
 		'dir_name'     => 'emails',
 		'has_render'   => true,
