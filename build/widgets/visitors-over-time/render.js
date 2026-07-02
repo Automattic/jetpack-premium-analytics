@@ -30802,7 +30802,10 @@ function VisitorMetricWidget() {
 
 // widgets/visitors-over-time/render.tsx
 var import_jsx_runtime157 = __toESM(require_jsx_runtime(), 1);
-function VisitorsOverTimeRender({ attributes, setError }) {
+function VisitorsOverTimeRender({
+  attributes = {},
+  setError
+}) {
   return /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(WidgetRoot, { attributes, setError, options: { from: "/" }, children: /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(VisitorMetricWidget, {}) });
 }
 export {

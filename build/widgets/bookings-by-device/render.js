@@ -31375,7 +31375,7 @@ function BookingsByDeviceWidget() {
   return /* @__PURE__ */ (0, import_jsx_runtime160.jsx)(SalesByDeviceWidget, { filter: BOOKINGS_FILTER });
 }
 function BookingsByDeviceRender({
-  attributes,
+  attributes = {},
   setError
 }) {
   return /* @__PURE__ */ (0, import_jsx_runtime160.jsx)(WidgetRoot, { attributes, setError, options: { from: "/" }, children: /* @__PURE__ */ (0, import_jsx_runtime160.jsx)(BookingsByDeviceWidget, {}) });

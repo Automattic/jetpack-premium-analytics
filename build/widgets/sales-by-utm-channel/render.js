@@ -31133,7 +31133,7 @@ function SalesByUtmChannelWidget() {
   ] });
 }
 function SalesByUtmChannelRender({
-  attributes,
+  attributes = {},
   setError
 }) {
   return /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(WidgetRoot, { attributes, setError, options: { from: "/" }, children: /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(SalesByUtmChannelWidget, {}) });

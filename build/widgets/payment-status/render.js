@@ -30724,7 +30724,10 @@ function PaymentStatusWidget() {
 
 // widgets/payment-status/render.tsx
 var import_jsx_runtime164 = __toESM(require_jsx_runtime(), 1);
-function PaymentStatusRender({ attributes, setError }) {
+function PaymentStatusRender({
+  attributes = {},
+  setError
+}) {
   return /* @__PURE__ */ (0, import_jsx_runtime164.jsx)(WidgetRoot, { attributes, setError, options: { from: "/" }, children: /* @__PURE__ */ (0, import_jsx_runtime164.jsx)(PaymentStatusWidget, {}) });
 }
 export {

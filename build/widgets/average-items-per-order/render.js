@@ -30884,9 +30884,10 @@ function OrderMetricWidget({ metricKey }) {
 // widgets/average-items-per-order/render.tsx
 var import_jsx_runtime157 = __toESM(require_jsx_runtime(), 1);
 function AverageItemsPerOrderRender({
-  attributes
+  attributes = {},
+  setError
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(WidgetRoot, { attributes, options: { from: "/" }, children: /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(OrderMetricWidget, { metricKey: "avg_items" }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(WidgetRoot, { attributes, setError, options: { from: "/" }, children: /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(OrderMetricWidget, { metricKey: "avg_items" }) });
 }
 export {
   AverageItemsPerOrderRender as default
