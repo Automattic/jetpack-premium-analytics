@@ -120,3 +120,4 @@ This is an alpha version! The changes listed here are not final.
 - Stats: Align traffic normalizer row metadata with legacy Stats behavior.
 - Stop shipping megabytes of unminified JS as part of the package.
 - Syncing: derive the analytics "started" state from the woocommerce_analytics sync-progress bucket instead of Jetpack's generic `started` flag, so the connection-time initial_sync no longer makes the syncing screen show "Sync interrupted" and suppress its auto-trigger.
+- Top posts &amp; pages: Honor the dashboard date-range picker and comparison period instead of the widget's own fixed range.

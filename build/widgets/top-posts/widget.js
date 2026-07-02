@@ -64,17 +64,6 @@ var widget_default = {
   icon: chart_bar_default,
   attributes: [
     {
-      id: "range",
-      label: (0, import_i18n.__)("Date range", "jetpack-premium-analytics"),
-      type: "text",
-      elements: [
-        { label: (0, import_i18n.__)("Today", "jetpack-premium-analytics"), value: "today" },
-        { label: (0, import_i18n.__)("Last 7 days", "jetpack-premium-analytics"), value: "last-7-days" },
-        { label: (0, import_i18n.__)("Last 30 days", "jetpack-premium-analytics"), value: "last-30-days" },
-        { label: (0, import_i18n.__)("Last year", "jetpack-premium-analytics"), value: "last-year" }
-      ]
-    },
-    {
       id: "num",
       label: (0, import_i18n.__)("Number of results", "jetpack-premium-analytics"),
       type: "integer"
@@ -92,7 +81,6 @@ var widget_default = {
   ],
   example: {
     attributes: {
-      range: "last-7-days",
       num: 10
     }
   }

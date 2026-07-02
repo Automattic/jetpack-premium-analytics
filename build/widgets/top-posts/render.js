@@ -2249,8 +2249,6 @@ var require_components = __commonJS({
 
 // widgets/top-posts/render.tsx
 import {
-  computeDateRangeFromPreset,
-  localTZDate,
   useStatsTopPosts
 } from "@jetpack-premium-analytics/data";
 
@@ -5804,6 +5802,49 @@ function validateTime(hours, minutes, seconds2) {
 function validateTimezone(_hours, minutes) {
   return minutes >= 0 && minutes <= 59;
 }
+
+// packages/formatters/src/date/format-date.ts
+var DATE_FORMATS = {
+  short: "MMM d",
+  medium: "MMM d, yyyy",
+  long: "MMMM d, yyyy",
+  full: "EEEE, MMMM d, yyyy",
+  day: "d",
+  month: "MMM",
+  year: "yyyy",
+  monthYear: "MMM yyyy",
+  numeric: "MM/dd/yyyy",
+  iso: "yyyy-MM-dd",
+  dateTime: "MMM d, yyyy h:mm a"
+};
+var formatDate = (date2, formatString = "medium") => {
+  const formatPattern = Object.hasOwn(DATE_FORMATS, formatString) ? DATE_FORMATS[formatString] : formatString;
+  return format(date2, formatPattern);
+};
+
+// packages/formatters/src/date/format-date-range.ts
+var formatDateRange = (range2) => {
+  if (!range2) {
+    return "";
+  }
+  const { from: from2, to: to3 } = range2;
+  if (!from2 || !to3) {
+    return "";
+  }
+  const sameYear = from2.getFullYear() === to3.getFullYear();
+  const sameMonth = sameYear && from2.getMonth() === to3.getMonth();
+  const sameDay = sameMonth && from2.getDate() === to3.getDate();
+  if (sameDay) {
+    return formatDate(from2, "medium");
+  }
+  if (sameMonth) {
+    return `${formatDate(from2, "short")}-${formatDate(to3, "d, yyyy")}`;
+  }
+  if (sameYear) {
+    return `${formatDate(from2, "short")}-${formatDate(to3)}`;
+  }
+  return `${formatDate(from2)}-${formatDate(to3)}`;
+};
 
 // ../../js-packages/number-formatters/dist/esm/constants.js
 var constants_exports = {};
@@ -19489,7 +19530,7 @@ function BaseAreaStack(_ref2) {
       xAccessor,
       yAccessor,
       curve: _,
-      PathComponent: __5,
+      PathComponent: __6,
       lineProps,
       renderLine: ___,
       ...svgPathProps
@@ -30781,6 +30822,23 @@ var COLOR_PRIMARY = COLOR_BLUEBERRY;
 var COLOR_SECONDARY = COLOR_BLUE_30;
 var WOO_COLORS = [COLOR_PRIMARY, COLOR_SECONDARY, COLOR_PURPLE_30, "#7B90FF", "#EB6594"];
 
+// packages/widgets-toolkit/src/helpers/format-legend-labels.ts
+var import_i18n3 = __toESM(require_i18n(), 1);
+function formatLegendLabels(reportParams) {
+  const primaryLabel = formatDateRange({
+    from: new Date(reportParams.from),
+    to: new Date(reportParams.to)
+  });
+  const comparisonLabel = reportParams.compare_from && reportParams.compare_to ? formatDateRange({
+    from: new Date(reportParams.compare_from),
+    to: new Date(reportParams.compare_to)
+  }) : (0, import_i18n3.__)("Previous period", "jetpack-premium-analytics");
+  return {
+    primary: primaryLabel,
+    comparison: comparisonLabel
+  };
+}
+
 // packages/widgets-toolkit/src/helpers/calculate-delta.ts
 function calculateDelta(currentValue, previousValue) {
   if (previousValue === 0) {
@@ -30914,6 +30972,13 @@ function useChartTheme() {
 // packages/widgets-toolkit/src/components/widget-root/context.tsx
 var import_react80 = __toESM(require_react(), 1);
 var WidgetRootContext = (0, import_react80.createContext)(null);
+function useWidgetRootContext() {
+  const context = (0, import_react80.useContext)(WidgetRootContext);
+  if (!context) {
+    throw new Error("useWidgetRootContext must be used within a WidgetRoot component");
+  }
+  return context;
+}
 
 // packages/widgets-toolkit/src/components/widget-root/widget-root.module.scss
 if (typeof process === "undefined" || true) {
@@ -30947,7 +31012,7 @@ function WidgetRoot({ attributes, children, setError, options }) {
 }
 
 // packages/widgets-toolkit/src/components/chart-empty-state/chart-empty-state.tsx
-var import_i18n3 = __toESM(require_i18n(), 1);
+var import_i18n4 = __toESM(require_i18n(), 1);
 
 // packages/widgets-toolkit/src/components/chart-empty-state/chart-empty-state.module.scss
 if (typeof process === "undefined" || true) {
@@ -30959,7 +31024,7 @@ var chart_empty_state_module_default = { "container": "d1d27c24ed6a0118__contain
 var import_jsx_runtime153 = __toESM(require_jsx_runtime(), 1);
 function ChartEmptyState({
   icon = caution_filled_default,
-  text: text2 = (0, import_i18n3.__)("No data found for this date range.", "jetpack-premium-analytics")
+  text: text2 = (0, import_i18n4.__)("No data found for this date range.", "jetpack-premium-analytics")
 }) {
   return /* @__PURE__ */ (0, import_jsx_runtime153.jsxs)(empty_state_exports.Root, { className: chart_empty_state_module_default.container, children: [
     icon && /* @__PURE__ */ (0, import_jsx_runtime153.jsx)(Icon, { size: 48, className: chart_empty_state_module_default.icon, icon }),
@@ -31080,7 +31145,7 @@ function LeaderboardChart2({
 }
 
 // widgets/top-posts/render.tsx
-var import_i18n4 = __toESM(require_i18n(), 1);
+var import_i18n5 = __toESM(require_i18n(), 1);
 var import_react83 = __toESM(require_react(), 1);
 
 // widgets/top-posts/top-posts.module.css
@@ -31126,7 +31191,7 @@ var TopPostsLeaderboard = ({
   legendLabels
 }) => {
   if (isError) {
-    return /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(Text, { children: (0, import_i18n4.__)("Unable to load top posts.", "jetpack-premium-analytics") });
+    return /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(Text, { children: (0, import_i18n5.__)("Unable to load top posts.", "jetpack-premium-analytics") });
   }
   if (isLoading && (!rows || rows.length === 0)) {
     return /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(WidgetLoadingOverlay, {});
@@ -31140,7 +31205,7 @@ var TopPostsLeaderboard = ({
       withOverlayLabel: true,
       showLegend,
       legendLabels,
-      emptyStateText: (0, import_i18n4.__)("No views in this period.", "jetpack-premium-analytics"),
+      emptyStateText: (0, import_i18n5.__)("No views in this period.", "jetpack-premium-analytics"),
       dataFormat: { type: "number", options: { useMultipliers: true, decimals: 0 } }
     }
   );
@@ -31156,34 +31221,56 @@ function toTopPostRows(report, allowedTypes) {
     type: String(item.type ?? "")
   })).filter((row) => !allowedTypes || allowedTypes.includes(row.type));
 }
-function TopPostsReport({ attributes }) {
-  const range2 = attributes?.range ?? "last-7-days";
-  const num = attributes?.num ?? 10;
-  const postType = attributes?.postType;
-  const today = format(localTZDate(), "yyyy-MM-dd");
-  const { from: from2, to: to3 } = computeDateRangeFromPreset(range2) ?? {};
-  const { primary, isLoading, isError } = useStatsTopPosts({
-    from: from2 ?? today,
-    to: to3 ?? today,
-    interval: "day",
-    period: "day",
-    // The widget's "Number of results" maps to the WPCOM stats API's `max`.
-    max: num
-  });
+function TopPostsReport({ num = 10, postType }) {
+  const { reportParams } = useWidgetRootContext();
+  const statsParams = (0, import_react83.useMemo)(() => ({ ...reportParams, max: num }), [reportParams, num]);
+  const { primary, comparison, hasComparison, isLoading, isError } = useStatsTopPosts(statsParams);
   const allowedTypes = (0, import_react83.useMemo)(() => {
     if (postType === void 0 || postType === "") {
       return null;
     }
     return Array.isArray(postType) ? postType : [postType];
   }, [postType]);
-  const rows = (0, import_react83.useMemo)(
+  const primaryRows = (0, import_react83.useMemo)(
     () => toTopPostRows(primary.data, allowedTypes),
     [primary.data, allowedTypes]
   );
-  return /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(TopPostsLeaderboard, { rows, isLoading, isError });
+  const previousViewsByHref = (0, import_react83.useMemo)(() => {
+    if (!hasComparison) {
+      return /* @__PURE__ */ new Map();
+    }
+    return new Map(
+      toTopPostRows(
+        comparison.data,
+        allowedTypes
+      ).map((row) => [row.href, row.value])
+    );
+  }, [comparison.data, allowedTypes, hasComparison]);
+  const withComparison = hasComparison && primaryRows.some((row) => previousViewsByHref.has(row.href));
+  const rows = (0, import_react83.useMemo)(
+    () => withComparison ? primaryRows.map((row) => ({
+      ...row,
+      previousValue: previousViewsByHref.get(row.href) ?? 0
+    })) : primaryRows,
+    [primaryRows, previousViewsByHref, withComparison]
+  );
+  const legendLabels = (0, import_react83.useMemo)(() => formatLegendLabels(reportParams), [reportParams]);
+  return /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(
+    TopPostsLeaderboard,
+    {
+      rows,
+      isLoading,
+      isError,
+      withComparison,
+      showLegend: withComparison,
+      legendLabels
+    }
+  );
 }
-function TopPosts({ attributes }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(WidgetRoot, { children: /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(TopPostsReport, { attributes }) });
+function TopPosts({
+  attributes = {}
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(WidgetRoot, { attributes, children: /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(TopPostsReport, { num: attributes.num, postType: attributes.postType }) });
 }
 export {
   TopPostsLeaderboard,
