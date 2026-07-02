@@ -29,6 +29,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/bookings-by-status',
+		'dir_name'     => 'bookings-by-status',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/clicks',
 		'dir_name'     => 'clicks',
 		'has_render'   => true,
