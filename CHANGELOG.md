@@ -90,6 +90,7 @@ This is an alpha version! The changes listed here are not final.
 - Widgets: Add orders over time widget.
 - Widgets: Add sales by coupon usage widget.
 - Widgets: Add sales by coupon widget.
+- Widgets: Add sales by device widget.
 - Widgets: Add sales by UTM channel widget.
 - Widgets: Add total returns widget.
 - Widgets: Add total sales over time widget.
