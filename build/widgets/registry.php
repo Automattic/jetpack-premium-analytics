@@ -162,6 +162,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/sales-by-utm-campaign',
+		'dir_name'     => 'sales-by-utm-campaign',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/sales-by-utm-channel',
 		'dir_name'     => 'sales-by-utm-channel',
 		'has_render'   => true,

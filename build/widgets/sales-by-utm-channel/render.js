@@ -33,20 +33,6 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
-// package-external:@wordpress/primitives
-var require_primitives = __commonJS({
-  "package-external:@wordpress/primitives"(exports, module) {
-    module.exports = window.wp.primitives;
-  }
-});
-
-// vendor-external:react/jsx-runtime
-var require_jsx_runtime = __commonJS({
-  "vendor-external:react/jsx-runtime"(exports, module) {
-    module.exports = window.ReactJSXRuntime;
-  }
-});
-
 // package-external:@wordpress/date
 var require_date = __commonJS({
   "package-external:@wordpress/date"(exports, module) {
@@ -282,13 +268,13 @@ var require_common = __commonJS({
           }
         }
       }
-      function matchesTemplate(search, template) {
+      function matchesTemplate(search2, template) {
         let searchIndex = 0;
         let templateIndex = 0;
         let starIndex = -1;
         let matchIndex = 0;
-        while (searchIndex < search.length) {
-          if (templateIndex < template.length && (template[templateIndex] === search[searchIndex] || template[templateIndex] === "*")) {
+        while (searchIndex < search2.length) {
+          if (templateIndex < template.length && (template[templateIndex] === search2[searchIndex] || template[templateIndex] === "*")) {
             if (template[templateIndex] === "*") {
               starIndex = templateIndex;
               matchIndex = searchIndex;
@@ -531,6 +517,13 @@ var require_react = __commonJS({
   }
 });
 
+// vendor-external:react/jsx-runtime
+var require_jsx_runtime = __commonJS({
+  "vendor-external:react/jsx-runtime"(exports, module) {
+    module.exports = window.ReactJSXRuntime;
+  }
+});
+
 // vendor-external:react-dom
 var require_react_dom = __commonJS({
   "vendor-external:react-dom"(exports, module) {
@@ -542,6 +535,13 @@ var require_react_dom = __commonJS({
 var require_i18n = __commonJS({
   "package-external:@wordpress/i18n"(exports, module) {
     module.exports = window.wp.i18n;
+  }
+});
+
+// package-external:@wordpress/primitives
+var require_primitives = __commonJS({
+  "package-external:@wordpress/primitives"(exports, module) {
+    module.exports = window.wp.primitives;
   }
 });
 
@@ -1061,8 +1061,8 @@ var require_lexer = __commonJS({
       }
     };
     function indexOfToken(key, tokens2) {
-      for (var search = 0; search < tokens2.length; search++) {
-        if (tokens2[search].token === key) return search;
+      for (var search2 = 0; search2 < tokens2.length; search2++) {
+        if (tokens2[search2].token === key) return search2;
       }
       return -1;
     }
@@ -2246,29 +2246,6 @@ var require_components = __commonJS({
     module.exports = window.wp.components;
   }
 });
-
-// widgets/sales-by-utm-channel/render.tsx
-import { useReportOrderAttribution } from "@jetpack-premium-analytics/data";
-
-// packages/icons/src/channel/index.tsx
-var import_primitives = __toESM(require_primitives(), 1);
-var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
-var channel = /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_primitives.SVG, { width: "48", height: "48", viewBox: "0 0 48 48", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-    import_primitives.Path,
-    {
-      d: "M38.4905 34.2427L32.8865 28.6385C33.6131 27.2519 34.0242 25.6742 34.0242 24.001C34.0242 22.3277 33.6131 20.7589 32.8932 19.3746C34.3864 17.8813 37.3773 14.8903 38.5105 13.7571C41.0126 14.657 43.9191 14.1037 45.9234 12.0994C48.6921 9.33063 48.6921 4.8442 45.9234 2.07768C43.1547 -0.688844 38.6683 -0.691066 35.9018 2.07768C33.8931 4.08646 33.3442 7.00186 34.2508 9.5084L28.6446 15.1148C27.2558 14.3881 25.6781 13.9748 24.0027 13.9748C18.4653 13.9748 13.9767 18.4635 13.9767 24.001C13.9767 25.6698 14.3878 27.243 15.1077 28.6274C13.6145 30.1207 10.6236 33.1116 9.49032 34.2449C6.98827 33.3449 4.08181 33.8982 2.0775 35.9026C-0.691198 38.6713 -0.691198 43.1578 2.0775 45.9243C4.8462 48.6908 9.33256 48.693 12.099 45.9243C14.1078 43.9155 14.6566 41.0001 13.75 38.4936L19.3563 32.8872C20.7451 33.6138 22.3228 34.0271 23.9982 34.0271C25.6737 34.0271 27.2424 33.616 28.629 32.8938C30.1245 34.3893 33.1087 37.3736 34.242 38.5069C33.342 41.009 33.8953 43.9155 35.8996 45.9198C38.6683 48.6886 43.1547 48.6886 45.9211 45.9198C48.6876 43.1511 48.6898 38.6647 45.9211 35.8981C43.9124 33.8894 40.997 33.3405 38.4905 34.2471V34.2427ZM38.9683 5.14641C40.0393 4.07535 41.777 4.07535 42.848 5.14641C43.9191 6.21746 43.9191 7.95515 42.848 9.0262C41.777 10.0973 40.0393 10.0973 38.9683 9.0262C37.8973 7.95515 37.8973 6.21746 38.9683 5.14641ZM9.02813 42.8511C7.95709 43.9222 6.21944 43.9222 5.1484 42.8511C4.07736 41.78 4.07736 40.0424 5.1484 38.9713C6.21944 37.9003 7.95709 37.9003 9.02813 38.9713C10.0992 40.0424 10.0992 41.78 9.02813 42.8511ZM25.9381 25.9387C24.867 27.0097 23.1294 27.0097 22.0583 25.9387C20.9873 24.8676 20.9873 23.1299 22.0583 22.0589C23.1294 20.9878 24.867 20.9878 25.9381 22.0589C27.0091 23.1299 27.0091 24.8676 25.9381 25.9387ZM42.8502 42.8444C41.7792 43.9155 40.0415 43.9155 38.9705 42.8444C37.8995 41.7734 37.8995 40.0357 38.9705 38.9646C40.0415 37.8936 41.7792 37.8936 42.8502 38.9646C43.9213 40.0357 43.9213 41.7734 42.8502 42.8444Z",
-      fill: "var(--wpds-color-stroke-surface-neutral-weak, #E0E0E0)"
-    }
-  ),
-  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-    import_primitives.Path,
-    {
-      d: "M14.4434 1.76213L12.8191 3.00873C12.1103 2.54876 11.3148 2.21322 10.4615 2.03101L10.1971 0H7.74169L7.47504 2.03101C6.62177 2.21322 5.82627 2.54876 5.11965 3.00873L3.49531 1.76213L1.75988 3.4976L3.00646 5.12195C2.54649 5.83081 2.21096 6.62632 2.02875 7.47739L0 7.74404V10.1995L2.03097 10.4661C2.21318 11.3194 2.54871 12.1149 3.00868 12.8216L1.7621 14.4459L3.49754 16.1814L5.12187 14.9348C5.83071 15.3948 6.62621 15.7303 7.47726 15.9125L7.74391 17.9435H10.1993L10.4659 15.9125C11.3192 15.7303 12.1147 15.3948 12.8213 14.9348L14.4457 16.1814L16.1811 14.4459L14.9345 12.8216C15.3945 12.1127 15.73 11.3172 15.9122 10.4661L17.9432 10.1995V7.74404L15.9122 7.47739C15.7278 6.6241 15.3923 5.82858 14.9345 5.12195L16.1811 3.4976L14.4457 1.76213H14.4434ZM8.96827 11.5238C7.45282 11.5238 6.22402 10.295 6.22402 8.77954C6.22402 7.26407 7.45282 6.03524 8.96827 6.03524C10.4837 6.03524 11.7125 7.26407 11.7125 8.77954C11.7125 10.295 10.4837 11.5238 8.96827 11.5238Z",
-      fill: "var(--wpds-color-bg-surface-neutral-weak, #F0F0F0)"
-    }
-  )
-] });
 
 // ../../../node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/constants.js
 var daysInYear = 365.2425;
@@ -7333,11 +7310,11 @@ var Text = (0, import_element.forwardRef)(function Text2({ variant = "body-md", 
 
 // ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/icon/icon.mjs
 var import_element2 = __toESM(require_element(), 1);
-var import_primitives2 = __toESM(require_primitives(), 1);
-var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
+var import_primitives = __toESM(require_primitives(), 1);
+var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
 var Icon = (0, import_element2.forwardRef)(function Icon2({ icon, size = 24, ...restProps }, ref) {
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-    import_primitives2.SVG,
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+    import_primitives.SVG,
     {
       ref,
       fill: "currentColor",
@@ -7363,14 +7340,14 @@ var icon_default = (0, import_element3.forwardRef)(
 );
 
 // ../../../node_modules/.pnpm/@wordpress+icons@13.1.0_@types+react@18.3.28_react@18.3.1/node_modules/@wordpress/icons/build-module/library/caution-filled.mjs
-var import_primitives3 = __toESM(require_primitives(), 1);
-var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
-var caution_filled_default = /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_primitives3.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_primitives3.Path, { d: "M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM12.75 8V13H11.25V8H12.75ZM12.75 14.5V16H11.25V14.5H12.75Z" }) });
+var import_primitives2 = __toESM(require_primitives(), 1);
+var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
+var caution_filled_default = /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_primitives2.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_primitives2.Path, { d: "M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM12.75 8V13H11.25V8H12.75ZM12.75 14.5V16H11.25V14.5H12.75Z" }) });
 
 // ../../../node_modules/.pnpm/@wordpress+icons@13.1.0_@types+react@18.3.28_react@18.3.1/node_modules/@wordpress/icons/build-module/library/chevron-right.mjs
-var import_primitives4 = __toESM(require_primitives(), 1);
-var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
-var chevron_right_default = /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_primitives4.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_primitives4.Path, { d: "M10.6 6L9.4 7l4.6 5-4.6 5 1.2 1 5.4-6z" }) });
+var import_primitives3 = __toESM(require_primitives(), 1);
+var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
+var chevron_right_default = /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_primitives3.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_primitives3.Path, { d: "M10.6 6L9.4 7l4.6 5-4.6 5 1.2 1 5.4-6z" }) });
 
 // ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/stack/stack.mjs
 var import_element4 = __toESM(require_element(), 1);
@@ -7694,7 +7671,7 @@ var Visual = (0, import_element6.forwardRef)(
 
 // ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/icon.mjs
 var import_element7 = __toESM(require_element(), 1);
-var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
 var STYLE_HASH_ATTRIBUTE5 = "data-wp-hash";
 function getRuntime5() {
   const globalScope = globalThis;
@@ -7781,13 +7758,13 @@ if (typeof process === "undefined" || true) {
 var style_default5 = { "root": "a23e08e65c8e62e5__root", "visual": "_01303b3680eaa216__visual", "icon": "_58c8e351db225608__icon", "title": "b8b96f70820333a1__title", "description": "_70f1dd22bad55b18__description", "actions": "_89ac025fd8e2bc52__actions" };
 var Icon3 = (0, import_element7.forwardRef)(
   function EmptyStateIcon({ icon, className, ...restProps }, ref) {
-    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
       Visual,
       {
         ref,
         className: clsx_default(style_default5.icon, className),
         ...restProps,
-        children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Icon, { icon })
+        children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Icon, { icon })
       }
     );
   }
@@ -7795,7 +7772,7 @@ var Icon3 = (0, import_element7.forwardRef)(
 
 // ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/title.mjs
 var import_element8 = __toESM(require_element(), 1);
-var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
 var STYLE_HASH_ATTRIBUTE6 = "data-wp-hash";
 function getRuntime6() {
   const globalScope = globalThis;
@@ -7880,10 +7857,10 @@ if (typeof process === "undefined" || true) {
   registerStyle6("6d6361d221", '@layer wp-ui-utilities, wp-ui-components, wp-ui-compositions, wp-ui-overrides;@layer wp-ui-components{.a23e08e65c8e62e5__root{text-wrap:balance;align-items:center;color:var(--wpds-color-fg-content-neutral,#1e1e1e);display:flex;flex-direction:column;font-family:var(--wpds-typography-font-family-body,-apple-system,system-ui,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif);gap:var(--wpds-dimension-gap-xs,4px);max-width:var(--wpds-dimension-surface-width-sm,320px);text-align:center}._01303b3680eaa216__visual{align-items:center;color:var(--wpds-color-fg-content-neutral-weak,#707070);display:flex;justify-content:center;line-height:1;margin-block-end:var(--wpds-dimension-gap-xs,4px)}._58c8e351db225608__icon{background-color:var(--wpds-color-bg-surface-neutral-weak,#f4f4f4);border:1px solid var(--wpds-color-stroke-surface-neutral-weak,#e4e4e4);border-radius:50%;padding:var(--wpds-dimension-padding-xs,4px)}.b8b96f70820333a1__title{margin:0}._70f1dd22bad55b18__description{color:var(--wpds-color-fg-content-neutral-weak,#707070);margin:0}._89ac025fd8e2bc52__actions{align-items:center;display:flex;flex-direction:column;gap:var(--wpds-dimension-gap-xs,4px);margin-block-start:var(--wpds-dimension-gap-md,12px);@media (min-width:480px){flex-direction:row;justify-content:center}}}');
 }
 var style_default6 = { "root": "a23e08e65c8e62e5__root", "visual": "_01303b3680eaa216__visual", "icon": "_58c8e351db225608__icon", "title": "b8b96f70820333a1__title", "description": "_70f1dd22bad55b18__description", "actions": "_89ac025fd8e2bc52__actions" };
-var DEFAULT_TAG = /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h2", {});
+var DEFAULT_TAG = /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", {});
 var Title = (0, import_element8.forwardRef)(
   function EmptyStateTitle({ render = DEFAULT_TAG, className, children, ...props }, ref) {
-    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
       Text,
       {
         ref,
@@ -7899,7 +7876,7 @@ var Title = (0, import_element8.forwardRef)(
 
 // ../../../node_modules/.pnpm/@wordpress+ui@0.13.0_@date-fns+tz@1.4.1_@types+react@18.3.28_date-fns@4.1.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@wordpress/ui/build-module/empty-state/description.mjs
 var import_element9 = __toESM(require_element(), 1);
-var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
 var STYLE_HASH_ATTRIBUTE7 = "data-wp-hash";
 function getRuntime7() {
   const globalScope = globalThis;
@@ -7984,9 +7961,9 @@ if (typeof process === "undefined" || true) {
   registerStyle7("6d6361d221", '@layer wp-ui-utilities, wp-ui-components, wp-ui-compositions, wp-ui-overrides;@layer wp-ui-components{.a23e08e65c8e62e5__root{text-wrap:balance;align-items:center;color:var(--wpds-color-fg-content-neutral,#1e1e1e);display:flex;flex-direction:column;font-family:var(--wpds-typography-font-family-body,-apple-system,system-ui,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif);gap:var(--wpds-dimension-gap-xs,4px);max-width:var(--wpds-dimension-surface-width-sm,320px);text-align:center}._01303b3680eaa216__visual{align-items:center;color:var(--wpds-color-fg-content-neutral-weak,#707070);display:flex;justify-content:center;line-height:1;margin-block-end:var(--wpds-dimension-gap-xs,4px)}._58c8e351db225608__icon{background-color:var(--wpds-color-bg-surface-neutral-weak,#f4f4f4);border:1px solid var(--wpds-color-stroke-surface-neutral-weak,#e4e4e4);border-radius:50%;padding:var(--wpds-dimension-padding-xs,4px)}.b8b96f70820333a1__title{margin:0}._70f1dd22bad55b18__description{color:var(--wpds-color-fg-content-neutral-weak,#707070);margin:0}._89ac025fd8e2bc52__actions{align-items:center;display:flex;flex-direction:column;gap:var(--wpds-dimension-gap-xs,4px);margin-block-start:var(--wpds-dimension-gap-md,12px);@media (min-width:480px){flex-direction:row;justify-content:center}}}');
 }
 var style_default7 = { "root": "a23e08e65c8e62e5__root", "visual": "_01303b3680eaa216__visual", "icon": "_58c8e351db225608__icon", "title": "b8b96f70820333a1__title", "description": "_70f1dd22bad55b18__description", "actions": "_89ac025fd8e2bc52__actions" };
-var DEFAULT_TAG2 = /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", {});
+var DEFAULT_TAG2 = /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", {});
 var Description = (0, import_element9.forwardRef)(function EmptyStateDescription({ render = DEFAULT_TAG2, className, children, ...props }, ref) {
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
     Text,
     {
       ref,
@@ -8328,7 +8305,7 @@ function useText(props) {
 }
 
 // ../../../node_modules/.pnpm/@visx+text@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/text/esm/Text.js
-var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
 var SVG_STYLE = {
   overflow: "visible"
 };
@@ -8357,18 +8334,18 @@ function Text3(props) {
     startDy,
     transform
   } = useText(props);
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("svg", {
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("svg", {
     ref: innerRef,
     x: dx,
     y: dy,
     fontSize,
     style: SVG_STYLE,
-    children: wordsByLines.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("text", {
+    children: wordsByLines.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("text", {
       ref: innerTextRef,
       transform,
       ...textProps,
       textAnchor,
-      children: wordsByLines.map((line3, index) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("tspan", {
+      children: wordsByLines.map((line3, index) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("tspan", {
         x: x2,
         dy: index === 0 ? startDy : lineHeight,
         children: line3.words.join(" ")
@@ -8387,7 +8364,7 @@ var AnnotationContext = /* @__PURE__ */ (0, import_react8.createContext)({});
 var AnnotationContext_default = AnnotationContext;
 
 // ../../../node_modules/.pnpm/@visx+annotation@4.0.0_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@visx/annotation/esm/components/Connector.js
-var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
 function Connector(_ref2) {
   let {
     className,
@@ -8419,7 +8396,7 @@ function Connector(_ref2) {
       x1 = x0 + sign2 * Math.abs(y1 - y0);
     }
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("path", {
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("path", {
     className: (0, import_classnames.default)("visx-annotation-connector", className),
     strokeWidth: 1,
     stroke,
@@ -8436,7 +8413,7 @@ var import_classnames3 = __toESM(require_classnames(), 1);
 
 // ../../../node_modules/.pnpm/@visx+group@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/group/esm/Group.js
 var import_classnames2 = __toESM(require_classnames(), 1);
-var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
 function Group(_ref2) {
   let {
     top = 0,
@@ -8447,7 +8424,7 @@ function Group(_ref2) {
     innerRef,
     ...restProps
   } = _ref2;
-  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("g", {
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("g", {
     ref: innerRef,
     className: (0, import_classnames2.default)("visx-group", className),
     transform: transform || `translate(${left}, ${top})`,
@@ -8601,7 +8578,7 @@ var keys = ["x", "y", "top", "bottom", "left", "right", "width", "height"];
 var areBoundsEqual = (a, b) => keys.every((key) => a[key] === b[key]);
 
 // ../../../node_modules/.pnpm/@visx+annotation@4.0.0_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@visx/annotation/esm/components/LabelAnchorLine.js
-var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
 function AnchorLine(_ref2) {
   let {
     anchorLineOrientation,
@@ -8615,26 +8592,26 @@ function AnchorLine(_ref2) {
     stroke: anchorLineStroke,
     strokeWidth: 2
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, {
-    children: [anchorLineOrientation === "horizontal" && verticalAnchor === "start" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("line", {
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_jsx_runtime10.Fragment, {
+    children: [anchorLineOrientation === "horizontal" && verticalAnchor === "start" && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("line", {
       ...backgroundOutline,
       x1: 0,
       x2: width,
       y1: 0,
       y2: 0
-    }), anchorLineOrientation === "horizontal" && verticalAnchor === "end" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("line", {
+    }), anchorLineOrientation === "horizontal" && verticalAnchor === "end" && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("line", {
       ...backgroundOutline,
       x1: 0,
       x2: width,
       y1: height,
       y2: height
-    }), anchorLineOrientation === "vertical" && horizontalAnchor === "start" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("line", {
+    }), anchorLineOrientation === "vertical" && horizontalAnchor === "start" && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("line", {
       ...backgroundOutline,
       x1: 0,
       x2: 0,
       y1: 0,
       y2: height
-    }), anchorLineOrientation === "vertical" && horizontalAnchor === "end" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("line", {
+    }), anchorLineOrientation === "vertical" && horizontalAnchor === "end" && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("line", {
       ...backgroundOutline,
       x1: width,
       x2: width,
@@ -8645,7 +8622,7 @@ function AnchorLine(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+annotation@4.0.0_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@visx/annotation/esm/components/Label.js
-var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
 var DEFAULT_PADDING = {
   top: 12,
   right: 12,
@@ -8764,13 +8741,13 @@ function Label(_ref2) {
     fontWeight: subtitleFontWeight,
     fontFamily: subtitleFontFamily
   }), [subtitleFontSize, subtitleFontWeight, subtitleFontFamily]);
-  return !title && !subtitle ? null : /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(Group, {
+  return !title && !subtitle ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(Group, {
     top: containerCoords.y,
     left: containerCoords.x,
     pointerEvents: "none",
     className: (0, import_classnames3.default)("visx-annotationlabel", className),
     opacity: titleBounds.height === 0 && subtitleBounds.height === 0 ? 0 : 1,
-    children: [showBackground && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("rect", {
+    children: [showBackground && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("rect", {
       className: "visx-annotationlabel-background",
       fill: backgroundFill,
       x: 0,
@@ -8778,14 +8755,14 @@ function Label(_ref2) {
       width,
       height,
       ...backgroundProps
-    }), showAnchorLine && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(AnchorLine, {
+    }), showAnchorLine && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(AnchorLine, {
       anchorLineOrientation: Math.abs(dx) > Math.abs(dy) ? "vertical" : "horizontal",
       anchorLineStroke,
       verticalAnchor,
       horizontalAnchor,
       width,
       height
-    }), title && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Text3, {
+    }), title && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Text3, {
       innerTextRef: titleRef,
       fill: fontColor,
       verticalAnchor: "start",
@@ -8796,7 +8773,7 @@ function Label(_ref2) {
       style: titleStyle,
       ...titleProps,
       children: title
-    }), subtitle && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Text3, {
+    }), subtitle && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Text3, {
       innerTextRef: subtitleRef,
       fill: fontColor,
       verticalAnchor: "start",
@@ -8815,7 +8792,7 @@ function Label(_ref2) {
 // ../../../node_modules/.pnpm/@visx+annotation@4.0.0_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@visx/annotation/esm/components/HtmlLabel.js
 var import_react12 = __toESM(require_react(), 1);
 var import_classnames4 = __toESM(require_classnames(), 1);
-var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
 var wrapperStyle = {
   display: "inline-block"
 };
@@ -8859,16 +8836,16 @@ function HtmlLabel(_ref2) {
       y: adjustedY
     };
   }, [propsX, x2, dx, propsY, y2, dy, horizontalAnchor, verticalAnchor, width, height]);
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(Group, {
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(Group, {
     top: containerCoords.y,
     left: containerCoords.x,
     pointerEvents: "none",
     className: (0, import_classnames4.default)("visx-annotationlabel", className),
-    children: [/* @__PURE__ */ (0, import_jsx_runtime13.jsx)("foreignObject", {
+    children: [/* @__PURE__ */ (0, import_jsx_runtime12.jsx)("foreignObject", {
       width,
       height,
       overflow: "visible",
-      children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", {
+      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
         ref: labelRef,
         style: containerStyle ? {
           ...wrapperStyle,
@@ -8876,7 +8853,7 @@ function HtmlLabel(_ref2) {
         } : wrapperStyle,
         children
       })
-    }), showAnchorLine && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(AnchorLine, {
+    }), showAnchorLine && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(AnchorLine, {
       anchorLineOrientation: Math.abs(dx) > Math.abs(dy) ? "vertical" : "horizontal",
       anchorLineStroke,
       verticalAnchor,
@@ -8890,7 +8867,7 @@ function HtmlLabel(_ref2) {
 // ../../../node_modules/.pnpm/@visx+annotation@4.0.0_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@visx/annotation/esm/components/CircleSubject.js
 var import_react13 = __toESM(require_react(), 1);
 var import_classnames5 = __toESM(require_classnames(), 1);
-var import_jsx_runtime14 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
 function CircleSubject(_ref2) {
   let {
     className,
@@ -8901,7 +8878,7 @@ function CircleSubject(_ref2) {
     ...restProps
   } = _ref2;
   const annotationContext = (0, import_react13.useContext)(AnnotationContext_default);
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("circle", {
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("circle", {
     className: (0, import_classnames5.default)("visx-annotation-subject", "visx-annotation-subject-circle", className),
     cx: propsX || annotationContext.x,
     cy: propsY || annotationContext.y,
@@ -8916,7 +8893,7 @@ function CircleSubject(_ref2) {
 // ../../../node_modules/.pnpm/@visx+annotation@4.0.0_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@visx/annotation/esm/components/LineSubject.js
 var import_react14 = __toESM(require_react(), 1);
 var import_classnames6 = __toESM(require_classnames(), 1);
-var import_jsx_runtime15 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime14 = __toESM(require_jsx_runtime(), 1);
 function LineSubject(_ref2) {
   let {
     className,
@@ -8930,7 +8907,7 @@ function LineSubject(_ref2) {
   } = _ref2;
   const annotationContext = (0, import_react14.useContext)(AnnotationContext_default);
   const lineIsVertical = orientation === "vertical";
-  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("line", {
+  return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("line", {
     className: (0, import_classnames6.default)("visx-annotation-subject", "visx-annotation-subject-line", className),
     x1: lineIsVertical ? propsX || annotationContext.x : min2,
     x2: lineIsVertical ? propsX || annotationContext.x : max2,
@@ -8945,7 +8922,7 @@ function LineSubject(_ref2) {
 
 // ../../../node_modules/.pnpm/@visx+annotation@4.0.0_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@visx/annotation/esm/components/Annotation.js
 var import_react15 = __toESM(require_react(), 1);
-var import_jsx_runtime16 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime15 = __toESM(require_jsx_runtime(), 1);
 function Annotation(_ref2) {
   let {
     x: x2,
@@ -8960,7 +8937,7 @@ function Annotation(_ref2) {
     dx,
     dy
   }), [x2, y2, dx, dy]);
-  return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(AnnotationContext_default.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(AnnotationContext_default.Provider, {
     value,
     children
   });
@@ -9095,10 +9072,10 @@ var import_react16 = __toESM(require_react(), 1);
 var import_react17 = __toESM(require_react(), 1);
 
 // ../../../node_modules/.pnpm/@visx+drag@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/drag/esm/Drag.js
-var import_jsx_runtime17 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime16 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+annotation@4.0.0_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@visx/annotation/esm/components/EditableAnnotation.js
-var import_jsx_runtime18 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime17 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/annotation/private/BaseAnnotation.js
 var import_react21 = __toESM(require_react(), 1);
@@ -12302,10 +12279,10 @@ function isValidNumber(_) {
 }
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/annotation/private/BaseAnnotation.js
-var import_jsx_runtime19 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime18 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/annotation/Annotation.js
-var import_jsx_runtime20 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime19 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/annotation/AnimatedAnnotation.js
 var import_react25 = __toESM(require_react(), 1);
@@ -15116,23 +15093,23 @@ var host = createHost(primitives, {
 var animated = host.animated;
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/annotation/AnimatedAnnotation.js
-var import_jsx_runtime21 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime20 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/annotation/AnnotationLabel.js
 var import_react26 = __toESM(require_react(), 1);
-var import_jsx_runtime22 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime21 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/annotation/AnnotationConnector.js
 var import_react27 = __toESM(require_react(), 1);
-var import_jsx_runtime23 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime22 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/annotation/AnnotationCircleSubject.js
 var import_react28 = __toESM(require_react(), 1);
-var import_jsx_runtime24 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime23 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/annotation/AnnotationLineSubject.js
 var import_react29 = __toESM(require_react(), 1);
-var import_jsx_runtime25 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime24 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+react-spring@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@_c3cf8b29dfdbeb0e8e1ba98dd976f364/node_modules/@visx/react-spring/esm/axis/AnimatedTicks.js
 var import_classnames43 = __toESM(require_classnames(), 1);
@@ -15195,7 +15172,7 @@ function appendRound(digits) {
     }
   };
 }
-var Path4 = class {
+var Path3 = class {
   constructor(digits) {
     this._x0 = this._y0 = // start of current subpath
     this._x1 = this._y1 = null;
@@ -15262,9 +15239,9 @@ var Path4 = class {
   }
 };
 function path() {
-  return new Path4();
+  return new Path3();
 }
-path.prototype = Path4.prototype;
+path.prototype = Path3.prototype;
 
 // ../../../node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/path.js
 function withPath(shape) {
@@ -15280,7 +15257,7 @@ function withPath(shape) {
     }
     return shape;
   };
-  return () => new Path4(digits);
+  return () => new Path3(digits);
 }
 
 // ../../../node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/arc.js
@@ -16155,11 +16132,11 @@ function pie() {
 }
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/Arc.js
-var import_jsx_runtime26 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime25 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/Pie.js
 var import_classnames8 = __toESM(require_classnames(), 1);
-var import_jsx_runtime27 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime26 = __toESM(require_jsx_runtime(), 1);
 function Pie(_ref2) {
   let {
     className,
@@ -16196,19 +16173,19 @@ function Pie(_ref2) {
     sortValues: pieSortValues
   });
   const arcs = pie2(data);
-  if (children) return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_jsx_runtime27.Fragment, {
+  if (children) return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_jsx_runtime26.Fragment, {
     children: children({
       arcs,
       path: path2,
       pie: pie2
     })
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Group, {
+  return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Group, {
     className: "visx-pie-arcs-group",
     top,
     left,
-    children: arcs.map((arc2, i) => /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("g", {
-      children: [/* @__PURE__ */ (0, import_jsx_runtime27.jsx)("path", {
+    children: arcs.map((arc2, i) => /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("g", {
+      children: [/* @__PURE__ */ (0, import_jsx_runtime26.jsx)("path", {
         className: (0, import_classnames8.default)("visx-pie-arc", className),
         d: path2(arc2) || "",
         fill: fill == null || typeof fill === "string" ? fill : fill(arc2),
@@ -16220,7 +16197,7 @@ function Pie(_ref2) {
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/Line.js
 var import_classnames9 = __toESM(require_classnames(), 1);
-var import_jsx_runtime28 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime27 = __toESM(require_jsx_runtime(), 1);
 function Line(_ref2) {
   let {
     from: from2 = {
@@ -16237,7 +16214,7 @@ function Line(_ref2) {
     ...restProps
   } = _ref2;
   const isRectilinear = from2.x === to3.x || from2.y === to3.y;
-  return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("line", {
+  return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("line", {
     ref: innerRef,
     className: (0, import_classnames9.default)("visx-line", className),
     x1: from2.x,
@@ -16252,7 +16229,7 @@ function Line(_ref2) {
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/LinePath.js
 var import_classnames10 = __toESM(require_classnames(), 1);
-var import_jsx_runtime29 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime28 = __toESM(require_jsx_runtime(), 1);
 function LinePath(_ref2) {
   let {
     children,
@@ -16272,12 +16249,12 @@ function LinePath(_ref2) {
     defined,
     curve
   });
-  if (children) return /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_jsx_runtime29.Fragment, {
+  if (children) return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_jsx_runtime28.Fragment, {
     children: children({
       path: path2
     })
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("path", {
+  return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("path", {
     ref: innerRef,
     className: (0, import_classnames10.default)("visx-linepath", className),
     d: path2(data) || "",
@@ -16289,11 +16266,11 @@ function LinePath(_ref2) {
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/LineRadial.js
 var import_classnames11 = __toESM(require_classnames(), 1);
-var import_jsx_runtime30 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime29 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/Area.js
 var import_classnames12 = __toESM(require_classnames(), 1);
-var import_jsx_runtime31 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime30 = __toESM(require_jsx_runtime(), 1);
 function Area(_ref2) {
   let {
     children,
@@ -16320,12 +16297,12 @@ function Area(_ref2) {
     defined,
     curve
   });
-  if (children) return /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(import_jsx_runtime31.Fragment, {
+  if (children) return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_jsx_runtime30.Fragment, {
     children: children({
       path: path2
     })
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("path", {
+  return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("path", {
     ref: innerRef,
     className: (0, import_classnames12.default)("visx-area", className),
     d: path2(data) || "",
@@ -16335,25 +16312,25 @@ function Area(_ref2) {
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/AreaClosed.js
 var import_classnames13 = __toESM(require_classnames(), 1);
-var import_jsx_runtime32 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime31 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/AreaStack.js
 var import_classnames15 = __toESM(require_classnames(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/Stack.js
 var import_classnames14 = __toESM(require_classnames(), 1);
-var import_jsx_runtime33 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime32 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/AreaStack.js
-var import_jsx_runtime34 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime33 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/Bar.js
 var import_classnames16 = __toESM(require_classnames(), 1);
-var import_jsx_runtime35 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime34 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/BarRounded.js
 var import_classnames17 = __toESM(require_classnames(), 1);
-var import_jsx_runtime36 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime35 = __toESM(require_jsx_runtime(), 1);
 function useBarRoundedPath(_ref2) {
   let {
     all,
@@ -16425,12 +16402,12 @@ function BarRounded(_ref2) {
     bottomLeft,
     bottomRight
   });
-  if (children) return /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_jsx_runtime36.Fragment, {
+  if (children) return /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_jsx_runtime35.Fragment, {
     children: children({
       path: path2
     })
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("path", {
+  return /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("path", {
     ref: innerRef,
     className: (0, import_classnames17.default)("visx-bar-rounded", className),
     d: path2,
@@ -16440,11 +16417,11 @@ function BarRounded(_ref2) {
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/BarGroup.js
 var import_classnames18 = __toESM(require_classnames(), 1);
-var import_jsx_runtime37 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime36 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/BarGroupHorizontal.js
 var import_classnames19 = __toESM(require_classnames(), 1);
-var import_jsx_runtime38 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime37 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/BarStack.js
 var import_classnames20 = __toESM(require_classnames(), 1);
@@ -16458,71 +16435,71 @@ function getSecondItem(d) {
 }
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/BarStack.js
-var import_jsx_runtime39 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime38 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/BarStackHorizontal.js
 var import_classnames21 = __toESM(require_classnames(), 1);
-var import_jsx_runtime40 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime39 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/link/diagonal/LinkHorizontal.js
 var import_classnames22 = __toESM(require_classnames(), 1);
-var import_jsx_runtime41 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime40 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/link/diagonal/LinkVertical.js
 var import_classnames23 = __toESM(require_classnames(), 1);
-var import_jsx_runtime42 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime41 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/link/diagonal/LinkRadial.js
 var import_classnames24 = __toESM(require_classnames(), 1);
-var import_jsx_runtime43 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime42 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/link/curve/LinkHorizontalCurve.js
 var import_classnames25 = __toESM(require_classnames(), 1);
-var import_jsx_runtime44 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime43 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/link/curve/LinkVerticalCurve.js
 var import_classnames26 = __toESM(require_classnames(), 1);
-var import_jsx_runtime45 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime44 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/link/curve/LinkRadialCurve.js
 var import_classnames27 = __toESM(require_classnames(), 1);
-var import_jsx_runtime46 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime45 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/link/line/LinkHorizontalLine.js
 var import_classnames28 = __toESM(require_classnames(), 1);
-var import_jsx_runtime47 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime46 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/link/line/LinkVerticalLine.js
 var import_classnames29 = __toESM(require_classnames(), 1);
-var import_jsx_runtime48 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime47 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/link/line/LinkRadialLine.js
 var import_classnames30 = __toESM(require_classnames(), 1);
-var import_jsx_runtime49 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime48 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/link/step/LinkHorizontalStep.js
 var import_classnames31 = __toESM(require_classnames(), 1);
-var import_jsx_runtime50 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime49 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/link/step/LinkVerticalStep.js
 var import_classnames32 = __toESM(require_classnames(), 1);
-var import_jsx_runtime51 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime50 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/link/step/LinkRadialStep.js
 var import_classnames33 = __toESM(require_classnames(), 1);
-var import_jsx_runtime52 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime51 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/Polygon.js
 var import_classnames34 = __toESM(require_classnames(), 1);
-var import_jsx_runtime53 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime52 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/Circle.js
 var import_classnames35 = __toESM(require_classnames(), 1);
-var import_jsx_runtime54 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime53 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+shape@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/shape/esm/shapes/SplitLinePath.js
 var import_react30 = __toESM(require_react(), 1);
-var import_jsx_runtime55 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime54 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+axis@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/axis/esm/constants/orientation.js
 var Orientation = {
@@ -16565,7 +16542,7 @@ function getLabelTransform(_ref2) {
 
 // ../../../node_modules/.pnpm/@visx+axis@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/axis/esm/axis/Ticks.js
 var import_classnames36 = __toESM(require_classnames(), 1);
-var import_jsx_runtime56 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime55 = __toESM(require_jsx_runtime(), 1);
 function Ticks(_ref2) {
   let {
     hideTicks,
@@ -16591,10 +16568,10 @@ function Ticks(_ref2) {
     const tickLabelProps = allTickLabelProps[index] ?? {};
     const tickLabelFontSize = Math.max(10, typeof tickLabelProps.fontSize === "number" && tickLabelProps.fontSize || 0);
     const tickYCoord = to3.y + (horizontal && orientation !== orientation_default.top ? tickLabelFontSize : 0);
-    return /* @__PURE__ */ (0, import_jsx_runtime56.jsxs)(Group, {
+    return /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)(Group, {
       className: (0, import_classnames36.default)("visx-axis-tick", tickClassName),
       transform: tickTransform,
-      children: [!hideTicks && /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(Line, {
+      children: [!hideTicks && /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(Line, {
         from: from2,
         to: to3,
         stroke: tickStroke,
@@ -16606,7 +16583,7 @@ function Ticks(_ref2) {
         x: to3.x,
         y: tickYCoord,
         formattedValue
-      }) : /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(Text3, {
+      }) : /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(Text3, {
         x: to3.x,
         y: tickYCoord,
         ...tickLabelProps,
@@ -16617,7 +16594,7 @@ function Ticks(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+axis@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/axis/esm/axis/AxisRenderer.js
-var import_jsx_runtime57 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime56 = __toESM(require_jsx_runtime(), 1);
 var defaultTextProps = {
   textAnchor: "middle",
   fontFamily: "Arial",
@@ -16667,7 +16644,7 @@ function AxisRenderer(_ref2) {
     return typeof tickLabelProps === "function" ? tickLabelProps(value, index, ticks2) : tickLabelPropsDefault;
   });
   const maxTickLabelFontSize = Math.max(10, ...allTickLabelProps.map((props) => typeof props.fontSize === "number" ? props.fontSize : 0));
-  return /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)(import_jsx_runtime57.Fragment, {
+  return /* @__PURE__ */ (0, import_jsx_runtime56.jsxs)(import_jsx_runtime56.Fragment, {
     children: [ticksComponent({
       hideTicks,
       horizontal,
@@ -16681,14 +16658,14 @@ function AxisRenderer(_ref2) {
       ticks: ticks2,
       strokeWidth,
       tickLineProps
-    }), !hideAxisLine && /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(Line, {
+    }), !hideAxisLine && /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(Line, {
       className: (0, import_classnames37.default)("visx-axis-line", axisLineClassName),
       from: axisFromPoint,
       to: axisToPoint,
       stroke,
       strokeWidth,
       strokeDasharray
-    }), label && /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(Text3, {
+    }), label && /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(Text3, {
       className: (0, import_classnames37.default)("visx-axis-label", labelClassName),
       ...getLabelTransform({
         labelOffset,
@@ -16759,7 +16736,7 @@ function getAxisRangePaddingConfig() {
 }
 
 // ../../../node_modules/.pnpm/@visx+axis@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/axis/esm/axis/Axis.js
-var import_jsx_runtime58 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime57 = __toESM(require_jsx_runtime(), 1);
 function Axis(_ref2) {
   let {
     children = AxisRenderer,
@@ -16819,7 +16796,7 @@ function Axis(_ref2) {
       formattedValue: format3(value, index, filteredTickValues)
     };
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(Group, {
+  return /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(Group, {
     className: (0, import_classnames38.default)("visx-axis", axisClassName),
     innerRef,
     top,
@@ -16847,29 +16824,29 @@ function Axis(_ref2) {
 
 // ../../../node_modules/.pnpm/@visx+axis@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/axis/esm/axis/AxisLeft.js
 var import_classnames39 = __toESM(require_classnames(), 1);
-var import_jsx_runtime59 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime58 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+axis@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/axis/esm/axis/AxisRight.js
 var import_classnames40 = __toESM(require_classnames(), 1);
-var import_jsx_runtime60 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime59 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+axis@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/axis/esm/axis/AxisTop.js
 var import_classnames41 = __toESM(require_classnames(), 1);
-var import_jsx_runtime61 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime60 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+axis@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/axis/esm/axis/AxisBottom.js
 var import_classnames42 = __toESM(require_classnames(), 1);
-var import_jsx_runtime62 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime61 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+react-spring@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@_c3cf8b29dfdbeb0e8e1ba98dd976f364/node_modules/@visx/react-spring/esm/spring-configs/useLineTransitionConfig.js
 var import_react31 = __toESM(require_react(), 1);
 
 // ../../../node_modules/.pnpm/@visx+react-spring@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@_c3cf8b29dfdbeb0e8e1ba98dd976f364/node_modules/@visx/react-spring/esm/axis/AnimatedTicks.js
-var import_jsx_runtime63 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime62 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+react-spring@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@_c3cf8b29dfdbeb0e8e1ba98dd976f364/node_modules/@visx/react-spring/esm/axis/AnimatedAxis.js
 var import_react32 = __toESM(require_react(), 1);
-var import_jsx_runtime64 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime63 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+grid@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/grid/esm/grids/GridRows.js
 var import_classnames44 = __toESM(require_classnames(), 1);
@@ -16880,7 +16857,7 @@ function getScaleBandwidth2(scale) {
 }
 
 // ../../../node_modules/.pnpm/@visx+grid@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/grid/esm/grids/GridRows.js
-var import_jsx_runtime65 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime64 = __toESM(require_jsx_runtime(), 1);
 function GridRows(_ref2) {
   let {
     top = 0,
@@ -16914,7 +16891,7 @@ function GridRows(_ref2) {
       })
     };
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(Group, {
+  return /* @__PURE__ */ (0, import_jsx_runtime64.jsx)(Group, {
     className: (0, import_classnames44.default)("visx-rows", className),
     top,
     left,
@@ -16926,7 +16903,7 @@ function GridRows(_ref2) {
         to: to3,
         index
       } = _ref22;
-      return /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(Line, {
+      return /* @__PURE__ */ (0, import_jsx_runtime64.jsx)(Line, {
         from: from2,
         to: to3,
         stroke,
@@ -16941,7 +16918,7 @@ function GridRows(_ref2) {
 
 // ../../../node_modules/.pnpm/@visx+grid@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/grid/esm/grids/GridColumns.js
 var import_classnames45 = __toESM(require_classnames(), 1);
-var import_jsx_runtime66 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime65 = __toESM(require_jsx_runtime(), 1);
 function GridColumns(_ref2) {
   let {
     top = 0,
@@ -16975,7 +16952,7 @@ function GridColumns(_ref2) {
       })
     };
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(Group, {
+  return /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(Group, {
     className: (0, import_classnames45.default)("visx-columns", className),
     top,
     left,
@@ -16987,7 +16964,7 @@ function GridColumns(_ref2) {
         to: to3,
         index
       } = _ref22;
-      return /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(Line, {
+      return /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(Line, {
         from: from2,
         to: to3,
         stroke,
@@ -17002,32 +16979,32 @@ function GridColumns(_ref2) {
 
 // ../../../node_modules/.pnpm/@visx+grid@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/grid/esm/grids/Grid.js
 var import_classnames46 = __toESM(require_classnames(), 1);
-var import_jsx_runtime67 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime66 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+grid@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/grid/esm/grids/GridAngle.js
 var import_classnames47 = __toESM(require_classnames(), 1);
-var import_jsx_runtime68 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime67 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+grid@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/grid/esm/grids/GridRadial.js
 var import_classnames48 = __toESM(require_classnames(), 1);
-var import_jsx_runtime69 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime68 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+grid@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/grid/esm/grids/GridPolar.js
 var import_classnames49 = __toESM(require_classnames(), 1);
-var import_jsx_runtime70 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime69 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+react-spring@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@_c3cf8b29dfdbeb0e8e1ba98dd976f364/node_modules/@visx/react-spring/esm/grid/AnimatedGridLines.js
-var import_jsx_runtime71 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime70 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+react-spring@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@_c3cf8b29dfdbeb0e8e1ba98dd976f364/node_modules/@visx/react-spring/esm/grid/AnimatedGridRows.js
-var import_jsx_runtime72 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime71 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+react-spring@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@_c3cf8b29dfdbeb0e8e1ba98dd976f364/node_modules/@visx/react-spring/esm/grid/AnimatedGridColumns.js
-var import_jsx_runtime73 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime72 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/axis/BaseAxis.js
 var import_react33 = __toESM(require_react(), 1);
-var import_jsx_runtime74 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime73 = __toESM(require_jsx_runtime(), 1);
 function BaseAxis(_ref2) {
   let {
     AxisComponent,
@@ -17060,7 +17037,7 @@ function BaseAxis(_ref2) {
   const leftOffset = orientation === "left" ? margin?.left ?? 0 : orientation === "right" ? (width ?? 0) - (margin?.right ?? 0) : 0;
   const scale = orientation === "left" || orientation === "right" ? yScale : xScale;
   const hasRegisteredData = dataRegistry?.entries().some((entry) => entry.data.length > 0) ?? false;
-  return scale && hasRegisteredData ? /* @__PURE__ */ (0, import_jsx_runtime74.jsx)(AxisComponent, {
+  return scale && hasRegisteredData ? /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(AxisComponent, {
     top: topOffset,
     left: leftOffset,
     labelProps: axisStyles?.axisLabel,
@@ -17075,14 +17052,14 @@ function BaseAxis(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/axis/AnimatedAxis.js
-var import_jsx_runtime75 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime74 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/grid/AnimatedGrid.js
 var import_react35 = __toESM(require_react(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/grid/BaseGrid.js
 var import_react34 = __toESM(require_react(), 1);
-var import_jsx_runtime76 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime75 = __toESM(require_jsx_runtime(), 1);
 function BaseGrid(_ref2) {
   let {
     rows = true,
@@ -17100,14 +17077,14 @@ function BaseGrid(_ref2) {
     innerHeight
   } = (0, import_react34.useContext)(DataContext_default);
   const gridLineStyles = theme?.gridStyles;
-  return /* @__PURE__ */ (0, import_jsx_runtime76.jsxs)(import_jsx_runtime76.Fragment, {
-    children: [rows && rowsScale && innerWidth != null && /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(GridRowsComponent, {
+  return /* @__PURE__ */ (0, import_jsx_runtime75.jsxs)(import_jsx_runtime75.Fragment, {
+    children: [rows && rowsScale && innerWidth != null && /* @__PURE__ */ (0, import_jsx_runtime75.jsx)(GridRowsComponent, {
       left: margin?.left,
       lineStyle: gridLineStyles,
       width: innerWidth,
       scale: rowsScale,
       ...props
-    }), columns && columnsScale && innerHeight != null && /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(GridColumnsComponent, {
+    }), columns && columnsScale && innerHeight != null && /* @__PURE__ */ (0, import_jsx_runtime75.jsx)(GridColumnsComponent, {
       top: margin?.top,
       lineStyle: gridLineStyles,
       height: innerHeight,
@@ -17118,21 +17095,21 @@ function BaseGrid(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/grid/AnimatedGrid.js
-var import_jsx_runtime77 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime76 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/axis/Axis.js
-var import_jsx_runtime78 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime77 = __toESM(require_jsx_runtime(), 1);
 function Axis2(props) {
-  return /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(BaseAxis, {
+  return /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(BaseAxis, {
     AxisComponent: Axis,
     ...props
   });
 }
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/grid/Grid.js
-var import_jsx_runtime79 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime78 = __toESM(require_jsx_runtime(), 1);
 function Grid2(props) {
-  return /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(BaseGrid, {
+  return /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(BaseGrid, {
     GridRowsComponent: GridRows,
     GridColumnsComponent: GridColumns,
     ...props
@@ -17182,7 +17159,7 @@ function useTooltip(initialTooltipState) {
 }
 
 // ../../../node_modules/.pnpm/@visx+tooltip@4.0.0_@types+react-dom@18.3.7_@types+react@18.3.28__@types+react@18.3.28__513ff14d7c632ca3d554cadc8f7a78af/node_modules/@visx/tooltip/esm/enhancers/withTooltip.js
-var import_jsx_runtime80 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime79 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+tooltip@4.0.0_@types+react-dom@18.3.7_@types+react@18.3.28__@types+react@18.3.28__513ff14d7c632ca3d554cadc8f7a78af/node_modules/@visx/tooltip/esm/hooks/useTooltipInPortal.js
 var import_react41 = __toESM(require_react(), 1);
@@ -17213,7 +17190,7 @@ var Portal = class extends import_react37.PureComponent {
 // ../../../node_modules/.pnpm/@visx+tooltip@4.0.0_@types+react-dom@18.3.7_@types+react@18.3.28__@types+react@18.3.28__513ff14d7c632ca3d554cadc8f7a78af/node_modules/@visx/tooltip/esm/tooltips/Tooltip.js
 var import_react38 = __toESM(require_react(), 1);
 var import_classnames50 = __toESM(require_classnames(), 1);
-var import_jsx_runtime81 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime80 = __toESM(require_jsx_runtime(), 1);
 var defaultStyles = {
   position: "absolute",
   backgroundColor: "white",
@@ -17238,7 +17215,7 @@ var Tooltip = /* @__PURE__ */ (0, import_react38.forwardRef)((_ref2, ref) => {
     applyPositionStyle = false,
     ...restProps
   } = _ref2;
-  return /* @__PURE__ */ (0, import_jsx_runtime81.jsx)("div", {
+  return /* @__PURE__ */ (0, import_jsx_runtime80.jsx)("div", {
     ref,
     className: (0, import_classnames50.default)("visx-tooltip", className),
     style: {
@@ -17258,7 +17235,7 @@ var Tooltip_default = Tooltip;
 
 // ../../../node_modules/.pnpm/@visx+bounds@4.0.0_@types+react-dom@18.3.7_@types+react@18.3.28__@types+react@18.3.28_r_27964c56b6614e2dfddd1dd60c156cd8/node_modules/@visx/bounds/esm/enhancers/withBoundingRects.js
 var import_react39 = __toESM(require_react(), 1);
-var import_jsx_runtime82 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime81 = __toESM(require_jsx_runtime(), 1);
 var emptyRect = {
   top: 0,
   right: 0,
@@ -17297,7 +17274,7 @@ function withBoundingRects(BaseComponent) {
       };
     }
     render() {
-      return /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(BaseComponent, {
+      return /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(BaseComponent, {
         nodeRef: this.nodeRef,
         getRects: this.getRects,
         ...this.state,
@@ -17317,7 +17294,7 @@ var TooltipPositionProvider = TooltipPositionContext.Provider;
 var TooltipPositionConsumer = TooltipPositionContext.Consumer;
 
 // ../../../node_modules/.pnpm/@visx+tooltip@4.0.0_@types+react-dom@18.3.7_@types+react@18.3.28__@types+react@18.3.28__513ff14d7c632ca3d554cadc8f7a78af/node_modules/@visx/tooltip/esm/tooltips/TooltipWithBounds.js
-var import_jsx_runtime83 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime82 = __toESM(require_jsx_runtime(), 1);
 function TooltipWithBounds(_ref2) {
   let {
     children,
@@ -17361,7 +17338,7 @@ function TooltipWithBounds(_ref2) {
     top = Math.round(top);
     transform = `translate(${left}px, ${top}px)`;
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(Tooltip_default, {
+  return /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(Tooltip_default, {
     ref: nodeRef,
     style: {
       left: 0,
@@ -17370,7 +17347,7 @@ function TooltipWithBounds(_ref2) {
       ...!unstyled && style
     },
     ...otherProps,
-    children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(TooltipPositionProvider, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(TooltipPositionProvider, {
       value: {
         isFlippedVertically: !placeTooltipUp,
         isFlippedHorizontally: !placeTooltipLeft
@@ -17382,7 +17359,7 @@ function TooltipWithBounds(_ref2) {
 var TooltipWithBounds_default = withBoundingRects(TooltipWithBounds);
 
 // ../../../node_modules/.pnpm/@visx+tooltip@4.0.0_@types+react-dom@18.3.7_@types+react@18.3.28__@types+react@18.3.28__513ff14d7c632ca3d554cadc8f7a78af/node_modules/@visx/tooltip/esm/hooks/useTooltipInPortal.js
-var import_jsx_runtime84 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime83 = __toESM(require_jsx_runtime(), 1);
 function useTooltipInPortal() {
   let {
     detectBounds: detectBoundsOption = true,
@@ -17411,9 +17388,9 @@ function useTooltipInPortal() {
     const scrollY = isSsr ? 0 : window.scrollY;
     const portalLeft = containerLeft + (containerBounds.left || 0) + scrollX;
     const portalTop = containerTop + (containerBounds.top || 0) + scrollY;
-    return /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(Portal, {
+    return /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(Portal, {
       zIndex,
-      children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(TooltipComponent, {
+      children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(TooltipComponent, {
         left: portalLeft,
         top: portalTop,
         ...tooltipProps
@@ -17434,7 +17411,7 @@ var TooltipContext = /* @__PURE__ */ (0, import_react42.createContext)(null);
 var TooltipContext_default = TooltipContext;
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/Tooltip.js
-var import_jsx_runtime85 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime84 = __toESM(require_jsx_runtime(), 1);
 var TOOLTIP_NO_STYLE = {
   position: "absolute",
   pointerEvents: "none",
@@ -17461,7 +17438,7 @@ function DefaultGlyph(_ref2) {
   const {
     theme
   } = (0, import_react43.useContext)(DataContext_default) || {};
-  return /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("circle", {
+  return /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("circle", {
     cx: x2,
     cy: y2,
     r: size,
@@ -17477,7 +17454,7 @@ function defaultRenderGlyph(_ref2) {
     key,
     ...props
   } = _ref2;
-  return /* @__PURE__ */ (0, import_jsx_runtime85.jsx)(DefaultGlyph, {
+  return /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(DefaultGlyph, {
     ...props
   });
 }
@@ -17617,12 +17594,12 @@ function TooltipInner(_ref3) {
   return (
     // Tooltip can be rendered as a child of SVG or HTML since its output is rendered in a Portal.
     // So use svg element to find container ref because it's a valid child of SVG and HTML parents.
-    /* @__PURE__ */ (0, import_jsx_runtime85.jsxs)(import_jsx_runtime85.Fragment, {
-      children: [/* @__PURE__ */ (0, import_jsx_runtime85.jsx)("svg", {
+    /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)(import_jsx_runtime84.Fragment, {
+      children: [/* @__PURE__ */ (0, import_jsx_runtime84.jsx)("svg", {
         ref: setContainerRef,
         style: INVISIBLE_STYLES
-      }), showTooltip && /* @__PURE__ */ (0, import_jsx_runtime85.jsxs)(import_jsx_runtime85.Fragment, {
-        children: [showVerticalCrosshair && /* @__PURE__ */ (0, import_jsx_runtime85.jsx)(TooltipInPortal, {
+      }), showTooltip && /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)(import_jsx_runtime84.Fragment, {
+        children: [showVerticalCrosshair && /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(TooltipInPortal, {
           className: "visx-crosshair visx-crosshair-vertical",
           left: tooltipLeft,
           top: margin?.top,
@@ -17630,11 +17607,11 @@ function TooltipInner(_ref3) {
           offsetTop: 0,
           detectBounds: false,
           style: TOOLTIP_NO_STYLE,
-          children: /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("svg", {
+          children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("svg", {
             width: "1",
             height: innerHeight,
             overflow: "visible",
-            children: /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("line", {
+            children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("line", {
               x1: 0,
               x2: 0,
               y1: 0,
@@ -17644,7 +17621,7 @@ function TooltipInner(_ref3) {
               ...verticalCrosshairStyle
             })
           })
-        }), showHorizontalCrosshair && /* @__PURE__ */ (0, import_jsx_runtime85.jsx)(TooltipInPortal, {
+        }), showHorizontalCrosshair && /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(TooltipInPortal, {
           className: "visx-crosshair visx-crosshair-horizontal",
           left: margin?.left,
           top: tooltipTop,
@@ -17652,11 +17629,11 @@ function TooltipInner(_ref3) {
           offsetTop: 0,
           detectBounds: false,
           style: TOOLTIP_NO_STYLE,
-          children: /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("svg", {
+          children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("svg", {
             width: innerWidth,
             height: "1",
             overflow: "visible",
-            children: /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("line", {
+            children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("line", {
               x1: 0,
               x2: innerWidth,
               y1: 0,
@@ -17675,7 +17652,7 @@ function TooltipInner(_ref3) {
           } = _ref5;
           return (
             // We render glyps in a portal so that they can overflow the container if necessary
-            /* @__PURE__ */ (0, import_jsx_runtime85.jsx)(TooltipInPortal, {
+            /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(TooltipInPortal, {
               className: "visx-tooltip-glyph",
               left: x2,
               top: y2,
@@ -17683,7 +17660,7 @@ function TooltipInner(_ref3) {
               offsetTop: 0,
               detectBounds: false,
               style: TOOLTIP_NO_STYLE,
-              children: /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("svg", {
+              children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("svg", {
                 overflow: "visible",
                 children: renderGlyph({
                   key,
@@ -17694,7 +17671,7 @@ function TooltipInner(_ref3) {
               })
             }, key)
           );
-        }), /* @__PURE__ */ (0, import_jsx_runtime85.jsx)(TooltipInPortal, {
+        }), /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(TooltipInPortal, {
           left: tooltipLeft,
           top: tooltipTop,
           style: {
@@ -17714,7 +17691,7 @@ function TooltipInner(_ref3) {
 function Tooltip2(props) {
   const tooltipContext = (0, import_react43.useContext)(TooltipContext_default);
   if (!tooltipContext?.tooltipOpen) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime85.jsx)(TooltipInner, {
+  return /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(TooltipInner, {
     ...props
   });
 }
@@ -17848,7 +17825,7 @@ function useParentSize() {
 }
 
 // ../../../node_modules/.pnpm/@visx+responsive@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/responsive/esm/components/ParentSize.js
-var import_jsx_runtime86 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime85 = __toESM(require_jsx_runtime(), 1);
 var defaultOuterStyles = {
   width: "100%",
   height: "100%",
@@ -17895,11 +17872,11 @@ function ParentSize(_ref2) {
     ...defaultOuterStyles,
     ...style
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime86.jsx)("div", {
+  return /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("div", {
     style: outerStyle,
     className,
     ...restProps,
-    children: /* @__PURE__ */ (0, import_jsx_runtime86.jsx)("div", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("div", {
       style: measurementStyles,
       ref: parentRef,
       children: children({
@@ -17912,15 +17889,15 @@ function ParentSize(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+responsive@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/responsive/esm/components/ScaleSVG.js
-var import_jsx_runtime87 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime86 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+responsive@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/responsive/esm/enhancers/withParentSize.js
 var import_react45 = __toESM(require_react(), 1);
-var import_jsx_runtime88 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime87 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+responsive@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/responsive/esm/enhancers/withScreenSize.js
 var import_react46 = __toESM(require_react(), 1);
-var import_jsx_runtime89 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime88 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+responsive@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/responsive/esm/hooks/useScreenSize.js
 var import_react47 = __toESM(require_react(), 1);
@@ -17983,13 +17960,13 @@ function mitt_es_default(n) {
 }
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/providers/EventEmitterProvider.js
-var import_jsx_runtime90 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime89 = __toESM(require_jsx_runtime(), 1);
 function EventEmitterProvider(_ref2) {
   let {
     children
   } = _ref2;
   const emitter = (0, import_react50.useMemo)(() => mitt_es_default(), []);
-  return /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(EventEmitterContext_default.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(EventEmitterContext_default.Provider, {
     value: emitter,
     children
   });
@@ -17997,7 +17974,7 @@ function EventEmitterProvider(_ref2) {
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/providers/TooltipProvider.js
 var import_react51 = __toESM(require_react(), 1);
-var import_jsx_runtime91 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime90 = __toESM(require_jsx_runtime(), 1);
 function TooltipProvider(_ref2) {
   let {
     hideTooltipDebounceMs = 400,
@@ -18073,7 +18050,7 @@ function TooltipProvider(_ref2) {
     showTooltip: showTooltip.current,
     hideTooltip
   }), [hideTooltip, tooltipData, tooltipLeft, tooltipOpen, tooltipTop, updateTooltip]);
-  return /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(TooltipContext_default.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(TooltipContext_default.Provider, {
     value,
     children
   });
@@ -18421,7 +18398,7 @@ function useScales(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/providers/DataProvider.js
-var import_jsx_runtime92 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime91 = __toESM(require_jsx_runtime(), 1);
 function DataProvider(_ref2) {
   let {
     initialDimensions,
@@ -18480,7 +18457,7 @@ function DataProvider(_ref2) {
     // to avoid child re-renders
     [colorScale, dataRegistry, height, horizontal, innerHeight, innerWidth, margin, setDimensions, theme, width, xScale, yScale, resizeObserverPolyfill]
   );
-  return /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(DataContext_default.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(DataContext_default.Provider, {
     value,
     children
   });
@@ -18733,7 +18710,7 @@ function usePointerEventHandlers(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/XYChart.js
-var import_jsx_runtime93 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime92 = __toESM(require_jsx_runtime(), 1);
 var DEFAULT_MARGIN = {
   top: 50,
   right: 50,
@@ -18792,7 +18769,7 @@ function XYChart(props) {
       console.warn("[@visx/xychart] XYChart: When no DataProvider is available in context, you must pass xScale & yScale config to XYChart.");
       return null;
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(DataProvider, {
+    return /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(DataProvider, {
       xScale,
       yScale,
       theme,
@@ -18803,15 +18780,15 @@ function XYChart(props) {
       },
       horizontal,
       resizeObserverPolyfill: resizeObserverPolyfillProp,
-      children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(XYChart, {
+      children: /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(XYChart, {
         ...props
       })
     });
   }
   if (width == null || height == null) {
-    return /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(ParentSize, {
+    return /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(ParentSize, {
       resizeObserverPolyfill,
-      children: (dims) => /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(XYChart, {
+      children: (dims) => /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(XYChart, {
         ...props,
         width: props.width == null ? dims.width : props.width,
         height: props.height == null ? dims.height : props.height
@@ -18819,15 +18796,15 @@ function XYChart(props) {
     });
   }
   if (tooltipContext == null) {
-    return /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(TooltipProvider, {
-      children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(XYChart, {
+    return /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(TooltipProvider, {
+      children: /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(XYChart, {
         ...props
       })
     });
   }
   if (emit == null) {
-    return /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(EventEmitterProvider, {
-      children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(XYChart, {
+    return /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(EventEmitterProvider, {
+      children: /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(XYChart, {
         ...props
       })
     });
@@ -18841,11 +18818,11 @@ function XYChart(props) {
     }
     return null;
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime93.jsxs)("svg", {
+  return /* @__PURE__ */ (0, import_jsx_runtime92.jsxs)("svg", {
     width,
     height,
     "aria-label": accessibilityLabel,
-    children: [children, captureEvents && /* @__PURE__ */ (0, import_jsx_runtime93.jsx)("rect", {
+    children: [children, captureEvents && /* @__PURE__ */ (0, import_jsx_runtime92.jsx)("rect", {
       x: margin.left,
       y: margin.top,
       width: width - margin.left - margin.right,
@@ -18947,7 +18924,7 @@ function useSeriesEvents(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/private/BaseGlyphSeries.js
-var import_jsx_runtime94 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime93 = __toESM(require_jsx_runtime(), 1);
 function BaseGlyphSeries(_ref2) {
   let {
     colorAccessor,
@@ -19002,7 +18979,7 @@ function BaseGlyphSeries(_ref2) {
       datum
     };
   }).filter((point5) => point5), [color2, colorAccessor, data, getScaledX, getScaledY, size]);
-  return /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(import_jsx_runtime94.Fragment, {
+  return /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(import_jsx_runtime93.Fragment, {
     children: renderGlyphs({
       glyphs,
       xScale,
@@ -19014,7 +18991,7 @@ function BaseGlyphSeries(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/private/defaultRenderGlyph.js
-var import_jsx_runtime95 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime94 = __toESM(require_jsx_runtime(), 1);
 function defaultRenderGlyph2(_ref2) {
   let {
     key,
@@ -19028,7 +19005,7 @@ function defaultRenderGlyph2(_ref2) {
     onPointerOut,
     onPointerUp
   } = _ref2;
-  return /* @__PURE__ */ (0, import_jsx_runtime95.jsx)("circle", {
+  return /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("circle", {
     className: "visx-circle-glyph",
     tabIndex: onBlur || onFocus ? 0 : void 0,
     fill: color2,
@@ -19044,7 +19021,7 @@ function defaultRenderGlyph2(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/private/BaseAreaSeries.js
-var import_jsx_runtime96 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime95 = __toESM(require_jsx_runtime(), 1);
 function BaseAreaSeries(_ref2) {
   let {
     PathComponent = "path",
@@ -19109,7 +19086,7 @@ function BaseAreaSeries(_ref2) {
     let {
       glyphs
     } = _ref22;
-    return captureFocusEvents ? glyphs.map((glyph) => /* @__PURE__ */ (0, import_jsx_runtime96.jsx)(import_react62.Fragment, {
+    return captureFocusEvents ? glyphs.map((glyph) => /* @__PURE__ */ (0, import_jsx_runtime95.jsx)(import_react62.Fragment, {
       children: defaultRenderGlyph2({
         ...glyph,
         color: "transparent",
@@ -19118,8 +19095,8 @@ function BaseAreaSeries(_ref2) {
       })
     }, glyph.key)) : null;
   }, [captureFocusEvents, eventEmitters.onFocus, eventEmitters.onBlur]);
-  return /* @__PURE__ */ (0, import_jsx_runtime96.jsxs)(import_jsx_runtime96.Fragment, {
-    children: [/* @__PURE__ */ (0, import_jsx_runtime96.jsx)(Area, {
+  return /* @__PURE__ */ (0, import_jsx_runtime95.jsxs)(import_jsx_runtime95.Fragment, {
+    children: [/* @__PURE__ */ (0, import_jsx_runtime95.jsx)(Area, {
       ...accessors,
       ...areaProps,
       curve,
@@ -19128,7 +19105,7 @@ function BaseAreaSeries(_ref2) {
         let {
           path: path2
         } = _ref3;
-        return /* @__PURE__ */ (0, import_jsx_runtime96.jsx)(PathComponent, {
+        return /* @__PURE__ */ (0, import_jsx_runtime95.jsx)(PathComponent, {
           className: "visx-area",
           stroke: "transparent",
           fill: color2,
@@ -19138,7 +19115,7 @@ function BaseAreaSeries(_ref2) {
           ...eventEmitters
         });
       }
-    }), renderLine && /* @__PURE__ */ (0, import_jsx_runtime96.jsx)(LinePath, {
+    }), renderLine && /* @__PURE__ */ (0, import_jsx_runtime95.jsx)(LinePath, {
       x: getScaledX,
       y: getScaledY,
       defined: isDefined,
@@ -19148,7 +19125,7 @@ function BaseAreaSeries(_ref2) {
         let {
           path: path2
         } = _ref4;
-        return /* @__PURE__ */ (0, import_jsx_runtime96.jsx)(PathComponent, {
+        return /* @__PURE__ */ (0, import_jsx_runtime95.jsx)(PathComponent, {
           className: "visx-line",
           fill: "transparent",
           stroke: color2,
@@ -19159,7 +19136,7 @@ function BaseAreaSeries(_ref2) {
           d: path2(data) || ""
         });
       }
-    }), captureFocusEvents && /* @__PURE__ */ (0, import_jsx_runtime96.jsx)(BaseGlyphSeries, {
+    }), captureFocusEvents && /* @__PURE__ */ (0, import_jsx_runtime95.jsx)(BaseGlyphSeries, {
       dataKey,
       data,
       xAccessor,
@@ -19193,7 +19170,7 @@ function BaseAreaSeriesWithRegisteredData(props) {
   }, [dataRegistry, dataKey, data, xAccessor, yAccessor]);
   const registryEntry = dataRegistry?.get(dataKey);
   if (!xScale || !yScale || !registryEntry) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime96.jsx)(BaseAreaSeries, {
+  return /* @__PURE__ */ (0, import_jsx_runtime95.jsx)(BaseAreaSeries, {
     ...props,
     xScale,
     yScale,
@@ -19204,9 +19181,9 @@ function BaseAreaSeriesWithRegisteredData(props) {
 }
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/AreaSeries.js
-var import_jsx_runtime97 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime96 = __toESM(require_jsx_runtime(), 1);
 function AreaSeries(props) {
-  return /* @__PURE__ */ (0, import_jsx_runtime97.jsx)(BaseAreaSeriesWithRegisteredData, {
+  return /* @__PURE__ */ (0, import_jsx_runtime96.jsx)(BaseAreaSeriesWithRegisteredData, {
     ...props
   });
 }
@@ -19347,7 +19324,7 @@ function findNearestStackDatum(nearestDatumArgs, seriesData, horizontal) {
 }
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/private/BaseAreaStack.js
-var import_jsx_runtime98 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime97 = __toESM(require_jsx_runtime(), 1);
 var identity2 = (_) => _;
 function BaseAreaStack(_ref2) {
   let {
@@ -19447,7 +19424,7 @@ function BaseAreaStack(_ref2) {
     let {
       glyphs
     } = _ref22;
-    return captureFocusEvents ? glyphs.map((glyph) => /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(import_react65.Fragment, {
+    return captureFocusEvents ? glyphs.map((glyph) => /* @__PURE__ */ (0, import_jsx_runtime97.jsx)(import_react65.Fragment, {
       children: defaultRenderGlyph2({
         ...glyph,
         color: "transparent",
@@ -19459,16 +19436,16 @@ function BaseAreaStack(_ref2) {
   if (dataKeys.some((key) => dataRegistry.get(key) == null) || !xScale || !yScale || !colorScale) {
     return null;
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime98.jsxs)("g", {
+  return /* @__PURE__ */ (0, import_jsx_runtime97.jsxs)("g", {
     className: "visx-area-stack",
-    children: [stacks.map((stack2) => /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(Area, {
+    children: [stacks.map((stack2) => /* @__PURE__ */ (0, import_jsx_runtime97.jsx)(Area, {
       curve,
       ...stack2.accessors,
       children: (_ref3) => {
         let {
           path: path2
         } = _ref3;
-        return /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(PathComponent, {
+        return /* @__PURE__ */ (0, import_jsx_runtime97.jsx)(PathComponent, {
           className: "visx-area",
           stroke: "transparent",
           d: path2(stack2.data) || "",
@@ -19476,7 +19453,7 @@ function BaseAreaStack(_ref2) {
           ...eventEmitters
         });
       }
-    }, stack2.key)), renderLine && stacks.map((stack2) => /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(LinePath, {
+    }, stack2.key)), renderLine && stacks.map((stack2) => /* @__PURE__ */ (0, import_jsx_runtime97.jsx)(LinePath, {
       // note: this currently doesn't work well for offset=wiggle
       // because it only draws a single line. with two lines you
       // get overlap across stacks :/
@@ -19489,7 +19466,7 @@ function BaseAreaStack(_ref2) {
         let {
           path: path2
         } = _ref4;
-        return /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(PathComponent, {
+        return /* @__PURE__ */ (0, import_jsx_runtime97.jsx)(PathComponent, {
           className: "visx-line",
           fill: "transparent",
           stroke: stack2.areaProps.fill,
@@ -19501,7 +19478,7 @@ function BaseAreaStack(_ref2) {
       }
     }, `line-${stack2.key}`)), captureFocusEvents && stacks.map((_, i) => {
       const stack2 = stacks[stacks.length - i - 1];
-      return /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(BaseGlyphSeries, {
+      return /* @__PURE__ */ (0, import_jsx_runtime97.jsx)(BaseGlyphSeries, {
         dataKey: stack2.key,
         data: stack2.data,
         xAccessor: stack2.accessors.x || stack2.accessors.x1,
@@ -19516,7 +19493,7 @@ function BaseAreaStack(_ref2) {
 var BaseAreaStack_default = BaseAreaStack;
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/AreaStack.js
-var import_jsx_runtime99 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime98 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/private/BaseBarGroup.js
 var import_react66 = __toESM(require_react(), 1);
@@ -19562,7 +19539,7 @@ function findNearestGroupDatum(nearestDatumArgs, groupScale, horizontal) {
 }
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/private/BaseBarGroup.js
-var import_jsx_runtime100 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime99 = __toESM(require_jsx_runtime(), 1);
 function BaseBarGroup(_ref2) {
   let {
     children,
@@ -19685,7 +19662,7 @@ function BaseBarGroup(_ref2) {
       }).filter((bar) => bar)
     };
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime100.jsx)("g", {
+  return /* @__PURE__ */ (0, import_jsx_runtime99.jsx)("g", {
     className: "visx-bar-group",
     children: barSeries.map((series) => series && /* @__PURE__ */ (0, import_react66.createElement)(BarsComponent, {
       horizontal,
@@ -19699,7 +19676,7 @@ function BaseBarGroup(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/private/Bars.js
-var import_jsx_runtime101 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime100 = __toESM(require_jsx_runtime(), 1);
 function Bars(_ref2) {
   let {
     bars,
@@ -19715,18 +19692,18 @@ function Bars(_ref2) {
     ...restProps
   } = _ref2;
   const isFocusable = Boolean(restProps.onFocus || restProps.onBlur);
-  return /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(import_jsx_runtime101.Fragment, {
+  return /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(import_jsx_runtime100.Fragment, {
     children: bars.map((_ref22) => {
       let {
         key,
         ...barProps
       } = _ref22;
-      return radius == null ? /* @__PURE__ */ (0, import_jsx_runtime101.jsx)("rect", {
+      return radius == null ? /* @__PURE__ */ (0, import_jsx_runtime100.jsx)("rect", {
         className: "visx-bar",
         tabIndex: isFocusable ? 0 : void 0,
         ...barProps,
         ...restProps
-      }, key) : /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(BarRounded, {
+      }, key) : /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(BarRounded, {
         className: "visx-bar",
         tabIndex: isFocusable ? 0 : void 0,
         radius,
@@ -19743,9 +19720,9 @@ function Bars(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/BarGroup.js
-var import_jsx_runtime102 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime101 = __toESM(require_jsx_runtime(), 1);
 function BarGroup2(props) {
-  return /* @__PURE__ */ (0, import_jsx_runtime102.jsx)(BaseBarGroup, {
+  return /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(BaseBarGroup, {
     ...props,
     BarsComponent: Bars
   });
@@ -19753,7 +19730,7 @@ function BarGroup2(props) {
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/private/BaseBarSeries.js
 var import_react67 = __toESM(require_react(), 1);
-var import_jsx_runtime103 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime102 = __toESM(require_jsx_runtime(), 1);
 var getFallbackBandwidth = (fullBarWidth, barPadding) => (
   // clamp padding to [0, 1], bar thickness = (1-padding) * availableSpace
   fullBarWidth * (1 - Math.min(1, Math.max(0, barPadding)))
@@ -19825,9 +19802,9 @@ function BaseBarSeries(_ref2) {
     source: ownEventSourceKey,
     allowedSources: [XYCHART_EVENT_SOURCE, ownEventSourceKey]
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime103.jsx)("g", {
+  return /* @__PURE__ */ (0, import_jsx_runtime102.jsx)("g", {
     className: "vx-bar-series",
-    children: /* @__PURE__ */ (0, import_jsx_runtime103.jsx)(BarsComponent, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime102.jsx)(BarsComponent, {
       bars,
       horizontal,
       xScale,
@@ -19860,7 +19837,7 @@ function BaseBarSeriesWithRegisteredData(props) {
   }, [dataRegistry, dataKey, data, xAccessor, yAccessor]);
   const registryEntry = dataRegistry?.get(dataKey);
   if (!xScale || !yScale || !registryEntry) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime103.jsx)(BaseBarSeries, {
+  return /* @__PURE__ */ (0, import_jsx_runtime102.jsx)(BaseBarSeries, {
     ...props,
     xScale,
     yScale,
@@ -19871,13 +19848,13 @@ function BaseBarSeriesWithRegisteredData(props) {
 }
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/BarSeries.js
-var import_jsx_runtime104 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime103 = __toESM(require_jsx_runtime(), 1);
 function BarSeries(_ref2) {
   let {
     colorAccessor,
     ...props
   } = _ref2;
-  return /* @__PURE__ */ (0, import_jsx_runtime104.jsx)(BaseBarSeriesWithRegisteredData, {
+  return /* @__PURE__ */ (0, import_jsx_runtime103.jsx)(BaseBarSeriesWithRegisteredData, {
     ...props,
     colorAccessor,
     BarsComponent: Bars
@@ -19887,26 +19864,26 @@ var BarSeries_default = BarSeries;
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/private/BaseBarStack.js
 var import_react68 = __toESM(require_react(), 1);
-var import_jsx_runtime105 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime104 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/BarStack.js
-var import_jsx_runtime106 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime105 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/GlyphSeries.js
 var import_react69 = __toESM(require_react(), 1);
-var import_jsx_runtime107 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime106 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/private/BaseLineSeries.js
 var import_react70 = __toESM(require_react(), 1);
-var import_jsx_runtime108 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime107 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/LineSeries.js
-var import_jsx_runtime109 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime108 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/private/AnimatedPath.js
 var import_react71 = __toESM(require_react(), 1);
 var import_d3_interpolate_path = __toESM(require_d3_interpolate_path(), 1);
-var import_jsx_runtime110 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime109 = __toESM(require_jsx_runtime(), 1);
 function AnimatedPath(_ref2) {
   let {
     d,
@@ -19940,7 +19917,7 @@ function AnimatedPath(_ref2) {
     stroke,
     fill
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(animated.path, {
+  return /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(animated.path, {
     className: "visx-path",
     d: t.to(interpolator),
     stroke: tweened.stroke,
@@ -19951,18 +19928,18 @@ function AnimatedPath(_ref2) {
 var AnimatedPath_default = /* @__PURE__ */ (0, import_react71.memo)(AnimatedPath);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/AnimatedAreaSeries.js
-var import_jsx_runtime111 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime110 = __toESM(require_jsx_runtime(), 1);
 function AnimatedAreaSeries(props) {
-  return /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(BaseAreaSeriesWithRegisteredData, {
+  return /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(BaseAreaSeriesWithRegisteredData, {
     ...props,
     PathComponent: AnimatedPath_default
   });
 }
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/AnimatedAreaStack.js
-var import_jsx_runtime112 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime111 = __toESM(require_jsx_runtime(), 1);
 function AnimatedAreaStack(props) {
-  return /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(BaseAreaStack_default, {
+  return /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(BaseAreaStack_default, {
     ...props,
     PathComponent: AnimatedPath_default
   });
@@ -19970,32 +19947,32 @@ function AnimatedAreaStack(props) {
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/private/AnimatedBars.js
 var import_react72 = __toESM(require_react(), 1);
-var import_jsx_runtime113 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime112 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/AnimatedBarSeries.js
-var import_jsx_runtime114 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime113 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/AnimatedBarStack.js
-var import_jsx_runtime115 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime114 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/AnimatedBarGroup.js
-var import_jsx_runtime116 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime115 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/AnimatedGlyphSeries.js
 var import_react74 = __toESM(require_react(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/private/AnimatedGlyphs.js
 var import_react73 = __toESM(require_react(), 1);
-var import_jsx_runtime117 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime116 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/AnimatedGlyphSeries.js
-var import_jsx_runtime118 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime117 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/components/series/AnimatedLineSeries.js
-var import_jsx_runtime119 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime118 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/providers/ThemeProvider.js
-var import_jsx_runtime120 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime119 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+xychart@4.0.0_@react-spring+web@10.1.1_react-dom@18.3.1_react@18.3.1__react@18.3._a964a46b8092ee1bce7e14f772b66dda/node_modules/@visx/xychart/esm/theme/themes/dark.js
 var dark_default = buildChartTheme({
@@ -20017,13 +19994,13 @@ var import_i18n = __toESM(require_i18n(), 1);
 var React8 = __toESM(require_react(), 1);
 var import_react77 = __toESM(require_react(), 1);
 var import_deepmerge = __toESM(require_cjs(), 1);
-var import_jsx_runtime151 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime150 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+legend@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/legend/esm/legends/Legend/index.js
 var import_classnames51 = __toESM(require_classnames(), 1);
 
 // ../../../node_modules/.pnpm/@visx+legend@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/legend/esm/legends/Legend/LegendItem.js
-var import_jsx_runtime121 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime120 = __toESM(require_jsx_runtime(), 1);
 function LegendItem(_ref2) {
   let {
     flexDirection = "row",
@@ -20033,7 +20010,7 @@ function LegendItem(_ref2) {
     children,
     ...restProps
   } = _ref2;
-  return /* @__PURE__ */ (0, import_jsx_runtime121.jsx)("div", {
+  return /* @__PURE__ */ (0, import_jsx_runtime120.jsx)("div", {
     className: "visx-legend-item",
     style: {
       display,
@@ -20047,7 +20024,7 @@ function LegendItem(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+legend@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/legend/esm/legends/Legend/LegendLabel.js
-var import_jsx_runtime122 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime121 = __toESM(require_jsx_runtime(), 1);
 function LegendLabel(_ref2) {
   let {
     flex = "1",
@@ -20057,7 +20034,7 @@ function LegendLabel(_ref2) {
     children,
     ...restProps
   } = _ref2;
-  return /* @__PURE__ */ (0, import_jsx_runtime122.jsx)("div", {
+  return /* @__PURE__ */ (0, import_jsx_runtime121.jsx)("div", {
     className: "visx-legend-label",
     style: {
       justifyContent: align,
@@ -20071,7 +20048,7 @@ function LegendLabel(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+legend@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/legend/esm/shapes/Rect.js
-var import_jsx_runtime123 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime122 = __toESM(require_jsx_runtime(), 1);
 function ShapeRect(_ref2) {
   let {
     fill,
@@ -20079,7 +20056,7 @@ function ShapeRect(_ref2) {
     height,
     style
   } = _ref2;
-  return /* @__PURE__ */ (0, import_jsx_runtime123.jsx)("div", {
+  return /* @__PURE__ */ (0, import_jsx_runtime122.jsx)("div", {
     style: {
       width,
       height,
@@ -20093,7 +20070,7 @@ function ShapeRect(_ref2) {
 var import_react75 = __toESM(require_react(), 1);
 
 // ../../../node_modules/.pnpm/@visx+legend@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/legend/esm/shapes/Circle.js
-var import_jsx_runtime124 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime123 = __toESM(require_jsx_runtime(), 1);
 function ShapeCircle(_ref2) {
   let {
     fill,
@@ -20105,13 +20082,13 @@ function ShapeCircle(_ref2) {
   const cleanHeight = typeof height === "string" || typeof height === "undefined" ? 0 : height;
   const size = Math.max(cleanWidth, cleanHeight);
   const radius = size / 2;
-  return /* @__PURE__ */ (0, import_jsx_runtime124.jsx)("svg", {
+  return /* @__PURE__ */ (0, import_jsx_runtime123.jsx)("svg", {
     width: size,
     height: size,
-    children: /* @__PURE__ */ (0, import_jsx_runtime124.jsx)(Group, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime123.jsx)(Group, {
       top: radius,
       left: radius,
-      children: /* @__PURE__ */ (0, import_jsx_runtime124.jsx)("circle", {
+      children: /* @__PURE__ */ (0, import_jsx_runtime123.jsx)("circle", {
         r: radius,
         fill,
         style
@@ -20121,7 +20098,7 @@ function ShapeCircle(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+legend@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/legend/esm/shapes/Line.js
-var import_jsx_runtime125 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime124 = __toESM(require_jsx_runtime(), 1);
 function ShapeLine(_ref2) {
   let {
     fill,
@@ -20131,12 +20108,12 @@ function ShapeLine(_ref2) {
   } = _ref2;
   const cleanHeight = typeof height === "string" || typeof height === "undefined" ? 0 : height;
   const lineThickness = typeof style?.strokeWidth === "number" ? style?.strokeWidth : 2;
-  return /* @__PURE__ */ (0, import_jsx_runtime125.jsx)("svg", {
+  return /* @__PURE__ */ (0, import_jsx_runtime124.jsx)("svg", {
     width,
     height,
-    children: /* @__PURE__ */ (0, import_jsx_runtime125.jsx)(Group, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime124.jsx)(Group, {
       top: cleanHeight / 2 - lineThickness / 2,
-      children: /* @__PURE__ */ (0, import_jsx_runtime125.jsx)("line", {
+      children: /* @__PURE__ */ (0, import_jsx_runtime124.jsx)("line", {
         x1: 0,
         x2: width,
         y1: 0,
@@ -20198,7 +20175,7 @@ function renderShape(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+legend@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/legend/esm/legends/Legend/LegendShape.js
-var import_jsx_runtime126 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime125 = __toESM(require_jsx_runtime(), 1);
 function LegendShape(_ref2) {
   let {
     shape = ShapeRect,
@@ -20212,7 +20189,7 @@ function LegendShape(_ref2) {
     size,
     shapeStyle
   } = _ref2;
-  return /* @__PURE__ */ (0, import_jsx_runtime126.jsx)("div", {
+  return /* @__PURE__ */ (0, import_jsx_runtime125.jsx)("div", {
     className: "visx-legend-shape",
     style: {
       display: "flex",
@@ -20261,7 +20238,7 @@ function labelTransformFactory(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+legend@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/legend/esm/legends/Legend/index.js
-var import_jsx_runtime127 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime126 = __toESM(require_jsx_runtime(), 1);
 var defaultStyle = {
   display: "flex"
 };
@@ -20296,20 +20273,20 @@ function Legend(_ref2) {
     labelFormat
   });
   const labels = domain.map(labelFormatter);
-  if (children) return /* @__PURE__ */ (0, import_jsx_runtime127.jsx)(import_jsx_runtime127.Fragment, {
+  if (children) return /* @__PURE__ */ (0, import_jsx_runtime126.jsx)(import_jsx_runtime126.Fragment, {
     children: children(labels)
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime127.jsx)("div", {
+  return /* @__PURE__ */ (0, import_jsx_runtime126.jsx)("div", {
     className: (0, import_classnames51.default)("visx-legend", className),
     style: {
       ...style,
       flexDirection: direction
     },
-    children: labels.map((label, i) => /* @__PURE__ */ (0, import_jsx_runtime127.jsxs)(LegendItem, {
+    children: labels.map((label, i) => /* @__PURE__ */ (0, import_jsx_runtime126.jsxs)(LegendItem, {
       margin: itemMargin,
       flexDirection: itemDirection,
       ...legendItemProps,
-      children: [/* @__PURE__ */ (0, import_jsx_runtime127.jsx)(LegendShape, {
+      children: [/* @__PURE__ */ (0, import_jsx_runtime126.jsx)(LegendShape, {
         shape,
         height: shapeHeight,
         width: shapeWidth,
@@ -20320,7 +20297,7 @@ function Legend(_ref2) {
         fill,
         size,
         shapeStyle
-      }), /* @__PURE__ */ (0, import_jsx_runtime127.jsx)(LegendLabel, {
+      }), /* @__PURE__ */ (0, import_jsx_runtime126.jsx)(LegendLabel, {
         label: label.text,
         flex: labelFlex,
         margin: labelMargin,
@@ -20332,27 +20309,27 @@ function Legend(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+legend@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/legend/esm/legends/Quantile.js
-var import_jsx_runtime128 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime127 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+legend@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/legend/esm/legends/Linear.js
-var import_jsx_runtime129 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime128 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+legend@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/legend/esm/legends/Ordinal.js
-var import_jsx_runtime130 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime129 = __toESM(require_jsx_runtime(), 1);
 function Ordinal(props) {
-  return /* @__PURE__ */ (0, import_jsx_runtime130.jsx)(Legend, {
+  return /* @__PURE__ */ (0, import_jsx_runtime129.jsx)(Legend, {
     ...props
   });
 }
 
 // ../../../node_modules/.pnpm/@visx+legend@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/legend/esm/legends/Threshold.js
-var import_jsx_runtime131 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime130 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+legend@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/legend/esm/legends/Size.js
-var import_jsx_runtime132 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime131 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+gradient@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/gradient/esm/gradients/LinearGradient.js
-var import_jsx_runtime133 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime132 = __toESM(require_jsx_runtime(), 1);
 function LinearGradient(_ref2) {
   let {
     children,
@@ -20382,8 +20359,8 @@ function LinearGradient(_ref2) {
     y1 = "0";
     y2 = "1";
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime133.jsx)("defs", {
-    children: /* @__PURE__ */ (0, import_jsx_runtime133.jsxs)("linearGradient", {
+  return /* @__PURE__ */ (0, import_jsx_runtime132.jsx)("defs", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime132.jsxs)("linearGradient", {
       id,
       x1,
       y1,
@@ -20391,11 +20368,11 @@ function LinearGradient(_ref2) {
       y2,
       gradientTransform: rotate ? `rotate(${rotate})` : transform,
       ...restProps,
-      children: [!!children && children, !children && /* @__PURE__ */ (0, import_jsx_runtime133.jsx)("stop", {
+      children: [!!children && children, !children && /* @__PURE__ */ (0, import_jsx_runtime132.jsx)("stop", {
         offset: fromOffset,
         stopColor: from2,
         stopOpacity: fromOpacity
-      }), !children && /* @__PURE__ */ (0, import_jsx_runtime133.jsx)("stop", {
+      }), !children && /* @__PURE__ */ (0, import_jsx_runtime132.jsx)("stop", {
         offset: toOffset,
         stopColor: to3,
         stopOpacity: toOpacity
@@ -20405,40 +20382,40 @@ function LinearGradient(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+gradient@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/gradient/esm/gradients/RadialGradient.js
-var import_jsx_runtime134 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime133 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+gradient@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/gradient/esm/gradients/GradientDarkgreenGreen.js
-var import_jsx_runtime135 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime134 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+gradient@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/gradient/esm/gradients/GradientLightgreenGreen.js
-var import_jsx_runtime136 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime135 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+gradient@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/gradient/esm/gradients/GradientOrangeRed.js
-var import_jsx_runtime137 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime136 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+gradient@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/gradient/esm/gradients/GradientPinkBlue.js
-var import_jsx_runtime138 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime137 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+gradient@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/gradient/esm/gradients/GradientPinkRed.js
-var import_jsx_runtime139 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime138 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+gradient@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/gradient/esm/gradients/GradientPurpleOrange.js
-var import_jsx_runtime140 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime139 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+gradient@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/gradient/esm/gradients/GradientPurpleRed.js
-var import_jsx_runtime141 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime140 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+gradient@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/gradient/esm/gradients/GradientPurpleTeal.js
-var import_jsx_runtime142 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime141 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+gradient@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/gradient/esm/gradients/GradientSteelPurple.js
-var import_jsx_runtime143 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime142 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+gradient@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/gradient/esm/gradients/GradientTealBlue.js
-var import_jsx_runtime144 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime143 = __toESM(require_jsx_runtime(), 1);
 
 // ../../../node_modules/.pnpm/@visx+pattern@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/pattern/esm/patterns/Pattern.js
-var import_jsx_runtime145 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime144 = __toESM(require_jsx_runtime(), 1);
 function Pattern(_ref2) {
   let {
     id,
@@ -20446,8 +20423,8 @@ function Pattern(_ref2) {
     height,
     children
   } = _ref2;
-  return /* @__PURE__ */ (0, import_jsx_runtime145.jsx)("defs", {
-    children: /* @__PURE__ */ (0, import_jsx_runtime145.jsx)("pattern", {
+  return /* @__PURE__ */ (0, import_jsx_runtime144.jsx)("defs", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime144.jsx)("pattern", {
       id,
       width,
       height,
@@ -20469,7 +20446,7 @@ var PatternOrientation = {
 };
 
 // ../../../node_modules/.pnpm/@visx+pattern@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/pattern/esm/patterns/Lines.js
-var import_jsx_runtime146 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime145 = __toESM(require_jsx_runtime(), 1);
 function pathForOrientation(_ref2) {
   let {
     height,
@@ -20505,16 +20482,16 @@ function Lines(_ref2) {
     className
   } = _ref2;
   const orientations = Array.isArray(orientation) ? orientation : [orientation];
-  return /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(Pattern, {
+  return /* @__PURE__ */ (0, import_jsx_runtime145.jsxs)(Pattern, {
     id,
     width,
     height,
-    children: [!!background && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("rect", {
+    children: [!!background && /* @__PURE__ */ (0, import_jsx_runtime145.jsx)("rect", {
       className: (0, import_classnames52.default)("visx-pattern-line-background"),
       width,
       height,
       fill: background
-    }), orientations.map((o, i) => /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("path", {
+    }), orientations.map((o, i) => /* @__PURE__ */ (0, import_jsx_runtime145.jsx)("path", {
       className: (0, import_classnames52.default)("visx-pattern-line", className),
       d: pathForOrientation({
         orientation: o,
@@ -20531,7 +20508,7 @@ function Lines(_ref2) {
 
 // ../../../node_modules/.pnpm/@visx+pattern@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/pattern/esm/patterns/Circles.js
 var import_classnames53 = __toESM(require_classnames(), 1);
-var import_jsx_runtime147 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime146 = __toESM(require_jsx_runtime(), 1);
 function Circles(_ref2) {
   let {
     id,
@@ -20550,15 +20527,15 @@ function Circles(_ref2) {
   if (complement) {
     corners = [[0, 0], [0, height], [width, 0], [width, height]];
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(Pattern, {
+  return /* @__PURE__ */ (0, import_jsx_runtime146.jsxs)(Pattern, {
     id,
     width,
     height,
-    children: [!!background && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("rect", {
+    children: [!!background && /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("rect", {
       width,
       height,
       fill: background
-    }), /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("circle", {
+    }), /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("circle", {
       className: (0, import_classnames53.default)("visx-pattern-circle", className),
       cx: width / 2,
       cy: height / 2,
@@ -20569,7 +20546,7 @@ function Circles(_ref2) {
       strokeDasharray
     }), corners?.map((_ref22) => {
       let [cornerX, cornerY] = _ref22;
-      return /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("circle", {
+      return /* @__PURE__ */ (0, import_jsx_runtime146.jsx)("circle", {
         className: (0, import_classnames53.default)("visx-pattern-circle visx-pattern-circle-complement", className),
         cx: cornerX,
         cy: cornerY,
@@ -20588,8 +20565,8 @@ var import_classnames55 = __toESM(require_classnames(), 1);
 
 // ../../../node_modules/.pnpm/@visx+pattern@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/pattern/esm/patterns/Path.js
 var import_classnames54 = __toESM(require_classnames(), 1);
-var import_jsx_runtime148 = __toESM(require_jsx_runtime(), 1);
-function Path5(_ref2) {
+var import_jsx_runtime147 = __toESM(require_jsx_runtime(), 1);
+function Path4(_ref2) {
   let {
     id,
     width,
@@ -20604,15 +20581,15 @@ function Path5(_ref2) {
     background,
     className
   } = _ref2;
-  return /* @__PURE__ */ (0, import_jsx_runtime148.jsxs)(Pattern, {
+  return /* @__PURE__ */ (0, import_jsx_runtime147.jsxs)(Pattern, {
     id,
     width,
     height,
-    children: [!!background && /* @__PURE__ */ (0, import_jsx_runtime148.jsx)("rect", {
+    children: [!!background && /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("rect", {
       width,
       height,
       fill: background
-    }), /* @__PURE__ */ (0, import_jsx_runtime148.jsx)("path", {
+    }), /* @__PURE__ */ (0, import_jsx_runtime147.jsx)("path", {
       className: (0, import_classnames54.default)("visx-pattern-path", className),
       d: path2,
       fill,
@@ -20626,7 +20603,7 @@ function Path5(_ref2) {
 }
 
 // ../../../node_modules/.pnpm/@visx+pattern@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/pattern/esm/patterns/Waves.js
-var import_jsx_runtime149 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime148 = __toESM(require_jsx_runtime(), 1);
 function Waves(_ref2) {
   let {
     id,
@@ -20641,7 +20618,7 @@ function Waves(_ref2) {
     background,
     className
   } = _ref2;
-  return /* @__PURE__ */ (0, import_jsx_runtime149.jsx)(Path5, {
+  return /* @__PURE__ */ (0, import_jsx_runtime148.jsx)(Path4, {
     className: (0, import_classnames55.default)("visx-pattern-wave", className),
     path: `M 0 ${height / 2} c ${height / 8} ${-height / 4} , ${height * 3 / 8} ${-height / 4} , ${height / 2} 0
              c ${height / 8} ${height / 4} , ${height * 3 / 8} ${height / 4} , ${height / 2} 0 M ${-height / 2} ${height / 2}
@@ -20662,7 +20639,7 @@ function Waves(_ref2) {
 
 // ../../../node_modules/.pnpm/@visx+pattern@4.0.0_@types+react@18.3.28_react@18.3.1/node_modules/@visx/pattern/esm/patterns/Hexagons.js
 var import_classnames56 = __toESM(require_classnames(), 1);
-var import_jsx_runtime150 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime149 = __toESM(require_jsx_runtime(), 1);
 function Hexagons(_ref2) {
   let {
     id,
@@ -20678,7 +20655,7 @@ function Hexagons(_ref2) {
     size = 3
   } = _ref2;
   const sqrtSize = Math.sqrt(size);
-  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Path5, {
+  return /* @__PURE__ */ (0, import_jsx_runtime149.jsx)(Path4, {
     className: (0, import_classnames56.default)("visx-pattern-hexagon", className),
     path: `M ${height},0 l ${height},0 l ${height / 2},${height * sqrtSize / 2} l ${-height / 2},${height * sqrtSize / 2} l ${-height},0 l ${-height / 2},${-height * sqrtSize / 2} Z M 0,${height * sqrtSize / 2} l ${height / 2},0 M ${3 * height},${height * sqrtSize / 2} l ${-height / 2},0`,
     id,
@@ -23523,9 +23500,9 @@ var GlobalChartsProvider = ({ children, theme }) => {
     getHiddenSeries,
     isColorPaletteResolved
   ]);
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(GlobalChartsContext.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(GlobalChartsContext.Provider, {
     value,
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
       ref: wrapperRef,
       style: { display: "contents" },
       children
@@ -24356,7 +24333,7 @@ var ALIGNMENT_TO_FLEX = {
 var LegendText = ({ text: text2, textOverflow, maxWidth }) => {
   const isEllipsis = maxWidth != null && textOverflow === "ellipsis";
   const [textRef, isTruncated] = useTextTruncation(Boolean(isEllipsis));
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("span", {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("span", {
     ref: textRef,
     className: clsx_default(base_legend_module_default["legend-item-text"], maxWidth != null && base_legend_module_default[`legend-item-text--${textOverflow}`]),
     style: { ...maxWidth != null && {
@@ -24408,11 +24385,11 @@ var BaseLegend = (0, import_react77.forwardRef)(({ items, className, orientation
     };
   }, [interactive, handleLegendClick]);
   const flexAlignment = ALIGNMENT_TO_FLEX[alignment] ?? "center";
-  return render ? render(items) : /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Ordinal, {
+  return render ? render(items) : /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Ordinal, {
     scale: legendScale,
     labelFormat,
     labelTransform,
-    children: (labels) => /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Stack4, {
+    children: (labels) => /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Stack4, {
       ref,
       direction: orientation === "vertical" ? "column" : "row",
       gap: orientation === "vertical" ? "sm" : "lg",
@@ -24427,7 +24404,7 @@ var BaseLegend = (0, import_react77.forwardRef)(({ items, className, orientation
         const handleClick = createClickHandler(label.text);
         const handleKeyDown = createKeyDownHandler(label.text);
         const matchedItem = items[i];
-        return /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(LegendItem, {
+        return /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(LegendItem, {
           className: clsx_default("visx-legend-item", base_legend_module_default["legend-item"], interactive && base_legend_module_default["legend-item--interactive"], !visible && base_legend_module_default["legend-item--inactive"], itemClassName),
           margin: itemMargin,
           flexDirection: orientation === "vertical" && alignment === "end" ? "row-reverse" : itemDirection,
@@ -24437,10 +24414,10 @@ var BaseLegend = (0, import_react77.forwardRef)(({ items, className, orientation
           tabIndex: interactive ? 0 : void 0,
           "aria-pressed": interactive ? visible : void 0,
           "aria-label": interactive ? `${label.text}: ${visible ? "visible" : "hidden"}. Toggle visibility.` : void 0,
-          children: [items[i]?.renderGlyph ? /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("svg", {
+          children: [items[i]?.renderGlyph ? /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("svg", {
             width: items[i]?.glyphSize * 2,
             height: items[i]?.glyphSize * 2,
-            children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Group, { children: items[i]?.renderGlyph({
+            children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Group, { children: items[i]?.renderGlyph({
               key: `legend-glyph-${label.text}`,
               datum: {},
               index: i,
@@ -24449,7 +24426,7 @@ var BaseLegend = (0, import_react77.forwardRef)(({ items, className, orientation
               x: items[i]?.glyphSize,
               y: items[i]?.glyphSize
             }) })
-          }) : /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(LegendShape, {
+          }) : /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(LegendShape, {
             shape,
             height: shapeHeight,
             width: shapeWidth,
@@ -24460,22 +24437,22 @@ var BaseLegend = (0, import_react77.forwardRef)(({ items, className, orientation
             fill,
             size,
             shapeStyle: getShapeStyle
-          }), /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(LegendLabel, {
+          }), /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(LegendLabel, {
             className: clsx_default("visx-legend-label", base_legend_module_default["legend-item-label"], labelClassName),
             style: {
               flex: labelFlex,
               margin: labelMargin,
               ...theme.legend?.labelStyles
             },
-            children: /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(Stack4, {
+            children: /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(Stack4, {
               align: "center",
               gap: "sm",
               justify: labelJustifyContent,
-              children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)(LegendText, {
+              children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsx)(LegendText, {
                 text: label.text,
                 textOverflow,
                 maxWidth
-              }), matchedItem?.value != null && matchedItem.value !== "" && /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("span", {
+              }), matchedItem?.value != null && matchedItem.value !== "" && /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("span", {
                 className: base_legend_module_default["legend-item-value"],
                 children: ["\xA0", matchedItem.value]
               })]
@@ -24503,7 +24480,7 @@ var Legend2 = (0, import_react77.forwardRef)(({ chartId, items, shape, ...props 
   const resolvedShape = shape ?? (chartData?.chartType ? defaultShapeByChartType[chartData.chartType] : void 0);
   const legendItems = items || contextItems;
   if (!legendItems) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(BaseLegend, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(BaseLegend, {
     ref,
     items: legendItems,
     shape: resolvedShape,
@@ -24588,18 +24565,18 @@ function useChartLegendItems(data, options = {}, legendShape) {
   ]);
 }
 var base_tooltip_module_default = { "tooltip": "a8ccharts--zY0xG-tooltip" };
-var DefaultTooltipContent = ({ data }) => /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(import_jsx_runtime151.Fragment, { children: [
+var DefaultTooltipContent = ({ data }) => /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(import_jsx_runtime150.Fragment, { children: [
   data?.label,
   ": ",
   data?.valueDisplay || formatNumber(data?.value)
 ] });
 var BaseTooltip = ({ data, top, left, component: Component3 = DefaultTooltipContent, children, className, style, renderContainer = true }) => {
-  const content = children || data && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Component3, {
+  const content = children || data && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Component3, {
     data,
     className
   });
   if (!renderContainer) return content;
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
     className: base_tooltip_module_default.tooltip,
     style: {
       top,
@@ -24662,7 +24639,7 @@ var AccessibleTooltip = ({ renderTooltip, selectedIndex, tooltipRef, keyboardFoc
     if (!renderTooltip) return void 0;
     return (params) => {
       const tooltipContent = renderTooltip(params);
-      if (selectedIndex !== void 0) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+      if (selectedIndex !== void 0) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
         ref: tooltipRef,
         tabIndex: -1,
         role: "tooltip",
@@ -24670,7 +24647,7 @@ var AccessibleTooltip = ({ renderTooltip, selectedIndex, tooltipRef, keyboardFoc
         className: keyboardFocusedClassName,
         children: tooltipContent
       }, `chart-tooltip-${selectedIndex}`);
-      return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+      return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
         role: "tooltip",
         "aria-live": "polite",
         children: tooltipContent
@@ -24682,7 +24659,7 @@ var AccessibleTooltip = ({ renderTooltip, selectedIndex, tooltipRef, keyboardFoc
     tooltipRef,
     keyboardFocusedClassName
   ]);
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Tooltip2, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Tooltip2, {
     ...props,
     renderTooltip: focusableRenderTooltip
   });
@@ -24739,11 +24716,11 @@ var useKeyboardNavigation = ({ selectedIndex, setSelectedIndex, isNavigating, se
   };
 };
 var ChartSVG = ({ children }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(import_jsx_runtime151.Fragment, { children });
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(import_jsx_runtime150.Fragment, { children });
 };
 ChartSVG.displayName = "Chart.SVG";
 var ChartHTML = ({ children }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(import_jsx_runtime151.Fragment, { children });
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(import_jsx_runtime150.Fragment, { children });
 };
 ChartHTML.displayName = "Chart.HTML";
 function renderLegendSlot(legendChildren, position2) {
@@ -24809,7 +24786,7 @@ var ChartLayout = ({ legendPosition, legendElement, legendChildren, children, tr
     contentHeight,
     isMeasured
   }) : children;
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(Stack4, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(Stack4, {
     direction: "column",
     gap,
     className,
@@ -24821,7 +24798,7 @@ var ChartLayout = ({ legendPosition, legendElement, legendChildren, children, tr
     children: [
       legendPosition === "top" && legendElement,
       renderLegendSlot(legendChildren, "top"),
-      isRenderProp ? /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+      isRenderProp ? /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
         ref: contentRef,
         className: chart_layout_module_default["chart-layout__content"],
         children: renderedChildren
@@ -24835,7 +24812,7 @@ var ChartLayout = ({ legendPosition, legendElement, legendChildren, children, tr
 var DefaultGlyph2 = (props) => {
   const { theme } = (0, import_react77.useContext)(DataContext_default) || {};
   props.position;
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("circle", {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("circle", {
     cx: props.x,
     cy: props.y,
     r: props.size,
@@ -24847,7 +24824,7 @@ var DefaultGlyph2 = (props) => {
   });
 };
 var center_module_default = { "center": "a8ccharts-w3qxlG-center" };
-var Center = (0, import_react77.forwardRef)(({ align = "center", justify = "center", className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Stack4, {
+var Center = (0, import_react77.forwardRef)(({ align = "center", justify = "center", className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Stack4, {
   ref,
   align,
   justify,
@@ -24857,12 +24834,12 @@ var Center = (0, import_react77.forwardRef)(({ align = "center", justify = "cent
 Center.displayName = "Center";
 var svg_empty_state_module_default = { "svg-empty-state": "a8ccharts-udGPVq-svg-empty-state" };
 var SvgEmptyState = ({ x: x2, y: y2, width, height, children }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("foreignObject", {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("foreignObject", {
     x: x2 - width / 2,
     y: y2 - height / 2,
     width,
     height,
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Center, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Center, {
       className: svg_empty_state_module_default["svg-empty-state"],
       children
     })
@@ -24951,7 +24928,7 @@ function withResponsive(WrappedComponent) {
       aspectRatio: `${1 / aspectRatio}`,
       maxWidth: width === void 0 ? maxWidth : void 0
     } : null;
-    return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+    return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
       ref: parentRef,
       className: with_responsive_module_default.container,
       style: {
@@ -24959,7 +24936,7 @@ function withResponsive(WrappedComponent) {
         height: height ?? defaultHeight,
         ...aspectRatioStyle
       },
-      children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(WrappedComponent, {
+      children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(WrappedComponent, {
         width: effectiveWidth,
         height: effectiveHeight,
         size,
@@ -25035,7 +25012,7 @@ function ZoomSelectionRect({ drag }) {
   if (!drag || drag.a === drag.b) return null;
   const x2 = Math.min(drag.a, drag.b);
   const w = Math.abs(drag.b - drag.a);
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("rect", {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("rect", {
     className: x_zoom_module_default["x-zoom__selection"],
     x: x2,
     y: margin?.top ?? 0,
@@ -25047,28 +25024,28 @@ function ZoomClip({ active, chartId, children }) {
   const { margin, innerWidth, innerHeight } = (0, import_react77.useContext)(DataContext_default);
   const id = `chart-zoom-clip-${String(chartId ?? "").replace(/[^A-Za-z0-9_-]/g, "")}`;
   const clip = active && (innerWidth ?? 0) > 0 && (innerHeight ?? 0) > 0;
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(import_jsx_runtime151.Fragment, { children: [clip && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("clipPath", {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(import_jsx_runtime150.Fragment, { children: [clip && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("clipPath", {
     id,
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("rect", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("rect", {
       x: margin?.left ?? 0,
       y: margin?.top ?? 0,
       width: innerWidth,
       height: innerHeight
     })
-  }) }), /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("g", {
+  }) }), /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("g", {
     clipPath: clip ? `url(#${id})` : void 0,
     children
   })] });
 }
 function ZoomResetButton({ onClick }) {
   const label = (0, import_i18n.__)("Reset zoom", "jetpack-charts");
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("button", {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("button", {
     type: "button",
     className: x_zoom_module_default["x-zoom__reset"],
     onClick,
     "aria-label": label,
     title: label,
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("svg", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("svg", {
       className: x_zoom_module_default["x-zoom__reset-icon"],
       viewBox: "0 0 24 24",
       fill: "none",
@@ -25079,18 +25056,18 @@ function ZoomResetButton({ onClick }) {
       "aria-hidden": "true",
       focusable: "false",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("circle", {
+        /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("circle", {
           cx: "10",
           cy: "10",
           r: "6"
         }),
-        /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("line", {
+        /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("line", {
           x1: "15",
           y1: "15",
           x2: "20",
           y2: "20"
         }),
-        /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("line", {
+        /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("line", {
           x1: "7",
           y1: "10",
           x2: "13",
@@ -25189,9 +25166,9 @@ var LineChartAnnotationsOverlay = ({ children }) => {
     width: chartWidth,
     height: chartHeight
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(DataContext_default.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(DataContext_default.Provider, {
     value: dataContextValue,
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("svg", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("svg", {
       width: chartWidth,
       height: chartHeight,
       className: line_chart_module_default["line-chart__annotations-overlay"],
@@ -25199,7 +25176,7 @@ var LineChartAnnotationsOverlay = ({ children }) => {
     })
   });
 };
-var CloseIcon = () => /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("svg", {
+var CloseIcon = () => /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("svg", {
   width: "16",
   height: "16",
   viewBox: "0 0 24 24",
@@ -25210,7 +25187,7 @@ var CloseIcon = () => /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("svg", {
   strokeLinejoin: "round",
   "aria-hidden": "true",
   focusable: "false",
-  children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("path", { d: "M6 6l12 12M18 6L6 18" })
+  children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("path", { d: "M6 6l12 12M18 6L6 18" })
 });
 var LineChartAnnotationLabelWithPopover = ({ title, subtitle, renderLabel, renderLabelPopover }) => {
   const popoverId = (0, import_react77.useId)();
@@ -25238,9 +25215,9 @@ var LineChartAnnotationLabelWithPopover = ({ title, subtitle, renderLabel, rende
     } catch {
     }
   }, [isBrowserSafari]);
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("div", {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("div", {
     className: line_chart_module_default["line-chart__annotation-label"],
-    children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)("button", {
+    children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsx)("button", {
       ref: buttonRef,
       popovertarget: popoverId,
       className: line_chart_module_default["line-chart__annotation-label-trigger-button"],
@@ -25254,27 +25231,27 @@ var LineChartAnnotationLabelWithPopover = ({ title, subtitle, renderLabel, rende
         title,
         subtitle
       })
-    }), /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+    }), /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
       ref: popoverRef,
       id: popoverId,
       popover: "auto",
       className: clsx_default(line_chart_module_default["line-chart__annotation-label-popover"], isPositioned && line_chart_module_default["line-chart__annotation-label-popover--visible"], isBrowserSafari && line_chart_module_default["line-chart__annotation-label-popover--safari"]),
-      children: /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(Stack4, {
+      children: /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(Stack4, {
         direction: "row",
         align: "flex-start",
         justify: "space-between",
-        children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+        children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
           className: line_chart_module_default["line-chart__annotation-label-popover-content"],
           children: renderLabelPopover({
             title,
             subtitle
           })
-        }), /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("button", {
+        }), /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("button", {
           popovertarget: popoverId,
           popovertargetaction: "hide",
           className: line_chart_module_default["line-chart__annotation-label-popover-close-button"],
           "aria-label": (0, import_i18n.__)("Close", "jetpack-charts"),
-          children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(CloseIcon, {})
+          children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(CloseIcon, {})
         })]
       })
     })]
@@ -25416,32 +25393,32 @@ var LineChartAnnotation = ({ datum, title, subtitle, subjectType = "circle", sty
       height: labelHeight
     } : void 0;
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("g", { children: /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(Annotation, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("g", { children: /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(Annotation, {
     x: x2,
     y: y2,
     dx,
     dy,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Connector, { ...styles?.connector }),
-      subjectType === "circle" && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(CircleSubject, { ...styles?.circleSubject }),
-      subjectType === "line-vertical" && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(LineSubject, {
+      /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Connector, { ...styles?.connector }),
+      subjectType === "circle" && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(CircleSubject, { ...styles?.circleSubject }),
+      subjectType === "line-vertical" && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(LineSubject, {
         min: yMax,
         max: yMin,
         ...styles?.lineSubject,
         orientation: "vertical"
       }),
-      subjectType === "line-horizontal" && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(LineSubject, {
+      subjectType === "line-horizontal" && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(LineSubject, {
         min: xMin,
         max: xMax,
         ...styles?.lineSubject,
         orientation: "horizontal"
       }),
-      renderLabel ? /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(HtmlLabel, {
+      renderLabel ? /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(HtmlLabel, {
         ...styles?.label,
         ...labelPosition,
-        children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+        children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
           style: getSafariHTMLLabelPosition(),
-          children: renderLabelPopover ? /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(LineChartAnnotationLabelWithPopover, {
+          children: renderLabelPopover ? /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(LineChartAnnotationLabelWithPopover, {
             title,
             subtitle,
             renderLabel,
@@ -25451,9 +25428,9 @@ var LineChartAnnotation = ({ datum, title, subtitle, subjectType = "circle", sty
             subtitle
           })
         })
-      }) : /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("g", {
+      }) : /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("g", {
         ref: labelRef,
-        children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Label, {
+        children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Label, {
           title,
           subtitle,
           ...styles?.label,
@@ -25508,20 +25485,20 @@ var renderDefaultTooltip = (params) => {
     key,
     value: datum.value
   })).sort((a, b) => b.value - a.value);
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("div", {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("div", {
     className: line_chart_module_default["line-chart__tooltip"],
-    children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+    children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
       className: line_chart_module_default["line-chart__tooltip-date"],
       children: nearestDatum.date?.toLocaleDateString()
-    }), tooltipPoints.map((point5) => /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(Stack4, {
+    }), tooltipPoints.map((point5) => /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(Stack4, {
       direction: "row",
       align: "center",
       justify: "space-between",
       className: line_chart_module_default["line-chart__tooltip-row"],
-      children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("span", {
+      children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("span", {
         className: line_chart_module_default["line-chart__tooltip-label"],
         children: [point5.key, ":"]
-      }), /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("span", {
+      }), /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("span", {
         className: line_chart_module_default["line-chart__tooltip-value"],
         children: formatNumber(point5.value)
       })]
@@ -25712,11 +25689,11 @@ var LineChartInternal = (0, import_react77.forwardRef)(({ data, chartId: provide
     xAccessor: (d) => d?.date,
     yAccessor: (d) => d?.value
   };
-  if (error) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+  if (error) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
     className: clsx_default("line-chart", line_chart_module_default["line-chart"]),
     children: error
   });
-  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Legend2, {
+  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Legend2, {
     orientation: legend.orientation ?? "horizontal",
     alignment: legend.alignment ?? "center",
     position: legendPosition,
@@ -25729,14 +25706,14 @@ var LineChartInternal = (0, import_react77.forwardRef)(({ data, chartId: provide
     chartId,
     interactive: legendInteractive
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(SingleChartContext.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(SingleChartContext.Provider, {
     value: {
       chartId,
       chartRef: internalChartRef,
       chartWidth: width,
       chartHeight: measuredChartHeight || 0
     },
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(ChartLayout, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(ChartLayout, {
       legendPosition,
       legendElement,
       legendChildren,
@@ -25750,17 +25727,17 @@ var LineChartInternal = (0, import_react77.forwardRef)(({ data, chartId: provide
       onContentHeightChange: handleContentHeightChange,
       children: ({ contentHeight }) => {
         const chartHeight = contentHeight > 0 ? contentHeight : height;
-        return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+        return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
           role: "grid",
           "aria-label": (0, import_i18n.__)("Line chart", "jetpack-charts"),
           tabIndex: 0,
           onKeyDown: onChartKeyDown,
           onFocus: onChartFocus,
           onBlur: onChartBlur,
-          children: chartHeight > 0 && /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("div", {
+          children: chartHeight > 0 && /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("div", {
             ref: chartRef,
             style: { position: "relative" },
-            children: [zoomable && zoom.domain && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(ZoomResetButton, { onClick: zoom.reset }), /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(XYChart, {
+            children: [zoomable && zoom.domain && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(ZoomResetButton, { onClick: zoom.reset }), /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(XYChart, {
               theme,
               width,
               height: chartHeight,
@@ -25776,20 +25753,20 @@ var LineChartInternal = (0, import_react77.forwardRef)(({ data, chartId: provide
               onPointerOut,
               pointerEventsDataKey: "nearest",
               children: [
-                gridVisibility !== "none" && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Grid2, {
+                gridVisibility !== "none" && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Grid2, {
                   columns: false,
                   numTicks: 4
                 }),
-                chartOptions.axis.x.display && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Axis2, { ...chartOptions.axis.x }),
-                chartOptions.axis.y.display && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Axis2, { ...chartOptions.axis.y }),
-                allSeriesHidden ? /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(SvgEmptyState, {
+                chartOptions.axis.x.display && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Axis2, { ...chartOptions.axis.x }),
+                chartOptions.axis.y.display && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Axis2, { ...chartOptions.axis.y }),
+                allSeriesHidden ? /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(SvgEmptyState, {
                   x: width / 2,
                   y: chartHeight / 2,
                   width,
                   height: chartHeight,
                   children: (0, import_i18n.__)("All series are hidden. Click legend items to show data.", "jetpack-charts")
                 }) : null,
-                /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(ZoomClip, {
+                /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(ZoomClip, {
                   active: zoomable && !!zoom.domain,
                   chartId,
                   children: seriesWithVisibility.map(({ series: seriesData, index, isVisible }) => {
@@ -25802,21 +25779,21 @@ var LineChartInternal = (0, import_react77.forwardRef)(({ data, chartId: provide
                       stroke: color2,
                       ...lineStyles
                     };
-                    return /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("g", { children: [
-                      withGradientFill && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(LinearGradient, {
+                    return /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("g", { children: [
+                      withGradientFill && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(LinearGradient, {
                         id: `area-gradient-${chartId}-${index + 1}`,
                         from: color2,
                         fromOpacity: 0.4,
                         toOpacity: 0.1,
                         to: providerTheme.backgroundColor,
                         ...seriesData.options?.gradient,
-                        children: seriesData.options?.gradient?.stops?.map((stop2, stopIndex) => /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("stop", {
+                        children: seriesData.options?.gradient?.stops?.map((stop2, stopIndex) => /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("stop", {
                           offset: stop2.offset,
                           stopColor: stop2.color || color2,
                           stopOpacity: stop2.opacity ?? 1
                         }, `${stop2.offset}-${stop2.color || color2}`))
                       }),
-                      /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(AreaSeries, {
+                      /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(AreaSeries, {
                         dataKey: seriesData?.label,
                         data: seriesData.data,
                         ...accessors,
@@ -25825,7 +25802,7 @@ var LineChartInternal = (0, import_react77.forwardRef)(({ data, chartId: provide
                         curve: getCurveType(curveType, smoothing),
                         lineProps
                       }, seriesData?.label),
-                      withStartGlyphs && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(LineChartGlyph, {
+                      withStartGlyphs && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(LineChartGlyph, {
                         index,
                         data: seriesData,
                         color: color2,
@@ -25834,7 +25811,7 @@ var LineChartInternal = (0, import_react77.forwardRef)(({ data, chartId: provide
                         glyphStyle,
                         position: "start"
                       }),
-                      withEndGlyphs && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(LineChartGlyph, {
+                      withEndGlyphs && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(LineChartGlyph, {
                         index,
                         data: seriesData,
                         color: color2,
@@ -25846,7 +25823,7 @@ var LineChartInternal = (0, import_react77.forwardRef)(({ data, chartId: provide
                     ] }, seriesData?.label || index);
                   })
                 }),
-                withTooltips && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(AccessibleTooltip, {
+                withTooltips && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(AccessibleTooltip, {
                   detectBounds: true,
                   snapTooltipToDatumX: true,
                   snapTooltipToDatumY: true,
@@ -25861,13 +25838,13 @@ var LineChartInternal = (0, import_react77.forwardRef)(({ data, chartId: provide
                   keyboardFocusedClassName: line_chart_module_default["line-chart__tooltip--keyboard-focused"],
                   series: dataSorted
                 }),
-                /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(LineChartScalesRef, {
+                /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(LineChartScalesRef, {
                   chartRef: internalChartRef,
                   width,
                   height,
                   margin
                 }),
-                zoomable && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(ZoomSelectionRect, { drag: zoom.drag })
+                zoomable && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(ZoomSelectionRect, { drag: zoom.drag })
               ]
             })]
           })
@@ -25877,11 +25854,11 @@ var LineChartInternal = (0, import_react77.forwardRef)(({ data, chartId: provide
   });
 });
 var LineChartWithProvider = (0, import_react77.forwardRef)((props, ref) => {
-  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(LineChartInternal, {
+  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(LineChartInternal, {
     ...props,
     ref
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(LineChartInternal, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(LineChartInternal, {
     ...props,
     ref
   }) });
@@ -25955,7 +25932,7 @@ var HoverGlyphs = ({ visibleSeries, stacked, stackOffset: stackOffset2, getEleme
       data: series,
       index
     });
-    circles.push(/* @__PURE__ */ (0, import_jsx_runtime151.jsx)("circle", {
+    circles.push(/* @__PURE__ */ (0, import_jsx_runtime150.jsx)("circle", {
       cx: xPx,
       cy: yPx,
       r: 4,
@@ -25966,7 +25943,7 @@ var HoverGlyphs = ({ visibleSeries, stacked, stackOffset: stackOffset2, getEleme
     }, series.label || index));
   }
   if (circles.length === 0) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("g", {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("g", {
     pointerEvents: "none",
     className: "area-chart__hover-glyphs",
     children: circles
@@ -26168,11 +26145,11 @@ var AreaChartInternal = (0, import_react77.forwardRef)(({ data, chartId: provide
   ]);
   const resolvedFillOpacity = fillOpacity ?? (stacked ? 0.85 : 0.4);
   const resolvedWithStroke = withStroke ?? !stacked;
-  if (error) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+  if (error) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
     className: clsx_default("area-chart", area_chart_module_default["area-chart"]),
     children: error
   });
-  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Legend2, {
+  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Legend2, {
     orientation: legend.orientation ?? "horizontal",
     alignment: legend.alignment ?? "center",
     position: legendPosition,
@@ -26192,7 +26169,7 @@ var AreaChartInternal = (0, import_react77.forwardRef)(({ data, chartId: provide
       data: seriesData,
       index
     });
-    return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(AnimatedAreaSeries, {
+    return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(AnimatedAreaSeries, {
       dataKey: seriesData?.label,
       data: seriesData.data,
       xAccessor: accessors.xAccessor,
@@ -26209,14 +26186,14 @@ var AreaChartInternal = (0, import_react77.forwardRef)(({ data, chartId: provide
       }
     }, seriesData?.label || index);
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(SingleChartContext.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(SingleChartContext.Provider, {
     value: {
       chartId,
       chartRef: internalChartRef,
       chartWidth: width,
       chartHeight: measuredChartHeight || 0
     },
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(ChartLayout, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(ChartLayout, {
       legendPosition,
       legendElement,
       legendChildren,
@@ -26230,17 +26207,17 @@ var AreaChartInternal = (0, import_react77.forwardRef)(({ data, chartId: provide
       onContentHeightChange: handleContentHeightChange,
       children: ({ contentHeight }) => {
         const chartHeight = contentHeight > 0 ? contentHeight : height;
-        return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+        return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
           role: "grid",
           "aria-label": (0, import_i18n.__)("Area chart", "jetpack-charts"),
           tabIndex: 0,
           onKeyDown: onChartKeyDown,
           onFocus: onChartFocus,
           onBlur: onChartBlur,
-          children: chartHeight > 0 && /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("div", {
+          children: chartHeight > 0 && /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("div", {
             ref: chartRef,
             style: { position: "relative" },
-            children: [zoomable && zoom.domain && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(ZoomResetButton, { onClick: zoom.reset }), /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(XYChart, {
+            children: [zoomable && zoom.domain && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(ZoomResetButton, { onClick: zoom.reset }), /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(XYChart, {
               theme,
               width,
               height: chartHeight,
@@ -26256,30 +26233,30 @@ var AreaChartInternal = (0, import_react77.forwardRef)(({ data, chartId: provide
               onPointerOut,
               pointerEventsDataKey: "nearest",
               children: [
-                gridVisibility !== "none" && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Grid2, {
+                gridVisibility !== "none" && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Grid2, {
                   columns: false,
                   numTicks: 4
                 }),
-                chartOptions.axis.x.display && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Axis2, { ...chartOptions.axis.x }),
-                chartOptions.axis.y.display && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Axis2, { ...chartOptions.axis.y }),
-                allSeriesHidden ? /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(SvgEmptyState, {
+                chartOptions.axis.x.display && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Axis2, { ...chartOptions.axis.x }),
+                chartOptions.axis.y.display && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Axis2, { ...chartOptions.axis.y }),
+                allSeriesHidden ? /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(SvgEmptyState, {
                   x: width / 2,
                   y: chartHeight / 2,
                   width,
                   height: chartHeight,
                   children: (0, import_i18n.__)("All series are hidden. Click legend items to show data.", "jetpack-charts")
                 }) : null,
-                /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(ZoomClip, {
+                /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(ZoomClip, {
                   active: zoomable,
                   chartId,
-                  children: [!allSeriesHidden && stacked && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(AnimatedAreaStack, {
+                  children: [!allSeriesHidden && stacked && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(AnimatedAreaStack, {
                     curve,
                     offset: stackOffset2,
                     renderLine: resolvedWithStroke,
                     children: seriesWithVisibility.map(renderSeries)
                   }), !allSeriesHidden && !stacked && seriesWithVisibility.map(renderSeries)]
                 }),
-                withTooltips && /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(import_jsx_runtime151.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)(AccessibleTooltip, {
+                withTooltips && /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(import_jsx_runtime150.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsx)(AccessibleTooltip, {
                   detectBounds: true,
                   snapTooltipToDatumX: true,
                   snapTooltipToDatumY: !stacked,
@@ -26290,20 +26267,20 @@ var AreaChartInternal = (0, import_react77.forwardRef)(({ data, chartId: provide
                   tooltipRef,
                   keyboardFocusedClassName: area_chart_module_default["area-chart__tooltip--keyboard-focused"],
                   series: dataSorted
-                }), /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(HoverGlyphs, {
+                }), /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(HoverGlyphs, {
                   visibleSeries,
                   stacked,
                   stackOffset: stackOffset2,
                   getElementStyles,
                   strokeColor: providerTheme.backgroundColor
                 })] }),
-                /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(AreaChartScalesRef, {
+                /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(AreaChartScalesRef, {
                   chartRef: internalChartRef,
                   width,
                   height: height || chartHeight,
                   margin
                 }),
-                zoomable && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(ZoomSelectionRect, { drag: zoom.drag })
+                zoomable && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(ZoomSelectionRect, { drag: zoom.drag })
               ]
             })]
           })
@@ -26313,11 +26290,11 @@ var AreaChartInternal = (0, import_react77.forwardRef)(({ data, chartId: provide
   });
 });
 var AreaChartWithProvider = (0, import_react77.forwardRef)((props, ref) => {
-  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(AreaChartInternal, {
+  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(AreaChartInternal, {
     ...props,
     ref
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(AreaChartInternal, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(AreaChartInternal, {
     ...props,
     ref
   }) });
@@ -26371,13 +26348,13 @@ var TruncatedTickComponent = ({ x: x2, y: y2, formattedValue, axis, textAnchor, 
     cursor: "default",
     pointerEvents: "auto"
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("foreignObject", {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("foreignObject", {
     x: x2 + xOffset,
     y: y2,
     width: maxWidth,
     height: 0,
     overflow: "visible",
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
       style: textStyles,
       title: formattedValue,
       children: formattedValue
@@ -26385,7 +26362,7 @@ var TruncatedTickComponent = ({ x: x2, y: y2, formattedValue, axis, textAnchor, 
   });
 };
 var createTruncatedTickComponent = (axis) => (props) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(TruncatedTickComponent, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(TruncatedTickComponent, {
     ...props,
     axis
   });
@@ -26585,7 +26562,7 @@ var ComparisonBars = ({ comparisonEntries, primaryKeys, groupPadding, horizontal
         baseline,
         widthFactor
       });
-      rects.push(/* @__PURE__ */ (0, import_jsx_runtime151.jsx)("rect", {
+      rects.push(/* @__PURE__ */ (0, import_jsx_runtime150.jsx)("rect", {
         x: rect.x,
         y: rect.y,
         width: rect.width,
@@ -26596,7 +26573,7 @@ var ComparisonBars = ({ comparisonEntries, primaryKeys, groupPadding, horizontal
     });
   });
   if (rects.length === 0) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("g", {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("g", {
     className: "bar-chart__comparison-bars",
     pointerEvents: "none",
     "aria-hidden": "true",
@@ -26609,7 +26586,7 @@ var validateData$2 = (data) => {
   return null;
 };
 var getPatternId = (chartId, index) => `bar-pattern-${chartId}-${index}`;
-var renderTooltipRow = (label, value) => /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+var renderTooltipRow = (label, value) => /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
   className: bar_chart_module_default["bar-chart__tooltip-row"],
   children: (0, import_i18n.sprintf)((0, import_i18n.__)("%1$s: %2$s", "jetpack-charts"), label, value)
 });
@@ -26755,10 +26732,10 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
       const p = point5;
       return nearestDatum.label != null ? p.label === nearestDatum.label : !!nearestDatum.date && !!p.date && p.date.getTime() === nearestDatum.date.getTime();
     });
-    if (comparisonEntry && comparisonDatum && comparisonDatum.value != null) return /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("div", {
+    if (comparisonEntry && comparisonDatum && comparisonDatum.value != null) return /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("div", {
       className: bar_chart_module_default["bar-chart__tooltip"],
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+        /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
           className: bar_chart_module_default["bar-chart__tooltip-header"],
           children: categoryLabel
         }),
@@ -26766,9 +26743,9 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
         renderTooltipRow(comparisonEntry.series.label, formatNumber(comparisonDatum.value))
       ]
     });
-    return /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("div", {
+    return /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("div", {
       className: bar_chart_module_default["bar-chart__tooltip"],
-      children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+      children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
         className: bar_chart_module_default["bar-chart__tooltip-header"],
         children: primaryKey
       }), renderTooltipRow(categoryLabel, formatNumber(nearestDatum.value))]
@@ -26786,27 +26763,27 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
     switch (patternType) {
       case 0:
       default:
-        return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Lines, {
+        return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Lines, {
           ...commonProps,
           width: 5,
           height: 5,
           orientation: ["diagonal"]
         }, id);
       case 1:
-        return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Circles, {
+        return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Circles, {
           ...commonProps,
           width: 6,
           height: 6,
           fill: "white"
         }, id);
       case 2:
-        return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Waves, {
+        return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Waves, {
           ...commonProps,
           width: 4,
           height: 4
         }, id);
       case 3:
-        return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Hexagons, {
+        return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Hexagons, {
           ...commonProps,
           size: 8,
           height: 3
@@ -26855,14 +26832,14 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
     }), [orientation, withPatterns])
   });
   const prefersReducedMotion = usePrefersReducedMotion();
-  if (error) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+  if (error) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
     className: clsx_default("bar-chart", bar_chart_module_default["bar-chart"]),
     children: error
   });
   const gridVisibility = gridVisibilityProp ?? chartOptions.gridVisibility;
   const highlightedBarStyle = createKeyboardHighlightStyle();
   const legendPosition = legend.position ?? "bottom";
-  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Legend2, {
+  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Legend2, {
     orientation: legend.orientation ?? "horizontal",
     position: legendPosition,
     alignment: legend.alignment ?? "center",
@@ -26875,13 +26852,13 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
     chartId,
     interactive: legendInteractive
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(SingleChartContext.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(SingleChartContext.Provider, {
     value: {
       chartId,
       chartWidth: width,
       chartHeight: measuredChartHeight || 0
     },
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(ChartLayout, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(ChartLayout, {
       legendPosition,
       legendElement,
       legendChildren,
@@ -26896,16 +26873,16 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
       onContentHeightChange: handleContentHeightChange,
       children: ({ contentHeight }) => {
         const chartHeight = contentHeight > 0 ? contentHeight : height;
-        return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+        return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
           role: "grid",
           "aria-label": (0, import_i18n.__)("Bar chart", "jetpack-charts"),
           tabIndex: 0,
           onKeyDown: onChartKeyDown,
           onFocus: onChartFocus,
           onBlur: onChartBlur,
-          children: chartHeight > 0 && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+          children: chartHeight > 0 && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
             ref: chartRef,
-            children: /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(XYChart, {
+            children: /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(XYChart, {
               theme,
               width,
               height: chartHeight,
@@ -26918,27 +26895,27 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
               horizontal,
               pointerEventsDataKey: "nearest",
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Grid2, {
+                /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Grid2, {
                   columns: gridVisibility.includes("y"),
                   rows: gridVisibility.includes("x"),
                   numTicks: 4
                 }),
-                withPatterns && /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(import_jsx_runtime151.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)("defs", { children: dataSorted.map((seriesData, index) => renderPattern(index, getElementStyles({
+                withPatterns && /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(import_jsx_runtime150.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsx)("defs", { children: dataSorted.map((seriesData, index) => renderPattern(index, getElementStyles({
                   data: seriesData,
                   index
-                }).color)) }), /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("style", { children: dataSorted.map((seriesData, index) => createPatternBorderStyle(index, getElementStyles({
+                }).color)) }), /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("style", { children: dataSorted.map((seriesData, index) => createPatternBorderStyle(index, getElementStyles({
                   data: seriesData,
                   index
                 }).color)) })] }),
-                highlightedBarStyle && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("style", { children: highlightedBarStyle }),
-                allSeriesHidden ? /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(SvgEmptyState, {
+                highlightedBarStyle && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("style", { children: highlightedBarStyle }),
+                allSeriesHidden ? /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(SvgEmptyState, {
                   x: width / 2,
                   y: chartHeight / 2,
                   width,
                   height: chartHeight,
                   children: (0, import_i18n.__)("All series are hidden. Click legend items to show data.", "jetpack-charts")
                 }) : null,
-                /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(ComparisonBars, {
+                /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(ComparisonBars, {
                   comparisonEntries,
                   primaryKeys,
                   groupPadding,
@@ -26948,9 +26925,9 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
                   getElementStyles,
                   resolveFill: resolveComparisonFill
                 }),
-                /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(BarGroup2, {
+                /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(BarGroup2, {
                   padding: groupPadding,
-                  children: primaryEntries.map(({ series: seriesData, index }) => /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(BarSeries_default, {
+                  children: primaryEntries.map(({ series: seriesData, index }) => /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(BarSeries_default, {
                     dataKey: seriesData?.label,
                     data: seriesData.data,
                     yAccessor: chartOptions.accessors.yAccessor,
@@ -26958,9 +26935,9 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
                     colorAccessor: getBarBackground(index)
                   }, seriesData?.label))
                 }),
-                /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Axis2, { ...chartOptions.axis.x }),
-                /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Axis2, { ...chartOptions.axis.y }),
-                withTooltips && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(AccessibleTooltip, {
+                /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Axis2, { ...chartOptions.axis.x }),
+                /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Axis2, { ...chartOptions.axis.y }),
+                withTooltips && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(AccessibleTooltip, {
                   detectBounds: true,
                   snapTooltipToDatumX: true,
                   snapTooltipToDatumY: true,
@@ -26980,8 +26957,8 @@ var BarChartInternal = ({ data, chartId: providedChartId, width, height, classNa
   });
 };
 var BarChartWithProvider = (props) => {
-  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(BarChartInternal, { ...props });
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(BarChartInternal, { ...props }) });
+  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(BarChartInternal, { ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(BarChartInternal, { ...props }) });
 };
 BarChartWithProvider.displayName = "BarChart";
 var BarChart = attachSubComponents(BarChartWithProvider, { Legend: Legend2 });
@@ -26991,7 +26968,7 @@ var getScaleBandwidth3 = (scale) => {
   return s && "bandwidth" in s ? s?.bandwidth() ?? 0 : 0;
 };
 var DefaultLabelComponent = ({ textProps, x: x2, y: y2, label, formatter }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Text3, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Text3, {
     ...textProps,
     textAnchor: "start",
     x: x2,
@@ -27000,7 +26977,7 @@ var DefaultLabelComponent = ({ textProps, x: x2, y: y2, label, formatter }) => {
   });
 };
 var DefaultValueComponent = ({ textProps, x: x2, y: y2, value, formatter }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Text3, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Text3, {
     ...textProps,
     textAnchor: "end",
     x: x2,
@@ -27018,13 +26995,13 @@ var AxisRenderer2 = ({ ticks: ticks2, tickLabelProps, yOffset, labelPosition, va
     delete textProps.dx;
     const sum2 = data.reduce((acc, { data: seriesData }) => acc + (seriesData[index]?.value ?? 0), 0);
     const y2 = from2.y + yOffset;
-    return /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(Group, { children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)(LabelComponent, {
+    return /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(Group, { children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsx)(LabelComponent, {
       textProps,
       x: labelPosition,
       y: y2,
       label: formattedValue,
       formatter: labelFormatter
-    }), /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(ValueComponent, {
+    }), /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(ValueComponent, {
       textProps,
       x: valuePosition,
       y: y2,
@@ -27084,7 +27061,7 @@ var BarListChartInternal = ({ data, width, height, options = {}, margin = {
     data,
     height
   ]);
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(BarChart, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(BarChart, {
     orientation: "horizontal",
     gridVisibility: "none",
     data,
@@ -27093,7 +27070,7 @@ var BarListChartInternal = ({ data, width, height, options = {}, margin = {
     margin,
     options: {
       axis: {
-        y: { children: (renderProps) => /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(AxisRenderer2, {
+        y: { children: (renderProps) => /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(AxisRenderer2, {
           ...renderProps,
           data,
           yOffset: chartOptions.yOffset,
@@ -27113,8 +27090,8 @@ var BarListChartInternal = ({ data, width, height, options = {}, margin = {
   });
 };
 var BarListChart = (props) => {
-  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(BarListChartInternal, { ...props });
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(BarListChartInternal, { ...props }) });
+  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(BarListChartInternal, { ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(BarListChartInternal, { ...props }) });
 };
 BarListChart.displayName = "BarListChart";
 var BarListChartResponsive = withResponsive(BarListChart);
@@ -27287,22 +27264,22 @@ var ConversionFunnelChartInternal = ({ mainRate, changeIndicator, steps: steps2,
   }) : { color: primaryColor || "#000000" };
   const changeColor = changeIndicator?.startsWith("+") ? positiveChangeColor : negativeChangeColor;
   const barBackgroundColor = backgroundColor || hexToRgba(barColor, 0.08) || "rgba(0, 0, 0, 0.08)";
-  const renderDefaultMainMetric = () => /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(import_jsx_runtime151.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)("span", {
+  const renderDefaultMainMetric = () => /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(import_jsx_runtime150.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsx)("span", {
     className: conversion_funnel_chart_module_default["main-rate"],
     children: formatPercentage(mainRate)
-  }), changeIndicator && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("span", {
+  }), changeIndicator && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("span", {
     className: conversion_funnel_chart_module_default["change-indicator"],
     style: { color: changeColor },
     children: changeIndicator
   })] });
-  const renderDefaultTooltip2 = (step) => /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(Stack4, {
+  const renderDefaultTooltip2 = (step) => /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(Stack4, {
     direction: "column",
     align: "flex-start",
     gap: "xs",
-    children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+    children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
       className: conversion_funnel_chart_module_default["tooltip-title"],
       children: step.label
-    }), /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("div", {
+    }), /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("div", {
       className: conversion_funnel_chart_module_default["tooltip-content"],
       children: [formatPercentage(step.rate), ` \u2022 ${step.count ?? "no"} items`]
     })]
@@ -27324,7 +27301,7 @@ var ConversionFunnelChartInternal = ({ mainRate, changeIndicator, steps: steps2,
     ])
   });
   const prefersReducedMotion = usePrefersReducedMotion();
-  if (!isDataValid) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Stack4, {
+  if (!isDataValid) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Stack4, {
     direction: "column",
     align: "center",
     justify: "center",
@@ -27333,13 +27310,13 @@ var ConversionFunnelChartInternal = ({ mainRate, changeIndicator, steps: steps2,
       ...style,
       height: resolvedHeight
     },
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
       className: conversion_funnel_chart_module_default["empty-state"],
       children: loading ? "Loading..." : "No data available"
     })
   });
   const maxRate = Math.max(...steps2.map((step) => step.rate));
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(import_jsx_runtime151.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(Stack4, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(import_jsx_runtime150.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(Stack4, {
     direction: "column",
     gap: "xl",
     ref: (node2) => {
@@ -27356,13 +27333,13 @@ var ConversionFunnelChartInternal = ({ mainRate, changeIndicator, steps: steps2,
       changeIndicator,
       className: conversion_funnel_chart_module_default["main-metric"],
       changeColor
-    }) : /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Stack4, {
+    }) : /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Stack4, {
       direction: "row",
       align: "baseline",
       gap: "sm",
       className: conversion_funnel_chart_module_default["main-metric"],
       children: renderDefaultMainMetric()
-    }), /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Stack4, {
+    }), /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Stack4, {
       direction: "row",
       align: "flex-end",
       gap: "lg",
@@ -27370,29 +27347,29 @@ var ConversionFunnelChartInternal = ({ mainRate, changeIndicator, steps: steps2,
       children: steps2.map((step, index) => {
         const barHeight = step.rate / maxRate * 100;
         const { isBlurred } = getStepState(step.id);
-        return /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(Stack4, {
+        return /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(Stack4, {
           direction: "column",
           className: clsx_default(conversion_funnel_chart_module_default["funnel-step"], isColorPaletteResolved && conversion_funnel_chart_module_default["funnel-step--animated"], isBlurred && conversion_funnel_chart_module_default["funnel-step--blurred"]),
           gap: "xl",
-          children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(Stack4, {
+          children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(Stack4, {
             direction: "column",
             gap: "xs",
             children: [renderStepLabel ? renderStepLabel({
               step,
               index,
               className: conversion_funnel_chart_module_default["step-label"]
-            }) : /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("span", {
+            }) : /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("span", {
               className: conversion_funnel_chart_module_default["step-label"],
               children: step.label
             }), renderStepRate ? renderStepRate({
               step,
               index,
               className: conversion_funnel_chart_module_default["step-rate"]
-            }) : /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("span", {
+            }) : /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("span", {
               className: conversion_funnel_chart_module_default["step-rate"],
               children: formatPercentage(step.rate)
             })]
-          }), /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Stack4, {
+          }), /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Stack4, {
             direction: "column",
             justify: "flex-end",
             className: conversion_funnel_chart_module_default["bar-container"],
@@ -27402,7 +27379,7 @@ var ConversionFunnelChartInternal = ({ mainRate, changeIndicator, steps: steps2,
             tabIndex: isBlurred ? -1 : 0,
             "aria-label": step.label,
             style: { backgroundColor: barBackgroundColor },
-            children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+            children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
               className: clsx_default(conversion_funnel_chart_module_default["funnel-bar"], { [conversion_funnel_chart_module_default["funnel-bar--animated"]]: animation && !loading && !prefersReducedMotion }),
               style: {
                 height: `${barHeight}%`,
@@ -27422,7 +27399,7 @@ var ConversionFunnelChartInternal = ({ mainRate, changeIndicator, steps: steps2,
       className: conversion_funnel_chart_module_default["tooltip-wrapper"]
     }) : renderDefaultTooltip2(tooltipData);
     if (!tooltipContent) return null;
-    return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(TooltipInPortal, {
+    return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(TooltipInPortal, {
       top: tooltipTop,
       left: tooltipLeft,
       className: conversion_funnel_chart_module_default["tooltip-wrapper"],
@@ -27431,8 +27408,8 @@ var ConversionFunnelChartInternal = ({ mainRate, changeIndicator, steps: steps2,
   })()] });
 };
 var ConversionFunnelChartWithProvider = (props) => {
-  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(ConversionFunnelChartInternal, { ...props });
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(ConversionFunnelChartInternal, { ...props }) });
+  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(ConversionFunnelChartInternal, { ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(ConversionFunnelChartInternal, { ...props }) });
 };
 ConversionFunnelChartWithProvider.displayName = "ConversionFunnelChart";
 purify.addHook("afterSanitizeAttributes", (node2) => {
@@ -27482,7 +27459,7 @@ var GEO_CHART_PACKAGES = [
 ];
 var GeoChartInternal = ({ className, data, width, height, region = "world", resolution = "countries", renderPlaceholder }) => {
   const { getElementStyles, theme: { geoChart: { featureFillColor }, backgroundColor } } = useGlobalChartsContext();
-  const loadingPlaceholder = /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Center, {
+  const loadingPlaceholder = /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Center, {
     className: clsx_default("geo-chart", geo_chart_module_default.container, className),
     style: {
       width,
@@ -27540,14 +27517,14 @@ var GeoChartInternal = ({ className, data, width, height, region = "world", reso
     defaultFillColorHex,
     sanitizedData.hasHtmlTooltips
   ]);
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Center, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Center, {
     className: clsx_default("geo-chart", geo_chart_module_default.container, className),
     style: {
       width,
       height,
       backgroundColor
     },
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Chart, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Chart, {
       chartType: "GeoChart",
       chartPackages: GEO_CHART_PACKAGES,
       width,
@@ -27559,8 +27536,8 @@ var GeoChartInternal = ({ className, data, width, height, region = "world", reso
   });
 };
 var GeoChartWithProvider = (props) => {
-  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(GeoChartInternal, { ...props });
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(GeoChartInternal, { ...props }) });
+  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(GeoChartInternal, { ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(GeoChartInternal, { ...props }) });
 };
 GeoChartWithProvider.displayName = "GeoChart";
 var GeoChartResponsive = withResponsive(GeoChartWithProvider);
@@ -27602,22 +27579,22 @@ var HeatmapLegend = ({ steps: steps2 = 5, lessLabel, moreLabel }) => {
   if (!context) return null;
   const { primaryColorHex } = context;
   const labelStyle = legend.labelStyles;
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(Stack4, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(Stack4, {
     direction: "row",
     gap: "xs",
     align: "center",
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Text$1, {
+      /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Text$1, {
         variant: "body-sm",
         style: labelStyle,
         children: lessLabel ?? (0, import_i18n.__)("Less", "jetpack-charts")
       }),
-      /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Stack4, {
+      /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Stack4, {
         direction: "row",
         gap: "xs",
         children: Array.from({ length: steps2 }, (_, index) => {
           const intensity = steps2 <= 1 ? 1 : index / (steps2 - 1);
-          return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("span", {
+          return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("span", {
             "aria-hidden": "true",
             className: heatmap_chart_module_default["heatmap-chart__legend-swatch"],
             style: {
@@ -27627,7 +27604,7 @@ var HeatmapLegend = ({ steps: steps2 = 5, lessLabel, moreLabel }) => {
           }, index);
         })
       }),
-      /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Text$1, {
+      /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Text$1, {
         variant: "body-sm",
         style: labelStyle,
         children: moreLabel ?? (0, import_i18n.__)("More", "jetpack-charts")
@@ -27754,14 +27731,14 @@ var HeatmapChartInternal = ({ data, chartId: providedChartId, width = 0, height 
     buildTooltipData,
     showTooltip
   ]);
-  const defaultRenderTooltip = (0, import_react77.useCallback)((info) => /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)("strong", { children: info.cellLabel || `${info.columnLabel ?? ""} ${info.rowLabel ?? ""}`.trim() }), /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", { children: info.value === null ? (0, import_i18n.__)("No data", "jetpack-charts") : formatNumber(info.value) })] }), []);
-  if (!columns || !rows) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Center, {
+  const defaultRenderTooltip = (0, import_react77.useCallback)((info) => /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsx)("strong", { children: info.cellLabel || `${info.columnLabel ?? ""} ${info.rowLabel ?? ""}`.trim() }), /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", { children: info.value === null ? (0, import_i18n.__)("No data", "jetpack-charts") : formatNumber(info.value) })] }), []);
+  if (!columns || !rows) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Center, {
     className: clsx_default("heatmap-chart", heatmap_chart_module_default["heatmap-chart"], className),
     style: {
       width: width || void 0,
       height: height || void 0
     },
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("span", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("span", {
       className: heatmap_chart_module_default["heatmap-chart__empty"],
       children: (0, import_i18n.__)("No data available", "jetpack-charts")
     })
@@ -27777,11 +27754,11 @@ var HeatmapChartInternal = ({ data, chartId: providedChartId, width = 0, height 
     gridStyle["--heatmap-cell-size"] = `${compactCellSize}px`;
   }
   const activeDescendant = selectedIndex !== void 0 ? `${chartId}-cell-${Math.floor(selectedIndex / rows)}-${selectedIndex % rows}` : void 0;
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(HeatmapContext.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(HeatmapContext.Provider, {
     value: heatmapContext,
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(SingleChartContext.Provider, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(SingleChartContext.Provider, {
       value: { chartId },
-      children: /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(ChartLayout, {
+      children: /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(ChartLayout, {
         legendPosition: "bottom",
         legendChildren: [],
         trailingContent: nonLegendChildren,
@@ -27792,7 +27769,7 @@ var HeatmapChartInternal = ({ data, chartId: providedChartId, width = 0, height 
           height: height || void 0
         },
         "data-chart-id": `heatmap-chart-${chartId}`,
-        children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("div", {
+        children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("div", {
           ref: containerRef,
           role: "grid",
           "aria-label": (0, import_i18n.__)("Heatmap chart", "jetpack-charts"),
@@ -27805,19 +27782,19 @@ var HeatmapChartInternal = ({ data, chartId: providedChartId, width = 0, height 
           className: clsx_default(heatmap_chart_module_default["heatmap-chart__grid"], { [heatmap_chart_module_default["heatmap-chart__grid--compact"]]: compact }),
           style: gridStyle,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("span", { "aria-hidden": "true" }),
-            data.map((column2, columnIndex) => /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("span", {
+            /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("span", { "aria-hidden": "true" }),
+            data.map((column2, columnIndex) => /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("span", {
               "aria-hidden": "true",
               className: heatmap_chart_module_default["heatmap-chart__col-label"],
               children: column2.label
             }, `col-${columnIndex}`)),
             Array.from({ length: rows }).map((_row, rowIndex) => {
               const labelVisible = !compact || rowIndex % 2 === 0;
-              return /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("div", {
+              return /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("div", {
                 role: "row",
                 "aria-rowindex": rowIndex + 1,
                 className: heatmap_chart_module_default["heatmap-chart__row"],
-                children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)("span", {
+                children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsx)("span", {
                   "aria-hidden": "true",
                   className: heatmap_chart_module_default["heatmap-chart__row-label"],
                   children: labelVisible ? rowLabels[rowIndex] ?? "" : ""
@@ -27828,7 +27805,7 @@ var HeatmapChartInternal = ({ data, chartId: providedChartId, width = 0, height 
                   const flatIndex = columnIndex * rows + rowIndex;
                   const info = buildTooltipData(columnIndex, rowIndex);
                   const accessibleLabel = `${info.cellLabel || `${info.columnLabel ?? ""} ${info.rowLabel ?? ""}`.trim()}: ${info.value === null ? (0, import_i18n.__)("No data", "jetpack-charts") : formatNumber(info.value)}`;
-                  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+                  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
                     id: `${chartId}-cell-${columnIndex}-${rowIndex}`,
                     role: "gridcell",
                     tabIndex: -1,
@@ -27844,7 +27821,7 @@ var HeatmapChartInternal = ({ data, chartId: providedChartId, width = 0, height 
                     style: present ? { "--intensity": normalized } : void 0,
                     onMouseMove: handleCellMouseMove,
                     onMouseLeave: handleCellMouseLeave,
-                    children: drawValues && present && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("span", {
+                    children: drawValues && present && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("span", {
                       className: heatmap_chart_module_default["heatmap-chart__cell-value"],
                       children: formatNumberCompact(value)
                     })
@@ -27853,10 +27830,10 @@ var HeatmapChartInternal = ({ data, chartId: providedChartId, width = 0, height 
               }, `row-${rowIndex}`);
             })
           ]
-        }), withTooltips && tooltipOpen && tooltipData && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(TooltipInPortal, {
+        }), withTooltips && tooltipOpen && tooltipData && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(TooltipInPortal, {
           top: tooltipTop,
           left: tooltipLeft,
-          children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+          children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
             role: "tooltip",
             tabIndex: -1,
             children: (renderTooltip ?? defaultRenderTooltip)(tooltipData)
@@ -27867,12 +27844,12 @@ var HeatmapChartInternal = ({ data, chartId: providedChartId, width = 0, height 
   });
 };
 var HeatmapChartWithProvider = (props) => {
-  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(HeatmapChartInternal, { ...props });
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(HeatmapChartInternal, { ...props }) });
+  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(HeatmapChartInternal, { ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(HeatmapChartInternal, { ...props }) });
 };
 HeatmapChartWithProvider.displayName = "HeatmapChart";
 var HeatmapChart = attachSubComponents(HeatmapChartWithProvider, { Legend: HeatmapLegend });
-var HeatmapChartResponsiveInner = (props) => /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(HeatmapChartWithProvider, {
+var HeatmapChartResponsiveInner = (props) => /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(HeatmapChartWithProvider, {
   ...props,
   width: void 0,
   height: void 0
@@ -28083,7 +28060,7 @@ function useContextSystemBridge({ value }) {
 }
 var BaseContextSystemProvider = ({ children, value }) => {
   const contextValue = useContextSystemBridge({ value });
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(ComponentsContext.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(ComponentsContext.Provider, {
     value: contextValue,
     children
   });
@@ -28180,8 +28157,8 @@ function match2(value, pattern) {
 function replace(value, pattern, replacement) {
   return value.replace(pattern, replacement);
 }
-function indexof(value, search) {
-  return value.indexOf(search);
+function indexof(value, search2) {
+  return value.indexOf(search2);
 }
 function charat(value, index) {
   return value.charCodeAt(index) | 0;
@@ -29240,7 +29217,7 @@ var Emotion$1 = /* @__PURE__ */ withEmotionCache(function(props, cache, ref) {
   }), /* @__PURE__ */ React8.createElement(WrappedComponent, newProps));
 });
 require_hoist_non_react_statics_cjs();
-var jsx$1 = function jsx9(type, props) {
+var jsx$1 = function jsx8(type, props) {
   var args = arguments;
   if (props == null || !hasOwn.call(props, "css")) return React8.createElement.apply(void 0, args);
   var argsLength = args.length;
@@ -29491,7 +29468,7 @@ var PolymorphicDiv = /* @__PURE__ */ (function createStyled(tag, options) {
   label: "PolymorphicDiv"
 })(false ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudC50c3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBZWlDIiwiZmlsZSI6ImNvbXBvbmVudC50c3giLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEV4dGVybmFsIGRlcGVuZGVuY2llc1xuICovXG5pbXBvcnQgc3R5bGVkIGZyb20gJ0BlbW90aW9uL3N0eWxlZCc7XG5cbi8qKlxuICogV29yZFByZXNzIGRlcGVuZGVuY2llc1xuICovXG5pbXBvcnQgeyBmb3J3YXJkUmVmIH0gZnJvbSAnQHdvcmRwcmVzcy9lbGVtZW50JztcblxuLyoqXG4gKiBJbnRlcm5hbCBkZXBlbmRlbmNpZXNcbiAqL1xuaW1wb3J0IHR5cGUgeyBXb3JkUHJlc3NDb21wb25lbnRQcm9wcyB9IGZyb20gJy4uL2NvbnRleHQnO1xuXG5jb25zdCBQb2x5bW9ycGhpY0RpdiA9IHN0eWxlZC5kaXZgYDtcblxuZnVuY3Rpb24gVW5mb3J3YXJkZWRWaWV3PCBUIGV4dGVuZHMgUmVhY3QuRWxlbWVudFR5cGUgPSAnZGl2JyA+KFxuXHR7IGFzLCAuLi5yZXN0UHJvcHMgfTogV29yZFByZXNzQ29tcG9uZW50UHJvcHM8IHt9LCBUID4sXG5cdHJlZjogUmVhY3QuRm9yd2FyZGVkUmVmPCBhbnkgPlxuKSB7XG5cdHJldHVybiA8UG9seW1vcnBoaWNEaXYgYXM9eyBhcyB9IHJlZj17IHJlZiB9IHsgLi4ucmVzdFByb3BzIH0gLz47XG59XG5cbi8qKlxuICogYFZpZXdgIGlzIGEgY29yZSBjb21wb25lbnQgdGhhdCByZW5kZXJzIGV2ZXJ5dGhpbmcgaW4gdGhlIGxpYnJhcnkuXG4gKiBJdCBpcyB0aGUgcHJpbmNpcGxlIGNvbXBvbmVudCBpbiB0aGUgZW50aXJlIGxpYnJhcnkuXG4gKlxuICogYGBganN4XG4gKiBpbXBvcnQgeyBWaWV3IH0gZnJvbSBgQHdvcmRwcmVzcy9jb21wb25lbnRzYDtcbiAqXG4gKiBmdW5jdGlvbiBFeGFtcGxlKCkge1xuICogXHRyZXR1cm4gKFxuICogXHRcdDxWaWV3PlxuICogXHRcdFx0IENvZGUgaXMgUG9ldHJ5XG4gKiBcdFx0PC9WaWV3PlxuICogXHQpO1xuICogfVxuICogYGBgXG4gKi9cbmV4cG9ydCBjb25zdCBWaWV3ID0gT2JqZWN0LmFzc2lnbiggZm9yd2FyZFJlZiggVW5mb3J3YXJkZWRWaWV3ICksIHtcblx0c2VsZWN0b3I6ICcuY29tcG9uZW50cy12aWV3Jyxcbn0gKTtcblxuZXhwb3J0IGRlZmF1bHQgVmlldztcbiJdfQ== */");
 function UnforwardedView({ as, ...restProps }, ref) {
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(PolymorphicDiv, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(PolymorphicDiv, {
     as,
     ref,
     ...restProps
@@ -29756,7 +29733,7 @@ function useGrid(props) {
   };
 }
 function UnconnectedGrid(props, forwardedRef) {
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(component_default$1, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(component_default$1, {
     ...useGrid(props),
     ref: forwardedRef
   });
@@ -29829,22 +29806,22 @@ var defaultDeltaFormatter = (value) => {
   });
 };
 var getBarWidth = (share) => `calc(${share}% - var(--a8c--charts--leaderboard--bar--hover-inset, 0px) * ${share} / 100)`;
-var BarLabel = ({ label }) => /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(import_jsx_runtime151.Fragment, { children: typeof label === "string" ? /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Text$1, {
+var BarLabel = ({ label }) => /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(import_jsx_runtime150.Fragment, { children: typeof label === "string" ? /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Text$1, {
   className: leaderboard_chart_module_default.label,
   children: label
 }) : label });
-var BarWithLabel = ({ entry, withComparison, withOverlayLabel, primaryColor, secondaryColor, animation, isPrimaryVisible = true, isComparisonVisible = true }) => /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("div", {
+var BarWithLabel = ({ entry, withComparison, withOverlayLabel, primaryColor, secondaryColor, animation, isPrimaryVisible = true, isComparisonVisible = true }) => /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("div", {
   className: clsx_default(leaderboard_chart_module_default.barWithLabelContainer, { [leaderboard_chart_module_default["is-overlay"]]: withOverlayLabel }),
   children: [
-    /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(BarLabel, { label: entry.label }),
-    isPrimaryVisible && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+    /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(BarLabel, { label: entry.label }),
+    isPrimaryVisible && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
       className: clsx_default(leaderboard_chart_module_default.bar, { [leaderboard_chart_module_default["bar--animated"]]: animation }),
       style: {
         width: getBarWidth(entry.currentShare),
         backgroundColor: primaryColor
       }
     }),
-    withComparison && !withOverlayLabel && isComparisonVisible && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+    withComparison && !withOverlayLabel && isComparisonVisible && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
       className: clsx_default(leaderboard_chart_module_default.bar, { [leaderboard_chart_module_default["bar--animated"]]: animation }),
       style: {
         width: getBarWidth(entry.previousShare),
@@ -29922,9 +29899,9 @@ var LeaderboardChartInternal = ({ data, chartId: providedChartId, width: propWid
     }), [withComparison, withOverlayLabel])
   });
   const prefersReducedMotion = usePrefersReducedMotion();
-  if (!data || data.length === 0) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(SingleChartContext.Provider, {
+  if (!data || data.length === 0) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(SingleChartContext.Provider, {
     value: { chartId },
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(ChartLayout, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(ChartLayout, {
       legendPosition,
       legendElement: false,
       legendChildren,
@@ -29939,13 +29916,13 @@ var LeaderboardChartInternal = ({ data, chartId: providedChartId, width: propWid
         height: propHeight || void 0
       },
       trailingContent: nonLegendChildren,
-      children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+      children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
         className: leaderboard_chart_module_default.emptyState,
         children: loading ? (0, import_i18n.__)("Loading\u2026", "jetpack-charts") : (0, import_i18n.__)("No data available", "jetpack-charts")
       })
     })
   });
-  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Legend2, {
+  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Legend2, {
     orientation: legend.orientation ?? "horizontal",
     position: legendPosition,
     alignment: legend.alignment ?? "center",
@@ -29957,9 +29934,9 @@ var LeaderboardChartInternal = ({ data, chartId: providedChartId, width: propWid
     chartId,
     interactive: legendInteractive
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(SingleChartContext.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(SingleChartContext.Provider, {
     value: { chartId },
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(ChartLayout, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(ChartLayout, {
       legendPosition,
       legendElement,
       legendChildren,
@@ -29974,21 +29951,21 @@ var LeaderboardChartInternal = ({ data, chartId: providedChartId, width: propWid
         height: propHeight || void 0
       },
       trailingContent: nonLegendChildren,
-      children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+      children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
         className: leaderboard_chart_module_default.leaderboardChart__content,
-        children: allSeriesHidden ? /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+        children: allSeriesHidden ? /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
           className: leaderboard_chart_module_default.emptyState,
           children: (0, import_i18n.__)("All series are hidden. Click legend items to show data.", "jetpack-charts")
-        }) : /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(component_default, {
+        }) : /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(component_default, {
           templateColumns: "minmax(0, 1fr) auto",
           rowGap,
           columnGap,
           children: data.map((entry) => {
             const deltaColor = deltaColors[Math.sign(entry.delta) + 1];
-            const rowCells = /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(import_jsx_runtime151.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Stack4, {
+            const rowCells = /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(import_jsx_runtime150.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Stack4, {
               direction: "column",
               gap: labelSpacing,
-              children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(BarWithLabel, {
+              children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(BarWithLabel, {
                 entry,
                 withComparison,
                 withOverlayLabel,
@@ -29998,27 +29975,27 @@ var LeaderboardChartInternal = ({ data, chartId: providedChartId, width: propWid
                 isComparisonVisible,
                 animation: animation && !loading && !prefersReducedMotion
               })
-            }), /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(Stack4, {
+            }), /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(Stack4, {
               direction: "row",
               gap: "xs",
               className: clsx_default(leaderboard_chart_module_default.valueContainer, { [leaderboard_chart_module_default.overlayLabel]: withOverlayLabel }),
-              children: [isPrimaryVisible && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Text$1, { children: valueFormatter(entry.currentValue) }), withComparison && isComparisonVisible && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Text$1, {
+              children: [isPrimaryVisible && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Text$1, { children: valueFormatter(entry.currentValue) }), withComparison && isComparisonVisible && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Text$1, {
                 style: { color: deltaColor },
                 children: deltaFormatter(entry.delta)
               })]
             })] });
-            if (entry.onClick) return /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("button", {
+            if (entry.onClick) return /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("button", {
               type: "button",
               className: leaderboard_chart_module_default.interactiveRow,
               onClick: entry.onClick,
               "aria-label": entry.ariaLabel,
-              children: [rowCells, /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(icon_default, {
+              children: [rowCells, /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(icon_default, {
                 className: leaderboard_chart_module_default.chevron,
                 icon: chevron_right_default,
                 size: 24
               })]
             }, entry.id);
-            return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(import_react77.Fragment, { children: rowCells }, entry.id);
+            return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(import_react77.Fragment, { children: rowCells }, entry.id);
           })
         })
       })
@@ -30026,8 +30003,8 @@ var LeaderboardChartInternal = ({ data, chartId: providedChartId, width: propWid
   });
 };
 var LeaderboardChartWithProvider = (props) => {
-  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(LeaderboardChartInternal, { ...props });
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(LeaderboardChartInternal, { ...props }) });
+  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(LeaderboardChartInternal, { ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(LeaderboardChartInternal, { ...props }) });
 };
 LeaderboardChartWithProvider.displayName = "LeaderboardChart";
 var LeaderboardChart = attachSubComponents(LeaderboardChartWithProvider, { Legend: Legend2 });
@@ -30036,9 +30013,9 @@ function RadialWipeAnimation({ id, radius, innerRadius = 0, durationMs = 1e3, wi
   const strokeWidth = (radius - innerRadius) * 2 + 1;
   const scaleY = direction === "clockwise" ? -1 : 1;
   const animationDuration = `${0 < wipePercentage && wipePercentage <= 100 ? durationMs * (100 / wipePercentage) : 0}ms`;
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("mask", {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("mask", {
     id,
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("circle", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("circle", {
       cx: 0,
       cy: 0,
       r: radius,
@@ -30049,7 +30026,7 @@ function RadialWipeAnimation({ id, radius, innerRadius = 0, durationMs = 1e3, wi
       strokeDasharray: "100, 1000",
       strokeDashoffset: "0",
       style: { transform: `rotate(${startAngle}) scaleY(${scaleY})` },
-      children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("animate", {
+      children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("animate", {
         attributeName: "stroke-dashoffset",
         from: "0",
         to: "100.1",
@@ -30067,7 +30044,7 @@ var pie_chart_module_default = {
   "pie-chart--responsive": "a8ccharts-gnszbG-pie-chart--responsive"
 };
 var renderDefaultPieTooltip = ({ tooltipData }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(BaseTooltip, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(BaseTooltip, {
     data: tooltipData,
     top: 0,
     left: 0,
@@ -30136,9 +30113,9 @@ var PieChartInternal = ({ data, chartId: providedChartId, withTooltips = false, 
     ])
   });
   const prefersReducedMotion = usePrefersReducedMotion();
-  if (!isValid2) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+  if (!isValid2) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
     className: clsx_default("pie-chart", pie_chart_module_default["pie-chart"], className),
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
       className: pie_chart_module_default["error-message"],
       children: message2
     })
@@ -30160,7 +30137,7 @@ var PieChartInternal = ({ data, chartId: providedChartId, withTooltips = false, 
       }).color;
     }
   };
-  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Legend2, {
+  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Legend2, {
     orientation: legend.orientation ?? "horizontal",
     position: legendPosition,
     alignment: legend.alignment ?? "center",
@@ -30172,9 +30149,9 @@ var PieChartInternal = ({ data, chartId: providedChartId, withTooltips = false, 
     chartId,
     interactive: legendInteractive
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(SingleChartContext.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(SingleChartContext.Provider, {
     value: { chartId },
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(ChartLayout, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(ChartLayout, {
       legendPosition,
       legendElement,
       legendChildren,
@@ -30184,11 +30161,11 @@ var PieChartInternal = ({ data, chartId: providedChartId, withTooltips = false, 
         width: propWidth || void 0,
         height: propHeight || void 0
       },
-      trailingContent: /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(import_jsx_runtime151.Fragment, { children: [
-        withTooltips && tooltipOpen && tooltipData && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(TooltipInPortal, {
+      trailingContent: /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(import_jsx_runtime150.Fragment, { children: [
+        withTooltips && tooltipOpen && tooltipData && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(TooltipInPortal, {
           top: tooltipTop || 0,
           left: tooltipLeft || 0,
-          children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+          children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
             role: "tooltip",
             children: renderTooltip({ tooltipData })
           })
@@ -30208,28 +30185,28 @@ var PieChartInternal = ({ data, chartId: providedChartId, withTooltips = false, 
         const innerRadius = thickness === 0 ? 0 : outerRadius * (1 - thickness);
         const maxCornerRadius = (outerRadius - innerRadius) / 2;
         const cornerRadius = cornerScale ? Math.min(cornerScale * outerRadius, maxCornerRadius) : 0;
-        return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Center, {
+        return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Center, {
           ref: containerRef,
-          children: /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("svg", {
+          children: /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("svg", {
             viewBox: `0 0 ${width} ${height}`,
             preserveAspectRatio: "xMidYMid meet",
             width,
             height,
-            children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(RadialWipeAnimation, {
+            children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(RadialWipeAnimation, {
               id: `radial-wipe-${chartId}`,
               radius: outerRadius,
               innerRadius
-            }) }), /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(Group, {
+            }) }), /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(Group, {
               top: centerY,
               left: centerX,
               mask: animation && !prefersReducedMotion ? `url(#radial-wipe-${chartId})` : null,
-              children: [allSegmentsHidden ? /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(SvgEmptyState, {
+              children: [allSegmentsHidden ? /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(SvgEmptyState, {
                 x: 0,
                 y: 0,
                 width,
                 height,
                 children: (0, import_i18n.__)("All segments are hidden. Click legend items to show data.", "jetpack-charts")
-              }) : /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Pie, {
+              }) : /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Pie, {
                 data: dataWithIndex,
                 pieValue: accessors.value,
                 outerRadius,
@@ -30269,9 +30246,9 @@ var PieChartInternal = ({ data, chartId: providedChartId, withTooltips = false, 
                     const labelPadding = 6;
                     const backgroundWidth = estimatedTextWidth + labelPadding * 2;
                     const backgroundHeight = fontSize + labelPadding * 2;
-                    return /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("g", {
+                    return /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("g", {
                       ...groupProps,
-                      children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)("path", { ...pathProps }), showLabels && hasSpaceForLabel && /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("g", { children: [providerTheme.labelBackgroundColor && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("rect", {
+                      children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsx)("path", { ...pathProps }), showLabels && hasSpaceForLabel && /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("g", { children: [providerTheme.labelBackgroundColor && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("rect", {
                         x: centroidX - backgroundWidth / 2,
                         y: centroidY - backgroundHeight / 2,
                         width: backgroundWidth,
@@ -30280,7 +30257,7 @@ var PieChartInternal = ({ data, chartId: providedChartId, withTooltips = false, 
                         rx: 4,
                         ry: 4,
                         pointerEvents: "none"
-                      }), /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("text", {
+                      }), /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("text", {
                         x: centroidX,
                         y: centroidY,
                         dy: ".33em",
@@ -30302,8 +30279,8 @@ var PieChartInternal = ({ data, chartId: providedChartId, withTooltips = false, 
   });
 };
 var PieChartWithProvider = (props) => {
-  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(PieChartInternal, { ...props });
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(PieChartInternal, { ...props }) });
+  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(PieChartInternal, { ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(PieChartInternal, { ...props }) });
 };
 PieChartWithProvider.displayName = "PieChart";
 var PieChart = attachSubComponents(PieChartWithProvider, {
@@ -30323,7 +30300,7 @@ var pie_semi_circle_chart_module_default = {
   "pie-semi-circle-chart--responsive": "a8ccharts-YtTOxW-pie-semi-circle-chart--responsive"
 };
 var renderDefaultPieSemiCircleTooltip = ({ tooltipData }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(BaseTooltip, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(BaseTooltip, {
     data: tooltipData,
     top: 0,
     left: 0,
@@ -30418,12 +30395,12 @@ var PieSemiCircleChartInternal = ({ data, chartId: providedChartId, width: propW
   if (!isValid2) {
     const errorWidth = propHeight ? Math.min(propWidth || propHeight * 2, propHeight * 2) : effectiveWidth;
     const errorHeight = errorWidth / 2;
-    return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+    return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
       className: pie_semi_circle_chart_module_default["pie-semi-circle-chart"],
-      children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("svg", {
+      children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("svg", {
         width: errorWidth,
         height: errorHeight,
-        children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("text", {
+        children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("text", {
           x: "50%",
           y: "50%",
           textAnchor: "middle",
@@ -30442,7 +30419,7 @@ var PieSemiCircleChartInternal = ({ data, chartId: providedChartId, width: propW
   });
   const startAngle = clockwise ? -Math.PI / 2 : Math.PI / 2;
   const endAngle = clockwise ? Math.PI / 2 : -Math.PI / 2;
-  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Legend2, {
+  const legendElement = showLegend && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Legend2, {
     orientation: legend.orientation ?? "horizontal",
     position: legendPosition,
     alignment: legend.alignment ?? "center",
@@ -30454,9 +30431,9 @@ var PieSemiCircleChartInternal = ({ data, chartId: providedChartId, width: propW
     chartId,
     interactive: legendInteractive
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(SingleChartContext.Provider, {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(SingleChartContext.Provider, {
     value: { chartId },
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(ChartLayout, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(ChartLayout, {
       legendPosition,
       legendElement,
       legendChildren,
@@ -30466,11 +30443,11 @@ var PieSemiCircleChartInternal = ({ data, chartId: providedChartId, width: propW
         width: propWidth || void 0,
         height: propHeight || void 0
       },
-      trailingContent: /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(import_jsx_runtime151.Fragment, { children: [
-        withTooltips && tooltipOpen && tooltipData && /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(TooltipInPortal, {
+      trailingContent: /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(import_jsx_runtime150.Fragment, { children: [
+        withTooltips && tooltipOpen && tooltipData && /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(TooltipInPortal, {
           top: tooltipTop || 0,
           left: tooltipLeft || 0,
-          children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+          children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
             role: "tooltip",
             children: renderTooltip({ tooltipData })
           })
@@ -30485,30 +30462,30 @@ var PieSemiCircleChartInternal = ({ data, chartId: providedChartId, width: propW
         const height = width / 2;
         const radius = height;
         const innerRadius = radius * (1 - thickness);
-        return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Center, {
+        return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Center, {
           ref: containerRef,
-          children: /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)("svg", {
+          children: /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)("svg", {
             width,
             height,
             viewBox: `0 0 ${width} ${height}`,
-            children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(RadialWipeAnimation, {
+            children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(RadialWipeAnimation, {
               id: `radial-wipe-${chartId}`,
               radius,
               innerRadius,
               startAngle: "-180deg",
               wipePercentage: 50
-            }) }), /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Group, {
+            }) }), /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Group, {
               top: height,
               left: width / 2,
               mask: animation && !prefersReducedMotion ? `url(#radial-wipe-${chartId})` : null,
-              children: allSegmentsHidden ? /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(SvgEmptyState, {
+              children: allSegmentsHidden ? /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(SvgEmptyState, {
                 x: 0,
                 y: -radius / 2,
                 width,
                 height,
                 children: (0, import_i18n.__)("All segments are hidden. Click legend items to show data.", "jetpack-charts")
-              }) : /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(import_jsx_runtime151.Fragment, { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Pie, {
+              }) : /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(import_jsx_runtime150.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Pie, {
                   data: dataWithIndex,
                   pieValue: accessors.value,
                   outerRadius: radius,
@@ -30519,23 +30496,23 @@ var PieSemiCircleChartInternal = ({ data, chartId: providedChartId, width: propW
                   endAngle,
                   pieSort: accessors.sort,
                   children: (pie2) => {
-                    return pie2.arcs.map((arc2) => /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("g", {
+                    return pie2.arcs.map((arc2) => /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("g", {
                       onMouseMove: withTooltips ? handleArcMouseMove(arc2) : void 0,
                       onMouseLeave: withTooltips ? handleMouseLeave : void 0,
-                      children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("path", {
+                      children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("path", {
                         d: pie2.path(arc2) || "",
                         fill: accessors.fill(arc2.data)
                       })
                     }, arc2.data.label));
                   }
                 }),
-                /* @__PURE__ */ (0, import_jsx_runtime151.jsxs)(Group, { children: [/* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Text3, {
+                /* @__PURE__ */ (0, import_jsx_runtime150.jsxs)(Group, { children: [/* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Text3, {
                   textAnchor: "middle",
                   verticalAnchor: "start",
                   y: -40,
                   className: pie_semi_circle_chart_module_default.label,
                   children: label
-                }), /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(Text3, {
+                }), /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(Text3, {
                   textAnchor: "middle",
                   verticalAnchor: "start",
                   y: -20,
@@ -30552,8 +30529,8 @@ var PieSemiCircleChartInternal = ({ data, chartId: providedChartId, width: propW
   });
 };
 var PieSemiCircleChartWithProvider = (props) => {
-  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(PieSemiCircleChartInternal, { ...props });
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(PieSemiCircleChartInternal, { ...props }) });
+  if ((0, import_react77.useContext)(GlobalChartsContext)) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(PieSemiCircleChartInternal, { ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(GlobalChartsProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(PieSemiCircleChartInternal, { ...props }) });
 };
 PieSemiCircleChartWithProvider.displayName = "PieSemiCircleChart";
 var PieSemiCircleChart = attachSubComponents(PieSemiCircleChartWithProvider, {
@@ -30630,7 +30607,7 @@ var SparklineComponent = (0, import_react77.forwardRef)(({ data, width = DEFAULT
     gradient,
     color2
   ]);
-  if (!data || data.length === 0) return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+  if (!data || data.length === 0) return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
     ref,
     className: clsx_default("sparkline", sparkline_module_default.sparkline, sparkline_module_default["sparkline--empty"], className),
     style: {
@@ -30642,18 +30619,18 @@ var SparklineComponent = (0, import_react77.forwardRef)(({ data, width = DEFAULT
     const cx58 = width / 2;
     const cy = height / 2;
     const resolvedColor = color2 || "#000000";
-    return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+    return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
       ref,
       className: clsx_default("sparkline", sparkline_module_default.sparkline, sparkline_module_default["sparkline--single-point"], className),
       style: {
         width,
         height
       },
-      children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("svg", {
+      children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("svg", {
         width,
         height,
         "aria-hidden": "true",
-        children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("circle", {
+        children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("circle", {
           cx: cx58,
           cy,
           r: strokeWidth * 1.5,
@@ -30662,10 +30639,10 @@ var SparklineComponent = (0, import_react77.forwardRef)(({ data, width = DEFAULT
       })
     });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", {
+  return /* @__PURE__ */ (0, import_jsx_runtime150.jsx)("div", {
     ref,
     className: clsx_default("sparkline", sparkline_module_default.sparkline, className),
-    children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(LineChart, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime150.jsx)(LineChart, {
       data: seriesWithGradient,
       width,
       height,
@@ -30714,12 +30691,43 @@ function formatLegendLabels(reportParams) {
   };
 }
 
+// packages/widgets-toolkit/src/helpers/build-sales-by-utm-data.ts
+var import_i18n3 = __toESM(require_i18n(), 1);
+
 // packages/widgets-toolkit/src/helpers/calculate-delta.ts
 function calculateDelta(currentValue, previousValue) {
   if (previousValue === 0) {
     return currentValue > 0 ? 100 : 0;
   }
   return (currentValue - previousValue) / previousValue * 100;
+}
+
+// packages/widgets-toolkit/src/helpers/build-sales-by-utm-data.ts
+function buildSalesByUtmData(orderAttribution, maxEntries = 4) {
+  if (!orderAttribution?.data || orderAttribution.data.length === 0) {
+    return [];
+  }
+  const { data } = orderAttribution;
+  const maxValue = Math.max(
+    ...data.map(
+      (item) => Math.max(item.current_period.value || 0, item.previous_period?.value || 0)
+    ),
+    1
+  );
+  return data.slice(0, maxEntries).map((item, idx) => {
+    const currentValue = item.current_period.value || 0;
+    const previousValue = item.previous_period?.value ?? 0;
+    const delta = calculateDelta(currentValue, previousValue);
+    return {
+      id: item.item ? String(item.item) : String(idx),
+      label: item.item || (0, import_i18n3.__)("Unassigned", "jetpack-premium-analytics"),
+      currentValue,
+      previousValue,
+      currentShare: currentValue / maxValue * 100,
+      previousShare: previousValue / maxValue * 100,
+      delta
+    };
+  });
 }
 
 // packages/widgets-toolkit/src/components/widget-root/widget-root.tsx
@@ -30845,7 +30853,7 @@ function useChartTheme() {
 }
 
 // packages/widgets-toolkit/src/hooks/use-widget-error.ts
-var import_i18n3 = __toESM(require_i18n(), 1);
+var import_i18n4 = __toESM(require_i18n(), 1);
 var import_react79 = __toESM(require_react(), 1);
 import { useGlobalError } from "@jetpack-premium-analytics/data";
 function useWidgetError(isError, error, refetch) {
@@ -30870,12 +30878,12 @@ function useWidgetError(isError, error, refetch) {
       console.error("[Widget Error]", error.message, error);
     }
     setError({
-      message: (0, import_i18n3.__)(
+      message: (0, import_i18n4.__)(
         "We couldn't load this data. Please try again in a moment.",
         "jetpack-premium-analytics"
       ),
       action: {
-        label: (0, import_i18n3.__)("Retry", "jetpack-premium-analytics"),
+        label: (0, import_i18n4.__)("Retry", "jetpack-premium-analytics"),
         onClick: () => {
           setError?.(null);
           refetch?.();
@@ -30904,15 +30912,15 @@ if (typeof process === "undefined" || true) {
 var widget_root_module_default = { "root": "_2bfddfa3112e21d0__root" };
 
 // packages/widgets-toolkit/src/components/widget-root/widget-root.tsx
-var import_jsx_runtime152 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime151 = __toESM(require_jsx_runtime(), 1);
 function useResolveReportParams(attributes) {
-  let search = {};
+  let search2 = {};
   try {
-    search = useSearch({ strict: false });
+    search2 = useSearch({ strict: false });
   } catch {
   }
   const hasReportParams = !!attributes?.reportParams && Object.keys(attributes.reportParams).length > 0;
-  return hasReportParams ? attributes.reportParams : search;
+  return hasReportParams ? attributes.reportParams : search2;
 }
 function WidgetRoot({ attributes, children, setError }) {
   const chartTheme = useChartTheme();
@@ -30924,11 +30932,11 @@ function WidgetRoot({ attributes, children, setError }) {
     [rawReportParams, defaultPreset]
   );
   const contextValue = (0, import_react81.useMemo)(() => ({ reportParams, setError }), [reportParams, setError]);
-  return /* @__PURE__ */ (0, import_jsx_runtime152.jsx)(AnalyticsQueryClientProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime152.jsx)(GlobalChartsProvider, { theme: chartTheme, children: /* @__PURE__ */ (0, import_jsx_runtime152.jsx)(WidgetRootContext.Provider, { value: contextValue, children: /* @__PURE__ */ (0, import_jsx_runtime152.jsx)("div", { className: widget_root_module_default.root, children }) }) }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(AnalyticsQueryClientProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(GlobalChartsProvider, { theme: chartTheme, children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)(WidgetRootContext.Provider, { value: contextValue, children: /* @__PURE__ */ (0, import_jsx_runtime151.jsx)("div", { className: widget_root_module_default.root, children }) }) }) });
 }
 
 // packages/widgets-toolkit/src/components/chart-empty-state/chart-empty-state.tsx
-var import_i18n4 = __toESM(require_i18n(), 1);
+var import_i18n5 = __toESM(require_i18n(), 1);
 
 // packages/widgets-toolkit/src/components/chart-empty-state/chart-empty-state.module.scss
 if (typeof process === "undefined" || true) {
@@ -30937,14 +30945,14 @@ if (typeof process === "undefined" || true) {
 var chart_empty_state_module_default = { "container": "d1d27c24ed6a0118__container", "icon": "_69df60c5937cf73f__icon" };
 
 // packages/widgets-toolkit/src/components/chart-empty-state/chart-empty-state.tsx
-var import_jsx_runtime153 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime152 = __toESM(require_jsx_runtime(), 1);
 function ChartEmptyState({
   icon = caution_filled_default,
-  text: text2 = (0, import_i18n4.__)("No data found for this date range.", "jetpack-premium-analytics")
+  text: text2 = (0, import_i18n5.__)("No data found for this date range.", "jetpack-premium-analytics")
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime153.jsxs)(empty_state_exports.Root, { className: chart_empty_state_module_default.container, children: [
-    icon && /* @__PURE__ */ (0, import_jsx_runtime153.jsx)(Icon, { size: 48, className: chart_empty_state_module_default.icon, icon }),
-    /* @__PURE__ */ (0, import_jsx_runtime153.jsx)(empty_state_exports.Description, { children: text2 })
+  return /* @__PURE__ */ (0, import_jsx_runtime152.jsxs)(empty_state_exports.Root, { className: chart_empty_state_module_default.container, children: [
+    icon && /* @__PURE__ */ (0, import_jsx_runtime152.jsx)(Icon, { size: 48, className: chart_empty_state_module_default.icon, icon }),
+    /* @__PURE__ */ (0, import_jsx_runtime152.jsx)(empty_state_exports.Description, { children: text2 })
   ] });
 }
 
@@ -30958,9 +30966,9 @@ if (typeof process === "undefined" || true) {
 var widget_loading_overlay_module_default = { "overlay": "_72f4bedabdb649b6__overlay" };
 
 // packages/widgets-toolkit/src/components/widget-loading-overlay/widget-loading-overlay.tsx
-var import_jsx_runtime154 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime153 = __toESM(require_jsx_runtime(), 1);
 function WidgetLoadingOverlay() {
-  return /* @__PURE__ */ (0, import_jsx_runtime154.jsx)(Stack, { justify: "center", align: "center", className: widget_loading_overlay_module_default.overlay, children: /* @__PURE__ */ (0, import_jsx_runtime154.jsx)(import_components.Spinner, {}) });
+  return /* @__PURE__ */ (0, import_jsx_runtime153.jsx)(Stack, { justify: "center", align: "center", className: widget_loading_overlay_module_default.overlay, children: /* @__PURE__ */ (0, import_jsx_runtime153.jsx)(import_components.Spinner, {}) });
 }
 
 // packages/widgets-toolkit/src/components/chart-leaderboard/leaderboard-chart.tsx
@@ -30973,7 +30981,7 @@ if (typeof process === "undefined" || true) {
 var leaderboard_chart_module_default2 = { "container": "_4de259f021560c42__container", "chart": "_311767af7aa356a1__chart", "legend": "c706b38c73334d9a__legend", "legendItem": "c99fd9b4acf0373b__legendItem", "legendLabel": "_5d0d85d035d38904__legendLabel", "emptyState": "_678f00a756d1b06a__emptyState", "emptyStateIcon": "f8e3e1d92ab51fc2__emptyStateIcon", "emptyStateText": "_6a95991f4b350a0a__emptyStateText" };
 
 // packages/widgets-toolkit/src/components/chart-leaderboard/leaderboard-chart.tsx
-var import_jsx_runtime155 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime154 = __toESM(require_jsx_runtime(), 1);
 function LeaderboardChart2({
   className,
   data,
@@ -31015,16 +31023,16 @@ function LeaderboardChart2({
   }, [theme, style]);
   const isEmptyData = !data || data.length === 0;
   if (isEmptyData) {
-    return /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(ChartEmptyState, { icon: emptyStateIcon, text: emptyStateText });
+    return /* @__PURE__ */ (0, import_jsx_runtime154.jsx)(ChartEmptyState, { icon: emptyStateIcon, text: emptyStateText });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime154.jsx)(
     Stack,
     {
       direction: "column",
       justify: "space-between",
       gap: "lg",
       className: clsx_default(leaderboard_chart_module_default2.container, className),
-      children: /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime154.jsx)(
         LeaderboardChart,
         {
           data,
@@ -31037,7 +31045,7 @@ function LeaderboardChart2({
           showLegend: false,
           style: chartStyle,
           className: leaderboard_chart_module_default2.chart,
-          children: showLegend && /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(
+          children: showLegend && /* @__PURE__ */ (0, import_jsx_runtime154.jsx)(
             Legend2,
             {
               className: leaderboard_chart_module_default2.legend,
@@ -31060,82 +31068,150 @@ function LeaderboardChart2({
   );
 }
 
-// widgets/sales-by-utm-channel/render.tsx
-var import_react83 = __toESM(require_react(), 1);
+// packages/icons/src/megaphone/index.tsx
+var import_primitives4 = __toESM(require_primitives(), 1);
+var import_jsx_runtime155 = __toESM(require_jsx_runtime(), 1);
+var megaphone = /* @__PURE__ */ (0, import_jsx_runtime155.jsxs)(import_primitives4.SVG, { width: "48", height: "48", viewBox: "0 0 48 48", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(
+    import_primitives4.Path,
+    {
+      d: "M20.2581 16.0436L25.3225 24.0032H36.1314C38.6025 24.0032 40.0003 22.6229 40.0003 20.162V11.9051C40.0003 9.44419 38.6003 8.06396 36.1292 8.06396H25.3203L20.2559 16.0436H20.2581Z",
+      fill: "var(--wpds-color-bg-surface-neutral-weak, #F0F0F0)"
+    }
+  ),
+  /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(
+    import_primitives4.Path,
+    {
+      d: "M25.0778 10.1431H3.86889C1.4 10.1431 0 11.5233 0 13.9864V18.2891C0 20.75 1.4 22.1013 3.87111 22.1013H25.08C27.5511 22.1013 28.9489 20.7211 28.9489 18.2602V15.3156C28.9489 12.8547 27.5489 10.1453 25.0778 10.1453V10.1431Z",
+      fill: "var(--wpds-color-bg-surface-neutral-weak, #F0F0F0)"
+    }
+  ),
+  /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(
+    import_primitives4.Path,
+    {
+      d: "M33.5778 0H29.9311C27.8044 3.89216 25.0889 10.1498 14 10.1498V22.1014C25.0867 22.1014 27.8044 28.3368 29.9311 32.229H33.5778C35.0533 32.229 35.8978 31.3947 35.8978 29.9057V2.32331C35.8978 0.83435 35.0556 0 33.5778 0Z",
+      fill: "var(--wpds-color-stroke-surface-neutral-weak, #E0E0E0)"
+    }
+  ),
+  /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(
+    import_primitives4.Path,
+    {
+      d: "M11.7958 18.6687H5.99805V40.0001H9.54471C9.56471 40.0001 9.57138 40.0001 9.57138 40.0001H9.7336C13.1447 40.0001 14.2292 37.841 13.8958 35.4045C13.6669 33.7314 12.7358 26.0869 11.7958 18.6665V18.6687Z",
+      fill: "var(--wpds-color-bg-surface-neutral-weak, #F0F0F0)"
+    }
+  )
+] });
 
-// widgets/sales-by-utm-channel/helpers/build-sales-by-utm-data.ts
-var import_i18n5 = __toESM(require_i18n(), 1);
-function buildSalesByUtmData(orderAttribution, maxEntries = 4) {
-  if (!orderAttribution?.data || orderAttribution.data.length === 0) {
-    return [];
-  }
-  const { data } = orderAttribution;
-  const maxValue = Math.max(
-    ...data.map(
-      (item) => Math.max(item.current_period.value || 0, item.previous_period?.value || 0)
-    ),
-    1
-  );
-  return data.slice(0, maxEntries).map((item, idx) => {
-    const currentValue = item.current_period.value || 0;
-    const previousValue = item.previous_period?.value ?? 0;
-    const delta = calculateDelta(currentValue, previousValue);
-    return {
-      id: item.item ? String(item.item) : String(idx),
-      label: item.item || (0, import_i18n5.__)("Unassigned", "jetpack-premium-analytics"),
-      currentValue,
-      previousValue,
-      currentShare: currentValue / maxValue * 100,
-      previousShare: previousValue / maxValue * 100,
-      delta
-    };
-  });
-}
-
-// widgets/sales-by-utm-channel/render.tsx
+// packages/icons/src/channel/index.tsx
+var import_primitives5 = __toESM(require_primitives(), 1);
 var import_jsx_runtime156 = __toESM(require_jsx_runtime(), 1);
-function SalesByUtmChannelWidget() {
+var channel = /* @__PURE__ */ (0, import_jsx_runtime156.jsxs)(import_primitives5.SVG, { width: "48", height: "48", viewBox: "0 0 48 48", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(
+    import_primitives5.Path,
+    {
+      d: "M38.4905 34.2427L32.8865 28.6385C33.6131 27.2519 34.0242 25.6742 34.0242 24.001C34.0242 22.3277 33.6131 20.7589 32.8932 19.3746C34.3864 17.8813 37.3773 14.8903 38.5105 13.7571C41.0126 14.657 43.9191 14.1037 45.9234 12.0994C48.6921 9.33063 48.6921 4.8442 45.9234 2.07768C43.1547 -0.688844 38.6683 -0.691066 35.9018 2.07768C33.8931 4.08646 33.3442 7.00186 34.2508 9.5084L28.6446 15.1148C27.2558 14.3881 25.6781 13.9748 24.0027 13.9748C18.4653 13.9748 13.9767 18.4635 13.9767 24.001C13.9767 25.6698 14.3878 27.243 15.1077 28.6274C13.6145 30.1207 10.6236 33.1116 9.49032 34.2449C6.98827 33.3449 4.08181 33.8982 2.0775 35.9026C-0.691198 38.6713 -0.691198 43.1578 2.0775 45.9243C4.8462 48.6908 9.33256 48.693 12.099 45.9243C14.1078 43.9155 14.6566 41.0001 13.75 38.4936L19.3563 32.8872C20.7451 33.6138 22.3228 34.0271 23.9982 34.0271C25.6737 34.0271 27.2424 33.616 28.629 32.8938C30.1245 34.3893 33.1087 37.3736 34.242 38.5069C33.342 41.009 33.8953 43.9155 35.8996 45.9198C38.6683 48.6886 43.1547 48.6886 45.9211 45.9198C48.6876 43.1511 48.6898 38.6647 45.9211 35.8981C43.9124 33.8894 40.997 33.3405 38.4905 34.2471V34.2427ZM38.9683 5.14641C40.0393 4.07535 41.777 4.07535 42.848 5.14641C43.9191 6.21746 43.9191 7.95515 42.848 9.0262C41.777 10.0973 40.0393 10.0973 38.9683 9.0262C37.8973 7.95515 37.8973 6.21746 38.9683 5.14641ZM9.02813 42.8511C7.95709 43.9222 6.21944 43.9222 5.1484 42.8511C4.07736 41.78 4.07736 40.0424 5.1484 38.9713C6.21944 37.9003 7.95709 37.9003 9.02813 38.9713C10.0992 40.0424 10.0992 41.78 9.02813 42.8511ZM25.9381 25.9387C24.867 27.0097 23.1294 27.0097 22.0583 25.9387C20.9873 24.8676 20.9873 23.1299 22.0583 22.0589C23.1294 20.9878 24.867 20.9878 25.9381 22.0589C27.0091 23.1299 27.0091 24.8676 25.9381 25.9387ZM42.8502 42.8444C41.7792 43.9155 40.0415 43.9155 38.9705 42.8444C37.8995 41.7734 37.8995 40.0357 38.9705 38.9646C40.0415 37.8936 41.7792 37.8936 42.8502 38.9646C43.9213 40.0357 43.9213 41.7734 42.8502 42.8444Z",
+      fill: "var(--wpds-color-stroke-surface-neutral-weak, #E0E0E0)"
+    }
+  ),
+  /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(
+    import_primitives5.Path,
+    {
+      d: "M14.4434 1.76213L12.8191 3.00873C12.1103 2.54876 11.3148 2.21322 10.4615 2.03101L10.1971 0H7.74169L7.47504 2.03101C6.62177 2.21322 5.82627 2.54876 5.11965 3.00873L3.49531 1.76213L1.75988 3.4976L3.00646 5.12195C2.54649 5.83081 2.21096 6.62632 2.02875 7.47739L0 7.74404V10.1995L2.03097 10.4661C2.21318 11.3194 2.54871 12.1149 3.00868 12.8216L1.7621 14.4459L3.49754 16.1814L5.12187 14.9348C5.83071 15.3948 6.62621 15.7303 7.47726 15.9125L7.74391 17.9435H10.1993L10.4659 15.9125C11.3192 15.7303 12.1147 15.3948 12.8213 14.9348L14.4457 16.1814L16.1811 14.4459L14.9345 12.8216C15.3945 12.1127 15.73 11.3172 15.9122 10.4661L17.9432 10.1995V7.74404L15.9122 7.47739C15.7278 6.6241 15.3923 5.82858 14.9345 5.12195L16.1811 3.4976L14.4457 1.76213H14.4434ZM8.96827 11.5238C7.45282 11.5238 6.22402 10.295 6.22402 8.77954C6.22402 7.26407 7.45282 6.03524 8.96827 6.03524C10.4837 6.03524 11.7125 7.26407 11.7125 8.77954C11.7125 10.295 10.4837 11.5238 8.96827 11.5238Z",
+      fill: "var(--wpds-color-bg-surface-neutral-weak, #F0F0F0)"
+    }
+  )
+] });
+
+// packages/icons/src/search/index.tsx
+var import_primitives6 = __toESM(require_primitives(), 1);
+var import_jsx_runtime157 = __toESM(require_jsx_runtime(), 1);
+var search = /* @__PURE__ */ (0, import_jsx_runtime157.jsxs)(import_primitives6.SVG, { xmlns: "http://www.w3.org/2000/svg", width: "48", height: "48", viewBox: "0 0 48 48", fill: "none", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(
+    import_primitives6.Path,
+    {
+      d: "M23.0971 21.982L6.60742 38.5347L9.42724 41.3653L25.9169 24.8126L23.0971 21.982Z",
+      fill: "var(--wpds-color-bg-surface-neutral-weak, #F0F0F0)"
+    }
+  ),
+  /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(
+    import_primitives6.Path,
+    {
+      d: "M9.12753 46.6427C11.2034 44.2897 22.2386 31.6156 22.2386 31.6156L16.3189 25.6733C16.3189 25.6733 3.693 36.7529 1.34904 38.8367C-0.780014 40.7293 -0.217287 42.8108 1.82758 44.8635L3.12363 46.1645C5.1685 48.2172 7.24217 48.7821 9.12753 46.6449V46.6427Z",
+      fill: "var(--wpds-color-stroke-surface-neutral-weak, #E0E0E0)"
+    }
+  ),
+  /* @__PURE__ */ (0, import_jsx_runtime157.jsx)(
+    import_primitives6.Path,
+    {
+      d: "M33.5384 29.0332C25.565 29.0332 19.0781 22.5216 19.0781 14.5177C19.0781 6.51385 25.565 0 33.5384 0C41.5119 0 47.9988 6.51163 47.9988 14.5155C47.9988 22.5194 41.5119 29.031 33.5384 29.031V29.0332ZM33.5384 4.00305C27.7627 4.00305 23.066 8.71998 23.066 14.5155C23.066 20.311 27.7649 25.028 33.5384 25.028C39.3119 25.028 44.0109 20.311 44.0109 14.5155C44.0109 8.71998 39.3119 4.00305 33.5384 4.00305Z",
+      fill: "var(--wpds-color-bg-surface-neutral-weak, #F0F0F0)"
+    }
+  )
+] });
+
+// packages/widgets-toolkit/src/widgets/sales-by-utm/sales-by-utm-widget.tsx
+import {
+  useReportOrderAttribution
+} from "@jetpack-premium-analytics/data";
+var import_react83 = __toESM(require_react(), 1);
+var import_jsx_runtime158 = __toESM(require_jsx_runtime(), 1);
+function SalesByUtmWidget({ view }) {
   const { reportParams } = useWidgetRootContext();
   const params = (0, import_react83.useMemo)(
     () => ({
       ...reportParams,
-      view: "channel"
+      view
     }),
-    [reportParams]
+    [reportParams, view]
   );
   const { primary, hasComparison, isLoading, isFetching, hasData, isError, error, refetch } = useReportOrderAttribution(params);
   const isInitialLoading = isLoading && !hasData;
   const isRefetching = isFetching && hasData;
   const chartData = (0, import_react83.useMemo)(() => buildSalesByUtmData(primary.data), [primary.data]);
   const legendLabels = (0, import_react83.useMemo)(() => formatLegendLabels(reportParams), [reportParams]);
+  const emptyStateIcon = (0, import_react83.useMemo)(() => {
+    switch (view) {
+      case "source":
+        return search;
+      case "channel":
+        return channel;
+      case "campaign":
+        return megaphone;
+      default:
+        return search;
+    }
+  }, [view]);
   const hasError = useWidgetError(isError, error, refetch);
   if (hasError) {
     return null;
   }
   if (isInitialLoading) {
-    return /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(WidgetLoadingOverlay, {});
+    return /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(WidgetLoadingOverlay, {});
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime156.jsxs)(import_jsx_runtime156.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)(import_jsx_runtime158.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
       LeaderboardChart2,
       {
         data: chartData,
         withComparison: hasComparison,
         legendLabels,
-        emptyStateIcon: channel,
+        emptyStateIcon,
         style: {
           "--a8c--charts--leaderboard--bar--border-radius": "0 1px 1px 0"
         }
       }
     ),
-    isRefetching && /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(WidgetLoadingOverlay, {})
+    isRefetching && /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(WidgetLoadingOverlay, {})
   ] });
 }
+
+// widgets/sales-by-utm-channel/render.tsx
+var import_jsx_runtime159 = __toESM(require_jsx_runtime(), 1);
 function SalesByUtmChannelRender({
   attributes = {},
   setError
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(WidgetRoot, { attributes, setError, options: { from: "/" }, children: /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(SalesByUtmChannelWidget, {}) });
+  return /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(WidgetRoot, { attributes, setError, options: { from: "/" }, children: /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(SalesByUtmWidget, { view: "channel" }) });
 }
 export {
   SalesByUtmChannelRender as default

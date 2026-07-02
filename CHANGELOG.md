@@ -95,6 +95,7 @@ This is an alpha version! The changes listed here are not final.
 - Widgets: Add sales by coupon usage widget.
 - Widgets: Add sales by coupon widget.
 - Widgets: Add sales by device widget.
+- Widgets: Add sales by UTM campaign widget.
 - Widgets: Add sales by UTM channel widget.
 - Widgets: Add sales by UTM source widget.
 - Widgets: Add total returns widget.
@@ -112,6 +113,7 @@ This is an alpha version! The changes listed here are not final.
 - Data layer: point report requests at the endpoint-agnostic proxy route (proxy/v2/analytics/reports) after the per-endpoint proxy route was removed.
 - Data layer: route report requests through the jetpack-premium-analytics proxy controller instead of the legacy woocommerce-analytics proxy route.
 - Data layer: Use endpoint-specific typing for dashboard module settings.
+- Hoist the shared SalesByUtmWidget component into widgets-toolkit so the UTM channel and campaign widgets render from a single source (upstream pattern).
 - Internal: No longer require automattic/jetpack-changelogger as a per-project dev dependency.
 - Locations: Align widget Storybook and comparison states with dashboard guidelines.
 - Locations widget: Use the updated view selector size.
@@ -124,6 +126,7 @@ This is an alpha version! The changes listed here are not final.
 - Update Stats widget porting guidelines for Storybook, comparison states, and drill-down behavior.
 - Update widget conventions and Stats porting documentation.
 - Widgets: align the woocommerce-analytics-ported widgets with the shared widget render-props contract.
+- Widgets: Hoist buildSalesByUtmData into the widgets-toolkit so the UTM channel and campaign widgets share one copy.
 - Widgets: Improve semi-circle chart sizing and metric display options.
 - Widgets: normalize CSS-module file naming, convert the lone SCSS to CSS, and align hello-world imports and dependencies.
 

@@ -31205,16 +31205,16 @@ function SalesByUtmWidget({ view }) {
   ] });
 }
 
-// widgets/sales-by-utm-source/render.tsx
+// widgets/sales-by-utm-campaign/render.tsx
 var import_jsx_runtime159 = __toESM(require_jsx_runtime(), 1);
-function SalesByUtmSourceRender({
+function SalesByUtmCampaignRender({
   attributes = {},
   setError
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(WidgetRoot, { attributes, setError, options: { from: "/" }, children: /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(SalesByUtmWidget, { view: "source" }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(WidgetRoot, { attributes, setError, options: { from: "/" }, children: /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(SalesByUtmWidget, { view: "campaign" }) });
 }
 export {
-  SalesByUtmSourceRender as default
+  SalesByUtmCampaignRender as default
 };
 /*!
 * is-plain-object <https://github.com/jonschlinkert/is-plain-object>
