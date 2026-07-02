@@ -57,6 +57,13 @@ return array(
 		'presentation' => 'full-bleed',
 	),
 	array(
+		'name'         => 'jpa/gross-sales-over-time',
+		'dir_name'     => 'gross-sales-over-time',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/hello-world',
 		'dir_name'     => 'hello-world',
 		'has_render'   => true,
