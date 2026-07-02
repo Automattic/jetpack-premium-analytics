@@ -30643,19 +30643,18 @@ var widget_root_module_default = { "root": "_2bfddfa3112e21d0__root" };
 
 // packages/widgets-toolkit/src/components/widget-root/widget-root.tsx
 var import_jsx_runtime152 = __toESM(require_jsx_runtime(), 1);
-var DEFAULT_SEARCH_FROM = "/";
-function useResolveReportParams(attributes, from2) {
+function useResolveReportParams(attributes) {
   let search = {};
   try {
-    search = useSearch({ from: from2 ?? DEFAULT_SEARCH_FROM });
+    search = useSearch({ strict: false });
   } catch {
   }
   const hasReportParams = !!attributes?.reportParams && Object.keys(attributes.reportParams).length > 0;
   return hasReportParams ? attributes.reportParams : search;
 }
-function WidgetRoot({ attributes, children, setError, options }) {
+function WidgetRoot({ attributes, children, setError }) {
   const chartTheme = useChartTheme();
-  const rawReportParams = useResolveReportParams(attributes, options?.from);
+  const rawReportParams = useResolveReportParams(attributes);
   const { launchedDate } = getStoreInfo();
   const defaultPreset = getDefaultPreset(launchedDate);
   const reportParams = (0, import_react79.useMemo)(

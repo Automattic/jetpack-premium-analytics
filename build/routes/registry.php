@@ -22,6 +22,13 @@ return array(
 		'has_content' => true,
 	),
 	array(
+		'name'        => 'post-detail',
+		'path'        => '/post/$postId',
+		'page'        => 'jetpack-premium-analytics',
+		'has_route'   => true,
+		'has_content' => true,
+	),
+	array(
 		'name'        => 'syncing',
 		'path'        => '/syncing',
 		'page'        => 'jetpack-premium-analytics',
