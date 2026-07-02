@@ -34244,11 +34244,11 @@ var import_components3 = __toESM(require_components(), 1);
 var import_element12 = __toESM(require_element(), 1);
 var import_i18n4 = __toESM(require_i18n(), 1);
 
-// widgets/subscribers-chart/subscribers-chart.module.css
+// widgets/subscribers-chart/style.module.css
 if (typeof process === "undefined" || true) {
-  registerStyle6("446c067f2c", "._9cf6ea0953412be3__root{container-type:inline-size;display:flex;flex-direction:column;height:100%;overflow:hidden;padding:var(--wpds-dimension-padding-lg,16px)}.d7c1662c2e6c3442__periodSelect{flex-shrink:0}[inert]:not([inert=true]) ._9cf6ea0953412be3__root{aspect-ratio:4/3;height:auto;overflow:hidden}");
+  registerStyle6("2dcb14b303", "._8885b5f7c69e4747__root{container-type:inline-size;display:flex;flex-direction:column;height:100%;overflow:hidden;padding:var(--wpds-dimension-padding-lg,16px)}.f49b1f12eaab56fc__periodSelect{flex-shrink:0}[inert]:not([inert=true]) ._8885b5f7c69e4747__root{aspect-ratio:4/3;height:auto;overflow:hidden}");
 }
-var subscribers_chart_default = { "root": "_9cf6ea0953412be3__root", "periodSelect": "d7c1662c2e6c3442__periodSelect" };
+var style_default6 = { "root": "_8885b5f7c69e4747__root", "periodSelect": "f49b1f12eaab56fc__periodSelect" };
 
 // widgets/subscribers-chart/use-subscribers-chart.ts
 var import_element11 = __toESM(require_element(), 1);
@@ -34344,7 +34344,7 @@ function SubscribersChartInner() {
   if (hasError) {
     return null;
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime166.jsx)("div", { className: subscribers_chart_default.root, children: /* @__PURE__ */ (0, import_jsx_runtime166.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime166.jsx)("div", { className: style_default6.root, children: /* @__PURE__ */ (0, import_jsx_runtime166.jsx)(
     MetricTabsChart,
     {
       metrics,
@@ -34361,7 +34361,7 @@ function SubscribersChartInner() {
           value: period,
           options: periodOptions,
           onChange: handlePeriodChange,
-          className: subscribers_chart_default.periodSelect
+          className: style_default6.periodSelect
         }
       )
     }

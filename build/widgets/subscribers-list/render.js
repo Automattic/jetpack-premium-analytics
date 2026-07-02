@@ -30230,11 +30230,11 @@ function SubscriberList({
 var import_i18n5 = __toESM(require_i18n(), 1);
 var import_react82 = __toESM(require_react(), 1);
 
-// widgets/subscribers-list/subscribers-list.module.css
+// widgets/subscribers-list/style.module.css
 if (typeof process === "undefined" || true) {
-  registerStyle10("749df29e03", "[inert]:not([inert=true]) ._273291df3fcac972__root{aspect-ratio:4/3;height:auto;overflow:hidden}[inert] ._273291df3fcac972__root img{height:32px;width:32px}");
+  registerStyle10("30b33d8d81", "[inert]:not([inert=true]) ._621fd210756476d1__root{aspect-ratio:4/3;height:auto;overflow:hidden}[inert] ._621fd210756476d1__root img{height:32px;width:32px}");
 }
-var subscribers_list_default = { "root": "_273291df3fcac972__root" };
+var style_default11 = { "root": "_621fd210756476d1__root" };
 
 // widgets/subscribers-list/render.tsx
 var import_jsx_runtime156 = __toESM(require_jsx_runtime(), 1);
@@ -30256,7 +30256,7 @@ var SubscribersRoster = ({
   isError = false,
   moreCount = 0
 }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime156.jsx)("div", { className: subscribers_list_default.root, children: isError ? /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(Text, { children: (0, import_i18n5.__)("Unable to load subscribers.", "jetpack-premium-analytics") }) : /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime156.jsx)("div", { className: style_default11.root, children: isError ? /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(Text, { children: (0, import_i18n5.__)("Unable to load subscribers.", "jetpack-premium-analytics") }) : /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(
     SubscriberList,
     {
       items,

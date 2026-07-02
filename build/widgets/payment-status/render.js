@@ -30661,11 +30661,11 @@ var payment = /* @__PURE__ */ (0, import_jsx_runtime162.jsxs)(import_primitives4
 import { useReportOrders } from "@jetpack-premium-analytics/data";
 var import_react85 = __toESM(require_react(), 1);
 
-// widgets/payment-status/payment-status-widget.module.scss
+// widgets/payment-status/style.module.css
 if (typeof process === "undefined" || true) {
-  registerStyle9("c783abea2a", "._986fe911a833cb30__container{height:100%;margin:0 auto;min-height:0;min-width:120px;width:100%}");
+  registerStyle9("ad4260a575", ".e34cde29c70ddcc8__container{height:100%;margin:0 auto;min-height:0;min-width:120px;width:100%}");
 }
-var payment_status_widget_module_default = { "container": "_986fe911a833cb30__container" };
+var style_default10 = { "container": "e34cde29c70ddcc8__container" };
 
 // widgets/payment-status/payment-status-widget.tsx
 var import_jsx_runtime163 = __toESM(require_jsx_runtime(), 1);
@@ -30700,7 +30700,7 @@ function PaymentStatusWidget() {
     return /* @__PURE__ */ (0, import_jsx_runtime163.jsx)(WidgetLoadingOverlay, {});
   }
   return /* @__PURE__ */ (0, import_jsx_runtime163.jsxs)(import_jsx_runtime163.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime163.jsx)(Stack, { className: payment_status_widget_module_default.container, direction: "column", align: "center", justify: "center", children: /* @__PURE__ */ (0, import_jsx_runtime163.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime163.jsx)(Stack, { className: style_default10.container, direction: "column", align: "center", justify: "center", children: /* @__PURE__ */ (0, import_jsx_runtime163.jsx)(
       DonutChart,
       {
         chartData,

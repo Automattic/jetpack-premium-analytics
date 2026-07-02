@@ -31148,11 +31148,11 @@ function LeaderboardChart2({
 var import_i18n5 = __toESM(require_i18n(), 1);
 var import_react83 = __toESM(require_react(), 1);
 
-// widgets/top-posts/top-posts.module.css
+// widgets/top-posts/style.module.css
 if (typeof process === "undefined" || true) {
-  registerStyle10("b7f84c8b71", ".d71db3a38f2f8504__labelLink{color:inherit;display:block;overflow:hidden;padding-block:var(--wpds-dimension-padding-md,12px);padding-inline-start:var(--wpds-dimension-padding-sm,8px);text-decoration:none;text-overflow:ellipsis;white-space:nowrap}.d71db3a38f2f8504__labelLink:focus,.d71db3a38f2f8504__labelLink:hover{text-decoration:underline}");
+  registerStyle10("2e55442fae", "._5830a35dda69cd75__labelLink{color:inherit;display:block;overflow:hidden;padding-block:var(--wpds-dimension-padding-md,12px);padding-inline-start:var(--wpds-dimension-padding-sm,8px);text-decoration:none;text-overflow:ellipsis;white-space:nowrap}._5830a35dda69cd75__labelLink:focus,._5830a35dda69cd75__labelLink:hover{text-decoration:underline}");
 }
-var top_posts_default = { "labelLink": "d71db3a38f2f8504__labelLink" };
+var style_default11 = { "labelLink": "_5830a35dda69cd75__labelLink" };
 
 // widgets/top-posts/render.tsx
 var import_jsx_runtime156 = __toESM(require_jsx_runtime(), 1);
@@ -31166,7 +31166,7 @@ function buildLeaderboardData(rows, withComparison) {
       label: /* @__PURE__ */ (0, import_jsx_runtime156.jsx)(
         Link,
         {
-          className: top_posts_default.labelLink,
+          className: style_default11.labelLink,
           href: row.href,
           variant: "unstyled",
           openInNewTab: true,

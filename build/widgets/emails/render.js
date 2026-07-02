@@ -30112,11 +30112,11 @@ var import_components3 = __toESM(require_components(), 1);
 var import_element11 = __toESM(require_element(), 1);
 var import_i18n3 = __toESM(require_i18n(), 1);
 
-// widgets/emails/emails.module.css
+// widgets/emails/style.module.css
 if (typeof process === "undefined" || true) {
-  registerStyle9("701ed5dc64", "._7bc05c33f466737d__root{container-type:inline-size;display:flex;flex-direction:column;height:100%;overflow:hidden}._2ea855807e4bbc88__header{flex-wrap:wrap;gap:var(--wpds-dimension-gap-sm,8px);margin-block-end:var(--wpds-dimension-gap-sm,8px)}._1398d7e397f06328__metricSelect{flex:0 1 220px;inline-size:min(100%,220px);max-inline-size:100%;min-inline-size:0}._81659b3160881cd3__leaderboard{min-height:0;min-width:0;overflow:hidden}._7fd648e9fc59a1f3__label{color:inherit;display:block;overflow:hidden;padding-block:var(--wpds-dimension-padding-md,12px);padding-inline-start:var(--wpds-dimension-padding-sm,8px);text-overflow:ellipsis;white-space:nowrap}.cf3984c6a350713f__placeholder{color:var(--wpds-color-fg-content-neutral-weak,#707070)}[inert]:not([inert=true]) ._7bc05c33f466737d__root{aspect-ratio:4/3;height:auto;overflow:hidden}");
+  registerStyle9("7365bc6fd0", ".a89c14a33bc4d09c__root{container-type:inline-size;display:flex;flex-direction:column;height:100%;overflow:hidden}.ce62433224b6a711__header{flex-wrap:wrap;gap:var(--wpds-dimension-gap-sm,8px);margin-block-end:var(--wpds-dimension-gap-sm,8px)}._0cc6fde5076b3e45__metricSelect{flex:0 1 220px;inline-size:min(100%,220px);max-inline-size:100%;min-inline-size:0}._10d76fbd5fa6216f__leaderboard{min-height:0;min-width:0;overflow:hidden}._6422c6bc37c06087__label{color:inherit;display:block;overflow:hidden;padding-block:var(--wpds-dimension-padding-md,12px);padding-inline-start:var(--wpds-dimension-padding-sm,8px);text-overflow:ellipsis;white-space:nowrap}.c6e49e2f15667f34__placeholder{color:var(--wpds-color-fg-content-neutral-weak,#707070)}[inert]:not([inert=true]) .a89c14a33bc4d09c__root{aspect-ratio:4/3;height:auto;overflow:hidden}");
 }
-var emails_default = { "root": "_7bc05c33f466737d__root", "header": "_2ea855807e4bbc88__header", "metricSelect": "_1398d7e397f06328__metricSelect", "leaderboard": "_81659b3160881cd3__leaderboard", "label": "_7fd648e9fc59a1f3__label", "placeholder": "cf3984c6a350713f__placeholder" };
+var style_default10 = { "root": "a89c14a33bc4d09c__root", "header": "ce62433224b6a711__header", "metricSelect": "_0cc6fde5076b3e45__metricSelect", "leaderboard": "_10d76fbd5fa6216f__leaderboard", "label": "_6422c6bc37c06087__label", "placeholder": "c6e49e2f15667f34__placeholder" };
 
 // widgets/emails/render.tsx
 var import_jsx_runtime155 = __toESM(require_jsx_runtime(), 1);
@@ -30127,7 +30127,7 @@ function buildLeaderboardData(rows, metric) {
     const rate = rateOf(row);
     return {
       id: String(row.id),
-      label: /* @__PURE__ */ (0, import_jsx_runtime155.jsx)("span", { className: emails_default.label, title: row.label, children: row.label }),
+      label: /* @__PURE__ */ (0, import_jsx_runtime155.jsx)("span", { className: style_default10.label, title: row.label, children: row.label }),
       // `LeaderboardChart` formats the value as a percentage, so the rate
       // is expressed as a fraction here.
       currentValue: rate / 100,
@@ -30153,14 +30153,14 @@ var EmailsLeaderboard = ({
   const data = (0, import_element11.useMemo)(() => buildLeaderboardData(rows, metric), [rows, metric]);
   let body;
   if (isError) {
-    body = /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(Text, { className: emails_default.placeholder, children: (0, import_i18n3.__)("Unable to load email stats.", "jetpack-premium-analytics") });
+    body = /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(Text, { className: style_default10.placeholder, children: (0, import_i18n3.__)("Unable to load email stats.", "jetpack-premium-analytics") });
   } else if (isLoading && rows.length === 0) {
     body = /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(WidgetLoadingOverlay, {});
   } else {
     body = /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(
       LeaderboardChart2,
       {
-        className: emails_default.leaderboard,
+        className: style_default10.leaderboard,
         data,
         loading: isFetching,
         withComparison: false,
@@ -30177,8 +30177,8 @@ var EmailsLeaderboard = ({
       }
     );
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime155.jsxs)(Stack, { className: emails_default.root, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(Stack, { direction: "row", justify: "flex-end", align: "center", className: emails_default.header, children: /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime155.jsxs)(Stack, { className: style_default10.root, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(Stack, { direction: "row", justify: "flex-end", align: "center", className: style_default10.header, children: /* @__PURE__ */ (0, import_jsx_runtime155.jsx)(
       import_components3.SelectControl,
       {
         __next40pxDefaultSize: true,
@@ -30191,7 +30191,7 @@ var EmailsLeaderboard = ({
           { label: (0, import_i18n3.__)("Click rate", "jetpack-premium-analytics"), value: "clicks" }
         ],
         onChange: handleMetricChange,
-        className: emails_default.metricSelect
+        className: style_default10.metricSelect
       }
     ) }),
     body
