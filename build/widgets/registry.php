@@ -36,6 +36,13 @@ return array(
 		'presentation' => 'framed',
 	),
 	array(
+		'name'         => 'jpa/file-downloads',
+		'dir_name'     => 'file-downloads',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => 'full-bleed',
+	),
+	array(
 		'name'         => 'jpa/hello-world',
 		'dir_name'     => 'hello-world',
 		'has_render'   => true,
