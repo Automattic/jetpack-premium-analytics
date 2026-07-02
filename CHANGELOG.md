@@ -80,6 +80,7 @@ This is an alpha version! The changes listed here are not final.
 - Subscribers: Add the Subscribers chart widget — subscriber growth over time with paid subscribers and a previous-period overlay, grouped by day/week/month.
 - Sync: Track the analytics-relevant initial full-sync milestone and expose it to the dashboard via JetpackScriptData.
 - Widgets: Add sales by UTM channel widget.
+- Widgets: Add total returns widget.
 - Widgets: Add visitors over time widget.
 - Widgets Toolkit: add the reusable MetricTabsChart component (metric cards + comparative line chart with previous-period overlay), shared by the subscribers and traffic charts.
 

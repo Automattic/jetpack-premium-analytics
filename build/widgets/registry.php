@@ -99,6 +99,13 @@ return array(
 		'presentation' => 'framed',
 	),
 	array(
+		'name'         => 'jpa/total-returns',
+		'dir_name'     => 'total-returns',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/utm-insights',
 		'dir_name'     => 'utm-insights',
 		'has_render'   => true,

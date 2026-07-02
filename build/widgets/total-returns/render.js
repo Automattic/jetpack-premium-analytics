@@ -30733,39 +30733,52 @@ function formatLegendLabels(reportParams) {
   };
 }
 
-// packages/widgets-toolkit/src/helpers/product-type-filters.ts
-var BOOKINGS_FILTER = {
-  key: "product_type",
-  value: ["booking", "bookable-event", "bookable-service"],
-  compare: "IN"
-};
-
-// packages/widgets-toolkit/src/helpers/build-sales-by-device-data.ts
+// packages/widgets-toolkit/src/helpers/build-total-returns-data.ts
 var import_i18n3 = __toESM(require_i18n(), 1);
-function buildSalesByDeviceData(orderAttribution, hasComparison, reportParams) {
-  if (!orderAttribution?.data || orderAttribution.data.length === 0) {
+function buildTotalReturnsData(orders, comparisonOrders, reportParams) {
+  if (!orders?.data || !orders?.summary) {
+    return {
+      chartData: []
+    };
+  }
+  const refundsAmount = orders.summary.refunds ?? 0;
+  const comparisonRefundsAmount = comparisonOrders?.summary?.refunds ?? 0;
+  if (refundsAmount === 0 && comparisonRefundsAmount === 0) {
     return {
       chartData: []
     };
   }
   const { primary: primaryLabel, comparison: comparisonLabel } = formatLegendLabels(reportParams);
-  const { data } = orderAttribution;
+  const totalSales = orders.summary.total_sales ?? 0;
+  const salesAmount = Math.max(0, totalSales - refundsAmount);
   const chartData = [
     {
       label: primaryLabel,
-      data: data.map((item) => ({
-        label: item.item || (0, import_i18n3.__)("Unassigned", "jetpack-premium-analytics"),
-        value: item.current_period?.value ?? 0
-      }))
+      data: [
+        { label: "Total sales", value: salesAmount },
+        {
+          label: (0, import_i18n3.__)("Refunds", "jetpack-premium-analytics"),
+          value: refundsAmount
+        }
+      ]
     }
   ];
-  if (hasComparison) {
+  if (comparisonOrders?.summary) {
+    const comparisonTotalRefunds = comparisonOrders.summary.refunds || 0;
+    const comparisonTotalSales = comparisonOrders.summary.total_sales || 0;
+    const comparisonSalesAmount = Math.max(0, comparisonTotalSales - comparisonTotalRefunds);
     chartData.push({
       label: comparisonLabel,
-      data: data.map((item) => ({
-        label: item.item || (0, import_i18n3.__)("Unassigned", "jetpack-premium-analytics"),
-        value: item.previous_period?.value ?? 0
-      }))
+      data: [
+        {
+          label: (0, import_i18n3.__)("Total sales", "jetpack-premium-analytics"),
+          value: comparisonSalesAmount
+        },
+        {
+          label: (0, import_i18n3.__)("Refunds", "jetpack-premium-analytics"),
+          value: comparisonTotalRefunds
+        }
+      ]
     });
   }
   return {
@@ -31268,81 +31281,52 @@ function useBarStyles(chartData) {
   );
 }
 
-// packages/icons/src/device/index.tsx
+// packages/icons/src/payment-return/index.tsx
 var import_primitives4 = __toESM(require_primitives(), 1);
 var import_jsx_runtime158 = __toESM(require_jsx_runtime(), 1);
-var device = /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)(import_primitives4.SVG, { width: "48", height: "48", viewBox: "0 0 48 48", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [
+var paymentReturn = /* @__PURE__ */ (0, import_jsx_runtime158.jsxs)(import_primitives4.SVG, { width: "48", height: "48", viewBox: "0 0 48 48", xmlns: "http://www.w3.org/2000/svg", children: [
   /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
     import_primitives4.Path,
     {
-      d: "M14.0039 47.9999H42.026V44.0449H14.0039V47.9999Z",
-      fill: "var(--wpds-color-bg-track-neutral-weak, #E0E0E0)"
-    }
-  ),
-  /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
-    import_primitives4.Path,
-    {
-      d: "M43.5519 12.125H12.4763C10.0188 12.125 8.02832 14.1136 8.02832 16.5688V34.073H47.9998V16.5688C47.9998 14.1136 46.0094 12.125 43.5519 12.125Z",
+      d: "M38.8891 30.1885V17.8108C38.8891 15.3441 37.4891 13.9663 35.0224 13.9663H12.978C10.5113 13.9663 9.11133 15.3441 9.11133 17.8108V30.1885C9.11133 32.6552 10.5113 34.033 12.978 34.033H35.0224C37.4891 34.033 38.8891 32.6552 38.8891 30.1885Z",
       fill: "var(--wpds-color-bg-surface-neutral-weak, #F0F0F0)"
     }
   ),
   /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
     import_primitives4.Path,
     {
-      d: "M42.026 36.1348H14.0039V40.0898H42.026V36.1348Z",
-      fill: "var(--wpds-color-stroke-surface-brand, #D1C1FF)"
+      d: "M38.8891 17.9883H9.11133V21.9438H38.8891V17.9883Z",
+      fill: "var(--wpds-color-stroke-surface-neutral-weak, #E0E0E0)"
     }
   ),
   /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
     import_primitives4.Path,
     {
-      d: "M8.02832 34.0728V35.6459C8.02832 38.1011 10.0188 40.0897 12.4763 40.0897H43.5519C46.0094 40.0897 47.9998 38.1011 47.9998 35.6459V34.0728H8.02832Z",
-      fill: "var(--wpds-color-bg-surface-neutral-weak, #F0F0F0)"
+      d: "M26.7778 40.5333L16.6 33.0667V37.5556H15.4889C10.2444 37.5556 5.97778 33.2889 5.97778 28.0444V26V26.9333C5.97778 24.4889 5.88889 22 2.75556 22H0V27.9444C0 36.5778 6.95555 43.5333 15.4889 43.5333H16.6V48L26.7778 40.5333Z",
+      fill: "var(--wpds-color-stroke-surface-neutral-weak, #E0E0E0)"
     }
   ),
   /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
     import_primitives4.Path,
     {
-      d: "M35.304 40.0898H21.293V44.0448H35.304V40.0898Z",
-      fill: "var(--wpds-color-bg-track-neutral-weak, #E0E0E0)"
-    }
-  ),
-  /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
-    import_primitives4.Path,
-    {
-      d: "M12.1807 0H3.87639C1.40111 0 0 1.37981 0 3.8439V25.9008C0 28.3627 1.40333 29.7447 3.87862 29.7447H12.1807C14.656 29.7447 16.0571 28.3627 16.0571 25.9008V3.8439C16.0571 1.38203 14.6538 0 12.1785 0H12.1807Z",
-      fill: "var(--wpds-color-bg-track-neutral-weak, #E0E0E0)"
-    }
-  ),
-  /* @__PURE__ */ (0, import_jsx_runtime158.jsx)(
-    import_primitives4.Path,
-    {
-      d: "M11.5647 1.98438H4.49023V3.98187H11.5647V1.98438Z",
-      fill: "var(--wpds-color-bg-surface-neutral-weak, #F0F0F0)"
+      d: "M21.2227 7.46667L31.4004 14.9333V10.4444H32.5115C37.756 10.4444 42.0227 14.7111 42.0227 19.9556V22V21.0667C42.0227 23.5111 42.1115 26 45.2449 26H48.0004V20.0556C48.0004 11.4222 41.0449 4.46667 32.5115 4.46667H31.4004V0L21.2227 7.46667Z",
+      fill: "var(--wpds-color-stroke-surface-neutral-weak, #E0E0E0)"
     }
   )
 ] });
 
-// packages/widgets-toolkit/src/widgets/sales-by-device/sales-by-device-widget.tsx
-import { useReportOrderAttribution } from "@jetpack-premium-analytics/data";
+// packages/widgets-toolkit/src/widgets/total-returns/total-returns-widget.tsx
+import { useReportOrders } from "@jetpack-premium-analytics/data";
 var import_react85 = __toESM(require_react(), 1);
 var import_jsx_runtime159 = __toESM(require_jsx_runtime(), 1);
-function SalesByDeviceWidget({ filter }) {
+function TotalReturnsWidget() {
   const { reportParams } = useWidgetRootContext();
-  const paramsWithView = (0, import_react85.useMemo)(
-    () => ({
-      ...reportParams,
-      view: "device",
-      ...filter && { filters: [filter] }
-    }),
-    [reportParams, filter]
-  );
-  const { primary, hasComparison, isLoading, isFetching, hasData, isError, error, refetch } = useReportOrderAttribution(paramsWithView);
+  const { primary, comparison, isLoading, isFetching, hasData, isError, error, refetch } = useReportOrders(reportParams);
   const isInitialLoading = isLoading && !hasData;
   const isRefetching = isFetching && hasData;
   const { chartData } = (0, import_react85.useMemo)(
-    () => buildSalesByDeviceData(primary.data, hasComparison, reportParams),
-    [primary.data, hasComparison, reportParams]
+    () => buildTotalReturnsData(primary.data, comparison.data, reportParams),
+    [primary.data, comparison.data, reportParams]
   );
   const barStyles = useBarStyles(chartData);
   const hasError = useWidgetError(isError, error, refetch);
@@ -31362,26 +31346,23 @@ function SalesByDeviceWidget({ filter }) {
           type: "currency",
           options: { useMultipliers: true, decimals: 0 }
         },
-        emptyStateIcon: device
+        emptyStateIcon: paymentReturn
       }
     ),
     isRefetching && /* @__PURE__ */ (0, import_jsx_runtime159.jsx)(WidgetLoadingOverlay, {})
   ] });
 }
 
-// widgets/bookings-by-device/render.tsx
+// widgets/total-returns/render.tsx
 var import_jsx_runtime160 = __toESM(require_jsx_runtime(), 1);
-function BookingsByDeviceWidget() {
-  return /* @__PURE__ */ (0, import_jsx_runtime160.jsx)(SalesByDeviceWidget, { filter: BOOKINGS_FILTER });
-}
-function BookingsByDeviceRender({
+function TotalReturnsRender({
   attributes = {},
   setError
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime160.jsx)(WidgetRoot, { attributes, setError, options: { from: "/" }, children: /* @__PURE__ */ (0, import_jsx_runtime160.jsx)(BookingsByDeviceWidget, {}) });
+  return /* @__PURE__ */ (0, import_jsx_runtime160.jsx)(WidgetRoot, { attributes, setError, options: { from: "/" }, children: /* @__PURE__ */ (0, import_jsx_runtime160.jsx)(TotalReturnsWidget, {}) });
 }
 export {
-  BookingsByDeviceRender as default
+  TotalReturnsRender as default
 };
 /*!
 * is-plain-object <https://github.com/jonschlinkert/is-plain-object>
