@@ -155,6 +155,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/sales-by-utm-source',
+		'dir_name'     => 'sales-by-utm-source',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/search-terms',
 		'dir_name'     => 'search-terms',
 		'has_render'   => true,

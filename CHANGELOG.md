@@ -94,6 +94,7 @@ This is an alpha version! The changes listed here are not final.
 - Widgets: Add sales by coupon widget.
 - Widgets: Add sales by device widget.
 - Widgets: Add sales by UTM channel widget.
+- Widgets: Add sales by UTM source widget.
 - Widgets: Add total returns widget.
 - Widgets: Add total sales over time widget.
 - Widgets: Add visitors over time widget.
