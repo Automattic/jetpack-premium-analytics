@@ -99,6 +99,13 @@ return array(
 		'presentation' => 'framed',
 	),
 	array(
+		'name'         => 'jpa/utm-insights',
+		'dir_name'     => 'utm-insights',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => 'full-bleed',
+	),
+	array(
 		'name'         => 'jpa/videos',
 		'dir_name'     => 'videos',
 		'has_render'   => true,
