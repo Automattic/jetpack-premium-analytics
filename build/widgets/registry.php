@@ -64,6 +64,13 @@ return array(
 		'presentation' => 'full-bleed',
 	),
 	array(
+		'name'         => 'jpa/orders-over-time',
+		'dir_name'     => 'orders-over-time',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/payment-status',
 		'dir_name'     => 'payment-status',
 		'has_render'   => true,
