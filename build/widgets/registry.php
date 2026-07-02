@@ -99,6 +99,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/new-vs-returning-customer',
+		'dir_name'     => 'new-vs-returning-customer',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/orders-over-time',
 		'dir_name'     => 'orders-over-time',
 		'has_render'   => true,
