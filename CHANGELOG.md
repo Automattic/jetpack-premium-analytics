@@ -81,6 +81,7 @@ This is an alpha version! The changes listed here are not final.
 - Storybook: Add a prop-driven Top posts & pages widget story under Packages/Premium Analytics/Widgets.
 - Subscribers: Add the Subscribers chart widget — subscriber growth over time with paid subscribers and a previous-period overlay, grouped by day/week/month.
 - Sync: Track the analytics-relevant initial full-sync milestone and expose it to the dashboard via JetpackScriptData.
+- Widgets: Add sales by coupon widget.
 - Widgets: Add sales by UTM channel widget.
 - Widgets: Add total returns widget.
 - Widgets: Add visitors over time widget.
