@@ -225,6 +225,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/top-performing-products',
+		'dir_name'     => 'top-performing-products',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/stats-top-posts',
 		'dir_name'     => 'top-posts',
 		'has_render'   => true,
