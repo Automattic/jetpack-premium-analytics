@@ -91,6 +91,7 @@ This is an alpha version! The changes listed here are not final.
 - Widgets: Add gross sales over time widget.
 - Widgets: Add net sales over time widget.
 - Widgets: Add new vs returning customer widget.
+- Widgets: Add orders fulfillment widget.
 - Widgets: Add orders over time widget.
 - Widgets: Add sales by coupon usage widget.
 - Widgets: Add sales by coupon widget.

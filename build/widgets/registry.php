@@ -120,6 +120,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/orders-fulfillment',
+		'dir_name'     => 'orders-fulfillment',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/orders-over-time',
 		'dir_name'     => 'orders-over-time',
 		'has_render'   => true,
