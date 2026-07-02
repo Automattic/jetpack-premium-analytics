@@ -43,6 +43,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/bookings-over-time',
+		'dir_name'     => 'bookings-over-time',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/bookings-revenue-by-customer-type',
 		'dir_name'     => 'bookings-revenue-by-customer-type',
 		'has_render'   => true,
