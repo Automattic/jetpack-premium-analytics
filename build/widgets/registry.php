@@ -22,6 +22,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/average-order-value',
+		'dir_name'     => 'average-order-value',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/bookings-by-device',
 		'dir_name'     => 'bookings-by-device',
 		'has_render'   => true,
