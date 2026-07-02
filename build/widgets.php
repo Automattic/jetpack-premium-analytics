@@ -24,7 +24,7 @@ function jpa_register_widget_modules() {
 	}
 
 	$build_constants = require __DIR__ . '/constants.php';
-	$extension       = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.js' : '.min.js';
+	$extension       = '.min.js';
 
 	foreach ( $widgets as $widget ) {
 		$widget_name = $widget['dir_name'];
