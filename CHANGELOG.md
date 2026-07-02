@@ -119,6 +119,7 @@ This is an alpha version! The changes listed here are not final.
 - Update Stats widget porting guidelines for Storybook, comparison states, and drill-down behavior.
 - Update widget conventions and Stats porting documentation.
 - Widgets: align the woocommerce-analytics-ported widgets with the shared widget render-props contract.
+- Widgets: Improve semi-circle chart sizing and metric display options.
 - Widgets: normalize CSS-module file naming, convert the lone SCSS to CSS, and align hello-world imports and dependencies.
 
 ### Fixed
