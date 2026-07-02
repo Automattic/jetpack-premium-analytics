@@ -148,6 +148,13 @@ return array(
 		'presentation' => 'full-bleed',
 	),
 	array(
+		'name'         => 'jpa/revenue-by-customer-type',
+		'dir_name'     => 'revenue-by-customer-type',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/sales-by-coupon',
 		'dir_name'     => 'sales-by-coupon',
 		'has_render'   => true,
