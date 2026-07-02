@@ -71,6 +71,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/search-terms',
+		'dir_name'     => 'search-terms',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => 'full-bleed',
+	),
+	array(
 		'name'         => 'jpa/subscribers-chart',
 		'dir_name'     => 'subscribers-chart',
 		'has_render'   => true,
