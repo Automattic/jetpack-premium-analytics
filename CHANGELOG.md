@@ -39,6 +39,7 @@ This is an alpha version! The changes listed here are not final.
 - Port the Average items per order dashboard widget from next-woocommerce-analytics, composed from the widgets-toolkit and data packages.
 - Port the Bookings by device dashboard widget from next-woocommerce-analytics, composed from the widgets-toolkit and data packages.
 - Port the Bookings by status dashboard widget from next-woocommerce-analytics, composed from the widgets-toolkit and data packages.
+- Port the Bookings revenue by customer type dashboard widget from next-woocommerce-analytics, composed from the widgets-toolkit and data packages.
 - Port the components package (date range/comparison filter UI components and SCSS) from next-woocommerce-analytics as the internal `ui` package.
 - Port the widgets-toolkit package (dashboard widgets, chart components, fields, and helpers) from next-woocommerce-analytics as an internal package.
 - Premium Analytics: add jpa/search-terms widget backed by Jetpack Stats.

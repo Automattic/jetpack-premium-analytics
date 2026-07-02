@@ -36,6 +36,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/bookings-revenue-by-customer-type',
+		'dir_name'     => 'bookings-revenue-by-customer-type',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/clicks',
 		'dir_name'     => 'clicks',
 		'has_render'   => true,
