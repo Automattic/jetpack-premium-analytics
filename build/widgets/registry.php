@@ -29,6 +29,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/clicks',
+		'dir_name'     => 'clicks',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => 'full-bleed',
+	),
+	array(
 		'name'         => 'jpa/stats-emails',
 		'dir_name'     => 'emails',
 		'has_render'   => true,

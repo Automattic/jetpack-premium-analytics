@@ -55,6 +55,7 @@ This is an alpha version! The changes listed here are not final.
 - Stats: Add app purchases hook.
 - Stats: Add app referrers spam hooks.
 - Stats: Add archives report hook.
+- Stats: Add Clicks widget to Premium Analytics.
 - Stats: Add comment followers report hook.
 - Stats: Add comments report hook.
 - Stats: Add core proxy query definitions.
