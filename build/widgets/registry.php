@@ -148,6 +148,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/total-sales-over-time',
+		'dir_name'     => 'total-sales-over-time',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/traffic-chart',
 		'dir_name'     => 'traffic-chart',
 		'has_render'   => true,
