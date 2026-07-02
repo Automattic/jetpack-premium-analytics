@@ -86,6 +86,7 @@ This is an alpha version! The changes listed here are not final.
 - Traffic: Add the Traffic chart widget — views, visitors, likes, and comments over the selected period as metric tabs over a comparative line chart, driven by the dashboard date range and comparison controls. An in-body "Group by" dropdown chooses the bucket granularity (day/week/month) within that range, defaulting to the range's interval.
 - Widgets: Add coupon usage over time widget.
 - Widgets: Add gross sales over time widget.
+- Widgets: Add net sales over time widget.
 - Widgets: Add orders over time widget.
 - Widgets: Add sales by coupon usage widget.
 - Widgets: Add sales by coupon widget.

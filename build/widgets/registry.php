@@ -85,6 +85,13 @@ return array(
 		'presentation' => 'full-bleed',
 	),
 	array(
+		'name'         => 'jpa/net-sales-over-time',
+		'dir_name'     => 'net-sales-over-time',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/orders-over-time',
 		'dir_name'     => 'orders-over-time',
 		'has_render'   => true,
