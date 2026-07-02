@@ -71,6 +71,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/devices',
+		'dir_name'     => 'devices',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => 'full-bleed',
+	),
+	array(
 		'name'         => 'jpa/stats-emails',
 		'dir_name'     => 'emails',
 		'has_render'   => true,
@@ -230,6 +237,13 @@ return array(
 		'has_render'   => true,
 		'has_widget'   => true,
 		'presentation' => null,
+	),
+	array(
+		'name'         => 'jpa/top-platforms',
+		'dir_name'     => 'top-platforms',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => 'full-bleed',
 	),
 	array(
 		'name'         => 'jpa/stats-top-posts',
