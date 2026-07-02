@@ -218,6 +218,13 @@ return array(
 		'presentation' => 'framed',
 	),
 	array(
+		'name'         => 'jpa/top-performing-bookings',
+		'dir_name'     => 'top-performing-bookings',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/stats-top-posts',
 		'dir_name'     => 'top-posts',
 		'has_render'   => true,
