@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Added
 - Add /connect and /syncing routes with connection-aware route guards: /connect detects the connection state and shows a "site not connected" screen, and /syncing shows initial-sync progress. Emit window.JetpackScriptData on the boot-rendered admin page so the connection data the guards read is available.
+- Add an All-time stats widget to the Analytics dashboard, showing your site's lifetime views, visitors, posts, and comments.
 - Add an Authors dashboard widget showing top authors by views via the Jetpack Stats API (through the stats-admin proxy), with a common stats query in the data package.
 - Add a Top posts & pages stats widget, wiring the ported presentational widget to live Jetpack Stats data via the designated useStatsTopPosts traffic hook.
 - Add a tsconfig paths alias and typecheck script so internal packages/* resolve for types/IDE.

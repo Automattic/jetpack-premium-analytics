@@ -8,6 +8,13 @@
 
 return array(
 	array(
+		'name'         => 'jpa/all-time-stats',
+		'dir_name'     => 'all-time-stats',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => 'framed',
+	),
+	array(
 		'name'         => 'jpa/authors',
 		'dir_name'     => 'authors',
 		'has_render'   => true,
