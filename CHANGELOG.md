@@ -23,6 +23,7 @@ This is an alpha version! The changes listed here are not final.
 - Add the internal fields package: DataForm field controls for widgets, delivered as a script module so styled editors stay out of widget metadata bundles. Includes the ReportParamsField date-range editor.
 - Add the Latest Subscribers Stats widget, plus a reusable SubscriberList toolkit component (avatar + name + relative "since" time roster).
 - Add the Locations widget to the Premium Analytics dashboard: world map + leaderboard showing visitors by country, region, or city, with click-to-drill-down into country regions.
+- Add the Most popular day widget to the Premium Analytics dashboard: the single day your site drew the most views, with that day's view count and its share of all views, ported from the Jetpack Stats all-time highlight.
 - Add the Payment status dashboard widget.
 - Add UTM Insights widget: traffic breakdown by UTM parameter (source/medium, campaign, source, medium, campaign) as a ranked leaderboard with a per-instance dimension selector.
 - Add watch mode for local development.
@@ -47,6 +48,8 @@ This is an alpha version! The changes listed here are not final.
 - Port the components package (date range/comparison filter UI components and SCSS) from next-woocommerce-analytics as the internal `ui` package.
 - Port the widgets-toolkit package (dashboard widgets, chart components, fields, and helpers) from next-woocommerce-analytics as an internal package.
 - Premium Analytics: add jpa/search-terms widget backed by Jetpack Stats.
+- Premium Analytics: add Posting activity widget — a calendar heatmap of posts published per day.
+- Premium Analytics: add the Annual highlights widget — a per-year review of posts, words, likes, and comments, with arrows to switch years and per-metric visibility settings.
 - Premium Analytics: add the Most popular time widget showing the peak day and hour for views and each one's share of the total.
 - Premium Analytics: add the single post/page detail traffic view, with its own route, header, tabs, and customizable per-tab widget grids.
 - Premium Analytics: type the Stats post payload (StatsPostMeta) and add single-resource post_id support to report params.
@@ -90,6 +93,7 @@ This is an alpha version! The changes listed here are not final.
 - Subscribers: Add the Subscribers chart widget — subscriber growth over time with paid subscribers and a previous-period overlay, grouped by day/week/month.
 - Sync: Track the analytics-relevant initial full-sync milestone and expose it to the dashboard via JetpackScriptData.
 - Traffic: Add the Traffic chart widget — views, visitors, likes, and comments over the selected period as metric tabs over a comparative line chart, driven by the dashboard date range and comparison controls. An in-body "Group by" dropdown chooses the bucket granularity (day/week/month) within that range, defaulting to the range's interval.
+- Widgets: Add conversion rate widget.
 - Widgets: Add coupon usage over time widget.
 - Widgets: Add gross sales over time widget.
 - Widgets: Add net sales over time widget.
@@ -103,10 +107,13 @@ This is an alpha version! The changes listed here are not final.
 - Widgets: Add sales by UTM campaign widget.
 - Widgets: Add sales by UTM channel widget.
 - Widgets: Add sales by UTM source widget.
+- Widgets: Add sessions by device widget.
+- Widgets: Add store conversion rate bookings widget.
 - Widgets: Add top performing bookings widget.
 - Widgets: Add top performing products widget.
 - Widgets: Add total returns widget.
 - Widgets: Add total sales over time widget.
+- Widgets: Add visitors by location widget.
 - Widgets: Add visitors over time widget.
 - Widgets Toolkit: add the reusable MetricTabsChart component (metric cards + comparative line chart with previous-period overlay), shared by the subscribers and traffic charts.
 
@@ -145,6 +152,7 @@ This is an alpha version! The changes listed here are not final.
 - Drop the unsupported `focusable` prop on `@wordpress/ui` `Tabs.Panel` (not a valid prop; was a no-op). Aligns with the `@wordpress/ui` 0.15 API. Panels already gate their content on the active section.
 - Email stats: match the real WordPress.com API shapes — opens/clicks timelines carry a labeled hourly `hour` column and no `unique_opens_count`, the emails summary always requests `period=alltime`, and the summary leaderboard ranks by opens.
 - Emails widget: Align the header with other dashboard widgets.
+- Emails widget: Move the metric selector onto the header row, next to the title.
 - Fix a missing script data asset in packaged Premium Analytics builds.
 - Fix dashboard widgets rendering "Widget is no longer available" by loading the widget manifest on REST requests, not just admin page loads.
 - Fix TypeScript error in five zero-attribute widget stories (Record<never, never> instead of Record<string, never>).
@@ -153,6 +161,8 @@ This is an alpha version! The changes listed here are not final.
 - Metric tabs chart: hide the tab-list selection underline so it doesn't render alongside the selected metric card's fill. A @wordpress/ui update moved the minimal Tabs indicator from a per-tab element to a tab-list-level one, leaving a stray underline under the selected tab in the Subscribers and Traffic chart widgets.
 - Metric tabs chart: on a narrow tile the metric cards squeezed into one cramped row. Stack the header and lay the cards out in an even two-column grid below a 420px container width, so the four-metric Traffic chart reflows to a balanced 2 x 2 instead of a crammed single row.
 - Pin @wordpress/widget-dashboard and @wordpress/widget-primitives to an exact version instead of the floating next tag
+- Register Premium Analytics as a connected plugin and sync its version constant so WPCom provisions the WooCommerce Analytics custom tables for PA-only stores.
+- Routing: Disable view transitions for URL-only dashboard updates.
 - Scope wp-build polyfill registration to the dashboard pages so it no longer force-replaces core script handles (wp-private-apis) on every admin page
 - Show every widget in the "Add widget" gallery. The dashboard fetched widget types with core-data's default query, which caps results at 10 per page, so any widget registered past the tenth was silently hidden. Fetch the full set with per_page: -1.
 - Stats: Align traffic normalizer row metadata with legacy Stats behavior.
