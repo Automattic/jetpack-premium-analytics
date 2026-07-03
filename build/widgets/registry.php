@@ -120,6 +120,13 @@ return array(
 		'presentation' => 'full-bleed',
 	),
 	array(
+		'name'         => 'jpa/most-popular-time',
+		'dir_name'     => 'most-popular-time',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => 'framed',
+	),
+	array(
 		'name'         => 'jpa/net-sales-over-time',
 		'dir_name'     => 'net-sales-over-time',
 		'has_render'   => true,
