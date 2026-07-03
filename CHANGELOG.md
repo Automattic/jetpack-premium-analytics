@@ -149,6 +149,7 @@ This is an alpha version! The changes listed here are not final.
 - Dashboard: Fix global error handling for widgets.
 - Dashboard: fix widget grid flicker when resizing a widget vertically by letting the section panel fill the viewport height and scroll internally, so it no longer oscillates with the grid.
 - Dashboard: Load WordPress build polyfills so the dashboard can run without the Gutenberg plugin.
+- Date range picker: make the first calendar click start a new range instead of moving the nearest endpoint
 - Drop the unsupported `focusable` prop on `@wordpress/ui` `Tabs.Panel` (not a valid prop; was a no-op). Aligns with the `@wordpress/ui` 0.15 API. Panels already gate their content on the active section.
 - Email stats: match the real WordPress.com API shapes — opens/clicks timelines carry a labeled hourly `hour` column and no `unique_opens_count`, the emails summary always requests `period=alltime`, and the summary leaderboard ranks by opens.
 - Emails widget: Align the header with other dashboard widgets.
