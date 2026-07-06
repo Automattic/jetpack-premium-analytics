@@ -1,0 +1,1 @@
+<?php return array('dependencies' => array('react-jsx-runtime', 'wp-components', 'wp-element', 'wp-i18n'), 'module_dependencies' => array(array('id' => '@jetpack-premium-analytics/data', 'import' => 'static'), array('id' => '@jetpack-premium-analytics/widgets-toolkit', 'import' => 'static')), 'version' => '32845129eb7f9a99250f');

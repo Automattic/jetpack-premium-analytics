@@ -1,0 +1,1 @@
+<?php return array('dependencies' => array('react-jsx-runtime'), 'module_dependencies' => array(array('id' => '@jetpack-premium-analytics/widgets-toolkit', 'import' => 'static')), 'version' => '45f1dda8e43e610b7279');
