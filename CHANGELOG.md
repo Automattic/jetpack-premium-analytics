@@ -28,6 +28,7 @@ This is an alpha version! The changes listed here are not final.
 - Add the Payment status dashboard widget.
 - Add UTM Insights widget: traffic breakdown by UTM parameter (source/medium, campaign, source, medium, campaign) as a ranked leaderboard with a per-instance dimension selector.
 - Add watch mode for local development.
+- Authors widget: label rows with the author name and avatar, and let a row click drill down into that author's posts with comparison deltas and a back link to all authors.
 - Dashboard: add a React Query Devtools widget (non-production only), and expose two server-side widget-type filters (at registration and on read) so consumers can scope which widget types reach the dashboard.
 - Dashboard: Add the date range picker with comparison support, syncing the selected range to URL search params so all widgets pick it up.
 - Data: Add Jetpack Stats proxy fetch utilities.
