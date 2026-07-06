@@ -21,6 +21,7 @@ This is an alpha version! The changes listed here are not final.
 - Add site-sync package (useSyncStatus hook) and configure apiFetch auth in init.
 - Add the Emails widget to the Premium Analytics dashboard: a leaderboard of your latest sent emails with a selector to switch between open rate and click rate.
 - Add the internal fields package: DataForm field controls for widgets, delivered as a script module so styled editors stay out of widget metadata bundles. Includes the ReportParamsField date-range editor.
+- Add the Latest post widget to the Premium Analytics dashboard: the site's most recent published post with its featured image and its all-time views, likes, and comments.
 - Add the Latest Subscribers Stats widget, plus a reusable SubscriberList toolkit component (avatar + name + relative "since" time roster).
 - Add the Locations widget to the Premium Analytics dashboard: world map + leaderboard showing visitors by country, region, or city, with click-to-drill-down into country regions.
 - Add the Most popular day widget to the Premium Analytics dashboard: the single day your site drew the most views, with that day's view count and its share of all views, ported from the Jetpack Stats all-time highlight.
@@ -131,6 +132,7 @@ This is an alpha version! The changes listed here are not final.
 - Internal: No longer require automattic/jetpack-changelogger as a per-project dev dependency.
 - Locations: Align widget Storybook and comparison states with dashboard guidelines.
 - Locations widget: Use the updated view selector size.
+- Read the Latest post widget's content locally from core so it resolves on private sites, source its views/likes/comments from the Stats post endpoint, and redesign the card with the post's featured image and token-based typography.
 - Render the Premium Analytics admin page inside the native wp-admin shell (sidebar and header) instead of taking over the full screen.
 - Stats: Email time series hooks now return comparison-aware report results and resolve hourly buckets into distinct per-hour intervals.
 - Stats widgets: Use widget headers and move drill-down back links into widget content.
