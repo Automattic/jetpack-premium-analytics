@@ -1,7 +1,0 @@
-{
-	"name": "jpa/latest-post",
-	"title": "Latest post",
-	"description": "Your most recently published post with its views, likes, and comments.",
-	"category": "stats",
-	"presentation": "framed"
-}

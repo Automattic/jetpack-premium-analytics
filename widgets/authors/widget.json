@@ -1,7 +1,0 @@
-{
-	"name": "jpa/authors",
-	"title": "Authors",
-	"description": "Top authors by views, with their most viewed posts.",
-	"category": "stats",
-	"presentation": "framed"
-}
