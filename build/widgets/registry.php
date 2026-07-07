@@ -274,6 +274,13 @@ return array(
 		'presentation' => null,
 	),
 	array(
+		'name'         => 'jpa/store-performance',
+		'dir_name'     => 'store-performance',
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => null,
+	),
+	array(
 		'name'         => 'jpa/subscribers-chart',
 		'dir_name'     => 'subscribers-chart',
 		'has_render'   => true,

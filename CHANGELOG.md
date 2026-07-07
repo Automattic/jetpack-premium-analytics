@@ -111,6 +111,7 @@ This is an alpha version! The changes listed here are not final.
 - Widgets: Add sales by UTM source widget.
 - Widgets: Add sessions by device widget.
 - Widgets: Add store conversion rate bookings widget.
+- Widgets: Add the Store performance widget; metric tabs collapse into a dropdown on narrow tiles and the chart degrades to a sparkline on short tiles.
 - Widgets: Add top performing bookings widget.
 - Widgets: Add top performing products widget.
 - Widgets: Add total returns widget.
@@ -118,6 +119,7 @@ This is an alpha version! The changes listed here are not final.
 - Widgets: Add visitors by location widget.
 - Widgets: Add visitors over time widget.
 - Widgets Toolkit: add the reusable MetricTabsChart component (metric cards + comparative line chart with previous-period overlay), shared by the subscribers and traffic charts.
+- Wire up the WooCommerce Analytics front-end tracker with ClickHouse and proxy tracking enabled.
 
 ### Changed
 - Allow consumers to configure the admin menu title via init options.
@@ -133,6 +135,7 @@ This is an alpha version! The changes listed here are not final.
 - Internal: No longer require automattic/jetpack-changelogger as a per-project dev dependency.
 - Locations: Align widget Storybook and comparison states with dashboard guidelines.
 - Locations widget: Use the updated view selector size.
+- Move the Premium Analytics admin menu to the top position, directly under Dashboard, and remove the Jetpack Stats menu (when present) so Premium Analytics replaces it.
 - Read the Latest post widget's content locally from core so it resolves on private sites, source its views/likes/comments from the Stats post endpoint, and redesign the card with the post's featured image and token-based typography.
 - Render the Premium Analytics admin page inside the native wp-admin shell (sidebar and header) instead of taking over the full screen.
 - Stats: Email time series hooks now return comparison-aware report results and resolve hourly buckets into distinct per-hour intervals.
@@ -143,6 +146,7 @@ This is an alpha version! The changes listed here are not final.
 - Update package dependencies.
 - Update Stats widget porting guidelines for Storybook, comparison states, and drill-down behavior.
 - Update widget conventions and Stats porting documentation.
+- Update WPDS design tokens to the @wordpress/theme 0.16/0.17 names (see https://github.com/WordPress/gutenberg/blob/trunk/packages/theme/CHANGELOG.md#0160-2026-06-24 ).
 - Widgets: align the woocommerce-analytics-ported widgets with the shared widget render-props contract.
 - Widgets: Hoist buildSalesByUtmData into the widgets-toolkit so the UTM channel and campaign widgets share one copy.
 - Widgets: Improve semi-circle chart sizing and metric display options.
