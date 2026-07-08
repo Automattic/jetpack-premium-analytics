@@ -153,6 +153,7 @@ This is an alpha version! The changes listed here are not final.
 - Widgets: Hoist buildSalesByUtmData into the widgets-toolkit so the UTM channel and campaign widgets share one copy.
 - Widgets: Improve semi-circle chart sizing and metric display options.
 - Widgets: normalize CSS-module file naming, convert the lone SCSS to CSS, and align hello-world imports and dependencies.
+- Widgets: Remove the widget-picker preview aspect-ratio workaround now that the picker host sizes preview tiles itself.
 
 ### Fixed
 - Authors widget: localize the untracked-authors label; center the chart empty state.
