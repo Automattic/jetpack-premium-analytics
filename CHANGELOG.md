@@ -136,6 +136,7 @@ This is an alpha version! The changes listed here are not final.
 - Locations: Align widget Storybook and comparison states with dashboard guidelines.
 - Locations widget: Use the updated view selector size.
 - Move the Premium Analytics admin menu to the top position, directly under Dashboard, and remove the Jetpack Stats menu (when present) so Premium Analytics replaces it.
+- Pin @wordpress/build to 0.19.1-next and the widget packages (@wordpress/widget-primitives, @wordpress/widget-dashboard) to 0.3.1-next development snapshots, scoped to this package.
 - Read the Latest post widget's content locally from core so it resolves on private sites, source its views/likes/comments from the Stats post endpoint, and redesign the card with the post's featured image and token-based typography.
 - Render the Premium Analytics admin page inside the native wp-admin shell (sidebar and header) instead of taking over the full screen.
 - Stats: Email time series hooks now return comparison-aware report results and resolve hourly buckets into distinct per-hour intervals.
@@ -143,6 +144,7 @@ This is an alpha version! The changes listed here are not final.
 - Subscribers chart: honor the dashboard date-range and comparison picker. The chart window and previous-period overlay now follow the dashboard controls; the in-body "Group by" dropdown only chooses the bucket size within that range.
 - Syncing: when WooCommerce is inactive, gate the dashboard on Jetpack's generic initial full sync so the syncing screen completes instead of spinning forever.
 - Total sales over time: drop the GlobalErrorProvider wrapper from the Storybook stories to match the sibling over-time widgets.
+- Type widget attribute fields with WidgetAttributeField, export attribute types from widget.ts, and unify component JSDoc to single typed param tags across all widgets.
 - Update package dependencies.
 - Update Stats widget porting guidelines for Storybook, comparison states, and drill-down behavior.
 - Update widget conventions and Stats porting documentation.
