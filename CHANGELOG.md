@@ -143,6 +143,7 @@ This is an alpha version! The changes listed here are not final.
 - Clean up leftover WooCommerce/standalone naming in comments, docs, and the search route key.
 - Comments/tests: update residual proxy/reports path references in Storybook mock docs and a REST test literal to the versioned agnostic proxy route. No functional change.
 - Cover the Top Platforms browser/OS toolbar dimension in Storybook.
+- Dashboard: Add tab-specific default widget layouts.
 - Dashboard: Add tabbed sections around the customizable widget grid.
 - Dashboard widgets: align the hello-world example widget with the widget render contract and translate its strings.
 - Data layer: point report requests at the endpoint-agnostic proxy route (proxy/v2/analytics/reports) after the per-endpoint proxy route was removed.
