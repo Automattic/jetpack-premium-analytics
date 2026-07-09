@@ -29,6 +29,13 @@ return array(
 		'has_content' => true,
 	),
 	array(
+		'name'        => 'reports',
+		'path'        => '/reports/$report',
+		'page'        => 'jetpack-premium-analytics',
+		'has_route'   => true,
+		'has_content' => true,
+	),
+	array(
 		'name'        => 'syncing',
 		'path'        => '/syncing',
 		'page'        => 'jetpack-premium-analytics',

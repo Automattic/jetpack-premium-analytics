@@ -128,6 +128,7 @@ This is an alpha version! The changes listed here are not final.
 - Widgets: Add visitors over time widget.
 - Widgets Toolkit: add a data-agnostic WidgetState component for consistent widget loading / error / empty state, and migrate the Search Terms widget onto it.
 - Widgets Toolkit: add the reusable MetricTabsChart component (metric cards + comparative line chart with previous-period overlay), shared by the subscribers and traffic charts.
+- Widgets Toolkit: Add the shared report-page framework components (ReportPageLayout, ReportPerformanceChart, ReportRecordsTable) for the second-level module report pages.
 - Wire up the WooCommerce Analytics front-end tracker with ClickHouse and proxy tracking enabled.
 
 ### Changed
