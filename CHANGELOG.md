@@ -13,6 +13,7 @@ This is an alpha version! The changes listed here are not final.
 - Add /connect and /syncing routes with connection-aware route guards: /connect detects the connection state and shows a "site not connected" screen, and /syncing shows initial-sync progress. Emit window.JetpackScriptData on the boot-rendered admin page so the connection data the guards read is available.
 - Add an All-time stats widget to the Analytics dashboard, showing your site's lifetime views, visitors, posts, and comments.
 - Add an Authors dashboard widget showing top authors by views via the Jetpack Stats API (through the stats-admin proxy), with a common stats query in the data package.
+- Add ArrayCheckboxField, a DataForm edit control for array fields with elements.
 - Add a Top posts & pages stats widget, wiring the ported presentational widget to live Jetpack Stats data via the designated useStatsTopPosts traffic hook.
 - Add a tsconfig paths alias and typecheck script so internal packages/* resolve for types/IDE.
 - Add a Videos dashboard widget showing the most played videos via the Jetpack Stats API (through the stats-admin proxy).
@@ -132,6 +133,8 @@ This is an alpha version! The changes listed here are not final.
 - Add shared section-tab machinery to the routing and widgets-toolkit packages, and move StatsBreadcrumbs into widgets-toolkit for reuse by report pages.
 - Adopt the shared @wordpress/admin-ui Breadcrumbs in the post detail page and remove the custom StatsBreadcrumbs component.
 - Allow consumers to configure the admin menu title via init options.
+- Annual highlights: Replace per-metric boolean settings with a single metrics array attribute and inline header control.
+- ArrayCheckboxField: Use design tokens for sizing and show the field label in the inline menu trigger.
 - Build the internal ui and data packages as registered script modules (wpScriptModuleExports) so consumers externalize them instead of bundling per-consumer copies: styled ui components stay out of style-less builds, and data's QueryClient becomes a genuine page-wide singleton.
 - Clean up leftover WooCommerce/standalone naming in comments, docs, and the search route key.
 - Comments/tests: update residual proxy/reports path references in Storybook mock docs and a REST test literal to the versioned agnostic proxy route. No functional change.
@@ -177,6 +180,7 @@ This is an alpha version! The changes listed here are not final.
 - Email stats: match the real WordPress.com API shapes — opens/clicks timelines carry a labeled hourly `hour` column and no `unique_opens_count`, the emails summary always requests `period=alltime`, and the summary leaderboard ranks by opens.
 - Emails widget: Align the header with other dashboard widgets.
 - Emails widget: Move the metric selector onto the header row, next to the title.
+- Fields: Add main entry pointing to source so Storybook can resolve the package without a build.
 - Fix a missing script data asset in packaged Premium Analytics builds.
 - Fix dashboard widgets rendering "Widget is no longer available" by loading the widget manifest on REST requests, not just admin page loads.
 - Fix TypeScript error in five zero-attribute widget stories (Record<never, never> instead of Record<string, never>).
