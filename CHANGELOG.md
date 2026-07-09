@@ -27,6 +27,7 @@ This is an alpha version! The changes listed here are not final.
 - Add the Most popular day widget to the Premium Analytics dashboard: the single day your site drew the most views, with that day's view count and its share of all views, ported from the Jetpack Stats all-time highlight.
 - Add the Payment status dashboard widget.
 - Add the Referrers widget to the Premium Analytics dashboard: a ranked leaderboard of the websites and search engines referring visitors, with drill-down into referrer groups and sources, backed by the Jetpack Stats API.
+- Add the Subscriber highlights widget to the Premium Analytics dashboard.
 - Add UTM Insights widget: traffic breakdown by UTM parameter (source/medium, campaign, source, medium, campaign) as a ranked leaderboard with a per-instance dimension selector.
 - Add watch mode for local development.
 - Authors widget: label rows with the author name and avatar, and let a row click drill down into that author's posts with comparison deltas and a back link to all authors.
