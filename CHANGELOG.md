@@ -19,6 +19,7 @@ This is an alpha version! The changes listed here are not final.
 - Add file-downloads widget porting the Jetpack Stats File downloads module into Premium Analytics.
 - Add jpa/devices (screen-size semi-circle) and jpa/top-platforms (browser/OS leaderboard) widgets.
 - Add site-sync package (useSyncStatus hook) and configure apiFetch auth in init.
+- Add the CSV report export pipeline: report registry, proxy data fetcher, comparison-period merge strategies (index- and id-based), and the CSV generator.
 - Add the Emails widget to the Premium Analytics dashboard: a leaderboard of your latest sent emails with a selector to switch between open rate and click rate.
 - Add the internal fields package: DataForm field controls for widgets, delivered as a script module so styled editors stay out of widget metadata bundles. Includes the ReportParamsField date-range editor.
 - Add the Latest post widget to the Premium Analytics dashboard: the site's most recent published post with its featured image and its all-time views, likes, and comments.
