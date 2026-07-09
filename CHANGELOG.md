@@ -128,6 +128,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - Add shared section-tab machinery to the routing and widgets-toolkit packages, and move StatsBreadcrumbs into widgets-toolkit for reuse by report pages.
+- Adopt the shared @wordpress/admin-ui Breadcrumbs in the post detail page and remove the custom StatsBreadcrumbs component.
 - Allow consumers to configure the admin menu title via init options.
 - Build the internal ui and data packages as registered script modules (wpScriptModuleExports) so consumers externalize them instead of bundling per-consumer copies: styled ui components stay out of style-less builds, and data's QueryClient becomes a genuine page-wide singleton.
 - Clean up leftover WooCommerce/standalone naming in comments, docs, and the search route key.
