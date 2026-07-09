@@ -38,6 +38,7 @@ This is an alpha version! The changes listed here are not final.
 - Dashboard: Add dashboard section layout persistence endpoints.
 - Dashboard: Add dashboard section registry and REST endpoints.
 - Dashboard: Add the date range picker with comparison support, syncing the selected range to URL search params so all widgets pick it up.
+- Dashboard sections: Add a WooCommerce section with default store widgets.
 - Data: Add Jetpack Stats proxy fetch utilities.
 - Data: Add Jetpack Stats traffic report normalizers.
 - Expose the analytics initial-full-sync milestone (initial_full_sync_finished) on Jetpack's sync status REST response so the dashboard can read it live on every poll, not just at page load.
