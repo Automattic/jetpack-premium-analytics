@@ -161,6 +161,7 @@ This is an alpha version! The changes listed here are not final.
 - Stats: Email time series hooks now return comparison-aware report results and resolve hourly buckets into distinct per-hour intervals.
 - Stats widgets: Use widget headers and move drill-down back links into widget content.
 - Store performance: Define the visible metrics as a metrics array attribute with an inline header control.
+- Subscriber highlights: Replace per-metric boolean settings with a single metrics array attribute and inline header control.
 - Subscribers chart: honor the dashboard date-range and comparison picker. The chart window and previous-period overlay now follow the dashboard controls; the in-body "Group by" dropdown only chooses the bucket size within that range.
 - Syncing: when WooCommerce is inactive, gate the dashboard on Jetpack's generic initial full sync so the syncing screen completes instead of spinning forever.
 - Total sales over time: drop the GlobalErrorProvider wrapper from the Storybook stories to match the sibling over-time widgets.
