@@ -178,6 +178,7 @@ This is an alpha version! The changes listed here are not final.
 - Widgets: Remove the widget-picker preview aspect-ratio workaround now that the picker host sizes preview tiles itself.
 
 ### Fixed
+- Authors widget: fix the author avatar rendering oversized in the Add widget picker grid preview.
 - Authors widget: localize the untracked-authors label; center the chart empty state.
 - Bundle widgets-toolkit once as a shared script module instead of into every widget, fixing CI memory exhaustion during the widgets build phase. Stopped rebuilding the assets package from the build scripts.
 - Dashboard: Fix global error handling for widgets.
