@@ -206,6 +206,7 @@ This is an alpha version! The changes listed here are not final.
 - Scope wp-build polyfill registration to the dashboard pages so it no longer force-replaces core script handles (wp-private-apis) on every admin page
 - Show every widget in the "Add widget" gallery. The dashboard fetched widget types with core-data's default query, which caps results at 10 per page, so any widget registered past the tenth was silently hidden. Fetch the full set with per_page: -1.
 - Stats: Align traffic normalizer row metadata with legacy Stats behavior.
+- Stats widgets: Suppress comparison UI when rows do not overlap.
 - Stop shipping megabytes of unminified JS as part of the package.
 - Storybook: Fix widget dashboard stories flickering when resizing widgets vertically.
 - Storybook: let the two stats mock middlewares fall through on unknown endpoints instead of swallowing them.
