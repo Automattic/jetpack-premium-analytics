@@ -141,6 +141,7 @@ This is an alpha version! The changes listed here are not final.
 - Add optional per-tile comparison, note, and value-title support to the shared MetricTileGrid, and render the Site overview widget through it.
 - Add shared section-tab machinery to the routing and widgets-toolkit packages, and move StatsBreadcrumbs into widgets-toolkit for reuse by report pages.
 - Adopt the shared @wordpress/admin-ui Breadcrumbs in the post detail page and remove the custom StatsBreadcrumbs component.
+- All-time stats: Define the visible metrics as a metrics array attribute with an inline header control.
 - Allow consumers to configure the admin menu title via init options.
 - Annual highlights: Replace per-metric boolean settings with a single metrics array attribute and inline header control.
 - ArrayCheckboxField: Use design tokens for sizing and show the field label in the inline menu trigger.
