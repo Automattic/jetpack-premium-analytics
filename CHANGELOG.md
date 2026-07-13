@@ -23,6 +23,7 @@ This is an alpha version! The changes listed here are not final.
 - Add site-sync package (useSyncStatus hook) and configure apiFetch auth in init.
 - Add the CSV report export pipeline: report registry, proxy data fetcher, comparison-period merge strategies (index- and id-based), and the CSV generator.
 - Add the CSV report export REST endpoint with download and email (Action Scheduler) delivery, plus the Orders Over Time report.
+- Add the Email breakdown widget: break a sent email down by countries, devices, email clients, or clicked links.
 - Add the Emails widget to the Premium Analytics dashboard: a leaderboard of your latest sent emails with a selector to switch between open rate and click rate.
 - Add the Email top row Stats widget: per-email Opens and Clicks headline totals, read from the per-post rate breakdown, with a help note and loading/error/empty states.
 - Add the internal fields package: DataForm field controls for widgets, delivered as a script module so styled editors stay out of widget metadata bundles. Includes the ReportParamsField date-range editor.
