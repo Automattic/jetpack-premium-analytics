@@ -31,6 +31,7 @@ This is an alpha version! The changes listed here are not final.
 - Add the Payment status dashboard widget.
 - Add the Referrers widget to the Premium Analytics dashboard: a ranked leaderboard of the websites and search engines referring visitors, with drill-down into referrer groups and sources, backed by the Jetpack Stats API.
 - Add the Subscriber highlights widget to the Premium Analytics dashboard.
+- Add the Video embeds Stats widget, listing where a single video is embedded.
 - Add UTM Insights widget: traffic breakdown by UTM parameter (source/medium, campaign, source, medium, campaign) as a ranked leaderboard with a per-instance dimension selector.
 - Add VideoPress video plays leaderboard widget.
 - Add watch mode for local development.
