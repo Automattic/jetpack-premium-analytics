@@ -18,6 +18,7 @@ This is an alpha version! The changes listed here are not final.
 - Add a Top posts & pages stats widget, wiring the ported presentational widget to live Jetpack Stats data via the designated useStatsTopPosts traffic hook.
 - Add a tsconfig paths alias and typecheck script so internal packages/* resolve for types/IDE.
 - Add a Videos dashboard widget showing the most played videos via the Jetpack Stats API (through the stats-admin proxy).
+- Add CSV export for the over-time analytics reports: gross sales, net sales, average order value, average items per order, refunds, conversion rate, visitors, taxes over time, coupon use, and orders fulfilled.
 - Add file-downloads widget porting the Jetpack Stats File downloads module into Premium Analytics.
 - Add jpa/devices (screen-size semi-circle) and jpa/top-platforms (browser/OS leaderboard) widgets.
 - Add site-sync package (useSyncStatus hook) and configure apiFetch auth in init.
