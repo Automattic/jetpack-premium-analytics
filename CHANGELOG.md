@@ -24,6 +24,7 @@ This is an alpha version! The changes listed here are not final.
 - Add the CSV report export pipeline: report registry, proxy data fetcher, comparison-period merge strategies (index- and id-based), and the CSV generator.
 - Add the CSV report export REST endpoint with download and email (Action Scheduler) delivery, plus the Orders Over Time report.
 - Add the Emails widget to the Premium Analytics dashboard: a leaderboard of your latest sent emails with a selector to switch between open rate and click rate.
+- Add the Email top row Stats widget: per-email Opens and Clicks headline totals, read from the per-post rate breakdown, with a help note and loading/error/empty states.
 - Add the internal fields package: DataForm field controls for widgets, delivered as a script module so styled editors stay out of widget metadata bundles. Includes the ReportParamsField date-range editor.
 - Add the Latest post widget to the Premium Analytics dashboard: the site's most recent published post with its featured image and its all-time views, likes, and comments.
 - Add the Latest Subscribers Stats widget, plus a reusable SubscriberList toolkit component (avatar + name + relative "since" time roster).
