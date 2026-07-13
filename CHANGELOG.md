@@ -165,6 +165,7 @@ This is an alpha version! The changes listed here are not final.
 - Premium Analytics: keep the standalone Jetpack "Stats" menu visible so Analytics and Stats appear side by side.
 - Read the Latest post widget's content locally from core so it resolves on private sites, source its views/likes/comments from the Stats post endpoint, and redesign the card with the post's featured image and token-based typography.
 - Render the Premium Analytics admin page inside the native wp-admin shell (sidebar and header) instead of taking over the full screen.
+- Replace the Analytics dashboard page title with breadcrumbs.
 - Stats: Email time series hooks now return comparison-aware report results and resolve hourly buckets into distinct per-hour intervals.
 - Stats widgets: Use widget headers and move drill-down back links into widget content.
 - Store performance: Define the visible metrics as a metrics array attribute with an inline header control.
