@@ -74,6 +74,7 @@ This is an alpha version! The changes listed here are not final.
 - REST: Expose the dashboard notices under `jetpack-premium-analytics/v1/notices` (GET + POST), backed by a Notices class ported from stats-admin that merges the WordPress.com dismissal state with locally-derived opt-in/opt-out/feedback/GDPR flags.
 - REST: Register the API proxy's transient cache prefix with the stats package's transient cleanup cron, so expired proxy response caches are garbage-collected on sites without a persistent object cache instead of accumulating in wp_options.
 - REST: Serve the whole analytics and stats surface through one endpoint-agnostic proxy under jetpack-premium-analytics/v1, shaped as `proxy/v<version>/<prefix>/<subpath>` (for example `proxy/v1.1/wordads/earnings`). The `proxy/` segment marks a transparent WordPress.com forward, the WordPress.com API version lives in the path, and an allowed-prefix plus write-method allowlist bounds the blog token. This lays the groundwork for deprecating the stats-admin package.
+- Shares: add the Shares widget listing the number of times content was shared to each social network.
 - Stats: Add app commercial classification hook.
 - Stats: Add app dashboard module settings hooks.
 - Stats: Add app dashboard modules hooks.
