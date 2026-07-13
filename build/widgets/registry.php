@@ -760,5 +760,18 @@ return array(
 		'category'     => 'visitors',
 		'keywords'     => null,
 		'textdomain'   => null,
+	),
+	array(
+		'name'         => 'jpa/wordads-chart-tabs',
+		'dir_name'     => 'wordads-chart-tabs',
+		'title'        => 'WordAds',
+		'description'  => 'Compare ads served, average CPM, and revenue over the selected period, with the previous period overlaid for comparison.',
+		'help'         => null,
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => 'framed',
+		'category'     => 'stats',
+		'keywords'     => null,
+		'textdomain'   => null,
 	)
 );
