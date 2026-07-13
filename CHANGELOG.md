@@ -159,6 +159,7 @@ This is an alpha version! The changes listed here are not final.
 - Extract a shared MetricTile component and use it in the Annual highlights and Subscriber highlights widgets, with a responsive row/tile layout.
 - Hoist the shared SalesByUtmWidget component into widgets-toolkit so the UTM channel and campaign widgets render from a single source (upstream pattern).
 - Internal: No longer require automattic/jetpack-changelogger as a per-project dev dependency.
+- Leaderboard widgets: centralize the widget-picker preview image-size fix in the shared LeaderboardLabel and render Referrers row labels through it.
 - Locations: Align widget Storybook and comparison states with dashboard guidelines.
 - Locations widget: Use the updated view selector size.
 - Move the Premium Analytics admin menu to the top position, directly under Dashboard, and remove the Jetpack Stats menu (when present) so Premium Analytics replaces it.
@@ -172,6 +173,7 @@ This is an alpha version! The changes listed here are not final.
 - Store performance: Define the visible metrics as a metrics array attribute with an inline header control.
 - Subscriber highlights: Replace per-metric boolean settings with a single metrics array attribute and inline header control.
 - Subscribers chart: honor the dashboard date-range and comparison picker. The chart window and previous-period overlay now follow the dashboard controls; the in-body "Group by" dropdown only chooses the bucket size within that range.
+- Subscribers list: move the widget-picker preview avatar-size fix from the widget stylesheet into the shared SubscriberList component.
 - Syncing: when WooCommerce is inactive, gate the dashboard on Jetpack's generic initial full sync so the syncing screen completes instead of spinning forever.
 - Total sales over time: drop the GlobalErrorProvider wrapper from the Storybook stories to match the sibling over-time widgets.
 - Type widget attribute fields with WidgetAttributeField, export attribute types from widget.ts, and unify component JSDoc to single typed param tags across all widgets.
@@ -190,6 +192,7 @@ This is an alpha version! The changes listed here are not final.
 - Authors widget: fix the author avatar rendering oversized in the Add widget picker grid preview.
 - Authors widget: localize the untracked-authors label; center the chart empty state.
 - Bundle widgets-toolkit once as a shared script module instead of into every widget, fixing CI memory exhaustion during the widgets build phase. Stopped rebuilding the assets package from the build scripts.
+- Clicks widget: fix favicons rendering oversized in the Add widget picker grid preview by rendering row labels through the shared LeaderboardLabel component.
 - Dashboard: Fix global error handling for widgets.
 - Dashboard: fix widget grid flicker when resizing a widget vertically by letting the section panel fill the viewport height and scroll internally, so it no longer oscillates with the grid.
 - Dashboard: Load WordPress build polyfills so the dashboard can run without the Gutenberg plugin.
