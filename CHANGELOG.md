@@ -14,6 +14,7 @@ This is an alpha version! The changes listed here are not final.
 - Add an All-time stats widget to the Analytics dashboard, showing your site's lifetime views, visitors, posts, and comments.
 - Add an Authors dashboard widget showing top authors by views via the Jetpack Stats API (through the stats-admin proxy), with a common stats query in the data package.
 - Add ArrayCheckboxField, a DataForm edit control for array fields with elements.
+- Add a Site overview widget to the Analytics dashboard, showing the selected period's views, visitors, likes, and comments with period-over-period change.
 - Add a Top posts & pages stats widget, wiring the ported presentational widget to live Jetpack Stats data via the designated useStatsTopPosts traffic hook.
 - Add a tsconfig paths alias and typecheck script so internal packages/* resolve for types/IDE.
 - Add a Videos dashboard widget showing the most played videos via the Jetpack Stats API (through the stats-admin proxy).
@@ -135,6 +136,7 @@ This is an alpha version! The changes listed here are not final.
 - Wire up the WooCommerce Analytics front-end tracker with ClickHouse and proxy tracking enabled.
 
 ### Changed
+- Add optional per-tile comparison, note, and value-title support to the shared MetricTileGrid, and render the Site overview widget through it.
 - Add shared section-tab machinery to the routing and widgets-toolkit packages, and move StatsBreadcrumbs into widgets-toolkit for reuse by report pages.
 - Adopt the shared @wordpress/admin-ui Breadcrumbs in the post detail page and remove the custom StatsBreadcrumbs component.
 - Allow consumers to configure the admin menu title via init options.
