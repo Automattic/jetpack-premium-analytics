@@ -186,6 +186,7 @@ This is an alpha version! The changes listed here are not final.
 - Subscribers list: move the widget-picker preview avatar-size fix from the widget stylesheet into the shared SubscriberList component.
 - Syncing: when WooCommerce is inactive, gate the dashboard on Jetpack's generic initial full sync so the syncing screen completes instead of spinning forever.
 - Total sales over time: drop the GlobalErrorProvider wrapper from the Storybook stories to match the sibling over-time widgets.
+- Traffic and Subscribers charts: Define the visible metric tabs as a metrics array attribute with an inline header control.
 - Type widget attribute fields with WidgetAttributeField, export attribute types from widget.ts, and unify component JSDoc to single typed param tags across all widgets.
 - Update package dependencies.
 - Update Stats widget porting guidelines for Storybook, comparison states, and drill-down behavior.
