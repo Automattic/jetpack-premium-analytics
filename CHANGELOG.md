@@ -159,6 +159,7 @@ This is an alpha version! The changes listed here are not final.
 - Cover the Top Platforms browser/OS toolbar dimension in Storybook.
 - Dashboard: Add tab-specific default widget layouts.
 - Dashboard: Add tabbed sections around the customizable widget grid.
+- Dashboard: seed Authors, VideoPress, and Plan usage in the Traffic tab's default layout, matching the Traffic page composition.
 - Dashboard widgets: align the hello-world example widget with the widget render contract and translate its strings.
 - Data layer: point report requests at the endpoint-agnostic proxy route (proxy/v2/analytics/reports) after the per-endpoint proxy route was removed.
 - Data layer: route report requests through the jetpack-premium-analytics proxy controller instead of the legacy woocommerce-analytics proxy route.
