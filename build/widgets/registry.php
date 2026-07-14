@@ -699,8 +699,8 @@ return array(
 	array(
 		'name'         => 'jpa/stats-top-posts',
 		'dir_name'     => 'top-posts',
-		'title'        => 'Top pages by views',
-		'description'  => 'Your most viewed posts and pages.',
+		'title'        => 'Most viewed',
+		'description'  => 'Your most viewed posts, pages, and archives.',
 		'help'         => null,
 		'has_render'   => true,
 		'has_widget'   => true,

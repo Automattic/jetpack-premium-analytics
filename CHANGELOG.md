@@ -168,6 +168,7 @@ This is an alpha version! The changes listed here are not final.
 - Leaderboard widgets: centralize the widget-picker preview image-size fix in the shared LeaderboardLabel and render Referrers row labels through it.
 - Locations: Align widget Storybook and comparison states with dashboard guidelines.
 - Locations widget: Use the updated view selector size.
+- Most viewed: Align the widget layout with the Stats card and add an inline View control switching between Posts & pages and Archives.
 - Move the Premium Analytics admin menu to the top position, directly under Dashboard, and remove the Jetpack Stats menu (when present) so Premium Analytics replaces it.
 - Pin @wordpress/build to 0.19.1-next and the widget packages (@wordpress/widget-primitives, @wordpress/widget-dashboard) to 0.3.1-next development snapshots, scoped to this package.
 - Premium Analytics: keep the standalone Jetpack "Stats" menu visible so Analytics and Stats appear side by side.
@@ -224,6 +225,7 @@ This is an alpha version! The changes listed here are not final.
 - Scope wp-build polyfill registration to the dashboard pages so it no longer force-replaces core script handles (wp-private-apis) on every admin page
 - Show every widget in the "Add widget" gallery. The dashboard fetched widget types with core-data's default query, which caps results at 10 per page, so any widget registered past the tenth was silently hidden. Fetch the full set with per_page: -1.
 - Stats: Align traffic normalizer row metadata with legacy Stats behavior.
+- Stats reports: request day-bucketed windows instead of leaking the dashboard chart interval as the API period, and exclude archive pages from the top-posts list.
 - Stats widgets: Suppress comparison UI when rows do not overlap.
 - Stop shipping megabytes of unminified JS as part of the package.
 - Storybook: Fix widget dashboard stories flickering when resizing widgets vertically.
