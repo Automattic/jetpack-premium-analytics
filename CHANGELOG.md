@@ -35,6 +35,7 @@ This is an alpha version! The changes listed here are not final.
 - Add the Locations widget to the Premium Analytics dashboard: world map + leaderboard showing visitors by country, region, or city, with click-to-drill-down into country regions.
 - Add the Most popular day widget to the Premium Analytics dashboard: the single day your site drew the most views, with that day's view count and its share of all views, ported from the Jetpack Stats all-time highlight.
 - Add the Payment status dashboard widget.
+- Add the Posts & Pages report page at /reports/posts with Posts & Pages and Archives tabs, date-range and comparison controls, a performance chart, a Core DataViews records table, and a Top pages by views widget link.
 - Add the Referrers widget to the Premium Analytics dashboard: a ranked leaderboard of the websites and search engines referring visitors, with drill-down into referrer groups and sources, backed by the Jetpack Stats API.
 - Add the Subscriber highlights widget to the Premium Analytics dashboard.
 - Add the Video embeds Stats widget, listing where a single video is embedded.
@@ -190,6 +191,7 @@ This is an alpha version! The changes listed here are not final.
 - Update WPDS design tokens to the @wordpress/theme 0.16/0.17 names (see https://github.com/WordPress/gutenberg/blob/trunk/packages/theme/CHANGELOG.md#0160-2026-06-24 ).
 - VideoPress widget: Consume merged comparison rows from the Stats data layer instead of matching periods in the widget.
 - VideoPress widget: remove the legend from the video plays leaderboard.
+- Widgets: add shared WidgetFooter and ReportLink primitives and migrate top-posts.
 - Widgets: align the woocommerce-analytics-ported widgets with the shared widget render-props contract.
 - Widgets: Hoist buildSalesByUtmData into the widgets-toolkit so the UTM channel and campaign widgets share one copy.
 - Widgets: Improve semi-circle chart sizing and metric display options.
