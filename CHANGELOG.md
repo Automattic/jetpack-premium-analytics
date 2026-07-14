@@ -178,6 +178,7 @@ This is an alpha version! The changes listed here are not final.
 - Referrers: move comparison matching into the data layer's merge helper and render loading/error/empty through WidgetState.
 - Render the Premium Analytics admin page inside the native wp-admin shell (sidebar and header) instead of taking over the full screen.
 - Replace the Analytics dashboard page title with breadcrumbs.
+- Show widget descriptions in the native header info popover.
 - Stats: Email time series hooks now return comparison-aware report results and resolve hourly buckets into distinct per-hour intervals.
 - Stats widgets: Use widget headers and move drill-down back links into widget content.
 - Store performance: Define the visible metrics as a metrics array attribute with an inline header control.
