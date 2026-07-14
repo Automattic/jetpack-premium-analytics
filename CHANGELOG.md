@@ -172,6 +172,7 @@ This is an alpha version! The changes listed here are not final.
 - Leaderboard widgets: centralize the widget-picker preview image-size fix in the shared LeaderboardLabel and render Referrers row labels through it.
 - Locations: Align widget Storybook and comparison states with dashboard guidelines.
 - Locations widget: Use the updated view selector size.
+- Make the post detail page a fixed composition — render the Post highlights card by default and remove widget editing.
 - Most viewed: Align the widget layout with the Stats card and add an inline View control switching between Posts & pages and Archives.
 - Move the Premium Analytics admin menu to the top position, directly under Dashboard, and remove the Jetpack Stats menu (when present) so Premium Analytics replaces it.
 - Pin @wordpress/build to 0.19.1-next and the widget packages (@wordpress/widget-primitives, @wordpress/widget-dashboard) to 0.3.1-next development snapshots, scoped to this package.
