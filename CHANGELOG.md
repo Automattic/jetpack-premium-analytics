@@ -234,6 +234,7 @@ This is an alpha version! The changes listed here are not final.
 - Pin @wordpress/widget-dashboard and @wordpress/widget-primitives to an exact version instead of the floating next tag
 - Register Premium Analytics as a connected plugin and sync its version constant so WPCom provisions the WooCommerce Analytics custom tables for PA-only stores.
 - Remove unnecessary TypeScript sources from the published package.
+- Report pages, dashboard, and post detail: Keep tab bars scrolling within the page on narrow viewports.
 - Routing: Disable view transitions for URL-only dashboard updates.
 - Scope wp-build polyfill registration to the dashboard pages so it no longer force-replaces core script handles (wp-private-apis) on every admin page
 - Show every widget in the "Add widget" gallery. The dashboard fetched widget types with core-data's default query, which caps results at 10 per page, so any widget registered past the tenth was silently hidden. Fetch the full set with per_page: -1.
