@@ -181,6 +181,7 @@ This is an alpha version! The changes listed here are not final.
 - Replace the Analytics dashboard page title with breadcrumbs.
 - Show widget descriptions in the native header info popover.
 - Stats: Email time series hooks now return comparison-aware report results and resolve hourly buckets into distinct per-hour intervals.
+- Stats widgets: align drill-down reset behavior — selections survive refetches and range changes while they still resolve, and stored state is trimmed deterministically once settled data drops the selected row.
 - Stats widgets: Use widget headers and move drill-down back links into widget content.
 - Store performance: Define the visible metrics as a metrics array attribute with an inline header control.
 - Subscriber highlights: Replace per-metric boolean settings with a single metrics array attribute and inline header control.
