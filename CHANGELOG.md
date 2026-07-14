@@ -157,6 +157,7 @@ This is an alpha version! The changes listed here are not final.
 - ArrayCheckboxField: Use design tokens for sizing and show the field label in the inline menu trigger.
 - Build the internal ui and data packages as registered script modules (wpScriptModuleExports) so consumers externalize them instead of bundling per-consumer copies: styled ui components stay out of style-less builds, and data's QueryClient becomes a genuine page-wide singleton.
 - Clean up leftover WooCommerce/standalone naming in comments, docs, and the search route key.
+- Comment: Remove manual WPDS token fallbacks from wp-build route styles so build-time PostCSS injects canonical design-token fallbacks.
 - Comments/tests: update residual proxy/reports path references in Storybook mock docs and a REST test literal to the versioned agnostic proxy route. No functional change.
 - Cover the Top Platforms browser/OS toolbar dimension in Storybook.
 - Dashboard: Add tab-specific default widget layouts.
