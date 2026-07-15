@@ -170,6 +170,7 @@ This is an alpha version! The changes listed here are not final.
 - Data layer: point report requests at the endpoint-agnostic proxy route (proxy/v2/analytics/reports) after the per-endpoint proxy route was removed.
 - Data layer: route report requests through the jetpack-premium-analytics proxy controller instead of the legacy woocommerce-analytics proxy route.
 - Data layer: Use endpoint-specific typing for dashboard module settings.
+- Date range: Show quick presets on the surface, add Last 24 hours, keep the custom picker calendar-only, distinguish staged vs applied custom trigger states, remember the last committed custom range in the trigger label and calendar, and replace the comparison menu with a SelectControl that keeps the dynamic comparison range label. Rolling preset ranges stage their exact window (no end-of-day rounding), comparisons mirror sub-day windows exactly, and closing the custom popover without applying discards the draft like Cancel.
 - Extract a shared MetricTile component and use it in the Annual highlights and Subscriber highlights widgets, with a responsive row/tile layout.
 - Hoist the shared SalesByUtmWidget component into widgets-toolkit so the UTM channel and campaign widgets render from a single source (upstream pattern).
 - Internal: No longer require automattic/jetpack-changelogger as a per-project dev dependency.
