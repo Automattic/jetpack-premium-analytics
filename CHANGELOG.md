@@ -35,6 +35,7 @@ This is an alpha version! The changes listed here are not final.
 - Add the Locations widget to the Premium Analytics dashboard: world map + leaderboard showing visitors by country, region, or city, with click-to-drill-down into country regions.
 - Add the Most popular day widget to the Premium Analytics dashboard: the single day your site drew the most views, with that day's view count and its share of all views, ported from the Jetpack Stats all-time highlight.
 - Add the Payment status dashboard widget.
+- Add the post detail Latest likes widget: the scoped post's likers as an avatar roster, with a pattern-constrained posts/{id}/likes proxy prefix.
 - Add the post detail Post highlights widget: views, comments, and likes as metric tiles.
 - Add the Posts & Pages report page at /reports/posts with Posts & Pages and Archives tabs, date-range and comparison controls, a performance chart, a Core DataViews records table, and a Top pages by views widget link.
 - Add the Referrers widget to the Premium Analytics dashboard: a ranked leaderboard of the websites and search engines referring visitors, with drill-down into referrer groups and sources, backed by the Jetpack Stats API.
