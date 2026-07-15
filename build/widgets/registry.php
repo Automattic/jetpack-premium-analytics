@@ -851,5 +851,18 @@ return array(
 		'category'     => 'stats',
 		'keywords'     => null,
 		'textdomain'   => null,
+	),
+	array(
+		'name'         => 'jpa/wordads-highlights',
+		'dir_name'     => 'wordads-highlights',
+		'title'        => 'WordAds highlights',
+		'description'  => 'Your WordAds earnings at a glance — total earnings, amount paid, and outstanding balance.',
+		'help'         => null,
+		'has_render'   => true,
+		'has_widget'   => true,
+		'presentation' => 'framed',
+		'category'     => 'stats',
+		'keywords'     => null,
+		'textdomain'   => null,
 	)
 );
