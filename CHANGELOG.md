@@ -224,6 +224,7 @@ This is an alpha version! The changes listed here are not final.
 - Bookings by device: Use booking-specific empty and error messages.
 - Bundle widgets-toolkit once as a shared script module instead of into every widget, fixing CI memory exhaustion during the widgets build phase. Stopped rebuilding the assets package from the build scripts.
 - Clicks widget: fix favicons rendering oversized in the Add widget picker grid preview by rendering row labels through the shared LeaderboardLabel component.
+- CSV exports: Surface external API error details.
 - Dashboard: Fix global error handling for widgets.
 - Dashboard: fix widget grid flicker when resizing a widget vertically by letting the section panel fill the viewport height and scroll internally, so it no longer oscillates with the grid.
 - Dashboard: Load WordPress build polyfills so the dashboard can run without the Gutenberg plugin.
