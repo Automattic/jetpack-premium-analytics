@@ -174,6 +174,7 @@ This is an alpha version! The changes listed here are not final.
 - Data layer: route report requests through the jetpack-premium-analytics proxy controller instead of the legacy woocommerce-analytics proxy route.
 - Data layer: Use endpoint-specific typing for dashboard module settings.
 - Date range: Show quick presets on the surface, add Last 24 hours, keep the custom picker calendar-only, distinguish staged vs applied custom trigger states, remember the last committed custom range in the trigger label and calendar, and replace the comparison menu with a SelectControl that keeps the dynamic comparison range label. Rolling preset ranges stage their exact window (no end-of-day rounding), comparisons mirror sub-day windows exactly, and closing the custom popover without applying discards the draft like Cancel.
+- Date range filter: refine the compact (mobile) layout so the preset select and custom-range trigger read as consistent bordered controls.
 - Extract a shared MetricTile component and use it in the Annual highlights and Subscriber highlights widgets, with a responsive row/tile layout.
 - Hoist the shared SalesByUtmWidget component into widgets-toolkit so the UTM channel and campaign widgets render from a single source (upstream pattern).
 - Internal: No longer require automattic/jetpack-changelogger as a per-project dev dependency.
@@ -230,6 +231,7 @@ This is an alpha version! The changes listed here are not final.
 - Dashboard: Load WordPress build polyfills so the dashboard can run without the Gutenberg plugin.
 - Dashboard: Prevent widget focus outlines from being clipped in dashboard and post detail views.
 - Date range picker: make the first calendar click start a new range instead of moving the nearest endpoint
+- Date range presets: make "Last 12 months" a rolling window ending yesterday, consistent with the other rolling presets, instead of running to the end of last month.
 - Drop the unsupported `focusable` prop on `@wordpress/ui` `Tabs.Panel` (not a valid prop; was a no-op). Aligns with the `@wordpress/ui` 0.15 API. Panels already gate their content on the active section.
 - Email stats: match the real WordPress.com API shapes — opens/clicks timelines carry a labeled hourly `hour` column and no `unique_opens_count`, the emails summary always requests `period=alltime`, and the summary leaderboard ranks by opens.
 - Emails widget: Align the header with other dashboard widgets.
