@@ -24,6 +24,7 @@ This is an alpha version! The changes listed here are not final.
 - Add jpa/devices (screen-size semi-circle) and jpa/top-platforms (browser/OS leaderboard) widgets.
 - Add Plan usage widget porting the Stats plan usage section into Premium Analytics.
 - Add site-sync package (useSyncStatus hook) and configure apiFetch auth in init.
+- Add the Comments Subscribers report page.
 - Add the CSV report export pipeline: report registry, proxy data fetcher, comparison-period merge strategies (index- and id-based), and the CSV generator.
 - Add the CSV report export REST endpoint with download and email (Action Scheduler) delivery, plus the Orders Over Time report.
 - Add the Email breakdown widget: break a sent email down by countries, devices, email clients, or clicked links.
