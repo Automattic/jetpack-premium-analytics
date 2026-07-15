@@ -38,6 +38,7 @@ This is an alpha version! The changes listed here are not final.
 - Add the Payment status dashboard widget.
 - Add the post detail Latest likes widget: the scoped post's likers as an avatar roster, with a pattern-constrained posts/{id}/likes proxy prefix.
 - Add the post detail Post highlights widget: views, comments, and likes as metric tiles.
+- Add the post detail Traffic activity widget: the scoped post's daily views as a calendar heatmap.
 - Add the Posts & Pages report page at /reports/posts with Posts & Pages and Archives tabs, date-range and comparison controls, a performance chart, a Core DataViews records table, and a Top pages by views widget link.
 - Add the Referrers widget to the Premium Analytics dashboard: a ranked leaderboard of the websites and search engines referring visitors, with drill-down into referrer groups and sources, backed by the Jetpack Stats API.
 - Add the Subscriber highlights widget to the Premium Analytics dashboard.
