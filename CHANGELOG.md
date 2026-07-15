@@ -22,6 +22,7 @@ This is an alpha version! The changes listed here are not final.
 - Add CSV export for the ranked and attribution analytics reports: top performing products, sales by channel/source/device/campaign/coupon, sessions by device/location, revenue by customer type, and tax rate breakdown.
 - Add file-downloads widget porting the Jetpack Stats File downloads module into Premium Analytics.
 - Add jpa/devices (screen-size semi-circle) and jpa/top-platforms (browser/OS leaderboard) widgets.
+- Add Latest comments and post-scoped UTM cards to the post detail traffic view.
 - Add Plan usage widget porting the Stats plan usage section into Premium Analytics.
 - Add site-sync package (useSyncStatus hook) and configure apiFetch auth in init.
 - Add the Comments Subscribers report page.
