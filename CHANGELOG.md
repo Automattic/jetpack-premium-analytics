@@ -216,6 +216,7 @@ This is an alpha version! The changes listed here are not final.
 ### Fixed
 - Authors widget: fix the author avatar rendering oversized in the Add widget picker grid preview.
 - Authors widget: localize the untracked-authors label; center the chart empty state.
+- Bookings by device: Use booking-specific empty and error messages.
 - Bundle widgets-toolkit once as a shared script module instead of into every widget, fixing CI memory exhaustion during the widgets build phase. Stopped rebuilding the assets package from the build scripts.
 - Clicks widget: fix favicons rendering oversized in the Add widget picker grid preview by rendering row labels through the shared LeaderboardLabel component.
 - Dashboard: Fix global error handling for widgets.
