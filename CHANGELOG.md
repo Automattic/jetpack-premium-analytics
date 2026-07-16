@@ -204,6 +204,7 @@ This is an alpha version! The changes listed here are not final.
 - Subscribers chart: honor the dashboard date-range and comparison picker. The chart window and previous-period overlay now follow the dashboard controls; the in-body "Group by" dropdown only chooses the bucket size within that range.
 - Subscribers list: move the widget-picker preview avatar-size fix from the widget stylesheet into the shared SubscriberList component.
 - Syncing: when WooCommerce is inactive, gate the dashboard on Jetpack's generic initial full sync so the syncing screen completes instead of spinning forever.
+- Top posts: reveal the external-link icon on row hover/focus and hide the link primitive's duplicate new-tab arrow.
 - Total sales over time: drop the GlobalErrorProvider wrapper from the Storybook stories to match the sibling over-time widgets.
 - Traffic and Subscribers charts: Define the visible metric tabs as a metrics array attribute with an inline header control.
 - Type widget attribute fields with WidgetAttributeField, export attribute types from widget.ts, and unify component JSDoc to single typed param tags across all widgets.
