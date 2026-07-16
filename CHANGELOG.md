@@ -59,6 +59,7 @@ This is an alpha version! The changes listed here are not final.
 - Data: Add Jetpack Stats proxy fetch utilities.
 - Data: Add Jetpack Stats traffic report normalizers.
 - Expose the analytics initial-full-sync milestone (initial_full_sync_finished) on Jetpack's sync status REST response so the dashboard can read it live on every poll, not just at page load.
+- Fields: Add SelectField, a DataForm edit control for text fields with elements that renders a SelectControl instead of the native select.
 - Initial version.
 - Interim port of the woocommerce_analytics Jetpack Sync module.
 - Locations widget: Add inline country/city switching and map fallbacks.
@@ -180,6 +181,9 @@ This is an alpha version! The changes listed here are not final.
 - Date range: Show quick presets on the surface, add Last 24 hours, keep the custom picker calendar-only, distinguish staged vs applied custom trigger states, remember the last committed custom range in the trigger label and calendar, and replace the comparison menu with a SelectControl that keeps the dynamic comparison range label. Rolling preset ranges stage their exact window (no end-of-day rounding), comparisons mirror sub-day windows exactly, and closing the custom popover without applying discards the draft like Cancel.
 - Date range filter: refine the compact (mobile) layout so the preset select and custom-range trigger read as consistent bordered controls.
 - Extract a shared MetricTile component and use it in the Annual highlights and Subscriber highlights widgets, with a responsive row/tile layout.
+- Fields: Add a chevron to the ArrayCheckboxField compact trigger to match SelectControl.
+- Fields: Match ArrayCheckboxField compact trigger font sizing to SelectControl on narrow viewports.
+- Fields: Match ArrayCheckboxField menu item hover styling to SelectControl.
 - Hoist the shared SalesByUtmWidget component into widgets-toolkit so the UTM channel and campaign widgets render from a single source (upstream pattern).
 - Internal: No longer require automattic/jetpack-changelogger as a per-project dev dependency.
 - Leaderboard widgets: centralize the widget-picker preview image-size fix in the shared LeaderboardLabel and render Referrers row labels through it.
@@ -222,6 +226,7 @@ This is an alpha version! The changes listed here are not final.
 - Widgets: Improve semi-circle chart sizing and metric display options.
 - Widgets: normalize CSS-module file naming, convert the lone SCSS to CSS, and align hello-world imports and dependencies.
 - Widgets: Remove the widget-picker preview aspect-ratio workaround now that the picker host sizes preview tiles itself.
+- Widgets: Use SelectField for text attributes with elements across Stats and email widgets.
 
 ### Removed
 - Remove the superseded Videos widget in favor of the VideoPress widget.
