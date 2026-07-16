@@ -239,6 +239,7 @@ This is an alpha version! The changes listed here are not final.
 - Email stats: match the real WordPress.com API shapes — opens/clicks timelines carry a labeled hourly `hour` column and no `unique_opens_count`, the emails summary always requests `period=alltime`, and the summary leaderboard ranks by opens.
 - Emails widget: Align the header with other dashboard widgets.
 - Emails widget: Move the metric selector onto the header row, next to the title.
+- Email top row: rates from the per-post rate summary are 0-1 fractions; stop dividing by 100 so 2 sends / 2 opens reads 100 percent, not 1 percent.
 - Fields: Add main entry pointing to source so Storybook can resolve the package without a build.
 - Fix a missing script data asset in packaged Premium Analytics builds.
 - Fix dashboard widgets rendering "Widget is no longer available" by loading the widget manifest on REST requests, not just admin page loads.
