@@ -264,3 +264,4 @@ This is an alpha version! The changes listed here are not final.
 - Storybook: let the two stats mock middlewares fall through on unknown endpoints instead of swallowing them.
 - Syncing: derive the analytics "started" state from the woocommerce_analytics sync-progress bucket instead of Jetpack's generic `started` flag, so the connection-time initial_sync no longer makes the syncing screen show "Sync interrupted" and suppress its auto-trigger.
 - Top posts &amp; pages: Honor the dashboard date-range picker and comparison period instead of the widget's own fixed range.
+- Videos report: fix the report showing no data; the table now lists each video's views, impressions, watch time, and retention for the selected date range.
