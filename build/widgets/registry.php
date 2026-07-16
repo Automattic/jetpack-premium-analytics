@@ -205,7 +205,7 @@ return array(
 	array(
 		'name'         => 'jpa/email-top-row',
 		'dir_name'     => 'email-top-row',
-		'title'        => 'Email top row',
+		'title'        => 'Newsletter performance',
 		'description'  => 'Headline open and click totals for a single email, split into Opens and Clicks views.',
 		'help'         => null,
 		'has_render'   => true,
