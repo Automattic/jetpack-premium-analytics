@@ -115,6 +115,7 @@ This is an alpha version! The changes listed here are not final.
 - Stats: Add streak hook.
 - Stats: Add subscribers hooks.
 - Stats: Add tags report hook.
+- Stats: Add the File downloads report at `/reports/downloads`.
 - Stats: Add time-series response normalizers.
 - Stats: Add UTM endpoint data hook.
 - Stats: Add visits report hook.
