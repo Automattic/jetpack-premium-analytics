@@ -30,6 +30,7 @@ This is an alpha version! The changes listed here are not final.
 - Add the CSV report export pipeline: report registry, proxy data fetcher, comparison-period merge strategies (index- and id-based), and the CSV generator.
 - Add the CSV report export REST endpoint with download and email (Action Scheduler) delivery, plus the Orders Over Time report.
 - Add the Email breakdown widget: break a sent email down by countries, devices, email clients, or clicked links.
+- Add the Email performance time-series widget to the post detail email tabs
 - Add the Emails widget to the Premium Analytics dashboard: a leaderboard of your latest sent emails with a selector to switch between open rate and click rate.
 - Add the Email top row Stats widget: per-email Opens and Clicks headline totals, read from the per-post rate breakdown, with a help note and loading/error/empty states.
 - Add the internal fields package: DataForm field controls for widgets, delivered as a script module so styled editors stay out of widget metadata bundles. Includes the ReportParamsField date-range editor.
@@ -40,6 +41,7 @@ This is an alpha version! The changes listed here are not final.
 - Add the Payment status dashboard widget.
 - Add the post detail Latest likes widget: the scoped post's likers as an avatar roster, with a pattern-constrained posts/{id}/likes proxy prefix.
 - Add the post detail Post highlights widget: views, comments, and likes as metric tiles.
+- Add the post detail Post views widget: the view-trend chart beside the interaction cards
 - Add the post detail Traffic activity widget: the scoped post's daily views as a calendar heatmap.
 - Add the Posts & Pages report page at /reports/posts with Posts & Pages and Archives tabs, date-range and comparison controls, a performance chart, a Core DataViews records table, and a Top pages by views widget link.
 - Add the Referrers report at `/reports/referrers`.
