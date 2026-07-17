@@ -44,6 +44,7 @@ This is an alpha version! The changes listed here are not final.
 - Add the Posts & Pages report page at /reports/posts with Posts & Pages and Archives tabs, date-range and comparison controls, a performance chart, a Core DataViews records table, and a Top pages by views widget link.
 - Add the Referrers widget to the Premium Analytics dashboard: a ranked leaderboard of the websites and search engines referring visitors, with drill-down into referrer groups and sources, backed by the Jetpack Stats API.
 - Add the Subscriber highlights widget to the Premium Analytics dashboard.
+- Add the UTM report at `/reports/utm`.
 - Add the Video embeds Stats widget, listing where a single video is embedded.
 - Add the Videos report at `/reports/videos`.
 - Add the WordAds highlights widget showing all-time earnings, paid, and outstanding totals.
