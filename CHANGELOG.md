@@ -260,6 +260,7 @@ This is an alpha version! The changes listed here are not final.
 - Dashboard: fix widget grid flicker when resizing a widget vertically by letting the section panel fill the viewport height and scroll internally, so it no longer oscillates with the grid.
 - Dashboard: Load WordPress build polyfills so the dashboard can run without the Gutenberg plugin.
 - Dashboard: Prevent widget focus outlines from being clipped in dashboard and post detail views.
+- DataViewsDrilldownNative: inline the DataViews stylesheet through meta.load-css instead of a passthrough @import that 404'd at runtime.
 - Date range picker: make the first calendar click start a new range instead of moving the nearest endpoint
 - Date range presets: make "Last 12 months" a rolling window ending yesterday, consistent with the other rolling presets, instead of running to the end of last month.
 - Drop the unsupported `focusable` prop on `@wordpress/ui` `Tabs.Panel` (not a valid prop; was a no-op). Aligns with the `@wordpress/ui` 0.15 API. Panels already gate their content on the active section.
