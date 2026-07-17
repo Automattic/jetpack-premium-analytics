@@ -67,6 +67,7 @@ This is an alpha version! The changes listed here are not final.
 - Initial version.
 - Interim port of the woocommerce_analytics Jetpack Sync module.
 - Locations widget: Add inline country/city switching and map fallbacks.
+- Orders over time: Add an opt-in CSV download for the selected report period.
 - Port data package (React Query report hooks, fetchers, and processing) as an internal package from next-woocommerce-analytics.
 - Port datetime package (timezone-aware date helpers and date-range presets) as an internal package from next-woocommerce-analytics.
 - Port formatters package (number/currency/percentage metric formatter and date helpers) as an internal package from next-woocommerce-analytics.
@@ -88,6 +89,7 @@ This is an alpha version! The changes listed here are not final.
 - Premium Analytics: add the single post/page detail traffic view, with its own route, header, tabs, and customizable per-tab widget grids.
 - Premium Analytics: add the Tags & categories Stats widget.
 - Premium Analytics: type the Stats post payload (StatsPostMeta) and add single-resource post_id support to report params.
+- Reports: add the Emails report page (top-30 email opens/clicks summary linking into the post detail email tabs).
 - REST: Add the analytics API proxy controller that forwards dashboard requests to WPCOM and briefly caches the response.
 - REST: Expose the dashboard notices under `jetpack-premium-analytics/v1/notices` (GET + POST), backed by a Notices class ported from stats-admin that merges the WordPress.com dismissal state with locally-derived opt-in/opt-out/feedback/GDPR flags.
 - REST: Register the API proxy's transient cache prefix with the stats package's transient cleanup cron, so expired proxy response caches are garbage-collected on sites without a persistent object cache instead of accumulating in wp_options.
@@ -214,6 +216,7 @@ This is an alpha version! The changes listed here are not final.
 - Stats widgets: align drill-down reset behavior — selections survive refetches and range changes while they still resolve, and stored state is trimmed deterministically once settled data drops the selected row.
 - Stats widgets: Use widget headers and move drill-down back links into widget content.
 - Store performance: Define the visible metrics as a metrics array attribute with an inline header control.
+- Storybook: Omit comparison stories from widgets without comparison data.
 - Subscriber highlights: Replace per-metric boolean settings with a single metrics array attribute and inline header control.
 - Subscribers chart: honor the dashboard date-range and comparison picker. The chart window and previous-period overlay now follow the dashboard controls; the in-body "Group by" dropdown only chooses the bucket size within that range.
 - Subscribers list: move the widget-picker preview avatar-size fix from the widget stylesheet into the shared SubscriberList component.
@@ -233,14 +236,17 @@ This is an alpha version! The changes listed here are not final.
 - Widgets: align the woocommerce-analytics-ported widgets with the shared widget render-props contract.
 - Widgets: Hoist buildSalesByUtmData into the widgets-toolkit so the UTM channel and campaign widgets share one copy.
 - Widgets: Improve semi-circle chart sizing and metric display options.
+- Widgets: Keep Storybook rendering and test harnesses consistent across Stats widgets.
 - Widgets: normalize CSS-module file naming, convert the lone SCSS to CSS, and align hello-world imports and dependencies.
 - Widgets: Remove the widget-picker preview aspect-ratio workaround now that the picker host sizes preview tiles itself.
+- Widgets: update helper copy across the Traffic, Insights, and Subscribers widgets, and link "Learn more" out to Stats support.
 - Widgets: Use SelectField for text attributes with elements across Stats and email widgets.
 
 ### Removed
 - Remove the superseded Videos widget in favor of the VideoPress widget.
 
 ### Fixed
+- Authors: Respect a maximum value of zero when requesting all rows.
 - Authors widget: fix the author avatar rendering oversized in the Add widget picker grid preview.
 - Authors widget: localize the untracked-authors label; center the chart empty state.
 - Bookings by device: Use booking-specific empty and error messages.
@@ -274,6 +280,8 @@ This is an alpha version! The changes listed here are not final.
 - Register Premium Analytics as a connected plugin and sync its version constant so WPCom provisions the WooCommerce Analytics custom tables for PA-only stores.
 - Remove unnecessary TypeScript sources from the published package.
 - Report pages, dashboard, and post detail: Keep tab bars scrolling within the page on narrow viewports.
+- Report table: fix a 404 request for the DataViews stylesheet by inlining it through :global instead of a passthrough @import.
+- Report table: Scope the inlined DataViews stylesheet to keep Storybook builds working.
 - Routing: Disable view transitions for URL-only dashboard updates.
 - Scope wp-build polyfill registration to the dashboard pages so it no longer force-replaces core script handles (wp-private-apis) on every admin page
 - Show every widget in the "Add widget" gallery. The dashboard fetched widget types with core-data's default query, which caps results at 10 per page, so any widget registered past the tenth was silently hidden. Fetch the full set with per_page: -1.
@@ -287,3 +295,4 @@ This is an alpha version! The changes listed here are not final.
 - Syncing: derive the analytics "started" state from the woocommerce_analytics sync-progress bucket instead of Jetpack's generic `started` flag, so the connection-time initial_sync no longer makes the syncing screen show "Sync interrupted" and suppress its auto-trigger.
 - Top posts &amp; pages: Honor the dashboard date-range picker and comparison period instead of the widget's own fixed range.
 - Videos report: fix the report showing no data; the table now lists each video's views, impressions, watch time, and retention for the selected date range.
+- Widgets: fix the Most viewed and Referrers widgets changing size when a dropdown opens elsewhere on the dashboard.
