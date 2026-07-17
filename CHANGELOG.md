@@ -89,6 +89,7 @@ This is an alpha version! The changes listed here are not final.
 - Premium Analytics: add the single post/page detail traffic view, with its own route, header, tabs, and customizable per-tab widget grids.
 - Premium Analytics: add the Tags & categories Stats widget.
 - Premium Analytics: type the Stats post payload (StatsPostMeta) and add single-resource post_id support to report params.
+- Reports: Add Insights report pages for tags, comments, and annual insights.
 - Reports: add the Emails report page (top-30 email opens/clicks summary linking into the post detail email tabs).
 - REST: Add the analytics API proxy controller that forwards dashboard requests to WPCOM and briefly caches the response.
 - REST: Expose the dashboard notices under `jetpack-premium-analytics/v1/notices` (GET + POST), backed by a Notices class ported from stats-admin that merges the WordPress.com dismissal state with locally-derived opt-in/opt-out/feedback/GDPR flags.
