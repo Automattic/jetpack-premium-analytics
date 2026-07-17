@@ -278,6 +278,7 @@ This is an alpha version! The changes listed here are not final.
 - Metric tabs chart: hide the tab-list selection underline so it doesn't render alongside the selected metric card's fill. A @wordpress/ui update moved the minimal Tabs indicator from a per-tab element to a tab-list-level one, leaving a stray underline under the selected tab in the Subscribers and Traffic chart widgets.
 - Metric tabs chart: on a narrow tile the metric cards squeezed into one cramped row. Stack the header and lay the cards out in an even two-column grid below a 420px container width, so the four-metric Traffic chart reflows to a balanced 2 x 2 instead of a crammed single row.
 - Pin @wordpress/widget-dashboard and @wordpress/widget-primitives to an exact version instead of the floating next tag
+- Post detail: keep the tab bar in place while the page scrolls, matching the dashboard
 - Posting activity: heatmap now scales to its tile.
 - Preserve the shared WordPress.com connection when Jetpack is deactivated.
 - Product leaderboard and Visitors by location: show an em dash instead of a fabricated +100% delta for rows that have no matching comparison-period value, and hide comparison mode entirely when no visible row overlaps the comparison period.
