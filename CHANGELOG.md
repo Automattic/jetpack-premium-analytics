@@ -188,6 +188,7 @@ This is an alpha version! The changes listed here are not final.
 - Fields: Add a chevron to the ArrayCheckboxField compact trigger to match SelectControl.
 - Fields: Match ArrayCheckboxField compact trigger font sizing to SelectControl on narrow viewports.
 - Fields: Match ArrayCheckboxField menu item hover styling to SelectControl.
+- Fields: SelectField preserves the original option value type when writing a selection, avoiding string coercion of numeric-valued enums.
 - Hoist the shared SalesByUtmWidget component into widgets-toolkit so the UTM channel and campaign widgets render from a single source (upstream pattern).
 - Internal: No longer require automattic/jetpack-changelogger as a per-project dev dependency.
 - Leaderboard widgets: centralize the widget-picker preview image-size fix in the shared LeaderboardLabel and render Referrers row labels through it.
