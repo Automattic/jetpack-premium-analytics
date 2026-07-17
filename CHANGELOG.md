@@ -217,6 +217,7 @@ This is an alpha version! The changes listed here are not final.
 - Total sales over time: drop the GlobalErrorProvider wrapper from the Storybook stories to match the sibling over-time widgets.
 - Traffic and Subscribers charts: Define the visible metric tabs as a metrics array attribute with an inline header control.
 - Type widget attribute fields with WidgetAttributeField, export attribute types from widget.ts, and unify component JSDoc to single typed param tags across all widgets.
+- UI: keep the DataViewsDrilldownNative hierarchy under search, filter, and sort.
 - Update package dependencies.
 - Update Stats widget porting guidelines for Storybook, comparison states, and drill-down behavior.
 - Update widget conventions and Stats porting documentation.
