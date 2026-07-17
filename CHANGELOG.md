@@ -129,6 +129,7 @@ This is an alpha version! The changes listed here are not final.
 - Sync: Track the analytics-relevant initial full-sync milestone and expose it to the dashboard via JetpackScriptData.
 - Top pages by views: Add an opt-in client-side CSV export that serializes already-loaded rows in the browser.
 - Traffic: Add the Traffic chart widget — views, visitors, likes, and comments over the selected period as metric tabs over a comparative line chart, driven by the dashboard date range and comparison controls. An in-body "Group by" dropdown chooses the bucket granularity (day/week/month) within that range, defaulting to the range's interval.
+- UI: add the DataViewsDrilldownNative component (native DataViews showLevels hierarchy).
 - Widgets: Add conversion rate widget.
 - Widgets: Add coupon usage over time widget.
 - Widgets: Add gross sales over time widget.
