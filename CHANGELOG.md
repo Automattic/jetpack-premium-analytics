@@ -84,6 +84,7 @@ This is an alpha version! The changes listed here are not final.
 - Port the components package (date range/comparison filter UI components and SCSS) from next-woocommerce-analytics as the internal `ui` package.
 - Port the widgets-toolkit package (dashboard widgets, chart components, fields, and helpers) from next-woocommerce-analytics as an internal package.
 - Post details: Add Email opens and Email clicks card layouts.
+- Premium Analytics: Add a gated WordPress.com Simple bootstrap proof of concept.
 - Premium Analytics: add jpa/search-terms widget backed by Jetpack Stats.
 - Premium Analytics: add Posting activity widget — a calendar heatmap of posts published per day.
 - Premium Analytics: add the Annual highlights widget — a per-year review of posts, words, likes, and comments, with arrows to switch years and per-metric visibility settings.
