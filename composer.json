@@ -5,13 +5,13 @@
 	"license": "GPL-2.0-or-later",
 	"require": {
 		"php": ">=7.4",
-		"automattic/jetpack-assets": "^5.0.1",
+		"automattic/jetpack-assets": "^5.0.2-alpha",
 		"automattic/jetpack-config": "^4.0.0",
-		"automattic/jetpack-connection": "^9.1.0",
+		"automattic/jetpack-connection": "^9.1.1-alpha",
 		"automattic/jetpack-stats": "^0.21.0",
 		"automattic/jetpack-status": "^7.0.0",
 		"automattic/jetpack-sync": "^5.0.1",
-		"automattic/jetpack-wp-build-polyfills": "^0.5.1",
+		"automattic/jetpack-wp-build-polyfills": "^0.5.2-alpha",
 		"automattic/woocommerce-analytics": "^0.17"
 	},
 	"require-dev": {
