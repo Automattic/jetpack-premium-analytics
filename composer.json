@@ -10,7 +10,7 @@
 		"automattic/jetpack-connection": "^9.1.1-alpha",
 		"automattic/jetpack-feature-flags": "^0.2.0",
 		"automattic/jetpack-stats": "^0.21.1-alpha",
-		"automattic/jetpack-status": "^7.0.0",
+		"automattic/jetpack-status": "^7.0.1-alpha",
 		"automattic/jetpack-sync": "^5.1.0-alpha",
 		"automattic/jetpack-wp-build-polyfills": "^0.5.2-alpha",
 		"automattic/woocommerce-analytics": "^0.17"
