@@ -66,9 +66,14 @@ __( "Previous period", "jetpack-premium-analytics-pkg" );
 __( "Next period", "jetpack-premium-analytics-pkg" );
 __( "Time period", "jetpack-premium-analytics-pkg" );
 __( "Select period", "jetpack-premium-analytics-pkg" );
-__( "Introducing an updated experience", "jetpack-premium-analytics-pkg" );
-__( "We are excited to introduce a new experience for your Jetpack Stats. More consistent and more versatile. Now you are able to decide how to display your data.", "jetpack-premium-analytics-pkg" );
-__( "Get started", "jetpack-premium-analytics-pkg" );
+__( "Welcome to the new Traffic page", "jetpack-premium-analytics-pkg" );
+__( "It's built from widgets you can move and resize, so the page can match how you read your site. This is an early version and we'll keep adding new tabs and features in regular updates.", "jetpack-premium-analytics-pkg" );
+__( "Take a quick tour", "jetpack-premium-analytics-pkg" );
+/* translators: 1: the current step number, 2: the number of steps in the tour. */
+__( "%1$d of %2$d", "jetpack-premium-analytics-pkg" );
+__( "Skip tour", "jetpack-premium-analytics-pkg" );
+__( "Finish", "jetpack-premium-analytics-pkg" );
+__( "Continue", "jetpack-premium-analytics-pkg" );
 __( "Couldn't refresh. Showing data from less than a minute ago.", "jetpack-premium-analytics-pkg" );
 /* translators: %s: how long ago the data on screen was fetched, e.g. "5 minutes ago". */
 __( "Couldn't refresh. Showing data from %s.", "jetpack-premium-analytics-pkg" );

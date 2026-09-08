@@ -12,16 +12,32 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - Add a date period dropdown: one trigger naming the applied period, a menu of the common periods grouped by scale, and the calendar beside the list on Custom range.
 - Add an "Any feedback?" action to the dashboard header.
+- Dashboard: add a page option that switches the new Traffic tab off, asks why on the way out, and returns to classic Stats.
+- Dashboard: show the onboarding again to a reader who switches the new Traffic tab back on.
+- Detail pages: Add a page options menu with a Customize action to the post, email, and video detail pages; card arrangement persists per page and tab.
 - Expose the dashboard opt-in as a site setting, so administrators can turn the dashboard on and off through the site settings API.
 - Onboarding: add the welcome modal shell.
 - Onboarding: add the widget grid animation for the welcome modal.
+- Onboarding: follow the welcome modal with a three-step spotlight tour of the customization menu, the date controls and the widgets.
 - Onboarding: open the welcome modal the first time a reader reaches the dashboard.
+- Send dashboard feedback on to Jetpack support, so it is not lost when analytics are blocked.
 
 ### Changed
 - Comparison control: mark an active comparison with a "vs" prefix, and name the compared window in the trigger's tooltip.
+- Dashboard: disable the date controls while customizing the layout.
+- Dashboard: hide the report pages behind tabs the dashboard does not show.
+- Dashboard: limit customization to moving and resizing widgets. Adding and removing widgets and resetting the layout sit behind the premium-analytics-dashboard-composition feature flag, off by default.
+- Dashboard: move the feedback action into a page options menu.
+- Dashboard: show only the Traffic tab while the site is running the customer preview.
 - Date controls: pick the period from a dropdown instead of a row of buttons, with the calendar beside it on Custom range.
 - Detail pages: Even out the header spacing on the post page to match the video page.
 - Detail pages: Match the post and video page headers to the layout used across the rest of Analytics.
+- Display the dashboard on a three-column grid and rearrange the default Traffic widgets.
+- Feedback modal: render with the design system Dialog and TextareaControl.
+- Match the Jetpack logo in the Stats header to the 20px size used by the other Jetpack admin pages.
+- Onboarding: revise the welcome modal copy and reorder the tour to start from the widgets and end on the page options menu.
+- Pin the widget dashboard packages and DataViews to the 202609031004 Gutenberg development release, picking up the widget dashboard policy API.
+- Post and video detail pages: lay the widgets out on the three-column grid the dashboard uses.
 - Reports: Open the Authors, Clicks and UTM reports folded to their top-level groups, and move the drill-down control to the right of the row title.
 - Set the dashboard's chart colors, leaderboard row spacing and bar radius in CSS rather than on the chart theme, which no longer carries any of them. No visible change.
 - Update package dependencies.
@@ -32,10 +48,15 @@ This is an alpha version! The changes listed here are not final.
 
 ### Fixed
 - Comparison control: stop showing a comparison as active when there is no window behind it.
+- Dashboard: keep the four-column layout regardless of a stored columns preference.
+- Dashboard sections: stop requiring Enablement_Setting by path, which fataled on sites that vendor this package into more than one plugin.
 - Date controls: Include the current day in the last-N-day ranges, and count the 12-month range in whole calendar months for its dates, its length and the step arrows, to match Jetpack Stats. The previous period covers the same number of days as the range it compares.
+- Insights: collapse the year buttons into a select as soon as they stop fitting, instead of letting them run past the edge on a phone.
 - Keep the date picker on the range a chart drill-down applies.
+- Onboarding: keep keyboard focus inside the tour card and let screen reader users skip the tour.
 - Posting activity: Count published posts by the site's calendar day rather than the UTC one.
 - Show chart dates in the site's timezone and locale, and name the hour on hourly charts.
+- Show published dates in the site's language and date format.
 
 ## [0.5.0] - 2026-09-01
 ### Added

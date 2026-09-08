@@ -40,16 +40,16 @@ __( "Same period from last week", "jetpack-premium-analytics-pkg" );
 _x( "Same period in %s", "previous month comparison", "jetpack-premium-analytics-pkg" );
 /* translators: %s: the year the comparison period starts in, e.g. "2025". */
 _x( "Same period in %s", "previous year comparison", "jetpack-premium-analytics-pkg" );
-__( "Loading", "jetpack-premium-analytics-pkg" );
+/* translators: accessibility text appended to link text */
+__( "(opens in a new tab)", "jetpack-premium-analytics-pkg" );
+__( "Sections", "jetpack-premium-analytics-pkg" );
 /* translators: %s: keyboard shortcut. */
 __( "Keyboard shortcut: %s", "jetpack-premium-analytics-pkg" );
+__( "Loading", "jetpack-premium-analytics-pkg" );
 __( "OK", "jetpack-premium-analytics-pkg" );
 __( "Cancel", "jetpack-premium-analytics-pkg" );
 __( "Close", "jetpack-premium-analytics-pkg" );
-/* translators: accessibility text appended to link text */
-__( "(opens in a new tab)", "jetpack-premium-analytics-pkg" );
 __( "Dismiss", "jetpack-premium-analytics-pkg" );
-__( "Sections", "jetpack-premium-analytics-pkg" );
 __( "More options", "jetpack-premium-analytics-pkg" );
 __( "Reset to default", "jetpack-premium-analytics-pkg" );
 __( "Add widget", "jetpack-premium-analytics-pkg" );
@@ -243,6 +243,9 @@ __( "Weeks ago", "jetpack-premium-analytics-pkg" );
 __( "Months ago", "jetpack-premium-analytics-pkg" );
 __( "Years ago", "jetpack-premium-analytics-pkg" );
 __( "Unit", "jetpack-premium-analytics-pkg" );
+__( "Coordinated Universal Time", "jetpack-premium-analytics-pkg" );
+/* translators: %s: timezone detail, e.g. "(CEST) Europe/Madrid" or "UTC+3". */
+__( "Timezone: %s", "jetpack-premium-analytics-pkg" );
 __( "Date time", "jetpack-premium-analytics-pkg" );
 __( "Past week", "jetpack-premium-analytics-pkg" );
 __( "Past month", "jetpack-premium-analytics-pkg" );
@@ -311,7 +314,23 @@ __( "What's the one thing we'd need to fix before this replaces the old Stats?",
 __( "Share your feedback", "jetpack-premium-analytics-pkg" );
 __( "Thank you. This helps.", "jetpack-premium-analytics-pkg" );
 __( "Send feedback", "jetpack-premium-analytics-pkg" );
+__( "Switch off the new Traffic tab?", "jetpack-premium-analytics-pkg" );
+__( "You'll go back to your current Stats. You can switch the new Traffic tab on again from the banner there.", "jetpack-premium-analytics-pkg" );
+__( "What made you switch it off?", "jetpack-premium-analytics-pkg" );
+__( "We couldn't switch it off. Please try again.", "jetpack-premium-analytics-pkg" );
+__( "Switching it off…", "jetpack-premium-analytics-pkg" );
+__( "Switch it off", "jetpack-premium-analytics-pkg" );
+__( "Page options", "jetpack-premium-analytics-pkg" );
 __( "Any feedback?", "jetpack-premium-analytics-pkg" );
+__( "Switch off the preview", "jetpack-premium-analytics-pkg" );
+__( "Everything is a widget", "jetpack-premium-analytics-pkg" );
+__( "Each block of data is a widget you can move and resize to suit how you read your site.", "jetpack-premium-analytics-pkg" );
+__( "A better date picker", "jetpack-premium-analytics-pkg" );
+__( "Compare any period with the one before it, and change the chart interval to suit the range you're looking at.", "jetpack-premium-analytics-pkg" );
+__( "Rearrange it your way", "jetpack-premium-analytics-pkg" );
+__( "Select Customize to move and resize widgets. Your layout is saved to your profile.", "jetpack-premium-analytics-pkg" );
+__( "One last thing", "jetpack-premium-analytics-pkg" );
+__( "This menu is where you can share feedback and switch the preview off if you want. It's an early version, so do tell us what's working and what isn't.", "jetpack-premium-analytics-pkg" );
 __( "Your store data is still syncing. The numbers below are incomplete until it finishes.", "jetpack-premium-analytics-pkg" );
 __( "Something went wrong while syncing your store data, so the numbers below are incomplete.", "jetpack-premium-analytics-pkg" );
 /* translators: %d: sync progress percentage. */
