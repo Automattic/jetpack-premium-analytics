@@ -8,7 +8,7 @@
 		"automattic/jetpack-admin-ui": "^0.14.3",
 		"automattic/jetpack-assets": "^5.0.9",
 		"automattic/jetpack-config": "^4.0.0",
-		"automattic/jetpack-connection": "^9.9.1",
+		"automattic/jetpack-connection": "^9.9.2-alpha",
 		"automattic/jetpack-feature-flags": "^0.2.0",
 		"automattic/jetpack-stats": "^0.22.1",
 		"automattic/jetpack-status": "^7.1.0",
