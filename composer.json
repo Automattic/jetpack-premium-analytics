@@ -13,7 +13,7 @@
 		"automattic/jetpack-plans": "^0.14.1",
 		"automattic/jetpack-stats": "^0.23.0",
 		"automattic/jetpack-status": "^7.1.0",
-		"automattic/jetpack-sync": "^5.4.1",
+		"automattic/jetpack-sync": "^5.4.2-alpha",
 		"automattic/jetpack-wp-build-polyfills": "^0.6.4-alpha",
 		"automattic/woocommerce-analytics": "^0.18"
 	},
