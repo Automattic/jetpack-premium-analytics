@@ -10,14 +10,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This is an alpha version! The changes listed here are not final.
 
 ### Added
+- Dashboard: Invite sites whose cookie banner Stats cannot read yet to finish the Visitor consent setup in Settings.
 - Let other plugins ask whether Stats v2 should be on and whether it booted, and share the flag that retires the classic Stats page, which now also replaces the pre-connection Stats page.
 - Settings: Add a Visitor consent card that shows whether a cookie banner plugin and the WP Consent API are active, and installs the WP Consent API in one click.
 - Single-report pages: add a registry other plugins can register pages on, published to the client in script data and over REST.
+- Single-report pages: add the `jpa/report-params` field type to the widget SDK (2.2.0).
+- Stats: Add a filter that lets the host choose which settings, and whether the visitor consent card, the Settings tab offers, and leave the plan usage card out when the plan has no view limit.
 - Stats: Offer "Mark as spam" from the Top referrers widget rows, as the Referrers report does.
 - Top UTM: Offer the Build URL dialog in the card footer and on the UTM report page, so sites with UTM visits can open it too.
+- Videos: Play the video on its stats report.
 
 ### Changed
+- Section tabs: Show the selected tab in the design system colors instead of the admin theme color.
+- Show exact figures in single-figure widgets, shortening them only where they would be clipped.
+- Traffic summary: Draw the previous period only when it is switched on from the chart legend.
+- Update package dependencies.
 - Widgets: Let leaderboard charts size their bars and compute percentage changes from the values, so negative values draw below zero in the bars layout and as empty bars in the list layout, a negative previous value gives the right direction of change, and list bars scale to the current period when comparing.
+- Widgets toolkit: Let the consumer control the previous period in the bar chart legend.
 
 ### Fixed
 - Prevent PHP errors by limiting direct access to files.

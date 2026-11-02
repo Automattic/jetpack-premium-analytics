@@ -64,11 +64,11 @@ _x( "Prev. week", "comparison legend label", "jetpack-premium-analytics-pkg" );
 _x( "Prev. year, weekday", "comparison legend label", "jetpack-premium-analytics-pkg" );
 /* translators: %s: an abbreviated previous period, e.g. "Prev. 8 days". The suffix says it starts on the same weekday. */
 _x( "%s, weekday", "comparison legend label", "jetpack-premium-analytics-pkg" );
-/* translators: accessibility text appended to link text */
-__( "(opens in a new tab)", "jetpack-premium-analytics-pkg" );
+__( "Loading", "jetpack-premium-analytics-pkg" );
 /* translators: %s: keyboard shortcut. */
 __( "Keyboard shortcut: %s", "jetpack-premium-analytics-pkg" );
-__( "Loading", "jetpack-premium-analytics-pkg" );
+/* translators: accessibility text appended to link text */
+__( "(opens in a new tab)", "jetpack-premium-analytics-pkg" );
 /* translators: 1: Calendar type. 2: Current month and year. */
 __( "%1$s, %2$s", "jetpack-premium-analytics-pkg" );
 __( "Date calendar", "jetpack-premium-analytics-pkg" );
@@ -87,6 +87,7 @@ __( "Close", "jetpack-premium-analytics-pkg" );
 __( "Required", "jetpack-premium-analytics-pkg" );
 __( "Optional", "jetpack-premium-analytics-pkg" );
 __( "More details follow the field.", "jetpack-premium-analytics-pkg" );
+__( "Select", "jetpack-premium-analytics-pkg" );
 __( "Dismiss", "jetpack-premium-analytics-pkg" );
 __( "Sections", "jetpack-premium-analytics-pkg" );
 __( "More options", "jetpack-premium-analytics-pkg" );
@@ -118,12 +119,12 @@ __( "Sort ascending", "jetpack-premium-analytics-pkg" );
 __( "Sort descending", "jetpack-premium-analytics-pkg" );
 __( "(no title)", "jetpack-premium-analytics-pkg" );
 __( "Actions", "jetpack-premium-analytics-pkg" );
-/* translators: %d: number of items. */
-_n( "%d Item selected", "%d Items selected", 1, "jetpack-premium-analytics-pkg" );
-/* translators: %d: number of items. */
-_n( "%d Item", "%d Items", 1, "jetpack-premium-analytics-pkg" );
-/* translators: %1$d: number of items. %2$d: total number of items. */
-_n( "%1$d of %2$d Item", "%1$d of %2$d Items", 1, "jetpack-premium-analytics-pkg" );
+/* translators: %s: formatted number of items. */
+_n( "%s Item selected", "%s Items selected", 1, "jetpack-premium-analytics-pkg" );
+/* translators: %s: formatted number of items. */
+_n( "%s Item", "%s Items", 1, "jetpack-premium-analytics-pkg" );
+/* translators: %1$s: formatted number of items. %2$s: formatted total number of items. */
+_n( "%1$s of %2$s Item", "%1$s of %2$s Items", 1, "jetpack-premium-analytics-pkg" );
 __( "Deselect all", "jetpack-premium-analytics-pkg" );
 __( "Select all", "jetpack-premium-analytics-pkg" );
 __( "Add filter", "jetpack-premium-analytics-pkg" );
@@ -315,7 +316,6 @@ _n( "%d field needs attention", "%d fields need attention", 1, "jetpack-premium-
 __( "More details", "jetpack-premium-analytics-pkg" );
 __( "Title", "jetpack-premium-analytics-pkg" );
 __( "Widget list", "jetpack-premium-analytics-pkg" );
-__( "Select", "jetpack-premium-analytics-pkg" );
 /* translators: %s: Widget title. */
 __( "%s settings", "jetpack-premium-analytics-pkg" );
 __( "Widget settings", "jetpack-premium-analytics-pkg" );
@@ -346,6 +346,11 @@ __( "Thank you for using Jetpack Stats!", "jetpack-premium-analytics-pkg" );
 __( "You’ll now get instant access to upcoming features and priority support.", "jetpack-premium-analytics-pkg" );
 __( "You’ll stop seeing the upgrade banners and get Email support if applicable.", "jetpack-premium-analytics-pkg" );
 __( "We appreciate your continued support. If you want to access upcoming features, <link>please consider upgrading</link>.", "jetpack-premium-analytics-pkg" );
+__( "Connect your cookie banner to Stats", "jetpack-premium-analytics-pkg" );
+/* translators: %s: the name of a cookie banner plugin, such as CookieYes. */
+__( "Stats uses the free WP Consent API plugin to follow what visitors choose in %s. Until it’s active, Stats may count visitors who decline.", "jetpack-premium-analytics-pkg" );
+__( "Stats uses the free WP Consent API plugin to follow what visitors choose in your cookie banner. Until it’s active, Stats may count visitors who decline.", "jetpack-premium-analytics-pkg" );
+__( "Set up", "jetpack-premium-analytics-pkg" );
 __( "Settings", "jetpack-premium-analytics-pkg" );
 __( "Tell us what's better, what's worse, and what you miss about the new Stats.", "jetpack-premium-analytics-pkg" );
 __( "Leave feedback", "jetpack-premium-analytics-pkg" );
@@ -372,6 +377,9 @@ __( "Try again", "jetpack-premium-analytics-pkg" );
 /* translators: %d: the step's number, 1 or 2. */
 __( "Step %d", "jetpack-premium-analytics-pkg" );
 __( "Active", "jetpack-premium-analytics-pkg" );
+__( "You do not have permission to activate plugins here. Ask whoever manages plugins on this site to activate WP Consent API.", "jetpack-premium-analytics-pkg" );
+__( "Plugins cannot be installed here due to your site configuration. Install WP Consent API using your normal deployment workflow.", "jetpack-premium-analytics-pkg" );
+__( "You do not have permission to install plugins here. Ask whoever manages plugins on this site to install WP Consent API.", "jetpack-premium-analytics-pkg" );
 __( "WP Consent API is active.", "jetpack-premium-analytics-pkg" );
 /* translators: %s: the reason WordPress gave. */
 __( "WP Consent API could not be set up: %s", "jetpack-premium-analytics-pkg" );
@@ -380,9 +388,6 @@ __( "Activating WP Consent API…", "jetpack-premium-analytics-pkg" );
 __( "Installing WP Consent API…", "jetpack-premium-analytics-pkg" );
 __( "Activate", "jetpack-premium-analytics-pkg" );
 __( "Install and activate", "jetpack-premium-analytics-pkg" );
-__( "You do not have permission to activate plugins here. Ask whoever manages plugins on this site to activate WP Consent API.", "jetpack-premium-analytics-pkg" );
-__( "Plugins cannot be installed here due to your site configuration. Install WP Consent API using your normal deployment workflow.", "jetpack-premium-analytics-pkg" );
-__( "You do not have permission to install plugins here. Ask whoever manages plugins on this site to install WP Consent API.", "jetpack-premium-analytics-pkg" );
 __( "Tells Stats what each visitor chose.", "jetpack-premium-analytics-pkg" );
 __( "Optional. Your cookie banner already asks visitors before Stats counts them.", "jetpack-premium-analytics-pkg" );
 __( "A free plugin that tells Stats what each visitor chose. Once it’s active, visitors who decline aren’t counted, so your views will likely drop.", "jetpack-premium-analytics-pkg" );
@@ -392,7 +397,6 @@ __( "A cookie banner plugin is active.", "jetpack-premium-analytics-pkg" );
 /* translators: <plugins /> is a list of cookie banner plugins, such as "Complianz, Cookiebot or CookieYes". */
 __( "Stats didn’t find one. If you use a cookie banner, make sure it supports the WP Consent API. If not, install one, such as <plugins />.", "jetpack-premium-analytics-pkg" );
 __( "Visitor consent", "jetpack-premium-analytics-pkg" );
-__( "Set up", "jetpack-premium-analytics-pkg" );
 __( "Not set up", "jetpack-premium-analytics-pkg" );
 __( "Stats only counts visitors who allow it in your cookie banner.", "jetpack-premium-analytics-pkg" );
 __( "If you show visitors a cookie banner, Stats can only count visitors who allow it. It takes two steps:", "jetpack-premium-analytics-pkg" );
@@ -411,7 +415,6 @@ _n( "Restarts in %d day", "Restarts in %d days", 1, "jetpack-premium-analytics-p
 __( "Loading your plan usage…", "jetpack-premium-analytics-pkg" );
 __( "We couldn't load plan usage. Please try again in a moment.", "jetpack-premium-analytics-pkg" );
 __( "Retry", "jetpack-premium-analytics-pkg" );
-__( "Plan usage isn't available for your current plan.", "jetpack-premium-analytics-pkg" );
 __( "Billable views are the page views counted against your plan each cycle. Excluded logged-in role views are not counted.", "jetpack-premium-analytics-pkg" );
 __( "Your current plan", "jetpack-premium-analytics-pkg" );
 /* translators: 1: user role name, 2: number of users with that role. */
@@ -430,8 +433,8 @@ __( "WordPress.com Reader", "jetpack-premium-analytics-pkg" );
 __( "Your Stats settings could not be saved: %s", "jetpack-premium-analytics-pkg" );
 __( "Your Stats settings could not be saved.", "jetpack-premium-analytics-pkg" );
 __( "Settings saved.", "jetpack-premium-analytics-pkg" );
-__( "Your Stats settings could not be loaded. Reload the page to try again.", "jetpack-premium-analytics-pkg" );
 __( "Loading your Stats settings…", "jetpack-premium-analytics-pkg" );
+__( "Your Stats settings could not be loaded. Reload the page to try again.", "jetpack-premium-analytics-pkg" );
 __( "Activation", "jetpack-premium-analytics-pkg" );
 __( "Stats is a Jetpack feature. Activate or deactivate it from <link>Jetpack modules</link>.", "jetpack-premium-analytics-pkg" );
 __( "Stats is a Jetpack feature. Activate or deactivate it from <link>Jetpack features</link>.", "jetpack-premium-analytics-pkg" );
